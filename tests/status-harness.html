@@ -1,0 +1,15 @@
+<!doctype html><html lang="th"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>QA: synthetic gate availability</title><style>.app-header::after{content:'ข้อมูลจำลองสำหรับทดสอบ — ไม่ใช่สถานะประตูจริง';position:absolute;top:0;left:0;right:0;background:#fff1a6;color:#503d00;font-size:10px;text-align:center;z-index:99}.qa-time{position:fixed;bottom:1px;left:40%;z-index:100;background:#fff1a6;padding:5px;font-size:10px;color:#503d00}</style><div id="root"></div><button class="qa-time" id="qa-time">QA: ข้ามไป 20:00</button><script type="module">
+import React from 'react';
+import {createRoot} from 'react-dom/client';
+import {dataset} from '/src/lib/data.ts';
+const NativeDate = Date;
+let clock = '2026-11-02T05:00:00Z';
+window.Date = class extends NativeDate { constructor(...args) { super(...(args.length ? args : [clock])); } static now(){ return new NativeDate(clock).getTime(); } };
+const weekly = { verificationStatus:'VERIFIED',validFrom:'2026-01-01',validThrough:'2026-12-31',holidayPolicy:'same',intervals:[{days:[0,1,2,3,4,5,6],open:'06:00',close:'20:00'}] };
+const originals=[0,2,3,5].map(i=>dataset.gates.filter(g=>g.latitude!==null)[i]);
+dataset.gates = originals.map((g,i)=>({...g,id:['qa-open','qa-closed','qa-restricted','qa-unknown'][i],shortNameTh:['ทดสอบ: เปิด','ทดสอบ: ปิด','ทดสอบ: มีเงื่อนไข','ทดสอบ: รอยืนยัน'][i],nameEn:['TEST: Open','TEST: Closed','TEST: Restricted','TEST: Unconfirmed'][i],verificationStatus:'VERIFIED',accessVerificationStatus:'VERIFIED',accessType:i===2?'restricted':'public',permissions:{pedestrian:true,car:false,motorcycle:null},entryAllowed:true,exitAllowed:false,specialRestrictions:null,schedule:i===3?null:i===1?{...weekly,intervals:[{days:[0,1,2,3,4,5,6],open:'00:00',close:'06:00'}]}:weekly}));
+document.querySelector('#qa-time').onclick=()=>{clock='2026-11-02T13:00:00Z';document.dispatchEvent(new Event('visibilitychange'));};
+import App from '/src/App.tsx';
+import '/src/styles.css';
+createRoot(document.getElementById('root')).render(React.createElement(App));
+</script></html>

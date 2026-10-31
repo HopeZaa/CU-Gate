@@ -1,0 +1,14 @@
+
+> cu-gate-navigator@1.2.0 validate:data
+> vitest run src/lib/data.test.ts
+
+
+ RUN  v3.2.7 /Users/hopezaa/Documents/Codex/2026-11-01/cu-gate-navigator-initial-gate-research/outputs/cu-gate-navigator
+
+ ✓ src/lib/data.test.ts (17 tests) 7ms
+
+ Test Files  1 passed (1)
+      Tests  17 passed (17)
+   Start at  03:18:29
+   Duration  339ms (transform 40ms, setup 0ms, collect 99ms, tests 7ms, environment 0ms, prepare 55ms)
+

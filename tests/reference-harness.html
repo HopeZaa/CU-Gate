@@ -1,0 +1,14 @@
+<!doctype html><html lang="th"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>QA: actual reference schedules at a controlled time</title><style>.qa-clock{position:fixed;top:0;left:0;right:0;z-index:999;background:#fff1a6;color:#503d00;font-size:10px;text-align:center}.app-header{padding-top:15px!important}</style><div class="qa-clock">ทดสอบตารางจริงจาก JSON ณเวลาที่เลือก — ไม่ใช่เวลาปัจจุบัน <button id="qa-mon">จันทร์ 12:00</button> · <button id="qa-sun">อาทิตย์ 12:00</button> · <button id="qa-close">อาทิตย์ 18:00</button></div><div id="root"></div><script type="module">
+import React from 'react';
+import {createRoot} from 'react-dom/client';
+import App from '/src/App.tsx';
+import '/src/styles.css';
+const NativeDate=Date;
+let clock='2026-11-02T05:00:00Z';
+window.Date=class extends NativeDate{constructor(...args){super(...(args.length?args:[clock]));}static now(){return new NativeDate(clock).getTime();}};
+const setClock=value=>{clock=value;document.dispatchEvent(new Event('visibilitychange'));};
+document.getElementById('qa-mon').onclick=()=>setClock('2026-11-02T05:00:00Z');
+document.getElementById('qa-sun').onclick=()=>setClock('2026-11-01T05:00:00Z');
+document.getElementById('qa-close').onclick=()=>setClock('2026-11-01T11:00:00Z');
+createRoot(document.getElementById('root')).render(React.createElement(App));
+</script></html>

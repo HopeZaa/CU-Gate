@@ -1,0 +1,13 @@
+
+> cu-gate-navigator@1.1.0 verify:build
+> node scripts/verify-build.mjs
+
+{
+  "result": "PASS",
+  "base": "./",
+  "htmlAssets": 4,
+  "geojsonFeatures": 5293,
+  "staticFiles": 12,
+  "productionLocalhostDependencies": 0,
+  "testFixtureIncluded": false
+}

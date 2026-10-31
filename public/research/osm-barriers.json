@@ -1,0 +1,2001 @@
+{
+  "source": "https://api.openstreetmap.org/api/0.6/map?bbox=100.520,13.729,100.535,13.744",
+  "retrievedAt": "2026-11-01",
+  "license": "ODbL-1.0",
+  "nodes": [
+    {
+      "id": "359787679",
+      "latitude": 13.7312811,
+      "longitude": 100.5371716,
+      "version": "3",
+      "updatedAt": "2023-12-21T04:03:44Z",
+      "tags": {
+        "access": "permissive",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "359787751",
+      "latitude": 13.7326418,
+      "longitude": 100.5376525,
+      "version": "5",
+      "updatedAt": "2024-09-13T04:29:08Z",
+      "tags": {
+        "access": "permissive",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "359788377",
+      "latitude": 13.7303657,
+      "longitude": 100.535197,
+      "version": "1",
+      "updatedAt": "2009-03-13T04:25:01Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "359788509",
+      "latitude": 13.7342472,
+      "longitude": 100.5339512,
+      "version": "4",
+      "updatedAt": "2013-01-11T21:32:08Z",
+      "tags": {
+        "barrier": "gate",
+        "name": "ประตูถนนอังรีดูนังต์ 2"
+      }
+    },
+    {
+      "id": "359788610",
+      "latitude": 13.7349556,
+      "longitude": 100.5292581,
+      "version": "5",
+      "updatedAt": "2026-04-24T06:27:07Z",
+      "tags": {
+        "access": "permissive",
+        "barrier": "gate",
+        "name": "ประตูถนนพญาไท 3"
+      }
+    },
+    {
+      "id": "359788613",
+      "latitude": 13.7363982,
+      "longitude": 100.5295079,
+      "version": "8",
+      "updatedAt": "2024-07-31T09:53:35Z",
+      "tags": {
+        "access": "no",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "359788690",
+      "latitude": 13.7378398,
+      "longitude": 100.529713,
+      "version": "5",
+      "updatedAt": "2022-10-03T12:39:23Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "359788705",
+      "latitude": 13.7387455,
+      "longitude": 100.5298425,
+      "version": "4",
+      "updatedAt": "2026-10-15T07:07:50Z",
+      "tags": {
+        "access": "permissive",
+        "barrier": "gate",
+        "name": "ประตูถนนพญาไท 1"
+      }
+    },
+    {
+      "id": "359788777",
+      "latitude": 13.739653,
+      "longitude": 100.5299744,
+      "version": "5",
+      "updatedAt": "2026-10-09T05:33:19Z",
+      "tags": {
+        "access": "permissive",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "359788809",
+      "latitude": 13.7403251,
+      "longitude": 100.5300719,
+      "version": "7",
+      "updatedAt": "2024-02-23T11:26:44Z",
+      "tags": {
+        "barrier": "gate",
+        "entrance": "main"
+      }
+    },
+    {
+      "id": "359788815",
+      "latitude": 13.7401984,
+      "longitude": 100.5300536,
+      "version": "5",
+      "updatedAt": "2014-02-11T12:47:44Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "359788990",
+      "latitude": 13.7395002,
+      "longitude": 100.5347324,
+      "version": "8",
+      "updatedAt": "2024-02-23T11:26:44Z",
+      "tags": {
+        "barrier": "gate",
+        "entrance": "yes"
+      }
+    },
+    {
+      "id": "359789581",
+      "latitude": 13.7379945,
+      "longitude": 100.5344199,
+      "version": "3",
+      "updatedAt": "2013-01-11T21:32:08Z",
+      "tags": {
+        "barrier": "gate",
+        "name": "ประตูถนนอังรีดูนังต์ 1"
+      }
+    },
+    {
+      "id": "1694508882",
+      "latitude": 13.7407073,
+      "longitude": 100.5349265,
+      "version": "1",
+      "updatedAt": "2012-03-28T10:02:19Z",
+      "tags": {
+        "barrier": "gate",
+        "name": "ประตูดำ"
+      }
+    },
+    {
+      "id": "1694509169",
+      "latitude": 13.7413626,
+      "longitude": 100.5350298,
+      "version": "3",
+      "updatedAt": "2018-01-03T11:29:53Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "name": "ประตูเทา"
+      }
+    },
+    {
+      "id": "1698343282",
+      "latitude": 13.7332905,
+      "longitude": 100.5308704,
+      "version": "3",
+      "updatedAt": "2023-11-23T08:08:27Z",
+      "tags": {
+        "access": "no",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "1700280247",
+      "latitude": 13.7435988,
+      "longitude": 100.5350181,
+      "version": "3",
+      "updatedAt": "2024-01-09T02:44:12Z",
+      "tags": {
+        "access": "customers",
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "1700280328",
+      "latitude": 13.7430058,
+      "longitude": 100.5329901,
+      "version": "2",
+      "updatedAt": "2019-09-04T09:13:53Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "1703081177",
+      "latitude": 13.7379134,
+      "longitude": 100.5293732,
+      "version": "2",
+      "updatedAt": "2013-01-11T21:32:12Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "1703081344",
+      "latitude": 13.7387095,
+      "longitude": 100.5294859,
+      "version": "3",
+      "updatedAt": "2026-02-24T09:02:27Z",
+      "tags": {
+        "access": "permissive",
+        "barrier": "gate",
+        "name": "ประตูถนนพญาไท 2"
+      }
+    },
+    {
+      "id": "1703081552",
+      "latitude": 13.7359961,
+      "longitude": 100.5320702,
+      "version": "6",
+      "updatedAt": "2025-10-16T06:54:32Z",
+      "tags": {
+        "barrier": "lift_gate",
+        "source": "http://www.mapillary.com/map/im/hYnLBsddqsZwnmn7sPbMSA/photo"
+      }
+    },
+    {
+      "id": "1726990185",
+      "latitude": 13.7427389,
+      "longitude": 100.5304057,
+      "version": "7",
+      "updatedAt": "2026-06-17T15:17:51Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "1848751279",
+      "latitude": 13.7407843,
+      "longitude": 100.5297884,
+      "version": "2",
+      "updatedAt": "2024-10-14T06:23:06Z",
+      "tags": {
+        "barrier": "gate",
+        "maxwidth:physical": "4"
+      }
+    },
+    {
+      "id": "1848751280",
+      "latitude": 13.7428198,
+      "longitude": 100.5292411,
+      "version": "4",
+      "updatedAt": "2019-04-25T04:19:30Z",
+      "tags": {
+        "access": "no",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "1848751281",
+      "latitude": 13.7430643,
+      "longitude": 100.5279029,
+      "version": "3",
+      "updatedAt": "2014-12-27T19:54:47Z",
+      "tags": {
+        "access": "permissive",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "1848751286",
+      "latitude": 13.7413497,
+      "longitude": 100.5298733,
+      "version": "3",
+      "updatedAt": "2020-10-05T02:48:03Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "2005389534",
+      "latitude": 13.733544,
+      "longitude": 100.5380273,
+      "version": "3",
+      "updatedAt": "2024-01-30T08:00:11Z",
+      "tags": {
+        "access": "permissive",
+        "barrier": "gate",
+        "bicycle": "yes",
+        "foot": "yes",
+        "motor_vehicle": "yes"
+      }
+    },
+    {
+      "id": "2106360552",
+      "latitude": 13.7355786,
+      "longitude": 100.5262035,
+      "version": "1",
+      "updatedAt": "2013-01-11T21:31:42Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "2106360946",
+      "latitude": 13.7395467,
+      "longitude": 100.5296072,
+      "version": "1",
+      "updatedAt": "2013-01-11T21:31:46Z",
+      "tags": {
+        "barrier": "gate",
+        "motor_vehicle": "no"
+      }
+    },
+    {
+      "id": "2106361083",
+      "latitude": 13.7419968,
+      "longitude": 100.5351199,
+      "version": "5",
+      "updatedAt": "2026-06-17T15:17:51Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "2106361110",
+      "latitude": 13.7422691,
+      "longitude": 100.5300274,
+      "version": "4",
+      "updatedAt": "2023-08-27T12:59:47Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "2106361137",
+      "latitude": 13.7435077,
+      "longitude": 100.5260761,
+      "version": "3",
+      "updatedAt": "2023-02-26T06:16:56Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "2106361166",
+      "latitude": 13.7397359,
+      "longitude": 100.5254363,
+      "version": "2",
+      "updatedAt": "2014-12-27T19:54:47Z",
+      "tags": {
+        "access": "permissive",
+        "barrier": "gate",
+        "name": "ประตูจุฬาฯ ซอยเก้า 1"
+      }
+    },
+    {
+      "id": "2106361169",
+      "latitude": 13.7367067,
+      "longitude": 100.5249037,
+      "version": "2",
+      "updatedAt": "2020-09-09T08:20:54Z",
+      "tags": {
+        "barrier": "gate",
+        "name": "ประตูจุฬาฯ ซอยเก้า 2"
+      }
+    },
+    {
+      "id": "2106361172",
+      "latitude": 13.7386591,
+      "longitude": 100.5298272,
+      "version": "2",
+      "updatedAt": "2026-10-15T07:07:50Z",
+      "tags": {
+        "access": "permissive",
+        "barrier": "gate",
+        "name": "ประตูถนนพญาไท 1"
+      }
+    },
+    {
+      "id": "2106361176",
+      "latitude": 13.7387932,
+      "longitude": 100.5294969,
+      "version": "2",
+      "updatedAt": "2026-02-24T09:02:27Z",
+      "tags": {
+        "access": "permissive",
+        "barrier": "gate",
+        "name": "ประตูถนนพญาไท 2"
+      }
+    },
+    {
+      "id": "2106361179",
+      "latitude": 13.7380473,
+      "longitude": 100.5344266,
+      "version": "1",
+      "updatedAt": "2013-01-11T21:31:48Z",
+      "tags": {
+        "barrier": "gate",
+        "name": "ประตูถนนอังรีดูนังต์ 1"
+      }
+    },
+    {
+      "id": "2180780664",
+      "latitude": 13.7351664,
+      "longitude": 100.5386269,
+      "version": "3",
+      "updatedAt": "2020-04-21T06:02:29Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "2180780669",
+      "latitude": 13.7356713,
+      "longitude": 100.5345214,
+      "version": "7",
+      "updatedAt": "2019-11-18T13:08:33Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "name": "ประตู 5",
+        "name:en": "Gate 5",
+        "name:th": "ประตู 5",
+        "ref": "5"
+      }
+    },
+    {
+      "id": "2666981109",
+      "latitude": 13.7399701,
+      "longitude": 100.5351292,
+      "version": "3",
+      "updatedAt": "2024-02-29T10:25:39Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "name": "ประตู 1",
+        "name:en": "Gate 1",
+        "name:th": "ประตู 1",
+        "ref": "1"
+      }
+    },
+    {
+      "id": "2671180707",
+      "latitude": 13.7441517,
+      "longitude": 100.5261921,
+      "version": "2",
+      "updatedAt": "2023-02-26T06:16:56Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "3972068396",
+      "latitude": 13.7383617,
+      "longitude": 100.5208934,
+      "version": "6",
+      "updatedAt": "2023-12-15T10:17:04Z",
+      "tags": {
+        "access": "no",
+        "barrier": "gate",
+        "bicycle": "yes",
+        "foot": "yes"
+      }
+    },
+    {
+      "id": "4410382641",
+      "latitude": 13.7408989,
+      "longitude": 100.5341523,
+      "version": "2",
+      "updatedAt": "2019-01-14T08:51:47Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "4410382642",
+      "latitude": 13.7411341,
+      "longitude": 100.5328297,
+      "version": "2",
+      "updatedAt": "2019-01-14T08:51:47Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "4410635564",
+      "latitude": 13.7459572,
+      "longitude": 100.529618,
+      "version": "1",
+      "updatedAt": "2016-09-20T22:26:03Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "4526260029",
+      "latitude": 13.7387351,
+      "longitude": 100.534618,
+      "version": "2",
+      "updatedAt": "2017-04-29T07:16:36Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "5950479987",
+      "latitude": 13.7353297,
+      "longitude": 100.5261625,
+      "version": "4",
+      "updatedAt": "2022-11-21T05:06:51Z",
+      "tags": {
+        "access": "private",
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "5952937994",
+      "latitude": 13.7303504,
+      "longitude": 100.5252738,
+      "version": "4",
+      "updatedAt": "2023-08-14T14:23:06Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "5953034817",
+      "latitude": 13.7301987,
+      "longitude": 100.5286957,
+      "version": "3",
+      "updatedAt": "2023-09-09T16:14:56Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "locked": "yes"
+      }
+    },
+    {
+      "id": "6198591796",
+      "latitude": 13.7368093,
+      "longitude": 100.5320607,
+      "version": "2",
+      "updatedAt": "2019-01-26T17:16:35Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "6198591797",
+      "latitude": 13.7371639,
+      "longitude": 100.5340058,
+      "version": "2",
+      "updatedAt": "2019-01-26T17:16:35Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "6207227222",
+      "latitude": 13.7419039,
+      "longitude": 100.5337163,
+      "version": "1",
+      "updatedAt": "2019-01-14T08:51:47Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "6207227225",
+      "latitude": 13.7394661,
+      "longitude": 100.5342223,
+      "version": "1",
+      "updatedAt": "2019-01-14T08:51:47Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "6207227227",
+      "latitude": 13.741381,
+      "longitude": 100.5302236,
+      "version": "1",
+      "updatedAt": "2019-01-14T08:51:47Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "6209815981",
+      "latitude": 13.7418602,
+      "longitude": 100.5351005,
+      "version": "1",
+      "updatedAt": "2019-01-15T08:33:06Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "6222297633",
+      "latitude": 13.7427237,
+      "longitude": 100.5210912,
+      "version": "1",
+      "updatedAt": "2019-01-20T06:01:02Z",
+      "tags": {
+        "barrier": "gate",
+        "colour": "gainsboro"
+      }
+    },
+    {
+      "id": "6238244461",
+      "latitude": 13.7432254,
+      "longitude": 100.5279347,
+      "version": "1",
+      "updatedAt": "2019-01-26T16:52:37Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "6238244462",
+      "latitude": 13.7438178,
+      "longitude": 100.5280502,
+      "version": "1",
+      "updatedAt": "2019-01-26T16:52:37Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "6238285793",
+      "latitude": 13.7350072,
+      "longitude": 100.5293947,
+      "version": "2",
+      "updatedAt": "2026-03-30T07:07:21Z",
+      "tags": {
+        "access": "permissive",
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "6238285794",
+      "latitude": 13.7361866,
+      "longitude": 100.5308549,
+      "version": "1",
+      "updatedAt": "2019-01-26T17:16:35Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "6238285795",
+      "latitude": 13.7363977,
+      "longitude": 100.5290425,
+      "version": "2",
+      "updatedAt": "2019-05-30T08:16:59Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "6238285796",
+      "latitude": 13.7351711,
+      "longitude": 100.5288154,
+      "version": "1",
+      "updatedAt": "2019-01-26T17:16:35Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "6238285797",
+      "latitude": 13.7351038,
+      "longitude": 100.5277593,
+      "version": "2",
+      "updatedAt": "2024-03-13T03:01:24Z",
+      "tags": {
+        "access": "customers",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "6238285798",
+      "latitude": 13.7342424,
+      "longitude": 100.5259678,
+      "version": "4",
+      "updatedAt": "2023-11-05T08:54:31Z",
+      "tags": {
+        "access": "private",
+        "barrier": "lift_gate",
+        "lift_gate:type": "double"
+      }
+    },
+    {
+      "id": "6238285799",
+      "latitude": 13.7336661,
+      "longitude": 100.5275594,
+      "version": "3",
+      "updatedAt": "2025-10-09T04:49:51Z",
+      "tags": {
+        "access": "private",
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "6238285800",
+      "latitude": 13.7352333,
+      "longitude": 100.5246613,
+      "version": "3",
+      "updatedAt": "2022-07-27T11:17:34Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "6975823307",
+      "latitude": 13.7388586,
+      "longitude": 100.5391882,
+      "version": "2",
+      "updatedAt": "2019-11-18T13:08:33Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "name": "Gate 9",
+        "ref": "9"
+      }
+    },
+    {
+      "id": "6987173051",
+      "latitude": 13.7365179,
+      "longitude": 100.5346348,
+      "version": "1",
+      "updatedAt": "2019-11-18T13:08:33Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "name": "ประตู 4",
+        "name:en": "Gate 4",
+        "name:th": "ประตู 4",
+        "ref": "4"
+      }
+    },
+    {
+      "id": "6987173058",
+      "latitude": 13.7394491,
+      "longitude": 100.5350559,
+      "version": "1",
+      "updatedAt": "2019-11-18T13:08:33Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "name": "ประตู 2",
+        "name:en": "Gate 2",
+        "name:th": "ประตู 2",
+        "ref": "2"
+      }
+    },
+    {
+      "id": "6987173062",
+      "latitude": 13.7373137,
+      "longitude": 100.5347491,
+      "version": "1",
+      "updatedAt": "2019-11-18T13:08:33Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "name": "ประตู 3",
+        "name:en": "Gate 3",
+        "name:th": "ประตู 3",
+        "ref": "3"
+      }
+    },
+    {
+      "id": "7079301139",
+      "latitude": 13.7299228,
+      "longitude": 100.5277487,
+      "version": "1",
+      "updatedAt": "2019-12-23T08:09:40Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "9531279659",
+      "latitude": 13.7468971,
+      "longitude": 100.5248551,
+      "version": "1",
+      "updatedAt": "2022-02-24T02:29:56Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "9901595109",
+      "latitude": 13.7387694,
+      "longitude": 100.5244487,
+      "version": "1",
+      "updatedAt": "2022-07-21T10:05:24Z",
+      "tags": {
+        "barrier": "gate",
+        "name": "ประตู 6",
+        "name:en": "Gate 6",
+        "name:th": "ประตู 6"
+      }
+    },
+    {
+      "id": "9901595149",
+      "latitude": 13.7397992,
+      "longitude": 100.524714,
+      "version": "1",
+      "updatedAt": "2022-07-21T10:05:24Z",
+      "tags": {
+        "barrier": "gate",
+        "name": "ประตู 3",
+        "name:en": "Gate 3",
+        "name:th": "ประตู 3"
+      }
+    },
+    {
+      "id": "10063623276",
+      "latitude": 13.7336015,
+      "longitude": 100.5261798,
+      "version": "3",
+      "updatedAt": "2023-03-14T06:49:31Z",
+      "tags": {
+        "access": "private",
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "10064049891",
+      "latitude": 13.7351921,
+      "longitude": 100.5306635,
+      "version": "1",
+      "updatedAt": "2022-09-30T11:19:10Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "10064566128",
+      "latitude": 13.7347658,
+      "longitude": 100.5309415,
+      "version": "1",
+      "updatedAt": "2022-09-30T15:44:16Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "10064566129",
+      "latitude": 13.7346923,
+      "longitude": 100.5314684,
+      "version": "1",
+      "updatedAt": "2022-09-30T15:44:16Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "10072794958",
+      "latitude": 13.7382629,
+      "longitude": 100.5276839,
+      "version": "1",
+      "updatedAt": "2022-10-03T12:00:21Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "10072794959",
+      "latitude": 13.7382572,
+      "longitude": 100.5277636,
+      "version": "1",
+      "updatedAt": "2022-10-03T12:00:21Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "10072794960",
+      "latitude": 13.7386239,
+      "longitude": 100.5270663,
+      "version": "1",
+      "updatedAt": "2022-10-03T12:00:21Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "10072873265",
+      "latitude": 13.7375184,
+      "longitude": 100.5304833,
+      "version": "2",
+      "updatedAt": "2024-04-30T03:59:31Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "10575687789",
+      "latitude": 13.7303858,
+      "longitude": 100.5234895,
+      "version": "1",
+      "updatedAt": "2023-01-23T02:42:57Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "10581108902",
+      "latitude": 13.7303914,
+      "longitude": 100.5232587,
+      "version": "2",
+      "updatedAt": "2023-09-30T13:56:54Z",
+      "tags": {
+        "access": "private",
+        "barrier": "lift_gate",
+        "noname": "yes"
+      }
+    },
+    {
+      "id": "10712815083",
+      "latitude": 13.7393734,
+      "longitude": 100.5254502,
+      "version": "1",
+      "updatedAt": "2023-03-05T18:55:02Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "10712815087",
+      "latitude": 13.7395731,
+      "longitude": 100.5257706,
+      "version": "1",
+      "updatedAt": "2023-03-05T18:55:02Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "10712815101",
+      "latitude": 13.7394526,
+      "longitude": 100.5268419,
+      "version": "1",
+      "updatedAt": "2023-03-05T18:55:02Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "10712815102",
+      "latitude": 13.7394462,
+      "longitude": 100.5268855,
+      "version": "1",
+      "updatedAt": "2023-03-05T18:55:02Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "10738608179",
+      "latitude": 13.7327874,
+      "longitude": 100.5245263,
+      "version": "2",
+      "updatedAt": "2024-07-31T15:46:10Z",
+      "tags": {
+        "access": "permissive",
+        "barrier": "lift_gate",
+        "lift_gate:type": "double"
+      }
+    },
+    {
+      "id": "10744743226",
+      "latitude": 13.7355792,
+      "longitude": 100.5306126,
+      "version": "1",
+      "updatedAt": "2023-03-19T08:48:40Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "10744743227",
+      "latitude": 13.7356377,
+      "longitude": 100.5302504,
+      "version": "1",
+      "updatedAt": "2023-03-19T08:48:40Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "10764944315",
+      "latitude": 13.7319789,
+      "longitude": 100.5208258,
+      "version": "1",
+      "updatedAt": "2023-03-27T03:12:58Z",
+      "tags": {
+        "access": "no",
+        "barrier": "gate",
+        "foot": "yes"
+      }
+    },
+    {
+      "id": "10774506686",
+      "latitude": 13.7374571,
+      "longitude": 100.5313639,
+      "version": "1",
+      "updatedAt": "2023-03-31T02:49:08Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "10784747842",
+      "latitude": 13.7355741,
+      "longitude": 100.5262313,
+      "version": "1",
+      "updatedAt": "2023-04-04T16:30:35Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "10784747843",
+      "latitude": 13.7355823,
+      "longitude": 100.5261855,
+      "version": "1",
+      "updatedAt": "2023-04-04T16:30:35Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "10784747845",
+      "latitude": 13.7352431,
+      "longitude": 100.5279987,
+      "version": "3",
+      "updatedAt": "2024-03-13T03:03:16Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "locked": "yes"
+      }
+    },
+    {
+      "id": "11034505697",
+      "latitude": 13.7296361,
+      "longitude": 100.5197038,
+      "version": "1",
+      "updatedAt": "2023-07-08T17:19:00Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11044386747",
+      "latitude": 13.7320565,
+      "longitude": 100.5233215,
+      "version": "1",
+      "updatedAt": "2023-07-13T15:44:39Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11044386758",
+      "latitude": 13.7322096,
+      "longitude": 100.5231686,
+      "version": "1",
+      "updatedAt": "2023-07-13T15:44:39Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11091645734",
+      "latitude": 13.7318922,
+      "longitude": 100.525654,
+      "version": "1",
+      "updatedAt": "2023-08-05T14:30:00Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11091645777",
+      "latitude": 13.7311301,
+      "longitude": 100.5245314,
+      "version": "1",
+      "updatedAt": "2023-08-05T14:30:00Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11091645805",
+      "latitude": 13.730822,
+      "longitude": 100.5236159,
+      "version": "1",
+      "updatedAt": "2023-08-05T14:30:00Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11091645817",
+      "latitude": 13.7315204,
+      "longitude": 100.5236884,
+      "version": "2",
+      "updatedAt": "2023-09-30T13:56:54Z",
+      "tags": {
+        "barrier": "gate",
+        "noname": "yes"
+      }
+    },
+    {
+      "id": "11091645919",
+      "latitude": 13.7299259,
+      "longitude": 100.5240465,
+      "version": "3",
+      "updatedAt": "2023-10-08T12:20:41Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11091658207",
+      "latitude": 13.7289418,
+      "longitude": 100.5243222,
+      "version": "1",
+      "updatedAt": "2023-08-05T14:40:00Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11114451115",
+      "latitude": 13.7300558,
+      "longitude": 100.524791,
+      "version": "1",
+      "updatedAt": "2023-08-14T14:23:06Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11114534485",
+      "latitude": 13.7304762,
+      "longitude": 100.5264825,
+      "version": "1",
+      "updatedAt": "2023-08-14T15:22:52Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11115788688",
+      "latitude": 13.7368589,
+      "longitude": 100.527106,
+      "version": "1",
+      "updatedAt": "2023-08-15T08:10:25Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "name": "ประตู 6",
+        "name:en": "gate 6",
+        "name:th": "ประตู 6"
+      }
+    },
+    {
+      "id": "11127491181",
+      "latitude": 13.7317463,
+      "longitude": 100.5301386,
+      "version": "1",
+      "updatedAt": "2023-08-19T12:43:50Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "11127491186",
+      "latitude": 13.7318238,
+      "longitude": 100.5305964,
+      "version": "1",
+      "updatedAt": "2023-08-19T12:43:50Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "11127493296",
+      "latitude": 13.7315043,
+      "longitude": 100.5310575,
+      "version": "1",
+      "updatedAt": "2023-08-19T12:43:50Z",
+      "tags": {
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "11136250605",
+      "latitude": 13.7317961,
+      "longitude": 100.5268488,
+      "version": "1",
+      "updatedAt": "2023-08-22T13:20:14Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "locked": "yes"
+      }
+    },
+    {
+      "id": "11139419010",
+      "latitude": 13.743175,
+      "longitude": 100.5260479,
+      "version": "1",
+      "updatedAt": "2023-08-23T15:32:56Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11139419045",
+      "latitude": 13.7427907,
+      "longitude": 100.5259813,
+      "version": "1",
+      "updatedAt": "2023-08-23T15:32:56Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "locked": "yes"
+      }
+    },
+    {
+      "id": "11139419058",
+      "latitude": 13.7427324,
+      "longitude": 100.5259701,
+      "version": "1",
+      "updatedAt": "2023-08-23T15:32:56Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11140981658",
+      "latitude": 13.731069,
+      "longitude": 100.5271485,
+      "version": "1",
+      "updatedAt": "2023-08-24T11:39:26Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "locked": "yes"
+      }
+    },
+    {
+      "id": "11140997573",
+      "latitude": 13.731609,
+      "longitude": 100.5273295,
+      "version": "2",
+      "updatedAt": "2023-08-27T09:14:51Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11141008371",
+      "latitude": 13.7312812,
+      "longitude": 100.5266397,
+      "version": "1",
+      "updatedAt": "2023-08-24T11:55:04Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "locked": "yes"
+      }
+    },
+    {
+      "id": "11141008376",
+      "latitude": 13.7312765,
+      "longitude": 100.5266263,
+      "version": "1",
+      "updatedAt": "2023-08-24T11:55:04Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "locked": "yes"
+      }
+    },
+    {
+      "id": "11141008394",
+      "latitude": 13.7312665,
+      "longitude": 100.5265876,
+      "version": "1",
+      "updatedAt": "2023-08-24T11:55:04Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "locked": "yes"
+      }
+    },
+    {
+      "id": "11141008400",
+      "latitude": 13.7308719,
+      "longitude": 100.5265975,
+      "version": "1",
+      "updatedAt": "2023-08-24T11:55:04Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11141819774",
+      "latitude": 13.7302884,
+      "longitude": 100.5275087,
+      "version": "1",
+      "updatedAt": "2023-08-24T16:11:57Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11141819804",
+      "latitude": 13.7297934,
+      "longitude": 100.5272628,
+      "version": "1",
+      "updatedAt": "2023-08-24T16:11:57Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11147897407",
+      "latitude": 13.7316399,
+      "longitude": 100.5274088,
+      "version": "1",
+      "updatedAt": "2023-08-27T09:14:51Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11147897412",
+      "latitude": 13.7309193,
+      "longitude": 100.5276916,
+      "version": "1",
+      "updatedAt": "2023-08-27T09:14:51Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11147897413",
+      "latitude": 13.730934,
+      "longitude": 100.5277339,
+      "version": "1",
+      "updatedAt": "2023-08-27T09:14:51Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11147897416",
+      "latitude": 13.7316279,
+      "longitude": 100.5273781,
+      "version": "1",
+      "updatedAt": "2023-08-27T09:14:51Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11147906755",
+      "latitude": 13.7317666,
+      "longitude": 100.5277229,
+      "version": "1",
+      "updatedAt": "2023-08-27T09:51:36Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11148067381",
+      "latitude": 13.7309193,
+      "longitude": 100.5278168,
+      "version": "1",
+      "updatedAt": "2023-08-27T10:57:57Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11148075510",
+      "latitude": 13.7307476,
+      "longitude": 100.5283593,
+      "version": "1",
+      "updatedAt": "2023-08-27T10:57:57Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "locked": "yes"
+      }
+    },
+    {
+      "id": "11148075513",
+      "latitude": 13.7308014,
+      "longitude": 100.5283523,
+      "version": "1",
+      "updatedAt": "2023-08-27T10:57:57Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "locked": "yes"
+      }
+    },
+    {
+      "id": "11148075514",
+      "latitude": 13.730839,
+      "longitude": 100.5283379,
+      "version": "1",
+      "updatedAt": "2023-08-27T10:57:57Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "locked": "yes"
+      }
+    },
+    {
+      "id": "11148075515",
+      "latitude": 13.7308905,
+      "longitude": 100.5283183,
+      "version": "1",
+      "updatedAt": "2023-08-27T10:57:57Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "locked": "yes"
+      }
+    },
+    {
+      "id": "11148075516",
+      "latitude": 13.7309398,
+      "longitude": 100.5282995,
+      "version": "1",
+      "updatedAt": "2023-08-27T10:57:57Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "locked": "yes"
+      }
+    },
+    {
+      "id": "11148075517",
+      "latitude": 13.7309925,
+      "longitude": 100.5282794,
+      "version": "1",
+      "updatedAt": "2023-08-27T10:57:57Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "locked": "yes"
+      }
+    },
+    {
+      "id": "11148075518",
+      "latitude": 13.7310368,
+      "longitude": 100.5282625,
+      "version": "1",
+      "updatedAt": "2023-08-27T10:57:57Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "locked": "yes"
+      }
+    },
+    {
+      "id": "11148185259",
+      "latitude": 13.7418686,
+      "longitude": 100.5290737,
+      "version": "2",
+      "updatedAt": "2024-10-14T06:15:51Z",
+      "tags": {
+        "barrier": "gate",
+        "maxwidth:physical": "3"
+      }
+    },
+    {
+      "id": "11149529387",
+      "latitude": 13.7308792,
+      "longitude": 100.5276905,
+      "version": "1",
+      "updatedAt": "2023-08-28T06:42:33Z",
+      "tags": {
+        "access": "private",
+        "barrier": "swing_gate",
+        "locked": "yes"
+      }
+    },
+    {
+      "id": "11149529390",
+      "latitude": 13.7308498,
+      "longitude": 100.5276018,
+      "version": "1",
+      "updatedAt": "2023-08-28T06:42:33Z",
+      "tags": {
+        "access": "private",
+        "barrier": "swing_gate",
+        "locked": "yes"
+      }
+    },
+    {
+      "id": "11149558929",
+      "latitude": 13.7301527,
+      "longitude": 100.5276507,
+      "version": "1",
+      "updatedAt": "2023-08-28T06:42:33Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11149582770",
+      "latitude": 13.7295661,
+      "longitude": 100.5278972,
+      "version": "1",
+      "updatedAt": "2023-08-28T07:03:52Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11149582782",
+      "latitude": 13.7294399,
+      "longitude": 100.5279667,
+      "version": "1",
+      "updatedAt": "2023-08-28T07:03:52Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11149582803",
+      "latitude": 13.7293183,
+      "longitude": 100.5280206,
+      "version": "1",
+      "updatedAt": "2023-08-28T07:03:52Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11161054112",
+      "latitude": 13.729506,
+      "longitude": 100.5258309,
+      "version": "1",
+      "updatedAt": "2023-09-01T15:09:39Z",
+      "tags": {
+        "barrier": "swing_gate",
+        "locked": "no"
+      }
+    },
+    {
+      "id": "11161054132",
+      "latitude": 13.7292253,
+      "longitude": 100.5255828,
+      "version": "1",
+      "updatedAt": "2023-09-01T15:09:39Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11161065647",
+      "latitude": 13.7289806,
+      "longitude": 100.5245522,
+      "version": "1",
+      "updatedAt": "2023-09-01T15:17:45Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate",
+        "locked": "yes"
+      }
+    },
+    {
+      "id": "11163808520",
+      "latitude": 13.729419,
+      "longitude": 100.5254415,
+      "version": "1",
+      "updatedAt": "2023-09-02T21:37:35Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11163808535",
+      "latitude": 13.7295995,
+      "longitude": 100.5252377,
+      "version": "1",
+      "updatedAt": "2023-09-02T21:37:35Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11163808551",
+      "latitude": 13.7292307,
+      "longitude": 100.5250068,
+      "version": "1",
+      "updatedAt": "2023-09-02T21:37:35Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11163808561",
+      "latitude": 13.7291611,
+      "longitude": 100.524828,
+      "version": "1",
+      "updatedAt": "2023-09-02T21:37:35Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11178978204",
+      "latitude": 13.7295887,
+      "longitude": 100.5286554,
+      "version": "1",
+      "updatedAt": "2023-09-09T16:06:48Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11178983358",
+      "latitude": 13.7302956,
+      "longitude": 100.5282562,
+      "version": "1",
+      "updatedAt": "2023-09-09T16:06:48Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11182364874",
+      "latitude": 13.7306825,
+      "longitude": 100.5232603,
+      "version": "1",
+      "updatedAt": "2023-09-11T04:14:04Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11182364875",
+      "latitude": 13.7308687,
+      "longitude": 100.5231294,
+      "version": "1",
+      "updatedAt": "2023-09-11T04:14:04Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11196270410",
+      "latitude": 13.7356901,
+      "longitude": 100.5249618,
+      "version": "2",
+      "updatedAt": "2023-09-16T18:43:08Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11196388959",
+      "latitude": 13.7357032,
+      "longitude": 100.5248777,
+      "version": "1",
+      "updatedAt": "2023-09-16T18:43:08Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11196388960",
+      "latitude": 13.7356631,
+      "longitude": 100.5251489,
+      "version": "1",
+      "updatedAt": "2023-09-16T18:43:08Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11253125934",
+      "latitude": 13.7413569,
+      "longitude": 100.5289824,
+      "version": "1",
+      "updatedAt": "2023-10-10T15:37:45Z",
+      "tags": {
+        "access": "no",
+        "barrier": "gate",
+        "foot": "no"
+      }
+    },
+    {
+      "id": "11298057028",
+      "latitude": 13.7322551,
+      "longitude": 100.5278813,
+      "version": "2",
+      "updatedAt": "2026-10-07T07:01:52Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11501721270",
+      "latitude": 13.7300356,
+      "longitude": 100.5312591,
+      "version": "1",
+      "updatedAt": "2024-01-09T02:28:21Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11639935460",
+      "latitude": 13.7437995,
+      "longitude": 100.5332118,
+      "version": "1",
+      "updatedAt": "2024-02-19T06:10:03Z",
+      "tags": {
+        "access": "permissive",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11854027453",
+      "latitude": 13.7292214,
+      "longitude": 100.5294882,
+      "version": "1",
+      "updatedAt": "2024-04-27T09:57:56Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "11908867495",
+      "latitude": 13.7362361,
+      "longitude": 100.5233016,
+      "version": "1",
+      "updatedAt": "2024-05-16T03:22:50Z",
+      "tags": {
+        "access": "customers",
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "12032600373",
+      "latitude": 13.7348776,
+      "longitude": 100.5343895,
+      "version": "1",
+      "updatedAt": "2024-07-04T04:37:15Z",
+      "tags": {
+        "access": "permissive",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "12032600376",
+      "latitude": 13.7349,
+      "longitude": 100.5343922,
+      "version": "3",
+      "updatedAt": "2024-07-11T02:20:22Z",
+      "tags": {
+        "access": "permissive",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "12047334867",
+      "latitude": 13.7348537,
+      "longitude": 100.529604,
+      "version": "1",
+      "updatedAt": "2024-07-11T08:29:36Z",
+      "tags": {
+        "barrier": "lift_gate",
+        "name": "จุดตรวจยานพาหนะ"
+      }
+    },
+    {
+      "id": "12056448666",
+      "latitude": 13.7362473,
+      "longitude": 100.5221028,
+      "version": "1",
+      "updatedAt": "2024-07-16T03:27:37Z",
+      "tags": {
+        "access": "customers",
+        "barrier": "lift_gate"
+      }
+    },
+    {
+      "id": "12143430970",
+      "latitude": 13.7390456,
+      "longitude": 100.5213341,
+      "version": "2",
+      "updatedAt": "2025-01-28T10:26:45Z",
+      "tags": {
+        "access": "no",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "12553328421",
+      "latitude": 13.7323947,
+      "longitude": 100.5340712,
+      "version": "1",
+      "updatedAt": "2025-02-03T06:59:09Z",
+      "tags": {
+        "access": "no",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "12675654840",
+      "latitude": 13.7423412,
+      "longitude": 100.5329323,
+      "version": "6",
+      "updatedAt": "2026-06-17T15:17:51Z",
+      "tags": {
+        "access": "private",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "12683698836",
+      "latitude": 13.7306707,
+      "longitude": 100.5344226,
+      "version": "1",
+      "updatedAt": "2025-03-20T07:15:33Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "12712926165",
+      "latitude": 13.7325259,
+      "longitude": 100.5324625,
+      "version": "1",
+      "updatedAt": "2025-03-30T11:15:36Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "12712926167",
+      "latitude": 13.7324246,
+      "longitude": 100.5329614,
+      "version": "2",
+      "updatedAt": "2025-03-30T12:28:03Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "13236029818",
+      "latitude": 13.744233,
+      "longitude": 100.5291466,
+      "version": "1",
+      "updatedAt": "2025-10-16T07:04:28Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "13236029819",
+      "latitude": 13.7442619,
+      "longitude": 100.5288917,
+      "version": "2",
+      "updatedAt": "2025-11-04T09:22:23Z",
+      "tags": {
+        "access": "permissive",
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "13443003796",
+      "latitude": 13.7356831,
+      "longitude": 100.5341589,
+      "version": "2",
+      "updatedAt": "2026-09-24T09:28:49Z",
+      "tags": {
+        "access": "no",
+        "barrier": "gate",
+        "locked": "yes"
+      }
+    },
+    {
+      "id": "13472926783",
+      "latitude": 13.7319408,
+      "longitude": 100.5335928,
+      "version": "1",
+      "updatedAt": "2026-01-21T07:53:59Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "13514158273",
+      "latitude": 13.7331243,
+      "longitude": 100.5341477,
+      "version": "2",
+      "updatedAt": "2026-03-26T13:17:06Z",
+      "tags": {
+        "barrier": "gate",
+        "name": "gate 15"
+      }
+    },
+    {
+      "id": "13623578125",
+      "latitude": 13.7416418,
+      "longitude": 100.5342916,
+      "version": "1",
+      "updatedAt": "2026-03-06T17:45:22Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "13766405608",
+      "latitude": 13.7294114,
+      "longitude": 100.5236272,
+      "version": "1",
+      "updatedAt": "2026-04-27T11:02:05Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "13967760801",
+      "latitude": 13.7315376,
+      "longitude": 100.5202554,
+      "version": "1",
+      "updatedAt": "2026-06-26T08:38:09Z",
+      "tags": {
+        "barrier": "gate"
+      }
+    },
+    {
+      "id": "14074303358",
+      "latitude": 13.7362942,
+      "longitude": 100.5206832,
+      "version": "1",
+      "updatedAt": "2026-08-05T07:48:03Z",
+      "tags": {
+        "access": "private",
+        "barrier": "lift_gate",
+        "lift_gate:type": "double"
+      }
+    },
+    {
+      "id": "14234312628",
+      "latitude": 13.7401214,
+      "longitude": 100.5217924,
+      "version": "1",
+      "updatedAt": "2026-09-30T10:34:12Z",
+      "tags": {
+        "access": "private",
+        "barrier": "lift_gate",
+        "lift_gate:type": "single"
+      }
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "version": "1.2.0",
+  "date": "2026-11-01",
+  "browser": "ChatGPT in-app browser",
+  "viewports": [
+    {
+      "width": 390,
+      "height": 844
+    },
+    {
+      "width": 1440,
+      "height": 940
+    }
+  ],
+  "productionPaths": [
+    "http://127.0.0.1:4173/",
+    "http://127.0.0.1:4174/cu-gate-navigator/"
+  ],
+  "realData": {
+    "cards": 22,
+    "markers": 11,
+    "open": "เปิดตอนนี้0",
+    "overflow": false,
+    "openNowCount": 0,
+    "unconfirmed": 22,
+    "unlocated": 11,
+    "mobile": {
+      "card": {
+        "bottom": 834,
+        "height": 402.9921875,
+        "left": 10,
+        "right": 380,
+        "top": 431.0078125,
+        "width": 370,
+        "x": 10,
+        "y": 431.0078125
+      },
+      "evidenceOpen": false,
+      "fixtureCount": 0,
+      "overflow": false,
+      "pin": {
+        "bottom": 321,
+        "height": 42,
+        "left": 174,
+        "right": 216,
+        "top": 279,
+        "width": 42,
+        "x": 174,
+        "y": 279
+      }
+    }
+  },
+  "checks": {
+    "thaiDefault": true,
+    "mapDefaultOnMobile": true,
+    "allMappedMarkersVisibleAfterClosingCard": 11,
+    "mobileListCards": 22,
+    "directNavigationLinks": 11,
+    "disabledUnlocatedNavigationButtons": 11,
+    "thaiSearchAccountancyResults": 1,
+    "motorcycleURLUsesTwoWheeler": true,
+    "publicMRTOriginInNavigationURL": true,
+    "englishPreservesSearchAndMode": true,
+    "sourcesCollapsedByDefault": true,
+    "accountancySourceLinks": 5,
+    "qualityDashboardCountsMatchDataset": true,
+    "unlocatedGateDirectionsDisabled": true,
+    "markerAboveMobileCard": true,
+    "openNowRealDataExplainsUnconfirmed": true
+  },
+  "syntheticFixture": {
+    "path": "tests/status-harness.html",
+    "clearlyLabelled": true,
+    "notRealGateStatus": true,
+    "initialBangkokTime": "2026-11-02 12:00",
+    "states": {
+      "open": 1,
+      "closed": 1,
+      "restricted": 1,
+      "unknown": 1
+    },
+    "openNowInitialMarkers": 1,
+    "atBangkok20": {
+      "open": 0,
+      "closed": 3,
+      "restricted": 0,
+      "unknown": 1
+    },
+    "carAndExitDeniedCases": true,
+    "productionFixtureElements": 0
+  },
+  "productionErrors": [],
+  "limits": [
+    "No live operational gate feed",
+    "Current access/schedule evidence remains incomplete",
+    "Synthetic states do not enter the gate JSON or production bundle",
+    "No physical gate or sensor GPS survey in this revision"
+  ]
+}

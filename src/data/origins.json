@@ -1,0 +1,13 @@
+[
+  {
+    "id": "sam-yan",
+    "name": "MRT สามย่าน ฝั่งจามจุรีสแควร์",
+    "nameEn": "Sam Yan MRT · Chamchuri Square side",
+    "latitude": 13.7331316,
+    "longitude": 100.5295758,
+    "source": "https://www.openstreetmap.org/node/1698343087",
+    "reviewedAt": "2026-11-01",
+    "type": "public-landmark",
+    "notesTh": "จุดอ้างอิงทางออก MRT บน OSM ไม่ใช่ตำแหน่งปัจจุบันของผู้ใช้หรือประตูมหาวิทยาลัย"
+  }
+]

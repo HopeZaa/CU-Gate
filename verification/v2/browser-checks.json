@@ -1,0 +1,37 @@
+{
+  "version": "1.1.0",
+  "reviewedAt": "2026-11-01",
+  "timezone": "Asia/Bangkok",
+  "surface": "Actual in-app browser controlled through CUA",
+  "viewports": [{"width":390,"height":844},{"width":1440,"height":940}],
+  "checks": [
+    {"name":"Thai default on the production project path","result":"PASS"},
+    {"name":"Thai faculty/gate search","result":"PASS","query":"บัญชี","matches":1},
+    {"name":"Direct directions link on each default card","result":"PASS","links":11},
+    {"name":"Walking, car and motorcycle selection","result":"PASS","note":"URL modes and reference scope are independent; generic vehicle references never become current mode permissions."},
+    {"name":"Thai/English switch retains query and selected mode","result":"PASS"},
+    {"name":"Language preference survives reload","result":"PASS"},
+    {"name":"Dated hours and authorization reference","result":"PASS","observed":"Commerce gate shows 2564/2021, a prior-authorization condition and current-hours uncertainty."},
+    {"name":"Old exit-only vehicle references demoted for entry","result":"PASS","observedLastGates":["science","stadium"]},
+    {"name":"Manual MRT starting point","result":"PASS","firstGate":"phayathai-3","straightLineMetres":206,"gpsMarkers":0,"publicOriginMarkers":1},
+    {"name":"Selected MRT origin forwarded to Google Maps","result":"PASS","origin":"13.7331316,100.5295758","destination":"13.7349556,100.5292581","travelmode":"driving","surfaces":["list card","details panel"]},
+    {"name":"Mobile list/map switch","result":"PASS","default":"list","mapMarkers":11},
+    {"name":"Thai map labels and controls","result":"PASS"},
+    {"name":"Map selection opens dated source details","result":"PASS"},
+    {"name":"Source expansion and Show on map","result":"PASS","observed":"Sources accessible; Show on map closes the sheet and retains selected marker."},
+    {"name":"GPS success and manual-origin handoff","result":"PASS","method":"Controlled fixture, public gate coordinate, no actual device location","observed":"0 m straight-line first gate; switching to MRT clears one watch, removes GPS marker and adds public-origin marker."},
+    {"name":"GPS denied, timeout and unavailable in Thai","result":"PASS","method":"Controlled fixture","observed":"Correct Thai error, fallback origin offered, one watch cleared for each error."},
+    {"name":"Current-permission strict filter","result":"PASS","matches":0,"observed":"Explains why no verified current permission exists and offers mapped gates."},
+    {"name":"Include unlocated gates","result":"PASS","matches":22},
+    {"name":"Dashboard records and coordinate drilldowns","result":"PASS","all":22,"approximate":3,"unlocated":11},
+    {"name":"Unlocated-gate directions disabled","result":"PASS"},
+    {"name":"Mobile and desktop horizontal overflow","result":"PASS","mobileDocumentWidth":390,"mobileViewportWidth":390},
+    {"name":"Production root and GitHub Pages project path","result":"PASS","projectPath":"/cu-gate-navigator/"}
+  ],
+  "limits": [
+    "No actual device sensor or location-permission grant was tested.",
+    "No live gate opening/closing status or university authorization was verified.",
+    "Google Maps URL parameters were inspected; actual route availability through private campus paths remains external.",
+    "No remote repository push, Pages setting change or deployment was performed."
+  ]
+}

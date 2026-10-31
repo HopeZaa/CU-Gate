@@ -1,0 +1,16 @@
+
+> cu-gate-navigator@1.0.0 test
+> vitest run
+
+
+ RUN  v3.2.7 /Users/hopezaa/Documents/Codex/2026-11-01/cu-gate-navigator-initial-gate-research/outputs/cu-gate-navigator
+
+ ✓ src/lib/geolocation.test.ts (8 tests) 4ms
+ ✓ src/lib/data.test.ts (16 tests) 6ms
+ ✓ src/lib/gates.test.ts (33 tests) 43ms
+
+ Test Files  3 passed (3)
+      Tests  57 passed (57)
+   Start at  01:59:28
+   Duration  426ms (transform 116ms, setup 0ms, collect 270ms, tests 54ms, environment 0ms, prepare 138ms)
+

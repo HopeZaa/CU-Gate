@@ -1,0 +1,137 @@
+{
+  "version": "1.3.0",
+  "date": "2026-11-01",
+  "browser": "ChatGPT in-app browser",
+  "productionPaths": [
+    "http://127.0.0.1:4173/",
+    "http://127.0.0.1:4174/cu-gate-navigator/"
+  ],
+  "viewports": [
+    {
+      "width": 1366,
+      "height": 768
+    },
+    {
+      "width": 1440,
+      "height": 940
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "mobile": {
+    "mapHeight": 528.5,
+    "markers": 11,
+    "openButton": "เปิดตอนนี้5",
+    "openMarkers": 2,
+    "overflow": false,
+    "time": "อาทิตย์ 1 พ.ย. 03:55 · ไทย",
+    "totalCards": 22
+  },
+  "mobilePin": {
+    "card": {
+      "bottom": 834,
+      "height": 448.9921875,
+      "left": 10,
+      "right": 380,
+      "top": 385.0078125,
+      "width": 370,
+      "x": 10,
+      "y": 385.0078125
+    },
+    "navigation": "https://www.google.com/maps/dir/?api=1&destination=13.7349556%2C100.5292581&travelmode=driving",
+    "pin": {
+      "bottom": 321,
+      "height": 42,
+      "left": 174,
+      "right": 216,
+      "top": 279,
+      "width": 42,
+      "x": 174,
+      "y": 279
+    },
+    "referenceLabel": "เปิดตามตาราง\nตารางอ้างอิง ปี 2564",
+    "sourceCollapsed": true,
+    "weekCollapsed": true
+  },
+  "laptop": {
+    "cardHeight": 72.5,
+    "cards": 22,
+    "height": 768,
+    "listHeight": 393.5,
+    "listTop": 334.5,
+    "overflow": false,
+    "states": {
+      "closed": 8,
+      "open": 2,
+      "unknown": 1
+    },
+    "visibleCards": 4,
+    "width": 1366
+  },
+  "desktop": {
+    "listHeight": 565.5,
+    "listTop": 334.5,
+    "overflow": false,
+    "visibleCards": 6
+  },
+  "checks": {
+    "allGatesFilter": true,
+    "openNowUsesAdoptedRules": true,
+    "carOpenNowCards": 5,
+    "carOpenNowMappedPins": 2,
+    "allFilteredPinsOpen": true,
+    "compactCardReferenceYearVisible": true,
+    "weeklyHoursDisclosure": true,
+    "sourceDisclosureLinks": 7,
+    "sourceDisclosureInitiallyCollapsed": true,
+    "weekdayVsWeekendClosingTime": true,
+    "listKeyboardScrollReachedEnd": true,
+    "listScrollTopAtEnd": 1446.5,
+    "listMaxScroll": 1446,
+    "headerRemainsFixed": true,
+    "publicMRTOriginInNavigationURL": true,
+    "publicMRTDoesNotCreateDeviceGPSMarker": true,
+    "startPopoverClosesAfterSelection": true,
+    "gpsDeniedFixtureMessageVisible": true,
+    "languageSwitchPreservesMode": true,
+    "qualityCounts": {
+      "total": 22,
+      "historical": 22,
+      "verified": 0,
+      "gpsVerified": 8,
+      "gpsApproximate": 3,
+      "gpsUnknown": 11,
+      "vehiclesWithoutNewVerification": 22,
+      "schedulesWithoutNewVerification": 22,
+      "adoptedGateGroups": 19
+    }
+  },
+  "controlledClock": {
+    "fixture": "tests/reference-harness.html",
+    "usesActualJSON": true,
+    "dataIsNotMocked": true,
+    "labelledTestTime": true,
+    "mondayNoon": {
+      "walkingOpenCards": 17,
+      "mappedOpenPins": 11,
+      "closes": "20:00"
+    },
+    "sundayNoon": {
+      "closes": "18:00"
+    },
+    "sunday1800": {
+      "mappedPinsClosed": true,
+      "openUnlocatedRecords": 2,
+      "unlocatedExplanationVisible": true
+    }
+  },
+  "productionErrors": [],
+  "limits": [
+    "Adopted historical weekly baseline, not live gate telemetry",
+    "No automatic public-holiday or race calendar",
+    "Unlocated gates receive no invented points",
+    "GPS denial tested with controlled fixture, not the device sensor"
+  ]
+}

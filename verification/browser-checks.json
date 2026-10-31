@@ -1,0 +1,41 @@
+{
+  "reviewedAt": "2026-11-01",
+  "timezone": "Asia/Bangkok",
+  "surface": "Actual in-app browser, controlled through CUA",
+  "viewports": [{"width":1440,"height":940},{"width":390,"height":844}],
+  "checks": [
+    {"name":"Development and production startup","result":"PASS"},
+    {"name":"Map geometry, 11 markers, pan, zoom, fit and selection","result":"PASS"},
+    {"name":"Thai alias search for บัญชี","result":"PASS","observedMatches":1},
+    {"name":"Strict car permissions","result":"PASS","observedMatches":0},
+    {"name":"Mapped-only filter","result":"PASS","observedListAndMarkerCount":11},
+    {"name":"VERIFIED-information filter","result":"PASS","observedMatches":0},
+    {"name":"Alphabetical sorting","result":"PASS"},
+    {"name":"Selected gate coordinates and external destination href","result":"PASS"},
+    {"name":"Approximate-point directions warning","result":"PASS"},
+    {"name":"Unknown coordinates disable navigation","result":"PASS"},
+    {"name":"Data-quality metrics and drilldowns","result":"PASS","approximateRows":3,"unknownCoordinateRows":11,"allRows":22},
+    {"name":"Per-gate evidence and source links","result":"PASS"},
+    {"name":"GPS success, location marker, accuracy and nearest-candidate distance","result":"PASS","method":"Controlled browser fixture; public gate coordinate; no real device location"},
+    {"name":"GPS Stop clears watch and removes marker","result":"PASS","observedClearedWatches":1},
+    {"name":"GPS denied, timeout and unavailable","result":"PASS","method":"Controlled browser fixture; each error cleared its watch and displayed no location marker"},
+    {"name":"Desktop light/dark appearance","result":"PASS"},
+    {"name":"Mobile bottom sheet and dashboard layout","result":"PASS"},
+    {"name":"Mobile horizontal overflow after repair","result":"PASS","viewportWidth":390,"documentWidth":390},
+    {"name":"About dialog and Escape dismissal","result":"PASS"},
+    {"name":"Project-path static build and hash navigation","result":"PASS","path":"/cu-gate-navigator/","mapMarkers":11},
+    {"name":"Nested-path research download href","result":"PASS"}
+  ],
+  "limits": [
+    "No physical device GPS sensor test or actual user-location permission grant was performed.",
+    "No live university gate access or route was verified.",
+    "Google Maps URL destinations were inspected; route availability inside private campus roads is not confirmed.",
+    "GitHub Actions was prepared and reviewed, not executed on a remote repository."
+  ],
+  "repairs": [
+    "Contained MapLibre's deferred stylesheet so the canvas retains its height.",
+    "Replaced reversed mobile flex flow to prevent the map starting above the viewport.",
+    "Bound the favicon to Vite's configured base URL.",
+    "Contained visually hidden table-header labels to prevent horizontal document overflow."
+  ]
+}

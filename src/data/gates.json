@@ -1,0 +1,3751 @@
+{
+  "schemaVersion": 1,
+  "researchedAt": "2026-11-01",
+  "timezone": "Asia/Bangkok",
+  "scope": "Named entrance groups around the central Chulalongkorn campus and adjacent academic precincts. Not a complete field survey; hospital and school-internal gates excluded.",
+  "sources": [
+    {
+      "id": "cu-map-2023",
+      "title": "Undergraduate prospectus 2023 · campus map, pp. 97–98",
+      "url": "https://www.inter.chula.ac.th/wp-content/uploads/2023/03/Prospectus2023_Reduced.pdf",
+      "publishedAt": "2023-03",
+      "reviewedAt": "2026-11-01",
+      "scope": "Eight named gate groups A–H; geographical context only. Month from hosting path; exact publication day unknown.",
+      "titleTh": "แผนที่มหาวิทยาลัยในหนังสือแนะนำจุฬาฯ ปี 2566",
+      "scopeTh": "ระบุประตูหลัก A–H และบริบทที่ตั้ง ไม่ได้ยืนยันสิทธิ์การเข้าออก"
+    },
+    {
+      "id": "cu-2025-event",
+      "title": "Commencement traffic notice · 29 Sep–1 Oct 2025",
+      "url": "https://web-stage.ccc.chula.ac.th/news/262720/",
+      "publishedAt": "2025-09-28",
+      "reviewedAt": "2026-11-01",
+      "scope": "Past event restrictions; not a current operating schedule.",
+      "titleTh": "ประกาศจราจรรับปริญญา 29 ก.ย.–1 ต.ค. 2568",
+      "scopeTh": "ใช้เฉพาะกิจกรรมในอดีต ไม่ใช่ตารางปกติวันนี้"
+    },
+    {
+      "id": "cu-2023-event",
+      "title": "Commencement traffic notice · October 2023",
+      "url": "https://www.chula.ac.th/news/133566/",
+      "publishedAt": "2023-09-19",
+      "reviewedAt": "2026-11-01",
+      "scope": "Past event; distinguishes pedestrian access and the engineering reserve gate.",
+      "titleTh": "ประกาศจราจรรับปริญญา ตุลาคม 2566",
+      "scopeTh": "ข้อมูลเฉพาะงาน แยกทางเดินกับรถและประตูสำรอง"
+    },
+    {
+      "id": "cu-nov-2021",
+      "title": "Gate operations effective 1 November 2021",
+      "url": "https://www.chula.ac.th/en/news/51831/",
+      "publishedAt": "2021-10-29",
+      "reviewedAt": "2026-11-01",
+      "scope": "COVID-era operating policy; current validity not established.",
+      "titleTh": "การเปิดประตูตั้งแต่ 1 พฤศจิกายน 2564",
+      "scopeTh": "ข้อกำหนดช่วงผ่อนคลายโควิด ยังไม่ยืนยันว่าใช้ในปัจจุบัน"
+    },
+    {
+      "id": "cu-dec-2021",
+      "title": "Vehicle and pedestrian gates · December 2021",
+      "url": "https://www.chula.ac.th/en/news/55773/",
+      "publishedAt": "2021-12-02",
+      "reviewedAt": "2026-11-01",
+      "scope": "COVID-era changes, including Communication Arts; historical only.",
+      "titleTh": "การเปิดประตูรถและทางเดิน ธันวาคม 2564",
+      "scopeTh": "ประกาศเก่าระบุประตูนิเทศศาสตร์และประตูทางเดินเพิ่มเติม"
+    },
+    {
+      "id": "cu-polsci-2021",
+      "title": "Political Science vehicle gate update",
+      "url": "https://www.chula.ac.th/en/news/56919/",
+      "publishedAt": "2021-12-14",
+      "reviewedAt": "2026-11-01",
+      "scope": "Effective 7 December 2021; historical only.",
+      "titleTh": "การเปิดประตูรัฐศาสตร์ ธันวาคม 2564",
+      "scopeTh": "เริ่มใช้ 7 ธันวาคม 2564 ยังไม่ยืนยันกฎปัจจุบัน"
+    },
+    {
+      "id": "cu-sasin-2018",
+      "title": "Sasin gate operating-time change",
+      "url": "https://web-stage.ccc.chula.ac.th/news/12922/",
+      "publishedAt": "2018-09-12",
+      "reviewedAt": "2026-11-01",
+      "scope": "Old car/pedestrian schedules; later COVID and event notices differ.",
+      "titleTh": "ปรับเวลาเปิดปิดประตูศศินทร์ ปี 2561",
+      "scopeTh": "แยกวันสำหรับรถยนต์และคนเดิน ประกาศช่วงหลังมีข้อกำหนดต่างกัน"
+    },
+    {
+      "id": "cu-exits-2021",
+      "title": "Temporary stadium closure and alternative exits",
+      "url": "https://www.chula.ac.th/news/54078/",
+      "publishedAt": "2021-11-19",
+      "reviewedAt": "2026-11-01",
+      "scope": "Construction-era alternative vehicle and pedestrian exits; does not establish permanent operation.",
+      "titleTh": "ปิดสนามกีฬาชั่วคราวและเพิ่มทางออก ปี 2564",
+      "scopeTh": "ใช้ระหว่างก่อสร้าง ไม่ยืนยันว่าเป็นข้อกำหนดถาวร"
+    },
+    {
+      "id": "cu-cham9-2024",
+      "title": "Chamchuri 9 entrances · temporary closure",
+      "url": "https://www.chula.ac.th/news/149022/",
+      "publishedAt": "2024-02-08",
+      "reviewedAt": "2026-11-01",
+      "scope": "Identifies Market-side entrance and U-Center-side exit; closure was 7–8 February 2024 only.",
+      "titleTh": "ประตูจามจุรี 9 ปิดชั่วคราว กุมภาพันธ์ 2567",
+      "scopeTh": "ระบุทางเข้าฝั่งตลาดและทางออกฝั่งยูเซ็นเตอร์ การปิดมีผลเฉพาะ 7–8 ก.พ. 2567"
+    },
+    {
+      "id": "cu-apr-2020",
+      "title": "Campus gate restrictions · April 2020",
+      "url": "https://www.chula.ac.th/en/news/29031/",
+      "publishedAt": "2020-04-02",
+      "reviewedAt": "2026-11-01",
+      "scope": "Pandemic restrictions; identifies health-science and dormitory gates, without exact points.",
+      "titleTh": "มาตรการประตูมหาวิทยาลัย เมษายน 2563",
+      "scopeTh": "ข้อมูลคัดกรองช่วงโควิด ระบุประตูหอพักและกลุ่มวิทยาศาสตร์สุขภาพ"
+    },
+    {
+      "id": "cu-feb-2021",
+      "title": "Temporary campus closure · February 2021",
+      "url": "https://www.chula.ac.th/news/43419/",
+      "publishedAt": "2021-02-12",
+      "reviewedAt": "2026-11-01",
+      "scope": "Historical Veterinary and Pharmacy gate references.",
+      "titleTh": "มาตรการปิดมหาวิทยาลัย กุมภาพันธ์ 2564",
+      "scopeTh": "ข้อมูลเก่าของประตูสัตวแพทยศาสตร์และเภสัชศาสตร์"
+    },
+    {
+      "id": "cu-law-2022",
+      "title": "Graduation access notice · academic year 2020",
+      "url": "https://web-stage.ccc.chula.ac.th/en/news/72235/",
+      "publishedAt": "2022",
+      "reviewedAt": "2026-11-01",
+      "scope": "Includes a Law pedestrian gate. Exact publication day unavailable; past graduation activities only.",
+      "titleTh": "ประกาศทางเดินช่วงกิจกรรมรับปริญญา ปี 2565",
+      "scopeTh": "กล่าวถึงประตูทางเดินนิติศาสตร์ ไม่ยืนยันตารางประจำ"
+    },
+    {
+      "id": "osm-campus",
+      "title": "OpenStreetMap · bounded campus extract",
+      "url": "https://api.openstreetmap.org/api/0.6/map?bbox=100.520,13.729,100.535,13.744",
+      "publishedAt": null,
+      "reviewedAt": "2026-11-01",
+      "scope": "Downloaded 1 November 2026. ODbL data; object edit dates are not site inspections or proof of public access.",
+      "titleTh": "ข้อมูลแผนที่ OpenStreetMap บริเวณจุฬาฯ",
+      "scopeTh": "ดึงข้อมูล 1 พ.ย. 2569 จุดประตูและวันแก้ไขแผนที่ไม่ใช่การยืนยันว่าเปิดอยู่"
+    },
+    {
+      "id": "cu-nov-2021-th",
+      "title": "Thai gate operations notice effective 1 November 2021",
+      "titleTh": "ประกาศภาษาไทย: เปิดประตูตั้งแต่ 1 พฤศจิกายน 2564",
+      "url": "https://www.chula.ac.th/news/51817/",
+      "publishedAt": "2021-10-29",
+      "reviewedAt": "2026-11-01",
+      "scope": "COVID-era policy; Dhamma vehicle entry and conditional exit are distinct. Current applicability not established.",
+      "scopeTh": "ประกาศช่วงโควิด ระบุธรรมสถานเป็นทางเข้ารถ และทางออกสัมพันธ์กับประตูสนามกีฬา ไม่ใช้ยืนยันปัจจุบัน"
+    },
+    {
+      "id": "cu-security",
+      "title": "Campus Security & Safety",
+      "titleTh": "การรักษาความปลอดภัยในมหาวิทยาลัย",
+      "url": "https://www.chula.ac.th/en/life-at-cu/campus-safety/",
+      "publishedAt": null,
+      "reviewedAt": "2026-11-01",
+      "scope": "University security and traffic center, 24-hour contact 02-218-0000. No gate-by-gate schedule.",
+      "scopeTh": "ข้อมูลศูนย์รักษาความปลอดภัยและจัดการจราจร ติดต่อ 02-218-0000 ตลอด 24 ชั่วโมง ไม่ใช่ตารางเปิดทุกประตู"
+    },
+    {
+      "id": "cu-visitors-2025",
+      "title": "Official visitor guidance 2025",
+      "titleTh": "แนวทางผู้เยี่ยมชมมหาวิทยาลัย ปี 2568",
+      "url": "https://www.inter.chula.ac.th/wp-content/uploads/2025/01/Visit-Request-Form-2025.pdf",
+      "publishedAt": "2025-01",
+      "reviewedAt": "2026-11-01",
+      "scope": "General public may visit campus and museums. Non-Chula visitors cannot enter buildings. Does not confirm individual gate permission.",
+      "scopeTh": "บุคคลทั่วไปเยี่ยมชมพื้นที่มหาวิทยาลัยและพิพิธภัณฑ์ได้ แต่ไม่อนุญาตเข้าภายในอาคาร ไม่ได้ยืนยันสิทธิ์ของทุกประตู"
+    },
+    {
+      "id": "cu-jun-2020",
+      "title": "Gate and canteen opening from 4 June 2020",
+      "titleTh": "เวลาเปิดประตูตั้งแต่ 4 มิถุนายน 2563",
+      "url": "https://www.chula.ac.th/news/31457/",
+      "publishedAt": "2020-06-03",
+      "reviewedAt": "2026-11-01",
+      "scope": "Historical reopening schedule adopted as a weekly baseline; not a new verification.",
+      "scopeTh": "ตารางเก่าที่นำมาใช้เป็นฐานคำนวณตามคำขอ ไม่ใช่การตรวจยืนยันใหม่"
+    },
+    {
+      "id": "cu-weekend-2008",
+      "title": "CU weekend gate opening table, revised 12 November 2008",
+      "titleTh": "ตารางเปิดประตูวันเสาร์–อาทิตย์ ปรับปรุง 12 พฤศจิกายน 2551",
+      "url": "https://www.arts.chula.ac.th/~tran/downloads/cu_traffic_03.pdf",
+      "publishedAt": "2008-11-12",
+      "reviewedAt": "2026-11-01",
+      "scope": "Weekend-only historical table; does not establish weekday hours.",
+      "scopeTh": "ตารางเก่าเฉพาะเสาร์–อาทิตย์ ไม่ใช้เดาเวลาวันธรรมดา"
+    }
+  ],
+  "gates": [
+    {
+      "id": "phayathai-1",
+      "name": "ประตูพญาไท 1",
+      "nameEn": "Phayathai Road Gate 1",
+      "nameEnType": "official-map",
+      "aliases": [
+        "ประตูหน้ามหาวิทยาลัย",
+        "ประตูหอประชุม",
+        "Main gate"
+      ],
+      "nearby": "The Statues of King Rama V and King Rama VI · CU Auditorium",
+      "category": "vehicle",
+      "mapLetter": "A",
+      "latitude": 13.7387455,
+      "longitude": 100.5298425,
+      "coordinateConfidence": "HIGH",
+      "coordinateVerificationStatus": "VERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/359788705",
+      "coordinateLastVerified": "2026-11-01",
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": "2026-10-15T07:07:50Z",
+      "coordinateVerificationNotes": "Physical OSM barrier node cross-matched to gate A on the official 2023 map. Representative lane where entry/exit barriers are paired. No field GPS survey.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "MEDIUM",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-2025-event",
+        "cu-2023-event",
+        "cu-map-2023",
+        "osm-campus",
+        "cu-weekend-2008",
+        "cu-dec-2021"
+      ],
+      "historicalEvidence": [
+        {
+          "source": "cu-2025-event",
+          "note": "Royal-procession restrictions applied during the 2025 ceremony only."
+        }
+      ],
+      "notes": "Identified in a past official source. Present-day access, vehicle permissions and operating times have not been verified.",
+      "shortNameTh": "ประตูหน้าจุฬาฯ",
+      "nearbyTh": "พระบรมรูปสองรัชกาล · หอประชุมจุฬาฯ",
+      "notesTh": "ประตูหลักฝั่งถนนพญาไท ปรากฏเป็นจุด A ในแผนที่มหาวิทยาลัย ข้อมูลปิดเพื่อเส้นทางเสด็จฯ เป็นข้อกำหนดเฉพาะวันรับปริญญา ไม่ใช่ตารางปกติ",
+      "coordinateVerificationNotesTh": "จับคู่จุดประตูจริงบน OSM กับจุด A ในแผนที่ทางการ ใช้จุดของช่องทางหนึ่งเมื่อประตูมีหลายช่อง ไม่ใช่การสำรวจ GPS หน้างาน",
+      "referenceAccess": [],
+      "operatingRules": [
+        {
+          "id": "phayathai-1-1",
+          "source": "cu-weekend-2008",
+          "modes": [
+            "car",
+            "motorcycle"
+          ],
+          "coveredDays": [
+            0,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "06:00",
+                "close": "19:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "เอกสารระบุประตูใหญ่ด้านสระน้ำ เฉพาะเสาร์–อาทิตย์",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "phayathai-1-2",
+          "source": "cu-dec-2021",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              },
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        }
+      ]
+    },
+    {
+      "id": "phayathai-2",
+      "name": "ประตูพญาไท 2",
+      "nameEn": "Phayathai Road Gate 2",
+      "nameEnType": "official-map",
+      "aliases": [
+        "ประตูสำนักงานมหาวิทยาลัย",
+        "University offices"
+      ],
+      "nearby": "Offices of the University · Chamchuri buildings",
+      "category": "vehicle",
+      "mapLetter": "B",
+      "latitude": 13.7387095,
+      "longitude": 100.5294859,
+      "coordinateConfidence": "HIGH",
+      "coordinateVerificationStatus": "VERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/1703081344",
+      "coordinateLastVerified": "2026-11-01",
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": "2026-02-24T09:02:27Z",
+      "coordinateVerificationNotes": "Physical OSM barrier node cross-matched to gate B on the official 2023 map. Representative lane where entry/exit barriers are paired. No field GPS survey.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "MEDIUM",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-2025-event",
+        "cu-map-2023",
+        "osm-campus",
+        "cu-weekend-2008",
+        "cu-dec-2021"
+      ],
+      "historicalEvidence": [],
+      "notes": "Identified in a past official source. Present-day access, vehicle permissions and operating times have not been verified.",
+      "shortNameTh": "ประตูสำนักงานมหาวิทยาลัย",
+      "nearbyTh": "สำนักงานมหาวิทยาลัย · กลุ่มอาคารจามจุรี",
+      "notesTh": "ประตูพญาไท 2 ฝั่งสำนักงานมหาวิทยาลัย แผนที่ทางการระบุจุด B มีข้อกำหนดเวลาเฉพาะงานในประกาศเก่า แต่ยังไม่พบตารางปกติที่ยืนยันปัจจุบัน",
+      "coordinateVerificationNotesTh": "จับคู่จุดประตูจริงบน OSM กับจุด B ในแผนที่ทางการ ใช้จุดของช่องทางหนึ่งเมื่อประตูมีหลายช่อง ไม่ใช่การสำรวจ GPS หน้างาน",
+      "referenceAccess": [],
+      "operatingRules": [
+        {
+          "id": "phayathai-2-1",
+          "source": "cu-weekend-2008",
+          "modes": [
+            "car",
+            "motorcycle"
+          ],
+          "coveredDays": [
+            0,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "วันเสาร์เปิด 06:00–18:00 วันอาทิตย์ปิด ไม่มีข้อมูลวันธรรมดาในเอกสารนี้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "phayathai-2-2",
+          "source": "cu-dec-2021",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              },
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        }
+      ]
+    },
+    {
+      "id": "phayathai-3",
+      "name": "ประตูพญาไท 3",
+      "nameEn": "Phayathai Road Gate 3",
+      "nameEnType": "official-map",
+      "aliases": [
+        "ประตูบัญชี",
+        "ประตูคณะพาณิชยศาสตร์และการบัญชี",
+        "Commerce"
+      ],
+      "nearby": "Faculty of Commerce and Accountancy",
+      "category": "vehicle",
+      "mapLetter": "C",
+      "latitude": 13.7349556,
+      "longitude": 100.5292581,
+      "coordinateConfidence": "HIGH",
+      "coordinateVerificationStatus": "VERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/359788610",
+      "coordinateLastVerified": "2026-11-01",
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": "2026-04-24T06:27:07Z",
+      "coordinateVerificationNotes": "Physical OSM barrier node cross-matched to gate C on the official 2023 map. Representative lane where entry/exit barriers are paired. No field GPS survey.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "MEDIUM",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-nov-2021",
+        "cu-2025-event",
+        "cu-map-2023",
+        "osm-campus",
+        "cu-nov-2021-th",
+        "cu-apr-2020",
+        "cu-dec-2021"
+      ],
+      "historicalEvidence": [
+        {
+          "source": "cu-nov-2021",
+          "note": "The old 24-hour policy required staff affiliation or prior visitor permission; it was never unrestricted."
+        }
+      ],
+      "notes": "Identified in a past official source. Present-day access, vehicle permissions and operating times have not been verified.",
+      "shortNameTh": "ประตูบัญชี",
+      "nearbyTh": "คณะพาณิชยศาสตร์และการบัญชี · ถนนพญาไท",
+      "notesTh": "ประตูพญาไท 3 ข้อมูลปี 2564 ระบุยานพาหนะเข้าออกตลอด 24 ชั่วโมงโดยต้องเป็นบุคลากรหรือได้รับอนุญาต การเปิด 24 ชั่วโมงไม่ได้หมายถึงบุคคลทั่วไปเข้าได้ทุกกรณี",
+      "coordinateVerificationNotesTh": "จับคู่จุดประตูจริงบน OSM กับจุด C ในแผนที่ทางการ ใช้จุดของช่องทางหนึ่งเมื่อประตูมีหลายช่อง ไม่ใช่การสำรวจ GPS หน้างาน",
+      "referenceAccess": [
+        {
+          "appliesTo": "vehicle",
+          "source": "cu-nov-2021-th",
+          "verificationStatus": "HISTORICAL",
+          "context": "temporary-policy",
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "hoursTh": "ทุกวัน 24 ชั่วโมง",
+          "hoursEn": "Daily, 24 hours",
+          "restrictionTh": "เฉพาะรถบุคลากรหรือผู้ได้รับอนุญาตให้มาติดต่อหน่วยงาน ไม่แยกสิทธิ์รถยนต์กับมอเตอร์ไซค์",
+          "restrictionEn": "Staff or pre-authorized visitors; individual vehicle modes are not distinguished.",
+          "requiresAuthorization": true
+        }
+      ],
+      "operatingRules": [
+        {
+          "id": "phayathai-3-1",
+          "source": "cu-nov-2021-th",
+          "modes": [
+            "car",
+            "motorcycle"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "open": "00:00",
+                "close": "24:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": "บุคลากรหรือผู้ได้รับอนุญาต",
+          "conditionEn": "Staff or authorized visitors",
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "phayathai-3-2",
+          "source": "cu-apr-2020",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "open": "00:00",
+                "close": "24:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": "ตรวจบัตร / ผู้ได้รับอนุญาต",
+          "conditionEn": "ID check / authorized access",
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "phayathai-3-3",
+          "source": "cu-dec-2021",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              },
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        }
+      ]
+    },
+    {
+      "id": "henri-dunant-1",
+      "name": "ประตูอังรีดูนังต์ 1",
+      "nameEn": "Henri Dunant Road Gate 1",
+      "nameEnType": "official-map",
+      "aliases": [
+        "ประตูคณะอักษรศาสตร์",
+        "ประตูสนามกีฬา 1",
+        "Arts",
+        "Car park 2"
+      ],
+      "nearby": "Faculty of Arts · Maha Chakri Sirindhorn Building",
+      "category": "vehicle",
+      "mapLetter": "D",
+      "latitude": 13.7379945,
+      "longitude": 100.5344199,
+      "coordinateConfidence": "HIGH",
+      "coordinateVerificationStatus": "VERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/359789581",
+      "coordinateLastVerified": "2026-11-01",
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": "2013-01-11T21:32:08Z",
+      "coordinateVerificationNotes": "Physical OSM barrier node cross-matched to gate D on the official 2023 map. Representative lane where entry/exit barriers are paired. No field GPS survey.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "MEDIUM",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-2025-event",
+        "cu-exits-2021",
+        "cu-map-2023",
+        "osm-campus",
+        "cu-weekend-2008",
+        "cu-dec-2021"
+      ],
+      "historicalEvidence": [
+        {
+          "source": "cu-exits-2021",
+          "note": "Pedestrian opening was extended in 2021; that does not establish vehicle access today."
+        }
+      ],
+      "notes": "Identified in a past official source. Present-day access, vehicle permissions and operating times have not been verified.",
+      "shortNameTh": "ประตูอักษรฯ",
+      "nearbyTh": "คณะอักษรศาสตร์ · อาคารมหาจักรีสิรินธร · อาคารจอดรถ 2",
+      "notesTh": "ประตูอังรีดูนังต์ 1 หรือประตูอักษรฯ มีทั้งการกล่าวถึงทางเดินเท้าและทางเข้าอาคารจอดรถ ข้อกำหนดเฉพาะงานรับปริญญาไม่นำมาสรุปเป็นกฎปกติ",
+      "coordinateVerificationNotesTh": "จับคู่จุดประตูจริงบน OSM กับจุด D ในแผนที่ทางการ ใช้จุดของช่องทางหนึ่งเมื่อประตูมีหลายช่อง ไม่ใช่การสำรวจ GPS หน้างาน",
+      "referenceAccess": [
+        {
+          "appliesTo": "pedestrian",
+          "source": "cu-exits-2021",
+          "verificationStatus": "HISTORICAL",
+          "context": "temporary-policy",
+          "entryAllowed": null,
+          "exitAllowed": null,
+          "hoursTh": "จ.–ศ. 06:00–18:00",
+          "hoursEn": "Mon–Fri 06:00–18:00",
+          "restrictionTh": "ประกาศชั่วคราวช่วงโควิด ปิดเสาร์ อาทิตย์ และวันนักขัตฤกษ์",
+          "restrictionEn": "Temporary COVID-era opening; closed weekends/public holidays.",
+          "requiresAuthorization": null
+        }
+      ],
+      "operatingRules": [
+        {
+          "id": "henri-dunant-1-1",
+          "source": "cu-exits-2021",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "closed",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "henri-dunant-1-2",
+          "source": "cu-weekend-2008",
+          "modes": [
+            "car",
+            "motorcycle"
+          ],
+          "coveredDays": [
+            0,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "06:00",
+                "close": "19:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": "วันแข่งม้า: ปิด 11:00",
+          "conditionEn": "Race days: closes 11:00",
+          "noteTh": "วันแข่งม้าเปิดเฉพาะ 06:00–11:00 ไม่มีปฏิทินแข่งม้าอัตโนมัติ",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "henri-dunant-1-3",
+          "source": "cu-dec-2021",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              },
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        }
+      ]
+    },
+    {
+      "id": "henri-dunant-2",
+      "name": "ประตูอังรีดูนังต์ 2",
+      "nameEn": "Henri Dunant Road Gate 2",
+      "nameEnType": "official-map",
+      "aliases": [
+        "ประตูรัฐศาสตร์",
+        "ประตูสนามกีฬา 2",
+        "Political Science"
+      ],
+      "nearby": "Faculty of Political Science · Car park 3",
+      "category": "vehicle",
+      "mapLetter": "E",
+      "latitude": 13.7342472,
+      "longitude": 100.5339512,
+      "coordinateConfidence": "HIGH",
+      "coordinateVerificationStatus": "VERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/359788509",
+      "coordinateLastVerified": "2026-11-01",
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": "2013-01-11T21:32:08Z",
+      "coordinateVerificationNotes": "Physical OSM barrier node cross-matched to gate E on the official 2023 map. Representative lane where entry/exit barriers are paired. No field GPS survey.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "MEDIUM",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-polsci-2021",
+        "cu-2025-event",
+        "cu-map-2023",
+        "osm-campus",
+        "cu-nov-2021-th",
+        "cu-dec-2021"
+      ],
+      "historicalEvidence": [],
+      "notes": "Identified in a past official source. Present-day access, vehicle permissions and operating times have not been verified.",
+      "shortNameTh": "ประตูรัฐศาสตร์",
+      "nearbyTh": "คณะรัฐศาสตร์ · อาคารจอดรถ 3 · ถนนอังรีดูนังต์",
+      "notesTh": "ประตูอังรีดูนังต์ 2 แผนที่ทางการระบุจุด E ประกาศเก่าแยกการเดินเท้าและยานพาหนะ การเข้าอาคารจอดรถไม่เท่ากับได้รับสิทธิ์ขับผ่านภายในมหาวิทยาลัย",
+      "coordinateVerificationNotesTh": "จับคู่จุดประตูจริงบน OSM กับจุด E ในแผนที่ทางการ ใช้จุดของช่องทางหนึ่งเมื่อประตูมีหลายช่อง ไม่ใช่การสำรวจ GPS หน้างาน",
+      "referenceAccess": [
+        {
+          "appliesTo": "vehicle",
+          "source": "cu-polsci-2021",
+          "verificationStatus": "HISTORICAL",
+          "context": "temporary-policy",
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "hoursTh": "จ.–ศ. 06:00–20:00",
+          "hoursEn": "Mon–Fri 06:00–20:00",
+          "restrictionTh": "ปิดเสาร์ อาทิตย์ และวันนักขัตฤกษ์ ไม่แยกประเภทรถหรือสิทธิ์บุคคลทั่วไป",
+          "restrictionEn": "Closed weekends/public holidays. Vehicle modes and visitor authorization not specified.",
+          "requiresAuthorization": null
+        },
+        {
+          "appliesTo": "pedestrian",
+          "source": "cu-nov-2021-th",
+          "verificationStatus": "HISTORICAL",
+          "context": "temporary-policy",
+          "entryAllowed": null,
+          "exitAllowed": null,
+          "hoursTh": "จ.–ศ. 06:00–20:00",
+          "hoursEn": "Mon–Fri 06:00–20:00",
+          "restrictionTh": "ข้อมูลคนเดินจากประกาศเก่า ต้องตรวจสอบเวลาและวันหยุดอีกครั้ง",
+          "restrictionEn": "Old pedestrian-gate information; recheck current hours and holiday rules.",
+          "requiresAuthorization": null
+        }
+      ],
+      "operatingRules": [
+        {
+          "id": "henri-dunant-2-1",
+          "source": "cu-polsci-2021",
+          "modes": [
+            "car",
+            "motorcycle"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "closed",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "henri-dunant-2-2",
+          "source": "cu-nov-2021-th",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "closed",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "henri-dunant-2-3",
+          "source": "cu-dec-2021",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              },
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        }
+      ]
+    },
+    {
+      "id": "sasin",
+      "name": "ประตูศศินทร์",
+      "nameEn": "Chula Soi 12 Gate 1 (Sasin)",
+      "nameEnType": "official-map",
+      "aliases": [
+        "ประตูจุฬาฯ ซอย 12",
+        "Sasin"
+      ],
+      "nearby": "Sasin · Chamchuri 10 · Chula Soi 12",
+      "category": "vehicle",
+      "mapLetter": "F",
+      "latitude": 13.7430643,
+      "longitude": 100.5279029,
+      "coordinateConfidence": "HIGH",
+      "coordinateVerificationStatus": "VERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/1848751281",
+      "coordinateLastVerified": "2026-11-01",
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": "2014-12-27T19:54:47Z",
+      "coordinateVerificationNotes": "Physical OSM barrier node cross-matched to gate F on the official 2023 map. Representative lane where entry/exit barriers are paired. No field GPS survey.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "MEDIUM",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-sasin-2018",
+        "cu-nov-2021",
+        "cu-2025-event",
+        "cu-map-2023",
+        "osm-campus",
+        "cu-nov-2021-th",
+        "cu-weekend-2008",
+        "cu-dec-2021"
+      ],
+      "historicalEvidence": [
+        {
+          "source": "cu-sasin-2018",
+          "note": "2018 policy distinguished car days from pedestrian days. Later 2021 and event rules differ; none is treated as current."
+        }
+      ],
+      "notes": "Identified in a past official source. Present-day access, vehicle permissions and operating times have not been verified.",
+      "shortNameTh": "ประตูศศินทร์",
+      "nearbyTh": "ศศินทร์ · อาคารจามจุรี 10 · ซอยจุฬาฯ 12",
+      "notesTh": "ประตูฝั่งซอยจุฬาฯ 12 แผนที่ทางการระบุจุด F ประกาศปี 2561 แยกเวลารถยนต์กับคนเดิน ส่วนประกาศช่วงโควิดปี 2564 ใช้เวลาอีกแบบ จึงเก็บทั้งสองแหล่งโดยไม่ถือว่าเป็นเวลาปัจจุบัน",
+      "coordinateVerificationNotesTh": "จับคู่จุดประตูจริงบน OSM กับจุด F ในแผนที่ทางการ ใช้จุดของช่องทางหนึ่งเมื่อประตูมีหลายช่อง ไม่ใช่การสำรวจ GPS หน้างาน",
+      "referenceAccess": [
+        {
+          "appliesTo": "pedestrian",
+          "source": "cu-nov-2021-th",
+          "verificationStatus": "HISTORICAL",
+          "context": "temporary-policy",
+          "entryAllowed": null,
+          "exitAllowed": null,
+          "hoursTh": "จ.–ศ. 06:00–20:00",
+          "hoursEn": "Mon–Fri 06:00–20:00",
+          "restrictionTh": "ประกาศช่วงโควิด ปิดเสาร์ อาทิตย์ และวันนักขัตฤกษ์ ต่างจากประกาศปี 2561",
+          "restrictionEn": "COVID-era weekday-only policy differs from the 2018 notice.",
+          "requiresAuthorization": null
+        },
+        {
+          "appliesTo": "car",
+          "source": "cu-sasin-2018",
+          "verificationStatus": "HISTORICAL",
+          "context": "general-policy",
+          "entryAllowed": null,
+          "exitAllowed": null,
+          "hoursTh": "จ.–ส. 05:00–24:00",
+          "hoursEn": "Mon–Sat 05:00–24:00",
+          "restrictionTh": "ไม่เปิดวันอาทิตย์และวันนักขัตฤกษ์ ไม่ได้ยืนยันสิทธิ์มอเตอร์ไซค์",
+          "restrictionEn": "Closed Sundays/public holidays. Does not confirm motorcycle access.",
+          "requiresAuthorization": null
+        }
+      ],
+      "operatingRules": [
+        {
+          "id": "sasin-1",
+          "source": "cu-nov-2021-th",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "closed",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "sasin-2",
+          "source": "cu-sasin-2018",
+          "modes": [
+            "car"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "closed",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "open": "05:00",
+                "close": "24:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "sasin-3",
+          "source": "cu-weekend-2008",
+          "modes": [
+            "car",
+            "motorcycle"
+          ],
+          "coveredDays": [
+            0,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "00:00",
+                "close": "24:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ตารางรถทุกประเภทเฉพาะเสาร์–อาทิตย์ ใช้ประกาศใหม่กว่าก่อนถ้ามีสำหรับวิธีเดินทางนั้น",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "sasin-4",
+          "source": "cu-dec-2021",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              },
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        }
+      ]
+    },
+    {
+      "id": "dhamma",
+      "name": "ประตูธรรมสถาน",
+      "nameEn": "Chula Soi 9 Gate 1 (Dhamma Center)",
+      "nameEnType": "official-map",
+      "aliases": [
+        "Dharma Center",
+        "ธรรมสถาน",
+        "ประตูจุฬาฯ ซอยเก้า 1"
+      ],
+      "nearby": "Dhamma Center · Chula Soi 9",
+      "category": "vehicle",
+      "mapLetter": "G",
+      "latitude": 13.7397359,
+      "longitude": 100.5254363,
+      "coordinateConfidence": "HIGH",
+      "coordinateVerificationStatus": "VERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/2106361166",
+      "coordinateLastVerified": "2026-11-01",
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": "2014-12-27T19:54:47Z",
+      "coordinateVerificationNotes": "Physical OSM barrier node cross-matched to gate G on the official 2023 map. Representative lane where entry/exit barriers are paired. No field GPS survey.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "MEDIUM",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-nov-2021",
+        "cu-2025-event",
+        "cu-map-2023",
+        "osm-campus",
+        "cu-nov-2021-th",
+        "cu-apr-2020",
+        "cu-dec-2021"
+      ],
+      "historicalEvidence": [],
+      "notes": "Older sources inconsistently call this Soi 42 or Soi 9. The 2023 official map and OSM identify the Dhamma Center gate on Soi 9. Historical 24-hour operation does not establish unrestricted access.",
+      "shortNameTh": "ประตูธรรมสถาน",
+      "nearbyTh": "ธรรมสถาน · ซอยจุฬาฯ 9",
+      "notesTh": "แผนที่ปี 2566 และ OSM ระบุประตูธรรมสถานที่ซอยจุฬาฯ 9 บางประกาศเก่าเรียกฝั่งซอย 42 ข้อกำหนดเดิมระบุรถที่ได้รับอนุญาต และการออกบางช่วงสัมพันธ์กับประตูสนามกีฬา",
+      "coordinateVerificationNotesTh": "จับคู่จุดประตูจริงบน OSM กับจุด G ในแผนที่ทางการ ใช้จุดของช่องทางหนึ่งเมื่อประตูมีหลายช่อง ไม่ใช่การสำรวจ GPS หน้างาน",
+      "referenceAccess": [
+        {
+          "appliesTo": "vehicle",
+          "source": "cu-nov-2021-th",
+          "verificationStatus": "HISTORICAL",
+          "context": "temporary-policy",
+          "entryAllowed": true,
+          "exitAllowed": null,
+          "hoursTh": "ทางเข้า: ทุกวัน 24 ชั่วโมง",
+          "hoursEn": "Entry: daily, 24 hours",
+          "restrictionTh": "ต้องเป็นบุคลากรหรือได้รับอนุญาต ทางออกขึ้นกับการปิดประตูสนามกีฬา ไม่แยกประเภทรถ",
+          "restrictionEn": "Staff or prior permission required. Exit depends on stadium-gate closure; vehicle modes unspecified.",
+          "requiresAuthorization": true
+        }
+      ],
+      "operatingRules": [
+        {
+          "id": "dhamma-1",
+          "source": "cu-nov-2021-th",
+          "modes": [
+            "car",
+            "motorcycle"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "open": "00:00",
+                "close": "24:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": "บุคลากรหรือผู้ได้รับอนุญาต · รถออกเมื่อประตูสนามกีฬาปิด",
+          "conditionEn": "Staff or authorized visitors · vehicle exit when the Stadium gate is closed",
+          "noteTh": "ทางออกตามประกาศเดิมสัมพันธ์กับการปิดประตูสนามกีฬา ดูแหล่งอ้างอิงประกอบ",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical.",
+          "exitWhenClosedGate": "stadium"
+        },
+        {
+          "id": "dhamma-2",
+          "source": "cu-apr-2020",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "open": "00:00",
+                "close": "24:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": "ตรวจบัตร / ผู้ได้รับอนุญาต",
+          "conditionEn": "ID check / authorized access",
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "dhamma-3",
+          "source": "cu-dec-2021",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              },
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        }
+      ]
+    },
+    {
+      "id": "stadium",
+      "name": "ประตูสนามกีฬาจุฬาฯ",
+      "nameEn": "Chula Soi 9 Gate 2 (Chulalongkorn Stadium)",
+      "nameEnType": "official-map",
+      "aliases": [
+        "ประตูจุฬาฯ ซอยเก้า 2",
+        "Stadium"
+      ],
+      "nearby": "CU Stadium · Sam Yan Market · Chula Soi 9",
+      "category": "vehicle",
+      "mapLetter": "H",
+      "latitude": 13.7367067,
+      "longitude": 100.5249037,
+      "coordinateConfidence": "HIGH",
+      "coordinateVerificationStatus": "VERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/2106361169",
+      "coordinateLastVerified": "2026-11-01",
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": "2020-09-09T08:20:54Z",
+      "coordinateVerificationNotes": "Physical OSM barrier node cross-matched to gate H on the official 2023 map. Representative lane where entry/exit barriers are paired. No field GPS survey.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "MEDIUM",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-nov-2021",
+        "cu-exits-2021",
+        "cu-2025-event",
+        "cu-map-2023",
+        "osm-campus",
+        "cu-nov-2021-th",
+        "cu-dec-2021"
+      ],
+      "historicalEvidence": [
+        {
+          "source": "cu-exits-2021",
+          "note": "Construction closure and alternative exits were temporary. A separately described pedestrian opening could not be resolved to a distinct point and is retained with this group."
+        }
+      ],
+      "notes": "Identified in a past official source. Present-day access, vehicle permissions and operating times have not been verified.",
+      "shortNameTh": "ประตูสนามกีฬาจุฬาฯ",
+      "nearbyTh": "สนามกีฬาจุฬาฯ · ตลาดสามย่าน · ซอยจุฬาฯ 9",
+      "notesTh": "แผนที่ทางการระบุจุด H ประกาศเก่ามีทั้งทางออกยานพาหนะ ทางเดินเท้า และการปิดก่อสร้างชั่วคราว ไม่สรุปว่าประตูรถเข้าได้จากข้อมูลทางออก",
+      "coordinateVerificationNotesTh": "จับคู่จุดประตูจริงบน OSM กับจุด H ในแผนที่ทางการ ใช้จุดของช่องทางหนึ่งเมื่อประตูมีหลายช่อง ไม่ใช่การสำรวจ GPS หน้างาน",
+      "referenceAccess": [
+        {
+          "appliesTo": "vehicle",
+          "source": "cu-nov-2021-th",
+          "verificationStatus": "HISTORICAL",
+          "context": "temporary-policy",
+          "entryAllowed": false,
+          "exitAllowed": true,
+          "hoursTh": "จ.–ศ. 06:00–20:00 · ส.–อา. 06:00–18:00",
+          "hoursEn": "Mon–Fri 06:00–20:00 · weekends 06:00–18:00",
+          "restrictionTh": "ประกาศเดิมระบุทางออกรถ ต่อมามีการปิดก่อสร้างชั่วคราว ไม่ใช้ยืนยันปัจจุบัน",
+          "restrictionEn": "Old vehicle-exit rule, followed by a temporary construction closure. Not a current schedule.",
+          "requiresAuthorization": null
+        }
+      ],
+      "operatingRules": [
+        {
+          "id": "stadium-1",
+          "source": "cu-nov-2021-th",
+          "modes": [
+            "car",
+            "motorcycle"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              },
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": false,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "stadium-2",
+          "source": "cu-exits-2021",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              },
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ตารางคนเดินในกลุ่มประตูสนามกีฬา จุดทางเดินอาจแยกจากช่องรถในหน้างาน",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "stadium-3",
+          "source": "cu-dec-2021",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              },
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        }
+      ]
+    },
+    {
+      "id": "science",
+      "name": "ประตูคณะวิทยาศาสตร์",
+      "nameEn": "Faculty of Science gate",
+      "nameEnType": "editorial-translation",
+      "aliases": [
+        "Science",
+        "ชีววิทยา"
+      ],
+      "nearby": "Faculty of Science · Phayathai Road",
+      "category": "vehicle",
+      "mapLetter": null,
+      "latitude": 13.7378398,
+      "longitude": 100.529713,
+      "coordinateConfidence": "MEDIUM",
+      "coordinateVerificationStatus": "UNVERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/359788690",
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": "2022-10-03T12:39:23Z",
+      "coordinateVerificationNotes": "Mapped physical barrier; matching this node to the announced gate is approximate and not independently confirmed.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-nov-2021",
+        "cu-2023-event",
+        "cu-2025-event",
+        "osm-campus",
+        "cu-nov-2021-th",
+        "cu-dec-2021"
+      ],
+      "historicalEvidence": [],
+      "notes": "OSM barrier on a driveway south of the main entrance is a plausible match, not an independently verified identity. Past vehicle exit rules and event screening differ.",
+      "shortNameTh": "ประตูวิทยาศาสตร์",
+      "nearbyTh": "คณะวิทยาศาสตร์ · ถนนพญาไท",
+      "notesTh": "ตำแหน่งเป็นจุดประตูบน OSM ที่น่าจะตรงกับประกาศ แต่ชื่อจุดยังต้องตรวจสอบอิสระ ประกาศเก่าระบุเป็นทางออกยานพาหนะ จึงไม่แนะนำเป็นทางเข้ารถจากข้อมูลนี้",
+      "coordinateVerificationNotesTh": "พบจุดประตูจริงบนแผนที่ แต่การจับคู่กับชื่อในประกาศยังเป็นตำแหน่งโดยประมาณ",
+      "referenceAccess": [
+        {
+          "appliesTo": "vehicle",
+          "source": "cu-nov-2021-th",
+          "verificationStatus": "HISTORICAL",
+          "context": "temporary-policy",
+          "entryAllowed": false,
+          "exitAllowed": true,
+          "hoursTh": "จ.–ศ. 08:00–20:00",
+          "hoursEn": "Mon–Fri 08:00–20:00",
+          "restrictionTh": "ระบุเป็นทางออก ปิดเสาร์ อาทิตย์ และวันนักขัตฤกษ์ ไม่แยกประเภทรถ",
+          "restrictionEn": "Exit only; closed weekends/public holidays; vehicle modes unspecified.",
+          "requiresAuthorization": null
+        }
+      ],
+      "operatingRules": [
+        {
+          "id": "science-1",
+          "source": "cu-nov-2021-th",
+          "modes": [
+            "car",
+            "motorcycle"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "closed",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "08:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          "entryAllowed": false,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "science-2",
+          "source": "cu-dec-2021",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              },
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        }
+      ]
+    },
+    {
+      "id": "architecture",
+      "name": "ประตูคณะสถาปัตยกรรมศาสตร์",
+      "nameEn": "Faculty of Architecture gate",
+      "nameEnType": "editorial-translation",
+      "aliases": [
+        "Architecture",
+        "สถาปัตย์"
+      ],
+      "nearby": "Faculty of Architecture · Phayathai Road",
+      "category": "vehicle",
+      "mapLetter": null,
+      "latitude": 13.739653,
+      "longitude": 100.5299744,
+      "coordinateConfidence": "MEDIUM",
+      "coordinateVerificationStatus": "UNVERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/359788777",
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": "2026-10-09T05:33:19Z",
+      "coordinateVerificationNotes": "Mapped physical barrier; matching this node to the announced gate is approximate and not independently confirmed.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-2023-event",
+        "cu-2025-event",
+        "osm-campus",
+        "cu-jun-2020",
+        "cu-dec-2021"
+      ],
+      "historicalEvidence": [],
+      "notes": "Approximate identity match to a physical OSM barrier by the Architecture precinct. Pedestrian opening mentioned in event notices is grouped here rather than inventing a second point.",
+      "shortNameTh": "ประตูสถาปัตย์",
+      "nearbyTh": "คณะสถาปัตยกรรมศาสตร์ · ถนนพญาไท",
+      "notesTh": "พบจุดประตูจริงใกล้กลุ่มอาคารสถาปัตยกรรม แต่การจับคู่กับชื่อประตูยังเป็นพิกัดโดยประมาณ ข้อกำหนดคนเดินและรถในงานรับปริญญาเป็นข้อมูลเฉพาะงาน",
+      "coordinateVerificationNotesTh": "พบจุดประตูจริงบนแผนที่ แต่การจับคู่กับชื่อในประกาศยังเป็นตำแหน่งโดยประมาณ",
+      "referenceAccess": [],
+      "operatingRules": [
+        {
+          "id": "architecture-1",
+          "source": "cu-jun-2020",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ประกาศไม่แยกวันในสัปดาห์ จึงใช้เวลาเดียวกันทุกวันเป็นฐาน",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "architecture-2",
+          "source": "cu-dec-2021",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              },
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        }
+      ]
+    },
+    {
+      "id": "communication",
+      "name": "ประตูคณะนิเทศศาสตร์",
+      "nameEn": "Faculty of Communication Arts gate",
+      "nameEnType": "editorial-translation",
+      "aliases": [
+        "Communication Arts",
+        "นิเทศ"
+      ],
+      "nearby": "Faculty of Communication Arts · Phayathai Road",
+      "category": "vehicle",
+      "mapLetter": null,
+      "latitude": 13.7363977,
+      "longitude": 100.5290425,
+      "coordinateConfidence": "MEDIUM",
+      "coordinateVerificationStatus": "UNVERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/6238285795",
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": "2019-05-30T08:16:59Z",
+      "coordinateVerificationNotes": "Mapped physical barrier; matching this node to the announced gate is approximate and not independently confirmed.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-dec-2021",
+        "cu-2025-event",
+        "osm-campus"
+      ],
+      "historicalEvidence": [],
+      "notes": "OSM barrier is at the driveway beside Communication Arts on the west side of Phayathai Road; exact association with the notice remains approximate.",
+      "shortNameTh": "ประตูนิเทศศาสตร์",
+      "nearbyTh": "คณะนิเทศศาสตร์ · ถนนพญาไทฝั่งตะวันตก",
+      "notesTh": "จุดประตูอยู่บนทางรถเข้าใกล้อาคารนิเทศศาสตร์ การจับคู่ชื่อกับประกาศยังเป็นตำแหน่งโดยประมาณ ประกาศปี 2564 ระบุยานพาหนะเข้าออกในวันทำการ",
+      "coordinateVerificationNotesTh": "พบจุดประตูจริงบนแผนที่ แต่การจับคู่กับชื่อในประกาศยังเป็นตำแหน่งโดยประมาณ",
+      "referenceAccess": [
+        {
+          "appliesTo": "vehicle",
+          "source": "cu-dec-2021",
+          "verificationStatus": "HISTORICAL",
+          "context": "temporary-policy",
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "hoursTh": "จ.–ศ. 06:00–20:00",
+          "hoursEn": "Mon–Fri 06:00–20:00",
+          "restrictionTh": "ปิดเสาร์ อาทิตย์ และวันนักขัตฤกษ์ ไม่แยกประเภทรถ",
+          "restrictionEn": "Closed weekends/public holidays; vehicle modes unspecified.",
+          "requiresAuthorization": null
+        }
+      ],
+      "operatingRules": [
+        {
+          "id": "communication-1",
+          "source": "cu-dec-2021",
+          "modes": [
+            "car",
+            "motorcycle"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "closed",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "communication-2",
+          "source": "cu-dec-2021",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              },
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        }
+      ]
+    },
+    {
+      "id": "cham9-market",
+      "name": "ประตูจามจุรี 9 ฝั่งตลาดสามย่าน",
+      "nameEn": "Chamchuri 9 · Sam Yan Market side",
+      "nameEnType": "editorial-translation",
+      "aliases": [
+        "Car park 1",
+        "อาคารจอดรถ 1"
+      ],
+      "nearby": "Chamchuri 9 · Sam Yan Market",
+      "category": "vehicle",
+      "mapLetter": null,
+      "latitude": null,
+      "longitude": null,
+      "coordinateConfidence": "UNKNOWN",
+      "coordinateVerificationStatus": "UNKNOWN",
+      "coordinateSource": null,
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": null,
+      "coordinateVerificationNotes": "No unambiguous physical entrance point established. No building centroid substituted.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-cham9-2024"
+      ],
+      "historicalEvidence": [],
+      "notes": "Distinct side named in the 2024 closure notice. The temporary closure is expired. The exact gate point is unresolved; not replaced by the building location.",
+      "shortNameTh": "ประตูจามจุรี 9 ฝั่งตลาด",
+      "nearbyTh": "อาคารจามจุรี 9 · ตลาดสามย่าน · อาคารจอดรถ 1",
+      "notesTh": "ประกาศปี 2567 แยกทางเข้าฝั่งตลาดสามย่านจากทางออกฝั่งยูเซ็นเตอร์ การปิดในวันที่ 7–8 กุมภาพันธ์ 2567 สิ้นสุดไปแล้ว ยังระบุจุดประตูอย่างแน่ชัดไม่ได้",
+      "coordinateVerificationNotesTh": "ยังไม่พบจุดประตูที่ยืนยันได้ จึงไม่ใช้พิกัดอาคารข้างเคียงแทน",
+      "referenceAccess": [],
+      "operatingRules": []
+    },
+    {
+      "id": "cham9-ucenter",
+      "name": "ประตูจามจุรี 9 ฝั่งยูเซ็นเตอร์",
+      "nameEn": "Chamchuri 9 · U-Center side",
+      "nameEnType": "editorial-translation",
+      "aliases": [
+        "U Center",
+        "U-Center"
+      ],
+      "nearby": "Chamchuri 9 · U-Center · Chula Soi 42",
+      "category": "vehicle",
+      "mapLetter": null,
+      "latitude": null,
+      "longitude": null,
+      "coordinateConfidence": "UNKNOWN",
+      "coordinateVerificationStatus": "UNKNOWN",
+      "coordinateSource": null,
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": null,
+      "coordinateVerificationNotes": "No unambiguous physical entrance point established. No building centroid substituted.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-cham9-2024",
+        "cu-exits-2021"
+      ],
+      "historicalEvidence": [],
+      "notes": "The 2024 notice explicitly distinguishes this exit from the Market-side entrance. The 2021 side-building exit may refer to it; retained as evidence here, not duplicated.",
+      "shortNameTh": "ประตูจามจุรี 9 ฝั่งยูเซ็นเตอร์",
+      "nearbyTh": "อาคารจามจุรี 9 · ยูเซ็นเตอร์ · ซอยจุฬาฯ 42",
+      "notesTh": "ประกาศปี 2567 ระบุเป็นทางออกอีกด้านจากฝั่งตลาด อาจตรงกับประตูข้างอาคารในประกาศปี 2564 จึงรวมหลักฐานโดยยังไม่สร้างพิกัดขึ้นเอง",
+      "coordinateVerificationNotesTh": "ยังไม่พบจุดประตูที่ยืนยันได้ จึงไม่ใช้พิกัดอาคารข้างเคียงแทน",
+      "referenceAccess": [],
+      "operatingRules": [
+        {
+          "id": "cham9-ucenter-1",
+          "source": "cu-exits-2021",
+          "modes": [
+            "car",
+            "motorcycle"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              },
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": false,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        }
+      ]
+    },
+    {
+      "id": "cham-square-foot",
+      "name": "ประตูทางเท้าด้านจามจุรีสแควร์",
+      "nameEn": "Chamchuri Square pedestrian gate",
+      "nameEnType": "editorial-translation",
+      "aliases": [
+        "MRT Sam Yan",
+        "สามย่าน"
+      ],
+      "nearby": "Chamchuri Square · Sam Yan MRT",
+      "category": "pedestrian",
+      "mapLetter": null,
+      "latitude": null,
+      "longitude": null,
+      "coordinateConfidence": "UNKNOWN",
+      "coordinateVerificationStatus": "UNKNOWN",
+      "coordinateSource": null,
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": null,
+      "coordinateVerificationNotes": "No unambiguous physical entrance point established. No building centroid substituted.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-2023-event",
+        "cu-2025-event",
+        "cu-jun-2020",
+        "cu-dec-2021"
+      ],
+      "historicalEvidence": [],
+      "notes": "A pedestrian gate is explicitly named. No physical node could be matched confidently; subway entrances are not used as gate coordinates.",
+      "shortNameTh": "ประตูทางเดินจามจุรีสแควร์",
+      "nearbyTh": "จามจุรีสแควร์ · MRT สามย่าน",
+      "notesTh": "พบชื่อประตูทางเดินในประกาศทางการ แต่ยังจับคู่จุดประตูไม่ได้ จึงไม่นำพิกัดทางออก MRT มาใช้แทนพิกัดประตูมหาวิทยาลัย",
+      "coordinateVerificationNotesTh": "ยังไม่พบจุดประตูที่ยืนยันได้ จึงไม่ใช้พิกัดอาคารข้างเคียงแทน",
+      "referenceAccess": [],
+      "operatingRules": [
+        {
+          "id": "cham-square-foot-1",
+          "source": "cu-jun-2020",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ประกาศไม่แยกวันในสัปดาห์ จึงใช้เวลาเดียวกันทุกวันเป็นฐาน",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "cham-square-foot-2",
+          "source": "cu-dec-2021",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              },
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        }
+      ]
+    },
+    {
+      "id": "engineering-reserve",
+      "name": "ประตูด้านอาคารวิศวกรรมสถาน",
+      "nameEn": "Engineering reserve gate",
+      "nameEnType": "editorial-translation",
+      "aliases": [
+        "วิศวกรรมสถาน",
+        "Engineering"
+      ],
+      "nearby": "Engineering precinct · Engineering Institute building",
+      "category": "emergency",
+      "mapLetter": null,
+      "latitude": null,
+      "longitude": null,
+      "coordinateConfidence": "UNKNOWN",
+      "coordinateVerificationStatus": "UNKNOWN",
+      "coordinateSource": null,
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": null,
+      "coordinateVerificationNotes": "No unambiguous physical entrance point established. No building centroid substituted.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-2023-event",
+        "cu-2025-event"
+      ],
+      "historicalEvidence": [],
+      "notes": "Designated as a closed reserve entrance for past ceremonies. This does not establish routine public access or permanent emergency-only status.",
+      "shortNameTh": "ประตูสำรองวิศวกรรมสถาน",
+      "nearbyTh": "อาคารวิศวกรรมสถาน · กลุ่มคณะวิศวกรรมศาสตร์",
+      "notesTh": "ประกาศงานรับปริญญากำหนดเป็นประตูสำรองและปิดในช่วงงาน ไม่ใช่หลักฐานว่าบุคคลทั่วไปใช้เป็นทางเข้าประจำหรือทางฉุกเฉินได้",
+      "coordinateVerificationNotesTh": "ยังไม่พบจุดประตูที่ยืนยันได้ จึงไม่ใช้พิกัดอาคารข้างเคียงแทน",
+      "referenceAccess": [],
+      "operatingRules": []
+    },
+    {
+      "id": "education-foot",
+      "name": "ประตูทางเท้าอาคารจามจุรี 5",
+      "nameEn": "Chamchuri 5 / Education pedestrian gate",
+      "nameEnType": "editorial-translation",
+      "aliases": [
+        "Education",
+        "ครุศาสตร์"
+      ],
+      "nearby": "Chamchuri 5 · Faculty of Education",
+      "category": "pedestrian",
+      "mapLetter": null,
+      "latitude": null,
+      "longitude": null,
+      "coordinateConfidence": "UNKNOWN",
+      "coordinateVerificationStatus": "UNKNOWN",
+      "coordinateSource": null,
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": null,
+      "coordinateVerificationNotes": "No unambiguous physical entrance point established. No building centroid substituted.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-nov-2021",
+        "cu-apr-2020",
+        "cu-nov-2021-th",
+        "cu-dec-2021"
+      ],
+      "historicalEvidence": [],
+      "notes": "Historical pedestrian entrance on Phayathai Road. A nearby vehicle barrier is not substituted for the foot gate.",
+      "shortNameTh": "ประตูทางเดินครุศาสตร์",
+      "nearbyTh": "อาคารจามจุรี 5 · คณะครุศาสตร์",
+      "notesTh": "ประกาศเก่าระบุเป็นประตูสำหรับคนเดินทางถนนพญาไท ยังยืนยันจุดประตูทางเดินไม่ได้ และไม่นำจุดกั้นรถข้างอาคารมาแทน",
+      "coordinateVerificationNotesTh": "ยังไม่พบจุดประตูที่ยืนยันได้ จึงไม่ใช้พิกัดอาคารข้างเคียงแทน",
+      "referenceAccess": [
+        {
+          "appliesTo": "pedestrian",
+          "source": "cu-nov-2021-th",
+          "verificationStatus": "HISTORICAL",
+          "context": "temporary-policy",
+          "entryAllowed": null,
+          "exitAllowed": null,
+          "hoursTh": "จ.–ศ. 06:00–20:00",
+          "hoursEn": "Mon–Fri 06:00–20:00",
+          "restrictionTh": "เป็นประตูคนเดิน ปิดเสาร์ อาทิตย์ และวันนักขัตฤกษ์ ไม่ระบุทิศทางแยก",
+          "restrictionEn": "Pedestrian gate; closed weekends/public holidays; entry/exit not distinguished.",
+          "requiresAuthorization": null
+        }
+      ],
+      "operatingRules": [
+        {
+          "id": "education-foot-1",
+          "source": "cu-nov-2021-th",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "closed",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "education-foot-2",
+          "source": "cu-dec-2021",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              },
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        }
+      ]
+    },
+    {
+      "id": "dormitory-phayathai",
+      "name": "ประตูหอพักนิสิตด้านถนนพญาไท",
+      "nameEn": "Student dormitory · Phayathai Road gate",
+      "nameEnType": "editorial-translation",
+      "aliases": [
+        "Dormitory",
+        "หอพัก"
+      ],
+      "nearby": "Student dormitory precinct · Phayathai Road",
+      "category": "restricted",
+      "mapLetter": null,
+      "latitude": null,
+      "longitude": null,
+      "coordinateConfidence": "UNKNOWN",
+      "coordinateVerificationStatus": "UNKNOWN",
+      "coordinateSource": null,
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": null,
+      "coordinateVerificationNotes": "No unambiguous physical entrance point established. No building centroid substituted.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-apr-2020",
+        "cu-law-2022",
+        "cu-dec-2021"
+      ],
+      "historicalEvidence": [],
+      "notes": "Old notices identify this access group, without an unambiguous barrier point or present-day visitor policy.",
+      "shortNameTh": "ประตูหอพักฝั่งพญาไท",
+      "nearbyTh": "กลุ่มหอพักนิสิต · ถนนพญาไท",
+      "notesTh": "มีข้อมูลเก่าระบุการคัดกรองคนและรถที่ประตูหอพัก แต่ยังไม่ยืนยันจุดกั้นและสิทธิ์ของผู้มาติดต่อในปัจจุบัน",
+      "coordinateVerificationNotesTh": "ยังไม่พบจุดประตูที่ยืนยันได้ จึงไม่ใช้พิกัดอาคารข้างเคียงแทน",
+      "referenceAccess": [],
+      "operatingRules": [
+        {
+          "id": "dormitory-phayathai-1",
+          "source": "cu-apr-2020",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "open": "00:00",
+                "close": "24:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": "ตรวจบัตร / ผู้ได้รับอนุญาต",
+          "conditionEn": "ID check / authorized access",
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "dormitory-phayathai-2",
+          "source": "cu-apr-2020",
+          "modes": [
+            "car"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "open": "00:00",
+                "close": "24:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": "ตรวจบัตร / รถที่ได้รับอนุญาต",
+          "conditionEn": "ID check / authorized vehicles",
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "dormitory-phayathai-3",
+          "source": "cu-dec-2021",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              },
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        }
+      ]
+    },
+    {
+      "id": "pharmacy",
+      "name": "ประตูคณะเภสัชศาสตร์",
+      "nameEn": "Faculty of Pharmaceutical Sciences gate",
+      "nameEnType": "editorial-translation",
+      "aliases": [
+        "Pharmacy",
+        "เภสัช"
+      ],
+      "nearby": "Faculty of Pharmaceutical Sciences · Phayathai Road",
+      "category": "vehicle",
+      "mapLetter": null,
+      "latitude": null,
+      "longitude": null,
+      "coordinateConfidence": "UNKNOWN",
+      "coordinateVerificationStatus": "UNKNOWN",
+      "coordinateSource": null,
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": null,
+      "coordinateVerificationNotes": "No unambiguous physical entrance point established. No building centroid substituted.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-feb-2021",
+        "cu-2023-event",
+        "cu-2025-event",
+        "cu-apr-2020",
+        "cu-jun-2020"
+      ],
+      "historicalEvidence": [],
+      "notes": "Historical policies differ by event, weekday and Saturday. No current schedule or physical gate point verified.",
+      "shortNameTh": "ประตูเภสัชศาสตร์",
+      "nearbyTh": "คณะเภสัชศาสตร์ · ถนนพญาไท",
+      "notesTh": "ประกาศเก่ามีเวลาและเงื่อนไขวันหยุดต่างกันตามช่วงและงาน ยังไม่ยืนยันตารางปัจจุบันหรือจุดประตูที่แน่ชัด",
+      "coordinateVerificationNotesTh": "ยังไม่พบจุดประตูที่ยืนยันได้ จึงไม่ใช้พิกัดอาคารข้างเคียงแทน",
+      "referenceAccess": [],
+      "operatingRules": [
+        {
+          "id": "pharmacy-1",
+          "source": "cu-apr-2020",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "open": "00:00",
+                "close": "24:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": "ตรวจบัตร / ผู้ได้รับอนุญาต",
+          "conditionEn": "ID check / authorized access",
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "pharmacy-2",
+          "source": "cu-jun-2020",
+          "modes": [
+            "car",
+            "motorcycle"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": "ตรวจบัตร / รถที่ได้รับอนุญาต",
+          "conditionEn": "ID check / authorized vehicles",
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "pharmacy-3",
+          "source": "cu-feb-2021",
+          "modes": [
+            "car",
+            "motorcycle"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "05:00",
+                "close": "22:00"
+              },
+              {
+                "days": [
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": "รถที่ได้รับอนุญาต",
+          "conditionEn": "Authorized vehicles",
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "pharmacy-4",
+          "source": "cu-feb-2021",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "05:00",
+                "close": "22:00"
+              },
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "05:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        }
+      ]
+    },
+    {
+      "id": "veterinary",
+      "name": "ประตูคณะสัตวแพทยศาสตร์",
+      "nameEn": "Faculty of Veterinary Science gate",
+      "nameEnType": "editorial-translation",
+      "aliases": [
+        "Veterinary",
+        "สัตวแพทย์"
+      ],
+      "nearby": "Faculty of Veterinary Science · Henri Dunant Road",
+      "category": "restricted",
+      "mapLetter": null,
+      "latitude": null,
+      "longitude": null,
+      "coordinateConfidence": "UNKNOWN",
+      "coordinateVerificationStatus": "UNKNOWN",
+      "coordinateSource": null,
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": null,
+      "coordinateVerificationNotes": "No unambiguous physical entrance point established. No building centroid substituted.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-feb-2021",
+        "cu-apr-2020"
+      ],
+      "historicalEvidence": [],
+      "notes": "Old notice defers to faculty rules. Access to the veterinary precinct is not inferred from other main-campus gates.",
+      "shortNameTh": "ประตูสัตวแพทยศาสตร์",
+      "nearbyTh": "คณะสัตวแพทยศาสตร์ · ถนนอังรีดูนังต์",
+      "notesTh": "ประกาศเก่าระบุให้ใช้ข้อกำหนดของคณะ ไม่ถือว่าสิทธิ์ของประตูส่วนกลางใช้แทนประตูคณะนี้ได้",
+      "coordinateVerificationNotesTh": "ยังไม่พบจุดประตูที่ยืนยันได้ จึงไม่ใช้พิกัดอาคารข้างเคียงแทน",
+      "referenceAccess": [],
+      "operatingRules": [
+        {
+          "id": "veterinary-1",
+          "source": "cu-apr-2020",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "open": "00:00",
+                "close": "24:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": "ตรวจบัตร / ผู้ได้รับอนุญาต",
+          "conditionEn": "ID check / authorized access",
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "veterinary-2",
+          "source": "cu-apr-2020",
+          "modes": [
+            "car"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "open": "00:00",
+                "close": "24:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": "ตรวจบัตร / รถที่ได้รับอนุญาต",
+          "conditionEn": "ID check / authorized vehicles",
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "veterinary-3",
+          "source": "cu-feb-2021",
+          "modes": [
+            "car",
+            "motorcycle"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "open": "00:00",
+                "close": "24:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": "ตามข้อกำหนดของคณะ",
+          "conditionEn": "Faculty access rules apply",
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        }
+      ]
+    },
+    {
+      "id": "dentistry",
+      "name": "ประตูคณะทันตแพทยศาสตร์",
+      "nameEn": "Faculty of Dentistry gate",
+      "nameEnType": "editorial-translation",
+      "aliases": [
+        "Dentistry",
+        "ทันตะ"
+      ],
+      "nearby": "Faculty of Dentistry · Siam Square precinct",
+      "category": "restricted",
+      "mapLetter": null,
+      "latitude": null,
+      "longitude": null,
+      "coordinateConfidence": "UNKNOWN",
+      "coordinateVerificationStatus": "UNKNOWN",
+      "coordinateSource": null,
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": null,
+      "coordinateVerificationNotes": "No unambiguous physical entrance point established. No building centroid substituted.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-apr-2020"
+      ],
+      "historicalEvidence": [],
+      "notes": "Referenced collectively with Pharmacy and Veterinary gates in an old restriction notice. Number of individual lane or foot openings is unknown; retained as one group.",
+      "shortNameTh": "ประตูทันตแพทยศาสตร์",
+      "nearbyTh": "คณะทันตแพทยศาสตร์ · บริเวณสยามสแควร์",
+      "notesTh": "มีการกล่าวรวมกับประตูเภสัชศาสตร์และสัตวแพทยศาสตร์ในประกาศเก่า จำนวนช่องทางรถและคนเดินที่แยกกันยังไม่ชัดเจน จึงเก็บเป็นประตูกลุ่มเดียว",
+      "coordinateVerificationNotesTh": "ยังไม่พบจุดประตูที่ยืนยันได้ จึงไม่ใช้พิกัดอาคารข้างเคียงแทน",
+      "referenceAccess": [],
+      "operatingRules": [
+        {
+          "id": "dentistry-1",
+          "source": "cu-apr-2020",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "open": "00:00",
+                "close": "24:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": "ตรวจบัตร / ผู้ได้รับอนุญาต",
+          "conditionEn": "ID check / authorized access",
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        },
+        {
+          "id": "dentistry-2",
+          "source": "cu-apr-2020",
+          "modes": [
+            "car"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "open": "00:00",
+                "close": "24:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": "ตรวจบัตร / รถที่ได้รับอนุญาต",
+          "conditionEn": "ID check / authorized vehicles",
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        }
+      ]
+    },
+    {
+      "id": "chulaphat14",
+      "name": "ประตูจุฬาพัฒน์ 14",
+      "nameEn": "Chula Phat 14 gate",
+      "nameEnType": "editorial-translation",
+      "aliases": [
+        "จุฬาพัฒน์14",
+        "Chula Phat",
+        "Car park 4"
+      ],
+      "nearby": "Chula Phat 14 · Car park 4 · Chula Soi 12",
+      "category": "vehicle",
+      "mapLetter": null,
+      "latitude": null,
+      "longitude": null,
+      "coordinateConfidence": "UNKNOWN",
+      "coordinateVerificationStatus": "UNKNOWN",
+      "coordinateSource": null,
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": null,
+      "coordinateVerificationNotes": "No unambiguous physical entrance point established. No building centroid substituted.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-nov-2021",
+        "cu-feb-2021",
+        "cu-nov-2021-th"
+      ],
+      "historicalEvidence": [
+        {
+          "source": "cu-nov-2021",
+          "note": "The 2021 November notice gives a different closing time from the February notice. Both are historical."
+        }
+      ],
+      "notes": "Identified in a past official source. Present-day access, vehicle permissions and operating times have not been verified.",
+      "shortNameTh": "ประตูจุฬาพัฒน์ 14",
+      "nearbyTh": "อาคารจุฬาพัฒน์ 14 · อาคารจอดรถ 4 · ซอยจุฬาฯ 12",
+      "notesTh": "ประกาศเดือนกุมภาพันธ์และพฤศจิกายน 2564 ให้เวลาปิดต่างกัน จึงแสดงพร้อมแหล่งอ้างอิงโดยไม่ถือว่าเป็นตารางที่ยืนยันปัจจุบัน",
+      "coordinateVerificationNotesTh": "ยังไม่พบจุดประตูที่ยืนยันได้ จึงไม่ใช้พิกัดอาคารข้างเคียงแทน",
+      "referenceAccess": [
+        {
+          "appliesTo": "vehicle",
+          "source": "cu-nov-2021-th",
+          "verificationStatus": "HISTORICAL",
+          "context": "temporary-policy",
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "hoursTh": "ทุกวัน 05:00–23:00",
+          "hoursEn": "Daily 05:00–23:00",
+          "restrictionTh": "ประกาศเดือนกุมภาพันธ์ปีเดียวกันระบุเวลาปิดต่างกัน ไม่แยกประเภทรถ",
+          "restrictionEn": "An earlier notice gives a different closing time; vehicle modes unspecified.",
+          "requiresAuthorization": null
+        }
+      ],
+      "operatingRules": [
+        {
+          "id": "chulaphat14-1",
+          "source": "cu-nov-2021-th",
+          "modes": [
+            "car",
+            "motorcycle"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "open": "05:00",
+                "close": "23:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
+          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+        }
+      ]
+    },
+    {
+      "id": "law-foot",
+      "name": "ประตูทางเท้าคณะนิติศาสตร์",
+      "nameEn": "Faculty of Law pedestrian gate",
+      "nameEnType": "editorial-translation",
+      "aliases": [
+        "Law",
+        "นิติศาสตร์"
+      ],
+      "nearby": "Faculty of Law · Chula Soi 42",
+      "category": "pedestrian",
+      "mapLetter": null,
+      "latitude": null,
+      "longitude": null,
+      "coordinateConfidence": "UNKNOWN",
+      "coordinateVerificationStatus": "UNKNOWN",
+      "coordinateSource": null,
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": null,
+      "coordinateVerificationNotes": "No unambiguous physical entrance point established. No building centroid substituted.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "cu-law-2022"
+      ],
+      "historicalEvidence": [],
+      "notes": "Identified in a past graduation notice. Not assumed to be the nearby Communication Arts vehicle entrance.",
+      "shortNameTh": "ประตูทางเดินนิติศาสตร์",
+      "nearbyTh": "คณะนิติศาสตร์ · ซอยจุฬาฯ 42",
+      "notesTh": "พบในประกาศกิจกรรมรับปริญญาเก่า ยังไม่ยืนยันว่าตรงกับช่องทางรถใกล้คณะนิเทศศาสตร์ จึงไม่นำสองจุดมารวมเอง",
+      "coordinateVerificationNotesTh": "ยังไม่พบจุดประตูที่ยืนยันได้ จึงไม่ใช้พิกัดอาคารข้างเคียงแทน",
+      "referenceAccess": [],
+      "operatingRules": []
+    }
+  ],
+  "operationPolicy": {
+    "basis": "historical-baseline",
+    "adoptedAt": "2026-11-01",
+    "noteTh": "ใช้ตารางเก่าเป็นฐานปัจจุบันตามคำขอของเจ้าของแอป จนกว่าจะมีการแก้ไข โดยคงสถานะหลักฐานเดิมไว้",
+    "noteEn": "The app owner adopts historical weekly schedules as the working baseline until corrected. Original evidence statuses remain unchanged.",
+    "holidayAssumption": "weekly-pattern-unless-overridden"
+  }
+}

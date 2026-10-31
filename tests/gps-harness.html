@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <base href="/" />
+    <title>CU Gate Navigator · GPS test fixture</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <output
+      id="test-telemetry"
+      aria-label="GPS test telemetry"
+      style="
+        position: fixed;
+        right: 8px;
+        bottom: 5px;
+        z-index: 1000;
+        background: #fff;
+        color: #111;
+        border: 1px solid #111;
+        padding: 6px;
+        font: 10px monospace;
+      "
+      >TEST FIXTURE · no device location</output
+    >
+    <script>
+      // Controlled browser integration fixture. Never included in Vite's production entry.
+      // Coordinates below are a public gate point from the research data, not user location.
+      const scenario =
+        new URLSearchParams(location.search).get("scenario") || "active";
+      const telemetry = document.querySelector("#test-telemetry");
+      let watches = 0,
+        cleared = 0,
+        timer;
+      function display() {
+        telemetry.textContent = `TEST FIXTURE (${scenario}) · watches ${watches} · cleared ${cleared} · no device location`;
+      }
+      Object.defineProperty(navigator, "geolocation", {
+        configurable: true,
+        value: {
+          watchPosition(success, error) {
+            watches++;
+            display();
+            timer = setTimeout(() => {
+              if (scenario === "active")
+                success({
+                  coords: {
+                    latitude: 13.7387455,
+                    longitude: 100.5298425,
+                    accuracy: 8,
+                  },
+                  timestamp: Date.now(),
+                });
+              else
+                error({
+                  code:
+                    scenario === "denied" ? 1 : scenario === "timeout" ? 3 : 2,
+                  message: "Controlled test error",
+                });
+            }, 150);
+            return 4242;
+          },
+          clearWatch() {
+            cleared++;
+            clearTimeout(timer);
+            display();
+          },
+        },
+      });
+      display();
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
