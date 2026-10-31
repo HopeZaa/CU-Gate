@@ -1,4 +1,4 @@
-import { dataset } from "./data";
+import { recordedMode } from "./travel";
 import type { Gate, Schedule, TravelMode } from "./data";
 import {
   accessState,
@@ -19,7 +19,7 @@ export type GateAvailability = {
   reason: string;
   today: string;
   next: string | null;
-  basis: "verified" | "reference" | "missing";
+  basis: "verified" | "reference" | "recorded" | "missing";
   source: string | null;
   condition: string | null;
   access: string;
@@ -149,23 +149,38 @@ export function gateAvailability(
   const th = lang === "th";
   const m = mode === "all" ? "pedestrian" : mode;
   const rule =
-    g.verificationStatus === "VERIFIED" ? null : operatingRule(g, mode, now);
+    g.verificationStatus === "VERIFIED"
+      ? null
+      : operatingRule(g, mode, now, direction);
   const reference =
     rule &&
     !["closed", "not-permitted"].includes(accessState(g, m, direction, now));
   if (rule && reference) {
-    let allowed = direction === "entry" ? rule.entryAllowed : rule.exitAllowed;
-    if (direction === "exit" && rule.exitWhenClosedGate) {
-      const linked = dataset?.gates.find(
-        (target) => target.id === rule.exitWhenClosedGate,
-      );
-      const linkedRule = linked ? operatingRule(linked, mode, now) : null;
-      allowed =
-        linkedRule !== null && operatingClock(linkedRule, now) === "closed";
-    }
+    const allowed =
+      direction === "entry" ? rule.entryAllowed : rule.exitAllowed;
     const clockState = operatingClock(rule, now);
-    const summary = scheduleSummary(rule.schedule, now, lang, rule);
-    const condition = th ? rule.conditionTh : rule.conditionEn;
+    const opposite = !allowed
+      ? operatingRule(g, mode, now, direction === "entry" ? "exit" : "entry")
+      : null;
+    const summary = scheduleSummary(
+      opposite?.schedule || rule.schedule,
+      now,
+      lang,
+      opposite || rule,
+    );
+    if (!allowed) {
+      summary.today = `${th ? (direction === "entry" ? "ออก: " : "เข้า: ") : direction === "entry" ? "Exit: " : "Entry: "}${summary.today}`;
+      summary.next = null;
+    }
+    const inherited = rule.inheritedFrom
+      ? th
+        ? `ตามสิทธิ์${rule.inheritedFrom === "car" ? "รถยนต์" : "มอเตอร์ไซค์"}`
+        : `Includes ${rule.inheritedFrom} access`
+      : null;
+    const condition =
+      [th ? rule.conditionTh : rule.conditionEn, inherited]
+        .filter(Boolean)
+        .join(" · ") || null;
     return {
       state: !allowed || clockState === "closed" ? "closed" : "open",
       label: !allowed
@@ -261,6 +276,51 @@ export function gateAvailability(
       th ? "มีเงื่อนไข" : "Restricted",
       th ? "ต้องตรวจสอบสิทธิ์กับเจ้าหน้าที่" : "Check authorization with staff",
     );
+  if (g.accessProfile) {
+    const supported = recordedMode(g, m) !== false;
+    const allowed =
+      direction === "entry"
+        ? g.accessProfile.entryAllowed
+        : g.accessProfile.exitAllowed;
+    const condition =
+      (th ? g.accessProfile.conditionTh : g.accessProfile.conditionEn) || null;
+    const label = !supported
+      ? th
+        ? "ไม่รองรับวิธีเดินทางนี้"
+        : "Mode unavailable"
+      : !allowed
+        ? th
+          ? direction === "entry"
+            ? "ทางออกเท่านั้น"
+            : "ทางเข้าเท่านั้น"
+          : direction === "entry"
+            ? "Exit only"
+            : "Entry only"
+        : th
+          ? "ยังไม่มีเวลาเปิดปิด"
+          : "Hours not recorded";
+    return {
+      ...result(
+        !supported || !allowed ? "closed" : "unknown",
+        label,
+        th
+          ? "ตามข้อมูลประเภทประตูที่ระบุ ยังไม่มีตารางเวลา"
+          : "Recorded gate type; opening hours unavailable",
+      ),
+      basis: "recorded",
+      source: g.accessProfile.source,
+      condition,
+      access:
+        !supported || !allowed
+          ? label
+          : [
+              th ? "รองรับวิธีเดินทางที่เลือก" : "Selected mode supported",
+              condition,
+            ]
+              .filter(Boolean)
+              .join(" · "),
+    };
+  }
   const reason =
     scheduleState(g.schedule, now) === "unknown"
       ? th
@@ -277,13 +337,16 @@ export function weeklyHours(
   mode: TravelMode | "all",
   now: Date,
   lang: Language,
+  direction: "entry" | "exit" = "entry",
 ) {
   const p = bangkokParts(now);
   const midnight = new Date(`${p.date}T00:00:00+07:00`).getTime();
   return [1, 2, 3, 4, 5, 6, 0].map((day) => {
     const date = new Date(midnight + ((day - p.day + 7) % 7) * 86400000);
     const rule =
-      g.verificationStatus === "VERIFIED" ? null : operatingRule(g, mode, date);
+      g.verificationStatus === "VERIFIED"
+        ? null
+        : operatingRule(g, mode, date, direction);
     const summary = scheduleSummary(
       rule?.schedule || g.schedule,
       date,

@@ -1,14 +1,10 @@
-> Current app behaviour is described in Revision 4 below: the owner has adopted historical schedules as the operating baseline. Earlier revision descriptions are retained as research history.
+# Gate sources — version 1.4
 
-# Gate data sources
+Reviewed 1 November 2026, Asia/Bangkok. The dataset contains 30 named gate groups with 22 registered sources. The owner's 28 supplied entries are individually linked in OWNER_INVENTORY.md. This is not a claim that every physical opening has been surveyed.
 
-Research review date: **1 November 2026 (Asia/Bangkok)**.
+The owner adopts older schedules as the operating baseline until corrected. Historical provenance stays separate from that operational choice. Car access includes motorcycle and walking access; motorcycle access includes walking, preserving hours, direction and authorization. Temporary event hours never supply a normal weekly schedule. Clinic service hours are not gate hours.
 
-## Result and scope
-
-The inventory contains **22 named entrance groups**, discovered through Thai/English university notices, an official campus map and OSM comparisons. A named entrance complex counts once even when it has separate incoming/outgoing lane barriers. This is a source-backed inventory, **not a claim to have found every physical opening**. School-internal entrances, hospital gates, parking barriers inside the campus and unrelated neighbouring properties are excluded from the navigation inventory.
-
-All gate records are HISTORICAL: old official evidence identifies them, but present-day operating validity is unestablished. A coordinate may be map-verified independently of this record status. No live access feed or current comprehensive gate policy was obtained.
+Eight new groups are the Indoor Stadium exit, the second Dentistry approach, Electrical Engineering and five health-precinct gates. The Allied Health walking name provisionally aliases health gate 5. The Nursing faculty schematic establishes five health approaches; matching those identities to OSM barrier nodes is approximate. The two Dentistry approaches follow official clinic directions, with approximate OSM entrance associations. None of the new associations is labelled field-verified.
 
 ## Source register
 
@@ -20,6 +16,8 @@ Published: 2023-03. Reviewed: 2026-11-01.
 
 Eight named gate groups A–H; geographical context only. Month from hosting path; exact publication day unknown.
 
+ระบุประตูหลัก A–H และบริบทที่ตั้ง ไม่ได้ยืนยันสิทธิ์การเข้าออก
+
 ### cu-2025-event
 
 [Commencement traffic notice · 29 Sep–1 Oct 2025](https://web-stage.ccc.chula.ac.th/news/262720/)
@@ -27,6 +25,8 @@ Eight named gate groups A–H; geographical context only. Month from hosting pat
 Published: 2025-09-28. Reviewed: 2026-11-01.
 
 Past event restrictions; not a current operating schedule.
+
+ใช้เฉพาะกิจกรรมในอดีต ไม่ใช่ตารางปกติวันนี้
 
 ### cu-2023-event
 
@@ -36,6 +36,8 @@ Published: 2023-09-19. Reviewed: 2026-11-01.
 
 Past event; distinguishes pedestrian access and the engineering reserve gate.
 
+ข้อมูลเฉพาะงาน แยกทางเดินกับรถและประตูสำรอง
+
 ### cu-nov-2021
 
 [Gate operations effective 1 November 2021](https://www.chula.ac.th/en/news/51831/)
@@ -43,6 +45,8 @@ Past event; distinguishes pedestrian access and the engineering reserve gate.
 Published: 2021-10-29. Reviewed: 2026-11-01.
 
 COVID-era operating policy; current validity not established.
+
+ข้อกำหนดช่วงผ่อนคลายโควิด ยังไม่ยืนยันว่าใช้ในปัจจุบัน
 
 ### cu-dec-2021
 
@@ -52,6 +56,8 @@ Published: 2021-12-02. Reviewed: 2026-11-01.
 
 COVID-era changes, including Communication Arts; historical only.
 
+ประกาศเก่าระบุประตูนิเทศศาสตร์และประตูทางเดินเพิ่มเติม
+
 ### cu-polsci-2021
 
 [Political Science vehicle gate update](https://www.chula.ac.th/en/news/56919/)
@@ -59,6 +65,8 @@ COVID-era changes, including Communication Arts; historical only.
 Published: 2021-12-14. Reviewed: 2026-11-01.
 
 Effective 7 December 2021; historical only.
+
+เริ่มใช้ 7 ธันวาคม 2564 ยังไม่ยืนยันกฎปัจจุบัน
 
 ### cu-sasin-2018
 
@@ -68,6 +76,8 @@ Published: 2018-09-12. Reviewed: 2026-11-01.
 
 Old car/pedestrian schedules; later COVID and event notices differ.
 
+แยกวันสำหรับรถยนต์และคนเดิน ประกาศช่วงหลังมีข้อกำหนดต่างกัน
+
 ### cu-exits-2021
 
 [Temporary stadium closure and alternative exits](https://www.chula.ac.th/news/54078/)
@@ -75,6 +85,8 @@ Old car/pedestrian schedules; later COVID and event notices differ.
 Published: 2021-11-19. Reviewed: 2026-11-01.
 
 Construction-era alternative vehicle and pedestrian exits; does not establish permanent operation.
+
+ใช้ระหว่างก่อสร้าง ไม่ยืนยันว่าเป็นข้อกำหนดถาวร
 
 ### cu-cham9-2024
 
@@ -84,6 +96,8 @@ Published: 2024-02-08. Reviewed: 2026-11-01.
 
 Identifies Market-side entrance and U-Center-side exit; closure was 7–8 February 2024 only.
 
+ระบุทางเข้าฝั่งตลาดและทางออกฝั่งยูเซ็นเตอร์ การปิดมีผลเฉพาะ 7–8 ก.พ. 2567
+
 ### cu-apr-2020
 
 [Campus gate restrictions · April 2020](https://www.chula.ac.th/en/news/29031/)
@@ -91,6 +105,8 @@ Identifies Market-side entrance and U-Center-side exit; closure was 7–8 Februa
 Published: 2020-04-02. Reviewed: 2026-11-01.
 
 Pandemic restrictions; identifies health-science and dormitory gates, without exact points.
+
+ข้อมูลคัดกรองช่วงโควิด ระบุประตูหอพักและกลุ่มวิทยาศาสตร์สุขภาพ
 
 ### cu-feb-2021
 
@@ -100,6 +116,8 @@ Published: 2021-02-12. Reviewed: 2026-11-01.
 
 Historical Veterinary and Pharmacy gate references.
 
+ข้อมูลเก่าของประตูสัตวแพทยศาสตร์และเภสัชศาสตร์
+
 ### cu-law-2022
 
 [Graduation access notice · academic year 2020](https://web-stage.ccc.chula.ac.th/en/news/72235/)
@@ -108,13 +126,17 @@ Published: 2022. Reviewed: 2026-11-01.
 
 Includes a Law pedestrian gate. Exact publication day unavailable; past graduation activities only.
 
+กล่าวถึงประตูทางเดินนิติศาสตร์ ไม่ยืนยันตารางประจำ
+
 ### osm-campus
 
 [OpenStreetMap · bounded campus extract](https://api.openstreetmap.org/api/0.6/map?bbox=100.520,13.729,100.535,13.744)
 
-Published: unknown; current OSM database extract. Reviewed: 2026-11-01.
+Published: undated. Reviewed: 2026-11-01.
 
 Downloaded 1 November 2026. ODbL data; object edit dates are not site inspections or proof of public access.
+
+ดึงข้อมูล 1 พ.ย. 2569 จุดประตูและวันแก้ไขแผนที่ไม่ใช่การยืนยันว่าเปิดอยู่
 
 ### cu-nov-2021-th
 
@@ -124,13 +146,17 @@ Published: 2021-10-29. Reviewed: 2026-11-01.
 
 COVID-era policy; Dhamma vehicle entry and conditional exit are distinct. Current applicability not established.
 
+ประกาศช่วงโควิด ระบุธรรมสถานเป็นทางเข้ารถ และทางออกสัมพันธ์กับประตูสนามกีฬา ไม่ใช้ยืนยันปัจจุบัน
+
 ### cu-security
 
 [Campus Security & Safety](https://www.chula.ac.th/en/life-at-cu/campus-safety/)
 
-Published: unknown; current OSM database extract. Reviewed: 2026-11-01.
+Published: undated. Reviewed: 2026-11-01.
 
 University security and traffic center, 24-hour contact 02-218-0000. No gate-by-gate schedule.
+
+ข้อมูลศูนย์รักษาความปลอดภัยและจัดการจราจร ติดต่อ 02-218-0000 ตลอด 24 ชั่วโมง ไม่ใช่ตารางเปิดทุกประตู
 
 ### cu-visitors-2025
 
@@ -140,85 +166,69 @@ Published: 2025-01. Reviewed: 2026-11-01.
 
 General public may visit campus and museums. Non-Chula visitors cannot enter buildings. Does not confirm individual gate permission.
 
-## Research and discovery log
+บุคคลทั่วไปเยี่ยมชมพื้นที่มหาวิทยาลัยและพิพิธภัณฑ์ได้ แต่ไม่อนุญาตเข้าภายในอาคาร ไม่ได้ยืนยันสิทธิ์ของทุกประตู
 
-- Searched Thai terms for gate opening/closing, traffic arrangements, Phayathai, Henri Dunant, Sasin, Chula Phat 14, health-science faculties and recent 2567–2569 announcements; searched English gate-operation and campus-map terms. Search results do not prove absence of a newer notice.
-- Read official indexed notices from 2018, 2020, 2021, 2022, 2023, 2024 and 2025. Some direct university fetches returned an anti-bot page; the indexed readable text was used where available. No security challenge was bypassed. The live interactive university map shell did not expose a usable gate dataset to this research session.
-- Downloaded the official 2023 prospectus. Rendered PDF page index 50 (printed pages 97–98) and visually inspected gate labels A–H, surrounding roads and faculty context. Used the 2023 map rather than ambiguous OCR in an older third-party mirror.
-- Overpass `overpass-api.de` returned HTTP 406 for the bounded gate-node query. `overpass.kumi.systems` timed out after 70 seconds. The successful fallback was one OSM API map request for bbox `100.520,13.729,100.535,13.744`. Original raw XML is kept in the task's working research cache; a relevant barrier-node extract and derivative map are shipped locally.
-- Compared physical `barrier=gate`/`lift_gate` nodes and connecting OSM roads/paths to the campus map. Matching a building's location was not accepted as a gate coordinate. Named old sources with no unambiguous entrance point keep null coordinates.
-- Cached the static gate JSON, sources and map extract. No research API is queried by application visitors.
+### cu-jun-2020
 
-## Reconciliation and conflicts
+[Gate and canteen opening from 4 June 2020](https://www.chula.ac.th/news/31457/)
 
-- Phayathai 1/2 and Henri Dunant 1 have paired adjacent barrier nodes. Each named complex is one record with a real representative lane point, not an average or duplicate record.
-- The 2023 official map resolves Dhamma Center as Chula Soi 9 Gate 1. Some older notices call the area Soi 42; the conflicting naming is retained in the record notes.
-- Faculty names and road-number names are aliases of the same entrance where supported. Old map labels “Sanam Kila 1/2” are retained as aliases for the Henri Dunant Arts/Political Science groups.
-- Notices distinguish vehicular and pedestrian rules at the same faculty precinct. Without evidence of distinct physical openings, these remain one entrance group; access is unknown for every current mode. They are not inflated into separate records.
-- The 2024 notice explicitly distinguishes Chamchuri 9's Market side and U-Center side. These are separate named groups. The unspecified 2021 side-building exit is retained with the U-Center record as a possible association, without inventing another point.
-- A 2021 construction notice mentions an indoor-sports-building alternative exit and stadium pedestrian opening. Their independent physical identities remain unresolved; they are discovery leads rather than additional presumed permanent gates. See the stadium evidence notes. No temporary construction/event entrance is asserted to operate today.
-- The Engineering reserve gate is retained as an event-era reserve entrance with unknown current restrictions; it is not recommended as a public emergency route.
-- Sasin day/holiday rules, Chula Phat 14 closing times and various event schedules differ across years. None was arbitrarily selected as a current schedule.
+Published: 2020-06-03. Reviewed: 2026-11-01.
 
-## Inventory and source joins
+Historical reopening schedule adopted as a weekly baseline; not a new verification.
 
-| Gate ID | Entrance group | Evidence IDs | Current status |
-|---|---|---|---|
-| `phayathai-1` | ประตูพญาไท 1 / Phayathai Road Gate 1 | cu-2025-event, cu-2023-event, cu-map-2023, osm-campus | HISTORICAL |
-| `phayathai-2` | ประตูพญาไท 2 / Phayathai Road Gate 2 | cu-2025-event, cu-map-2023, osm-campus | HISTORICAL |
-| `phayathai-3` | ประตูพญาไท 3 / Phayathai Road Gate 3 | cu-nov-2021, cu-2025-event, cu-map-2023, osm-campus, cu-nov-2021-th | HISTORICAL |
-| `henri-dunant-1` | ประตูอังรีดูนังต์ 1 / Henri Dunant Road Gate 1 | cu-2025-event, cu-exits-2021, cu-map-2023, osm-campus | HISTORICAL |
-| `henri-dunant-2` | ประตูอังรีดูนังต์ 2 / Henri Dunant Road Gate 2 | cu-polsci-2021, cu-2025-event, cu-map-2023, osm-campus, cu-nov-2021-th | HISTORICAL |
-| `sasin` | ประตูศศินทร์ / Chula Soi 12 Gate 1 (Sasin) | cu-sasin-2018, cu-nov-2021, cu-2025-event, cu-map-2023, osm-campus, cu-nov-2021-th | HISTORICAL |
-| `dhamma` | ประตูธรรมสถาน / Chula Soi 9 Gate 1 (Dhamma Center) | cu-nov-2021, cu-2025-event, cu-map-2023, osm-campus, cu-nov-2021-th | HISTORICAL |
-| `stadium` | ประตูสนามกีฬาจุฬาฯ / Chula Soi 9 Gate 2 (Chulalongkorn Stadium) | cu-nov-2021, cu-exits-2021, cu-2025-event, cu-map-2023, osm-campus, cu-nov-2021-th | HISTORICAL |
-| `science` | ประตูคณะวิทยาศาสตร์ / Faculty of Science gate | cu-nov-2021, cu-2023-event, cu-2025-event, osm-campus, cu-nov-2021-th | HISTORICAL |
-| `architecture` | ประตูคณะสถาปัตยกรรมศาสตร์ / Faculty of Architecture gate | cu-2023-event, cu-2025-event, osm-campus | HISTORICAL |
-| `communication` | ประตูคณะนิเทศศาสตร์ / Faculty of Communication Arts gate | cu-dec-2021, cu-2025-event, osm-campus | HISTORICAL |
-| `cham9-market` | ประตูจามจุรี 9 ฝั่งตลาดสามย่าน / Chamchuri 9 · Sam Yan Market side | cu-cham9-2024 | HISTORICAL |
-| `cham9-ucenter` | ประตูจามจุรี 9 ฝั่งยูเซ็นเตอร์ / Chamchuri 9 · U-Center side | cu-cham9-2024, cu-exits-2021 | HISTORICAL |
-| `cham-square-foot` | ประตูทางเท้าด้านจามจุรีสแควร์ / Chamchuri Square pedestrian gate | cu-2023-event, cu-2025-event | HISTORICAL |
-| `engineering-reserve` | ประตูด้านอาคารวิศวกรรมสถาน / Engineering reserve gate | cu-2023-event, cu-2025-event | HISTORICAL |
-| `education-foot` | ประตูทางเท้าอาคารจามจุรี 5 / Chamchuri 5 / Education pedestrian gate | cu-nov-2021, cu-apr-2020, cu-nov-2021-th | HISTORICAL |
-| `dormitory-phayathai` | ประตูหอพักนิสิตด้านถนนพญาไท / Student dormitory · Phayathai Road gate | cu-apr-2020, cu-law-2022 | HISTORICAL |
-| `pharmacy` | ประตูคณะเภสัชศาสตร์ / Faculty of Pharmaceutical Sciences gate | cu-feb-2021, cu-2023-event, cu-2025-event | HISTORICAL |
-| `veterinary` | ประตูคณะสัตวแพทยศาสตร์ / Faculty of Veterinary Science gate | cu-feb-2021, cu-apr-2020 | HISTORICAL |
-| `dentistry` | ประตูคณะทันตแพทยศาสตร์ / Faculty of Dentistry gate | cu-apr-2020 | HISTORICAL |
-| `chulaphat14` | ประตูจุฬาพัฒน์ 14 / Chula Phat 14 gate | cu-nov-2021, cu-feb-2021, cu-nov-2021-th | HISTORICAL |
-| `law-foot` | ประตูทางเท้าคณะนิติศาสตร์ / Faculty of Law pedestrian gate | cu-law-2022 | HISTORICAL |
+ตารางเก่าที่นำมาใช้เป็นฐานคำนวณตามคำขอ ไม่ใช่การตรวจยืนยันใหม่
 
-## What would improve the data
+### cu-weekend-2008
 
-Obtain a current gate-by-gate statement from the university's security/traffic authority, including separate car, motorcycle, pedestrian, direction and visitor rules. Perform a physical entrance survey for unresolved identities and null points. Check each permanent entrance against an up-to-date campus map and document event/holiday exceptions. Those are evidence gaps, not facts that software can infer.
+[CU weekend gate opening table, revised 12 November 2008](https://www.arts.chula.ac.th/~tran/downloads/cu_traffic_03.pdf)
 
-## Revision 2: operating references and visitor guidance
+Published: 2008-11-12. Reviewed: 2026-11-01.
 
-The revised UI has Thai names, nearby places, notes and source summaries for every gate. It preserves 12 structured, dated operating references across 10 entrance groups in `referenceAccess`, separate from the null current access and schedule fields. All references are HISTORICAL. A temporary COVID-era policy is labelled with its year; event-only information is excluded from normal planning. Generic vehicle references remain generic and do not resolve current car or motorcycle permission. Authorization requirements not stated by a source remain null.
+Weekend-only historical table; does not establish weekday hours.
 
-Added the Thai 29 October 2021 notice, official campus-security contact page and official January 2025 visitor guidance. The visitor guidance describes campus-level public visits, not permission through every gate or into buildings. The security page supports the user-initiated contact link 02-218-0000; it does not supply per-gate opening status. No current gate-by-gate operating feed was found in the follow-up research.
+ตารางเก่าเฉพาะเสาร์–อาทิตย์ ไม่ใช้เดาเวลาวันธรรมดา
 
-MRT Sam Yan is offered as an optional public starting point using [OSM node 1698343087](https://www.openstreetmap.org/node/1698343087), recorded in `src/data/origins.json`. It is not a device GPS reading, university entrance coordinate or inferred walking route.
+### owner-gates-2026-11-01
 
-## Revision 3: map status at the current Bangkok time
+[Gate inventory supplied by the app owner, 1 November 2026](owner-gates-2026-11-01.txt)
 
-Version 1.2 defaults to the map on mobile. All gates retains known closed or denied records so red pins remain inspectable. There are two primary controls: All gates and Open now. Search, travel mode, entry/exit and optional evidence filters still intersect the results. Unlocated records appear in the list but never receive invented map points.
+Published: 2026-11-01. Reviewed: 2026-11-01.
 
-A shared `gateAvailability` calculation drives marker colour/symbol, compact pin card, list badge, dynamic counts and the Open now filter. Green requires the same current verified public access, selected mode/direction, applicable schedule and verified coordinate conditions as confirmed access. Red means a verified closure or denial; amber means recorded open hours with a verified permission but an authorization condition; grey means insufficient current evidence. Open now excludes red, amber and grey. No historical/event reference is promoted to a current schedule.
+Owner-provided working baseline; source years and unresolved details are preserved. Not a fresh field verification.
 
-Today's hours and the next opening/closing are calculated in Asia/Bangkok, including yesterday's overnight tail, touching/overlapping periods, multiple shifts and validity limits. Evidence expiry is labelled as expiry rather than asserted as a real-world closing event. Unknown holiday applicability remains unknown. The clock refreshes at minute boundaries and on tab return. This is schedule-based status, not live operational telemetry.
+ข้อมูลฐานที่เจ้าของแอปให้ใช้ โดยคงปีของประกาศเดิมและข้อที่ยังไม่ทราบ ไม่ใช่การตรวจยืนยันหน้างานใหม่
 
-The real dataset remains unchanged: no current schedule is verified, so Open now honestly contains zero records. This means insufficient evidence, not that every physical gate is closed. A separately labelled development-only `tests/status-harness.html` demonstrates the four states and time transition; it does not change `src/data/gates.json` or ship in the static build. Real-data and synthetic QA screenshots are named separately in `verification/v3/`.
+### nursing-five-gates
 
-A pin card initially shows a short status, today's hours, next change if known, selected access, coordinate/distance and directions. Dated notices, permissions, provenance, review dates and all source links are available in one collapsed disclosure. It no longer asks users to interpret a long announcement to determine the current status.
+[Faculty of Nursing map: five health precinct entrances](https://www.nurs.chula.ac.th/images/2016/about/Map.pdf)
 
-## Revision 4: user-adopted historical operating baseline (v1.3)
+Published: undated. Reviewed: 2026-11-01.
 
-The app owner explicitly requested that older schedules be used as the working current baseline until corrected. This supersedes the prior presentation policy that prevented historical hours from driving the main map. `operationPolicy` records that decision. 47 structured `operatingRules` cover 19 of 22 gate groups. They remain HISTORICAL, join to real sources, and do not change the original verified-access fields, coordinates or evidence statistics.
+Physical entrance identity and mode only; no opening hours.
 
-The shared availability calculation now uses adopted weekly rules when no verified current gate record supersedes them. It resolves the selected mode, entry/exit, Bangkok day and time, latest applicable source, explicit one-way rules and the linked Dhamma/Stadium vehicle-exit condition. Authorization notes are shown as compact conditions rather than suppressing all scheduled-open gates. Source publication year and a reference-schedule label remain available in the pin card.
+ใช้ระบุตำแหน่งและประเภทประตู ไม่ได้ระบุเวลาเปิดปิด
 
-The 2 December 2021 all-pedestrian-gates notice is adopted as a shared walking baseline for the listed main/pedestrian gate groups: weekdays 06:00–20:00, weekends 06:00–18:00. Applying that shared notice to the named main-gate groups is an explicit app baseline, not individual field verification. Pharmacy uses the faculty-specific February table. The 2008 weekend-only vehicle table supplies only covered weekend days; it does not fabricate weekday hours. Latest matching dated rules override older matching rules. Event-only graduation records do not supply normal weekly hours.
+### dental-directions
 
-Known exceptions (authorization, race-day hours and public holidays) remain in source material/conditions. The default clock uses the ordinary weekly pattern; no live closure, holiday or race calendar is connected. The app owner can correct the structured JSON directly. Sources added in this revision: [June 2020 opening notice](https://www.chula.ac.th/news/31457/) and [November 2008 weekend table](https://www.arts.chula.ac.th/~tran/downloads/cu_traffic_03.pdf). See `OPERATING_SCHEDULES.md` for every adopted rule and source.
+[CU Special Dental Clinic: directions](https://www.chulasdc.com/contact)
 
-The dashboard still audits current verification separately: adopting older data does not turn it into a new verification. Main navigation is usable with the adopted schedules; unknown verification is no longer a blanket operational blocker. Unlocated gates still receive no invented points or directions.
+Published: undated. Reviewed: 2026-11-01.
+
+Two pedestrian approaches; clinic hours are not gate hours.
+
+ระบุทางเดินเข้าสองด้าน เวลาให้บริการคลินิกไม่ใช่เวลาประตู
+
+### osm-health-north
+
+[OpenStreetMap northern health precinct extract](https://api.openstreetmap.org/api/0.6/map?bbox=100.520,13.7435,100.535,13.748)
+
+Published: undated. Reviewed: 2026-11-01.
+
+Additional map geometry and physical entrance nodes near Rama I. OSM access tags do not replace adopted operating rules.
+
+ถนน อาคาร และจุดทางเข้าจริงด้านถนนพระราม 1 แท็ก access ของ OSM ไม่ใช่ตารางเปิดปิดที่แอปนำมาใช้
+
+## Remaining gaps
+
+Four old groups remain without coordinates: Chamchuri 9 Market, Chamchuri 9 U-Center, Chamchuri Square walkway and Law walkway. They retain separate list records and no invented pin. A single physical gate complex is not expanded into multiple gates for paired lane barriers. Health gate 5 / Allied Health name overlap needs a field identity check. New entrance points use MEDIUM confidence and UNVERIFIED coordinate status. Public access is calculated from adopted rules, never OSM access tags alone.
+

@@ -183,6 +183,46 @@
       "reviewedAt": "2026-11-01",
       "scope": "Weekend-only historical table; does not establish weekday hours.",
       "scopeTh": "ตารางเก่าเฉพาะเสาร์–อาทิตย์ ไม่ใช้เดาเวลาวันธรรมดา"
+    },
+    {
+      "id": "owner-gates-2026-11-01",
+      "title": "Gate inventory supplied by the app owner, 1 November 2026",
+      "titleTh": "ข้อมูลประตูที่เจ้าของแอปส่งให้ 1 พฤศจิกายน 2569",
+      "url": "research/owner-gates-2026-11-01.txt",
+      "publishedAt": "2026-11-01",
+      "reviewedAt": "2026-11-01",
+      "scope": "Owner-provided working baseline; source years and unresolved details are preserved. Not a fresh field verification.",
+      "scopeTh": "ข้อมูลฐานที่เจ้าของแอปให้ใช้ โดยคงปีของประกาศเดิมและข้อที่ยังไม่ทราบ ไม่ใช่การตรวจยืนยันหน้างานใหม่"
+    },
+    {
+      "id": "nursing-five-gates",
+      "title": "Faculty of Nursing map: five health precinct entrances",
+      "titleTh": "แผนที่คณะพยาบาลศาสตร์: ทางเข้าเขตวิทยาศาสตร์สุขภาพ 5 จุด",
+      "url": "https://www.nurs.chula.ac.th/images/2016/about/Map.pdf",
+      "publishedAt": null,
+      "reviewedAt": "2026-11-01",
+      "scope": "Physical entrance identity and mode only; no opening hours.",
+      "scopeTh": "ใช้ระบุตำแหน่งและประเภทประตู ไม่ได้ระบุเวลาเปิดปิด"
+    },
+    {
+      "id": "dental-directions",
+      "title": "CU Special Dental Clinic: directions",
+      "titleTh": "คลินิกพิเศษทันตะจุฬา: วิธีเดินทางเข้าคณะ",
+      "url": "https://www.chulasdc.com/contact",
+      "publishedAt": null,
+      "reviewedAt": "2026-11-01",
+      "scope": "Two pedestrian approaches; clinic hours are not gate hours.",
+      "scopeTh": "ระบุทางเดินเข้าสองด้าน เวลาให้บริการคลินิกไม่ใช่เวลาประตู"
+    },
+    {
+      "id": "osm-health-north",
+      "title": "OpenStreetMap northern health precinct extract",
+      "titleTh": "ข้อมูลแผนที่ OSM เขตวิทยาศาสตร์สุขภาพด้านเหนือ",
+      "url": "https://api.openstreetmap.org/api/0.6/map?bbox=100.520,13.7435,100.535,13.748",
+      "publishedAt": null,
+      "reviewedAt": "2026-11-01",
+      "scope": "Additional map geometry and physical entrance nodes near Rama I. OSM access tags do not replace adopted operating rules.",
+      "scopeTh": "ถนน อาคาร และจุดทางเข้าจริงด้านถนนพระราม 1 แท็ก access ของ OSM ไม่ใช่ตารางเปิดปิดที่แอปนำมาใช้"
     }
   ],
   "gates": [
@@ -234,7 +274,8 @@
         "cu-map-2023",
         "osm-campus",
         "cu-weekend-2008",
-        "cu-dec-2021"
+        "cu-dec-2021",
+        "owner-gates-2026-11-01"
       ],
       "historicalEvidence": [
         {
@@ -332,7 +373,14 @@
           "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
           "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
         }
-      ]
+      ],
+      "accessProfile": {
+        "highestMode": "car",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "A"
     },
     {
       "id": "phayathai-2",
@@ -380,7 +428,8 @@
         "cu-map-2023",
         "osm-campus",
         "cu-weekend-2008",
-        "cu-dec-2021"
+        "cu-dec-2021",
+        "owner-gates-2026-11-01"
       ],
       "historicalEvidence": [],
       "notes": "Identified in a past official source. Present-day access, vehicle permissions and operating times have not been verified.",
@@ -472,7 +521,14 @@
           "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
           "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
         }
-      ]
+      ],
+      "accessProfile": {
+        "highestMode": "car",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "B"
     },
     {
       "id": "phayathai-3",
@@ -523,7 +579,8 @@
         "osm-campus",
         "cu-nov-2021-th",
         "cu-apr-2020",
-        "cu-dec-2021"
+        "cu-dec-2021",
+        "owner-gates-2026-11-01"
       ],
       "historicalEvidence": [
         {
@@ -688,7 +745,14 @@
           "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
           "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
         }
-      ]
+      ],
+      "accessProfile": {
+        "highestMode": "car",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "C"
     },
     {
       "id": "henri-dunant-1",
@@ -739,7 +803,8 @@
         "cu-map-2023",
         "osm-campus",
         "cu-weekend-2008",
-        "cu-dec-2021"
+        "cu-dec-2021",
+        "owner-gates-2026-11-01"
       ],
       "historicalEvidence": [
         {
@@ -892,7 +957,14 @@
           "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
           "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
         }
-      ]
+      ],
+      "accessProfile": {
+        "highestMode": "car",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "D"
     },
     {
       "id": "henri-dunant-2",
@@ -942,7 +1014,8 @@
         "cu-map-2023",
         "osm-campus",
         "cu-nov-2021-th",
-        "cu-dec-2021"
+        "cu-dec-2021",
+        "owner-gates-2026-11-01"
       ],
       "historicalEvidence": [],
       "notes": "Identified in a past official source. Present-day access, vehicle permissions and operating times have not been verified.",
@@ -1111,7 +1184,14 @@
           "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
           "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
         }
-      ]
+      ],
+      "accessProfile": {
+        "highestMode": "car",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "E"
     },
     {
       "id": "sasin",
@@ -1162,7 +1242,8 @@
         "osm-campus",
         "cu-nov-2021-th",
         "cu-weekend-2008",
-        "cu-dec-2021"
+        "cu-dec-2021",
+        "owner-gates-2026-11-01"
       ],
       "historicalEvidence": [
         {
@@ -1288,40 +1369,6 @@
           "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
         },
         {
-          "id": "sasin-3",
-          "source": "cu-weekend-2008",
-          "modes": [
-            "car",
-            "motorcycle"
-          ],
-          "coveredDays": [
-            0,
-            6
-          ],
-          "schedule": {
-            "verificationStatus": "HISTORICAL",
-            "validFrom": null,
-            "validThrough": null,
-            "holidayPolicy": "same",
-            "intervals": [
-              {
-                "days": [
-                  0,
-                  6
-                ],
-                "open": "00:00",
-                "close": "24:00"
-              }
-            ]
-          },
-          "entryAllowed": true,
-          "exitAllowed": true,
-          "conditionTh": null,
-          "conditionEn": null,
-          "noteTh": "ตารางรถทุกประเภทเฉพาะเสาร์–อาทิตย์ ใช้ประกาศใหม่กว่าก่อนถ้ามีสำหรับวิธีเดินทางนั้น",
-          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
-        },
-        {
           "id": "sasin-4",
           "source": "cu-dec-2021",
           "modes": [
@@ -1370,7 +1417,14 @@
           "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
           "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
         }
-      ]
+      ],
+      "accessProfile": {
+        "highestMode": "car",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "F"
     },
     {
       "id": "dhamma",
@@ -1421,7 +1475,8 @@
         "osm-campus",
         "cu-nov-2021-th",
         "cu-apr-2020",
-        "cu-dec-2021"
+        "cu-dec-2021",
+        "owner-gates-2026-11-01"
       ],
       "historicalEvidence": [],
       "notes": "Older sources inconsistently call this Soi 42 or Soi 9. The 2023 official map and OSM identify the Dhamma Center gate on Soi 9. Historical 24-hour operation does not establish unrestricted access.",
@@ -1488,7 +1543,7 @@
           "conditionEn": "Staff or authorized visitors · vehicle exit when the Stadium gate is closed",
           "noteTh": "ทางออกตามประกาศเดิมสัมพันธ์กับการปิดประตูสนามกีฬา ดูแหล่งอ้างอิงประกอบ",
           "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical.",
-          "exitWhenClosedGate": "stadium"
+          "exitWhenClosedGate": "indoor-stadium-exit"
         },
         {
           "id": "dhamma-2",
@@ -1582,7 +1637,14 @@
           "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
           "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
         }
-      ]
+      ],
+      "accessProfile": {
+        "highestMode": "car",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "G"
     },
     {
       "id": "stadium",
@@ -1632,7 +1694,8 @@
         "cu-map-2023",
         "osm-campus",
         "cu-nov-2021-th",
-        "cu-dec-2021"
+        "cu-dec-2021",
+        "owner-gates-2026-11-01"
       ],
       "historicalEvidence": [
         {
@@ -1641,7 +1704,7 @@
         }
       ],
       "notes": "Identified in a past official source. Present-day access, vehicle permissions and operating times have not been verified.",
-      "shortNameTh": "ประตูสนามกีฬาจุฬาฯ",
+      "shortNameTh": "สนามกีฬา · ฝั่งตลาดสามย่าน",
       "nearbyTh": "สนามกีฬาจุฬาฯ · ตลาดสามย่าน · ซอยจุฬาฯ 9",
       "notesTh": "แผนที่ทางการระบุจุด H ประกาศเก่ามีทั้งทางออกยานพาหนะ ทางเดินเท้า และการปิดก่อสร้างชั่วคราว ไม่สรุปว่าประตูรถเข้าได้จากข้อมูลทางออก",
       "coordinateVerificationNotesTh": "จับคู่จุดประตูจริงบน OSM กับจุด H ในแผนที่ทางการ ใช้จุดของช่องทางหนึ่งเมื่อประตูมีหลายช่อง ไม่ใช่การสำรวจ GPS หน้างาน",
@@ -1661,56 +1724,6 @@
         }
       ],
       "operatingRules": [
-        {
-          "id": "stadium-1",
-          "source": "cu-nov-2021-th",
-          "modes": [
-            "car",
-            "motorcycle"
-          ],
-          "coveredDays": [
-            0,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-          ],
-          "schedule": {
-            "verificationStatus": "HISTORICAL",
-            "validFrom": null,
-            "validThrough": null,
-            "holidayPolicy": "same",
-            "intervals": [
-              {
-                "days": [
-                  1,
-                  2,
-                  3,
-                  4,
-                  5
-                ],
-                "open": "06:00",
-                "close": "20:00"
-              },
-              {
-                "days": [
-                  0,
-                  6
-                ],
-                "open": "06:00",
-                "close": "18:00"
-              }
-            ]
-          },
-          "entryAllowed": false,
-          "exitAllowed": true,
-          "conditionTh": null,
-          "conditionEn": null,
-          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
-          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
-        },
         {
           "id": "stadium-2",
           "source": "cu-exits-2021",
@@ -1809,7 +1822,14 @@
           "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
           "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
         }
-      ]
+      ],
+      "accessProfile": {
+        "highestMode": "pedestrian",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "H"
     },
     {
       "id": "science",
@@ -1858,7 +1878,8 @@
         "cu-2025-event",
         "osm-campus",
         "cu-nov-2021-th",
-        "cu-dec-2021"
+        "cu-dec-2021",
+        "owner-gates-2026-11-01"
       ],
       "historicalEvidence": [],
       "notes": "OSM barrier on a driveway south of the main entrance is a plausible match, not an independently verified identity. Past vehicle exit rules and event screening differ.",
@@ -1973,7 +1994,14 @@
           "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
           "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
         }
-      ]
+      ],
+      "accessProfile": {
+        "highestMode": "car",
+        "entryAllowed": false,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "9"
     },
     {
       "id": "architecture",
@@ -2021,7 +2049,8 @@
         "cu-2025-event",
         "osm-campus",
         "cu-jun-2020",
-        "cu-dec-2021"
+        "cu-dec-2021",
+        "owner-gates-2026-11-01"
       ],
       "historicalEvidence": [],
       "notes": "Approximate identity match to a physical OSM barrier by the Architecture precinct. Pedestrian opening mentioned in event notices is grouped here rather than inventing a second point.",
@@ -2123,7 +2152,14 @@
           "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
           "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
         }
-      ]
+      ],
+      "accessProfile": {
+        "highestMode": "pedestrian",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "10"
     },
     {
       "id": "communication",
@@ -2169,7 +2205,8 @@
       "sources": [
         "cu-dec-2021",
         "cu-2025-event",
-        "osm-campus"
+        "osm-campus",
+        "owner-gates-2026-11-01"
       ],
       "historicalEvidence": [],
       "notes": "OSM barrier is at the driveway beside Communication Arts on the west side of Phayathai Road; exact association with the notice remains approximate.",
@@ -2284,7 +2321,14 @@
           "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
           "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
         }
-      ]
+      ],
+      "accessProfile": {
+        "highestMode": "car",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "11"
     },
     {
       "id": "cham9-market",
@@ -2337,7 +2381,8 @@
       "notesTh": "ประกาศปี 2567 แยกทางเข้าฝั่งตลาดสามย่านจากทางออกฝั่งยูเซ็นเตอร์ การปิดในวันที่ 7–8 กุมภาพันธ์ 2567 สิ้นสุดไปแล้ว ยังระบุจุดประตูอย่างแน่ชัดไม่ได้",
       "coordinateVerificationNotesTh": "ยังไม่พบจุดประตูที่ยืนยันได้ จึงไม่ใช้พิกัดอาคารข้างเคียงแทน",
       "referenceAccess": [],
-      "operatingRules": []
+      "operatingRules": [],
+      "mapCode": "12"
     },
     {
       "id": "cham9-ucenter",
@@ -2382,7 +2427,8 @@
       "lastVerified": null,
       "sources": [
         "cu-cham9-2024",
-        "cu-exits-2021"
+        "cu-exits-2021",
+        "owner-gates-2026-11-01"
       ],
       "historicalEvidence": [],
       "notes": "The 2024 notice explicitly distinguishes this exit from the Market-side entrance. The 2021 side-building exit may refer to it; retained as evidence here, not duplicated.",
@@ -2442,7 +2488,14 @@
           "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
           "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
         }
-      ]
+      ],
+      "accessProfile": {
+        "highestMode": "car",
+        "entryAllowed": false,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "13"
     },
     {
       "id": "cham-square-foot",
@@ -2489,7 +2542,8 @@
         "cu-2023-event",
         "cu-2025-event",
         "cu-jun-2020",
-        "cu-dec-2021"
+        "cu-dec-2021",
+        "owner-gates-2026-11-01"
       ],
       "historicalEvidence": [],
       "notes": "A pedestrian gate is explicitly named. No physical node could be matched confidently; subway entrances are not used as gate coordinates.",
@@ -2591,7 +2645,14 @@
           "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
           "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
         }
-      ]
+      ],
+      "accessProfile": {
+        "highestMode": "pedestrian",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "14"
     },
     {
       "id": "engineering-reserve",
@@ -2605,15 +2666,15 @@
       "nearby": "Engineering precinct · Engineering Institute building",
       "category": "emergency",
       "mapLetter": null,
-      "latitude": null,
-      "longitude": null,
-      "coordinateConfidence": "UNKNOWN",
-      "coordinateVerificationStatus": "UNKNOWN",
-      "coordinateSource": null,
+      "latitude": 13.7371639,
+      "longitude": 100.5340058,
+      "coordinateConfidence": "MEDIUM",
+      "coordinateVerificationStatus": "UNVERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/6198591797",
       "coordinateLastVerified": null,
       "coordinateReviewedAt": "2026-11-01",
-      "coordinateSourceUpdatedAt": null,
-      "coordinateVerificationNotes": "No unambiguous physical entrance point established. No building centroid substituted.",
+      "coordinateSourceUpdatedAt": "2019-01-26T17:16:35Z",
+      "coordinateVerificationNotes": "ไม้กั้นฝั่งอังรีดูนังต์ข้างกลุ่มอาคารวิศวกรรม จับคู่ประตูสำรองโดยประมาณ Physical OSM entrance/barrier; gate identity is an approximate desk match, not a field GPS survey.",
       "accessType": "unknown",
       "permissions": {
         "pedestrian": null,
@@ -2636,16 +2697,18 @@
       "lastVerified": null,
       "sources": [
         "cu-2023-event",
-        "cu-2025-event"
+        "cu-2025-event",
+        "osm-campus"
       ],
       "historicalEvidence": [],
       "notes": "Designated as a closed reserve entrance for past ceremonies. This does not establish routine public access or permanent emergency-only status.",
       "shortNameTh": "ประตูสำรองวิศวกรรมสถาน",
       "nearbyTh": "อาคารวิศวกรรมสถาน · กลุ่มคณะวิศวกรรมศาสตร์",
       "notesTh": "ประกาศงานรับปริญญากำหนดเป็นประตูสำรองและปิดในช่วงงาน ไม่ใช่หลักฐานว่าบุคคลทั่วไปใช้เป็นทางเข้าประจำหรือทางฉุกเฉินได้",
-      "coordinateVerificationNotesTh": "ยังไม่พบจุดประตูที่ยืนยันได้ จึงไม่ใช้พิกัดอาคารข้างเคียงแทน",
+      "coordinateVerificationNotesTh": "ไม้กั้นฝั่งอังรีดูนังต์ข้างกลุ่มอาคารวิศวกรรม จับคู่ประตูสำรองโดยประมาณ · เทียบจุดทางเข้า/ไม้กั้นจริงบน OSM โดยประมาณ ยังไม่ได้ตรวจ GPS หน้างาน",
       "referenceAccess": [],
-      "operatingRules": []
+      "operatingRules": [],
+      "mapCode": "15"
     },
     {
       "id": "education-foot",
@@ -2659,15 +2722,15 @@
       "nearby": "Chamchuri 5 · Faculty of Education",
       "category": "pedestrian",
       "mapLetter": null,
-      "latitude": null,
-      "longitude": null,
-      "coordinateConfidence": "UNKNOWN",
-      "coordinateVerificationStatus": "UNKNOWN",
-      "coordinateSource": null,
+      "latitude": 13.7379134,
+      "longitude": 100.5293732,
+      "coordinateConfidence": "MEDIUM",
+      "coordinateVerificationStatus": "UNVERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/1703081177",
       "coordinateLastVerified": null,
       "coordinateReviewedAt": "2026-11-01",
-      "coordinateSourceUpdatedAt": null,
-      "coordinateVerificationNotes": "No unambiguous physical entrance point established. No building centroid substituted.",
+      "coordinateSourceUpdatedAt": "2013-01-11T21:32:12Z",
+      "coordinateVerificationNotes": "ทางเดินฝั่งพญาไทข้างอาคารจามจุรี 5 Physical OSM entrance/barrier; gate identity is an approximate desk match, not a field GPS survey.",
       "accessType": "unknown",
       "permissions": {
         "pedestrian": null,
@@ -2692,14 +2755,16 @@
         "cu-nov-2021",
         "cu-apr-2020",
         "cu-nov-2021-th",
-        "cu-dec-2021"
+        "cu-dec-2021",
+        "owner-gates-2026-11-01",
+        "osm-campus"
       ],
       "historicalEvidence": [],
       "notes": "Historical pedestrian entrance on Phayathai Road. A nearby vehicle barrier is not substituted for the foot gate.",
       "shortNameTh": "ประตูทางเดินครุศาสตร์",
       "nearbyTh": "อาคารจามจุรี 5 · คณะครุศาสตร์",
       "notesTh": "ประกาศเก่าระบุเป็นประตูสำหรับคนเดินทางถนนพญาไท ยังยืนยันจุดประตูทางเดินไม่ได้ และไม่นำจุดกั้นรถข้างอาคารมาแทน",
-      "coordinateVerificationNotesTh": "ยังไม่พบจุดประตูที่ยืนยันได้ จึงไม่ใช้พิกัดอาคารข้างเคียงแทน",
+      "coordinateVerificationNotesTh": "ทางเดินฝั่งพญาไทข้างอาคารจามจุรี 5 · เทียบจุดทางเข้า/ไม้กั้นจริงบน OSM โดยประมาณ ยังไม่ได้ตรวจ GPS หน้างาน",
       "referenceAccess": [
         {
           "appliesTo": "pedestrian",
@@ -2806,7 +2871,14 @@
           "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
           "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
         }
-      ]
+      ],
+      "accessProfile": {
+        "highestMode": "pedestrian",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "16"
     },
     {
       "id": "dormitory-phayathai",
@@ -2820,15 +2892,15 @@
       "nearby": "Student dormitory precinct · Phayathai Road",
       "category": "restricted",
       "mapLetter": null,
-      "latitude": null,
-      "longitude": null,
-      "coordinateConfidence": "UNKNOWN",
-      "coordinateVerificationStatus": "UNKNOWN",
-      "coordinateSource": null,
+      "latitude": 13.7413497,
+      "longitude": 100.5298733,
+      "coordinateConfidence": "MEDIUM",
+      "coordinateVerificationStatus": "UNVERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/1848751286",
       "coordinateLastVerified": null,
       "coordinateReviewedAt": "2026-11-01",
-      "coordinateSourceUpdatedAt": null,
-      "coordinateVerificationNotes": "No unambiguous physical entrance point established. No building centroid substituted.",
+      "coordinateSourceUpdatedAt": "2020-10-05T02:48:03Z",
+      "coordinateVerificationNotes": "ทางเข้าหอพักฝั่งถนนพญาไท Physical OSM entrance/barrier; gate identity is an approximate desk match, not a field GPS survey.",
       "accessType": "unknown",
       "permissions": {
         "pedestrian": null,
@@ -2852,14 +2924,15 @@
       "sources": [
         "cu-apr-2020",
         "cu-law-2022",
-        "cu-dec-2021"
+        "cu-dec-2021",
+        "osm-campus"
       ],
       "historicalEvidence": [],
       "notes": "Old notices identify this access group, without an unambiguous barrier point or present-day visitor policy.",
       "shortNameTh": "ประตูหอพักฝั่งพญาไท",
       "nearbyTh": "กลุ่มหอพักนิสิต · ถนนพญาไท",
       "notesTh": "มีข้อมูลเก่าระบุการคัดกรองคนและรถที่ประตูหอพัก แต่ยังไม่ยืนยันจุดกั้นและสิทธิ์ของผู้มาติดต่อในปัจจุบัน",
-      "coordinateVerificationNotesTh": "ยังไม่พบจุดประตูที่ยืนยันได้ จึงไม่ใช้พิกัดอาคารข้างเคียงแทน",
+      "coordinateVerificationNotesTh": "ทางเข้าหอพักฝั่งถนนพญาไท · เทียบจุดทางเข้า/ไม้กั้นจริงบน OSM โดยประมาณ ยังไม่ได้ตรวจ GPS หน้างาน",
       "referenceAccess": [],
       "operatingRules": [
         {
@@ -2997,7 +3070,8 @@
           "noteTh": "ใช้ประกาศรวมประตูทางเท้าเดือนธันวาคม 2564 เป็นตารางฐานของกลุ่มประตูนี้ตามที่เจ้าของแอปเลือก",
           "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
         }
-      ]
+      ],
+      "mapCode": "17"
     },
     {
       "id": "pharmacy",
@@ -3011,15 +3085,15 @@
       "nearby": "Faculty of Pharmaceutical Sciences · Phayathai Road",
       "category": "vehicle",
       "mapLetter": null,
-      "latitude": null,
-      "longitude": null,
-      "coordinateConfidence": "UNKNOWN",
-      "coordinateVerificationStatus": "UNKNOWN",
-      "coordinateSource": null,
+      "latitude": 13.7427389,
+      "longitude": 100.5304057,
+      "coordinateConfidence": "MEDIUM",
+      "coordinateVerificationStatus": "UNVERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/1726990185",
       "coordinateLastVerified": null,
       "coordinateReviewedAt": "2026-11-01",
-      "coordinateSourceUpdatedAt": null,
-      "coordinateVerificationNotes": "No unambiguous physical entrance point established. No building centroid substituted.",
+      "coordinateSourceUpdatedAt": "2026-06-17T15:17:51Z",
+      "coordinateVerificationNotes": "ทางเข้าคณะเภสัชศาสตร์จากถนนพญาไทด้านใต้ Physical OSM entrance/barrier; gate identity is an approximate desk match, not a field GPS survey.",
       "accessType": "unknown",
       "permissions": {
         "pedestrian": null,
@@ -3045,21 +3119,23 @@
         "cu-2023-event",
         "cu-2025-event",
         "cu-apr-2020",
-        "cu-jun-2020"
+        "cu-jun-2020",
+        "owner-gates-2026-11-01",
+        "osm-campus"
       ],
       "historicalEvidence": [],
       "notes": "Historical policies differ by event, weekday and Saturday. No current schedule or physical gate point verified.",
       "shortNameTh": "ประตูเภสัชศาสตร์",
       "nearbyTh": "คณะเภสัชศาสตร์ · ถนนพญาไท",
-      "notesTh": "ประกาศเก่ามีเวลาและเงื่อนไขวันหยุดต่างกันตามช่วงและงาน ยังไม่ยืนยันตารางปัจจุบันหรือจุดประตูที่แน่ชัด",
-      "coordinateVerificationNotesTh": "ยังไม่พบจุดประตูที่ยืนยันได้ จึงไม่ใช้พิกัดอาคารข้างเคียงแทน",
+      "notesTh": "ข้อมูลที่ส่งระบุเวลาปกติ 05:00–22:00 แต่ไม่แยกวัน จึงใช้ทุกวันเป็นสมมติฐานฐานของเจ้าของแอป ปรับได้เมื่อมีรายละเอียดเพิ่ม",
+      "coordinateVerificationNotesTh": "ทางเข้าคณะเภสัชศาสตร์จากถนนพญาไทด้านใต้ · เทียบจุดทางเข้า/ไม้กั้นจริงบน OSM โดยประมาณ ยังไม่ได้ตรวจ GPS หน้างาน",
       "referenceAccess": [],
       "operatingRules": [
         {
-          "id": "pharmacy-1",
-          "source": "cu-apr-2020",
+          "id": "pharmacy-owner-1",
+          "source": "owner-gates-2026-11-01",
           "modes": [
-            "pedestrian"
+            "car"
           ],
           "coveredDays": [
             0,
@@ -3086,161 +3162,27 @@
                   5,
                   6
                 ],
-                "open": "00:00",
-                "close": "24:00"
-              }
-            ]
-          },
-          "entryAllowed": true,
-          "exitAllowed": true,
-          "conditionTh": "ตรวจบัตร / ผู้ได้รับอนุญาต",
-          "conditionEn": "ID check / authorized access",
-          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
-          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
-        },
-        {
-          "id": "pharmacy-2",
-          "source": "cu-jun-2020",
-          "modes": [
-            "car",
-            "motorcycle"
-          ],
-          "coveredDays": [
-            0,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-          ],
-          "schedule": {
-            "verificationStatus": "HISTORICAL",
-            "validFrom": null,
-            "validThrough": null,
-            "holidayPolicy": "same",
-            "intervals": [
-              {
-                "days": [
-                  0,
-                  1,
-                  2,
-                  3,
-                  4,
-                  5,
-                  6
-                ],
-                "open": "06:00",
-                "close": "18:00"
-              }
-            ]
-          },
-          "entryAllowed": true,
-          "exitAllowed": true,
-          "conditionTh": "ตรวจบัตร / รถที่ได้รับอนุญาต",
-          "conditionEn": "ID check / authorized vehicles",
-          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
-          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
-        },
-        {
-          "id": "pharmacy-3",
-          "source": "cu-feb-2021",
-          "modes": [
-            "car",
-            "motorcycle"
-          ],
-          "coveredDays": [
-            0,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-          ],
-          "schedule": {
-            "verificationStatus": "HISTORICAL",
-            "validFrom": null,
-            "validThrough": null,
-            "holidayPolicy": "same",
-            "intervals": [
-              {
-                "days": [
-                  1,
-                  2,
-                  3,
-                  4,
-                  5
-                ],
                 "open": "05:00",
                 "close": "22:00"
-              },
-              {
-                "days": [
-                  6
-                ],
-                "open": "06:00",
-                "close": "18:00"
               }
             ]
           },
           "entryAllowed": true,
           "exitAllowed": true,
-          "conditionTh": "รถที่ได้รับอนุญาต",
-          "conditionEn": "Authorized vehicles",
-          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
-          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
-        },
-        {
-          "id": "pharmacy-4",
-          "source": "cu-feb-2021",
-          "modes": [
-            "pedestrian"
-          ],
-          "coveredDays": [
-            0,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-          ],
-          "schedule": {
-            "verificationStatus": "HISTORICAL",
-            "validFrom": null,
-            "validThrough": null,
-            "holidayPolicy": "same",
-            "intervals": [
-              {
-                "days": [
-                  1,
-                  2,
-                  3,
-                  4,
-                  5
-                ],
-                "open": "05:00",
-                "close": "22:00"
-              },
-              {
-                "days": [
-                  0,
-                  6
-                ],
-                "open": "05:00",
-                "close": "18:00"
-              }
-            ]
-          },
-          "entryAllowed": true,
-          "exitAllowed": true,
+          "exitWhenClosedGate": null,
           "conditionTh": null,
           "conditionEn": null,
-          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
-          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
+          "noteTh": "ใช้ข้อมูลที่เจ้าของแอปส่งเป็นตารางฐาน โดยคงที่มาประกาศเดิม",
+          "noteEn": "Owner-supplied working baseline; historical provenance is retained."
         }
-      ]
+      ],
+      "accessProfile": {
+        "highestMode": "car",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "18"
     },
     {
       "id": "veterinary",
@@ -3254,15 +3196,15 @@
       "nearby": "Faculty of Veterinary Science · Henri Dunant Road",
       "category": "restricted",
       "mapLetter": null,
-      "latitude": null,
-      "longitude": null,
-      "coordinateConfidence": "UNKNOWN",
-      "coordinateVerificationStatus": "UNKNOWN",
-      "coordinateSource": null,
+      "latitude": 13.7395002,
+      "longitude": 100.5347324,
+      "coordinateConfidence": "MEDIUM",
+      "coordinateVerificationStatus": "UNVERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/359788990",
       "coordinateLastVerified": null,
       "coordinateReviewedAt": "2026-11-01",
-      "coordinateSourceUpdatedAt": null,
-      "coordinateVerificationNotes": "No unambiguous physical entrance point established. No building centroid substituted.",
+      "coordinateSourceUpdatedAt": "2024-02-23T11:26:44Z",
+      "coordinateVerificationNotes": "ทางเข้าคณะสัตวแพทยศาสตร์ฝั่งอังรีดูนังต์ด้านใต้ Physical OSM entrance/barrier; gate identity is an approximate desk match, not a field GPS survey.",
       "accessType": "unknown",
       "permissions": {
         "pedestrian": null,
@@ -3285,14 +3227,16 @@
       "lastVerified": null,
       "sources": [
         "cu-feb-2021",
-        "cu-apr-2020"
+        "cu-apr-2020",
+        "owner-gates-2026-11-01",
+        "osm-campus"
       ],
       "historicalEvidence": [],
       "notes": "Old notice defers to faculty rules. Access to the veterinary precinct is not inferred from other main-campus gates.",
       "shortNameTh": "ประตูสัตวแพทยศาสตร์",
       "nearbyTh": "คณะสัตวแพทยศาสตร์ · ถนนอังรีดูนังต์",
       "notesTh": "ประกาศเก่าระบุให้ใช้ข้อกำหนดของคณะ ไม่ถือว่าสิทธิ์ของประตูส่วนกลางใช้แทนประตูคณะนี้ได้",
-      "coordinateVerificationNotesTh": "ยังไม่พบจุดประตูที่ยืนยันได้ จึงไม่ใช้พิกัดอาคารข้างเคียงแทน",
+      "coordinateVerificationNotesTh": "ทางเข้าคณะสัตวแพทยศาสตร์ฝั่งอังรีดูนังต์ด้านใต้ · เทียบจุดทางเข้า/ไม้กั้นจริงบน OSM โดยประมาณ ยังไม่ได้ตรวจ GPS หน้างาน",
       "referenceAccess": [],
       "operatingRules": [
         {
@@ -3425,12 +3369,19 @@
           "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
           "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
         }
-      ]
+      ],
+      "accessProfile": {
+        "highestMode": "car",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "19"
     },
     {
       "id": "dentistry",
-      "name": "ประตูคณะทันตแพทยศาสตร์",
-      "nameEn": "Faculty of Dentistry gate",
+      "name": "ประตูทันตแพทยศาสตร์ · ฝั่งสยามสแควร์",
+      "nameEn": "Dentistry · Siam Square side",
       "nameEnType": "editorial-translation",
       "aliases": [
         "Dentistry",
@@ -3439,15 +3390,15 @@
       "nearby": "Faculty of Dentistry · Siam Square precinct",
       "category": "restricted",
       "mapLetter": null,
-      "latitude": null,
-      "longitude": null,
-      "coordinateConfidence": "UNKNOWN",
-      "coordinateVerificationStatus": "UNKNOWN",
-      "coordinateSource": null,
+      "latitude": 13.7437995,
+      "longitude": 100.5332118,
+      "coordinateConfidence": "MEDIUM",
+      "coordinateVerificationStatus": "UNVERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/11639935460",
       "coordinateLastVerified": null,
       "coordinateReviewedAt": "2026-11-01",
-      "coordinateSourceUpdatedAt": null,
-      "coordinateVerificationNotes": "No unambiguous physical entrance point established. No building centroid substituted.",
+      "coordinateSourceUpdatedAt": "2024-02-19T06:10:03Z",
+      "coordinateVerificationNotes": "จุดประตูด้านสยามสแควร์ ใกล้ Park @ Siam และทางเข้าคณะด้านเหนือ Physical OSM entrance/barrier; gate identity is an approximate desk match, not a field GPS survey.",
       "accessType": "unknown",
       "permissions": {
         "pedestrian": null,
@@ -3469,103 +3420,26 @@
       "lastReviewed": "2026-11-01",
       "lastVerified": null,
       "sources": [
-        "cu-apr-2020"
+        "cu-apr-2020",
+        "owner-gates-2026-11-01",
+        "dental-directions",
+        "osm-campus"
       ],
       "historicalEvidence": [],
       "notes": "Referenced collectively with Pharmacy and Veterinary gates in an old restriction notice. Number of individual lane or foot openings is unknown; retained as one group.",
-      "shortNameTh": "ประตูทันตแพทยศาสตร์",
+      "shortNameTh": "ทันตแพทย์ · ฝั่งสยาม",
       "nearbyTh": "คณะทันตแพทยศาสตร์ · บริเวณสยามสแควร์",
       "notesTh": "มีการกล่าวรวมกับประตูเภสัชศาสตร์และสัตวแพทยศาสตร์ในประกาศเก่า จำนวนช่องทางรถและคนเดินที่แยกกันยังไม่ชัดเจน จึงเก็บเป็นประตูกลุ่มเดียว",
-      "coordinateVerificationNotesTh": "ยังไม่พบจุดประตูที่ยืนยันได้ จึงไม่ใช้พิกัดอาคารข้างเคียงแทน",
+      "coordinateVerificationNotesTh": "จุดประตูด้านสยามสแควร์ ใกล้ Park @ Siam และทางเข้าคณะด้านเหนือ · เทียบจุดทางเข้า/ไม้กั้นจริงบน OSM โดยประมาณ ยังไม่ได้ตรวจ GPS หน้างาน",
       "referenceAccess": [],
-      "operatingRules": [
-        {
-          "id": "dentistry-1",
-          "source": "cu-apr-2020",
-          "modes": [
-            "pedestrian"
-          ],
-          "coveredDays": [
-            0,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-          ],
-          "schedule": {
-            "verificationStatus": "HISTORICAL",
-            "validFrom": null,
-            "validThrough": null,
-            "holidayPolicy": "same",
-            "intervals": [
-              {
-                "days": [
-                  0,
-                  1,
-                  2,
-                  3,
-                  4,
-                  5,
-                  6
-                ],
-                "open": "00:00",
-                "close": "24:00"
-              }
-            ]
-          },
-          "entryAllowed": true,
-          "exitAllowed": true,
-          "conditionTh": "ตรวจบัตร / ผู้ได้รับอนุญาต",
-          "conditionEn": "ID check / authorized access",
-          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
-          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
-        },
-        {
-          "id": "dentistry-2",
-          "source": "cu-apr-2020",
-          "modes": [
-            "car"
-          ],
-          "coveredDays": [
-            0,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-          ],
-          "schedule": {
-            "verificationStatus": "HISTORICAL",
-            "validFrom": null,
-            "validThrough": null,
-            "holidayPolicy": "same",
-            "intervals": [
-              {
-                "days": [
-                  0,
-                  1,
-                  2,
-                  3,
-                  4,
-                  5,
-                  6
-                ],
-                "open": "00:00",
-                "close": "24:00"
-              }
-            ]
-          },
-          "entryAllowed": true,
-          "exitAllowed": true,
-          "conditionTh": "ตรวจบัตร / รถที่ได้รับอนุญาต",
-          "conditionEn": "ID check / authorized vehicles",
-          "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
-          "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
-        }
-      ]
+      "operatingRules": [],
+      "accessProfile": {
+        "highestMode": "pedestrian",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "20"
     },
     {
       "id": "chulaphat14",
@@ -3580,15 +3454,15 @@
       "nearby": "Chula Phat 14 · Car park 4 · Chula Soi 12",
       "category": "vehicle",
       "mapLetter": null,
-      "latitude": null,
-      "longitude": null,
-      "coordinateConfidence": "UNKNOWN",
-      "coordinateVerificationStatus": "UNKNOWN",
-      "coordinateSource": null,
+      "latitude": 13.7441517,
+      "longitude": 100.5261921,
+      "coordinateConfidence": "MEDIUM",
+      "coordinateVerificationStatus": "UNVERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/2671180707",
       "coordinateLastVerified": null,
       "coordinateReviewedAt": "2026-11-01",
-      "coordinateSourceUpdatedAt": null,
-      "coordinateVerificationNotes": "No unambiguous physical entrance point established. No building centroid substituted.",
+      "coordinateSourceUpdatedAt": "2023-02-26T06:16:56Z",
+      "coordinateVerificationNotes": "ทางเข้าพื้นที่จุฬาพัฒน์ 14 / ที่จอดรถ 4 ภายในแนวซอย 9 Physical OSM entrance/barrier; gate identity is an approximate desk match, not a field GPS survey.",
       "accessType": "unknown",
       "permissions": {
         "pedestrian": null,
@@ -3612,7 +3486,9 @@
       "sources": [
         "cu-nov-2021",
         "cu-feb-2021",
-        "cu-nov-2021-th"
+        "cu-nov-2021-th",
+        "owner-gates-2026-11-01",
+        "osm-campus"
       ],
       "historicalEvidence": [
         {
@@ -3624,7 +3500,7 @@
       "shortNameTh": "ประตูจุฬาพัฒน์ 14",
       "nearbyTh": "อาคารจุฬาพัฒน์ 14 · อาคารจอดรถ 4 · ซอยจุฬาฯ 12",
       "notesTh": "ประกาศเดือนกุมภาพันธ์และพฤศจิกายน 2564 ให้เวลาปิดต่างกัน จึงแสดงพร้อมแหล่งอ้างอิงโดยไม่ถือว่าเป็นตารางที่ยืนยันปัจจุบัน",
-      "coordinateVerificationNotesTh": "ยังไม่พบจุดประตูที่ยืนยันได้ จึงไม่ใช้พิกัดอาคารข้างเคียงแทน",
+      "coordinateVerificationNotesTh": "ทางเข้าพื้นที่จุฬาพัฒน์ 14 / ที่จอดรถ 4 ภายในแนวซอย 9 · เทียบจุดทางเข้า/ไม้กั้นจริงบน OSM โดยประมาณ ยังไม่ได้ตรวจ GPS หน้างาน",
       "referenceAccess": [
         {
           "appliesTo": "vehicle",
@@ -3685,7 +3561,14 @@
           "noteTh": "ใช้ตารางเดิมเป็นฐานตามคำขอของผู้ใช้",
           "noteEn": "Adopted historical weekly baseline at the user’s request; provenance remains historical."
         }
-      ]
+      ],
+      "accessProfile": {
+        "highestMode": "car",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "21"
     },
     {
       "id": "law-foot",
@@ -3738,14 +3621,739 @@
       "notesTh": "พบในประกาศกิจกรรมรับปริญญาเก่า ยังไม่ยืนยันว่าตรงกับช่องทางรถใกล้คณะนิเทศศาสตร์ จึงไม่นำสองจุดมารวมเอง",
       "coordinateVerificationNotesTh": "ยังไม่พบจุดประตูที่ยืนยันได้ จึงไม่ใช้พิกัดอาคารข้างเคียงแทน",
       "referenceAccess": [],
-      "operatingRules": []
+      "operatingRules": [],
+      "mapCode": "22"
+    },
+    {
+      "id": "indoor-stadium-exit",
+      "name": "ทางออกสนามกีฬาในร่ม · ซอยจุฬาฯ 9",
+      "nameEn": "Indoor Stadium exit · Chula Soi 9",
+      "nameEnType": "editorial-translation",
+      "aliases": [],
+      "nearby": "Indoor Stadium exit · Chula Soi 9",
+      "category": "vehicle",
+      "mapLetter": null,
+      "latitude": 13.7393734,
+      "longitude": 100.5254502,
+      "coordinateConfidence": "MEDIUM",
+      "coordinateVerificationStatus": "UNVERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/10712815083",
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": "2023-03-05T18:55:02Z",
+      "coordinateVerificationNotes": "ทางออกฝั่งซอย 9 ข้างสนามกีฬาในร่ม แยกจากประตูสนามกีฬาฝั่งตลาด Physical OSM entrance/barrier; gate identity is an approximate desk match, not a field GPS survey.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "owner-gates-2026-11-01",
+        "cu-exits-2021",
+        "osm-campus"
+      ],
+      "historicalEvidence": [],
+      "notes": "Owner-supplied gate inventory; missing hours remain unknown.",
+      "shortNameTh": "ทางออกสนามกีฬาในร่ม · ซอยจุฬาฯ 9",
+      "nearbyTh": "ทางออกสนามกีฬาในร่ม · ซอยจุฬาฯ 9",
+      "notesTh": "ใช้ข้อมูลที่เจ้าของแอปส่งให้เป็นฐาน เวลาเปิดปิดที่ไม่ได้ระบุยังคงไม่ทราบ",
+      "coordinateVerificationNotesTh": "ทางออกฝั่งซอย 9 ข้างสนามกีฬาในร่ม แยกจากประตูสนามกีฬาฝั่งตลาด · เทียบจุดทางเข้า/ไม้กั้นจริงบน OSM โดยประมาณ ยังไม่ได้ตรวจ GPS หน้างาน",
+      "referenceAccess": [],
+      "operatingRules": [
+        {
+          "id": "indoor-stadium-exit-owner-1",
+          "source": "cu-exits-2021",
+          "modes": [
+            "car"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              },
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": false,
+          "exitAllowed": true,
+          "exitWhenClosedGate": null,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ข้อมูลที่เจ้าของแอปส่งเป็นตารางฐาน โดยคงที่มาประกาศเดิม",
+          "noteEn": "Owner-supplied working baseline; historical provenance is retained."
+        }
+      ],
+      "accessProfile": {
+        "highestMode": "car",
+        "entryAllowed": false,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "23"
+    },
+    {
+      "id": "dentistry-henri",
+      "name": "ทันตแพทย์ · ฝั่งอังรีดูนังต์ / สมเด็จย่า 93",
+      "nameEn": "Dentistry · Henri Dunant / Somdet Ya 93",
+      "nameEnType": "editorial-translation",
+      "aliases": [],
+      "nearby": "Dentistry · Henri Dunant / Somdet Ya 93",
+      "category": "pedestrian",
+      "mapLetter": null,
+      "latitude": 13.7435988,
+      "longitude": 100.5350181,
+      "coordinateConfidence": "MEDIUM",
+      "coordinateVerificationStatus": "UNVERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/1700280247",
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": "2024-01-09T02:44:12Z",
+      "coordinateVerificationNotes": "ทางเข้าด้านอังรีดูนังต์ ใกล้อาคารสมเด็จย่าและสยามกิตติ์ ไม่ใช้เวลาคลินิกเป็นเวลาประตู Physical OSM entrance/barrier; gate identity is an approximate desk match, not a field GPS survey.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "owner-gates-2026-11-01",
+        "dental-directions",
+        "osm-campus"
+      ],
+      "historicalEvidence": [],
+      "notes": "Owner-supplied gate inventory; missing hours remain unknown.",
+      "shortNameTh": "ทันตแพทย์ · ฝั่งอังรีดูนังต์ / สมเด็จย่า 93",
+      "nearbyTh": "ทันตแพทย์ · ฝั่งอังรีดูนังต์ / สมเด็จย่า 93",
+      "notesTh": "ใช้ข้อมูลที่เจ้าของแอปส่งให้เป็นฐาน เวลาเปิดปิดที่ไม่ได้ระบุยังคงไม่ทราบ",
+      "coordinateVerificationNotesTh": "ทางเข้าด้านอังรีดูนังต์ ใกล้อาคารสมเด็จย่าและสยามกิตติ์ ไม่ใช้เวลาคลินิกเป็นเวลาประตู · เทียบจุดทางเข้า/ไม้กั้นจริงบน OSM โดยประมาณ ยังไม่ได้ตรวจ GPS หน้างาน",
+      "referenceAccess": [],
+      "operatingRules": [],
+      "accessProfile": {
+        "highestMode": "pedestrian",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "24"
+    },
+    {
+      "id": "electrical-engineering",
+      "name": "วิศวกรรมไฟฟ้า · True Coffee",
+      "nameEn": "Electrical Engineering · True Coffee",
+      "nameEnType": "editorial-translation",
+      "aliases": [],
+      "nearby": "Electrical Engineering · True Coffee",
+      "category": "restricted",
+      "mapLetter": null,
+      "latitude": 13.7368093,
+      "longitude": 100.5320607,
+      "coordinateConfidence": "MEDIUM",
+      "coordinateVerificationStatus": "UNVERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/6198591796",
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": "2019-01-26T17:16:35Z",
+      "coordinateVerificationNotes": "ไม้กั้นด้านหน้าอาคารวิศวกรรมไฟฟ้า จับคู่กับจุด True Coffee โดยประมาณ Physical OSM entrance/barrier; gate identity is an approximate desk match, not a field GPS survey.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": "Staff vehicles / traffic-period access",
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "owner-gates-2026-11-01",
+        "osm-campus"
+      ],
+      "historicalEvidence": [],
+      "notes": "Owner-supplied gate inventory; missing hours remain unknown.",
+      "shortNameTh": "วิศวกรรมไฟฟ้า · True Coffee",
+      "nearbyTh": "วิศวกรรมไฟฟ้า · True Coffee",
+      "notesTh": "รถบุคลากรเข้า–ออกในช่วงจัดการจราจร ยังไม่มีเวลาเปิดปิดรายสัปดาห์",
+      "coordinateVerificationNotesTh": "ไม้กั้นด้านหน้าอาคารวิศวกรรมไฟฟ้า จับคู่กับจุด True Coffee โดยประมาณ · เทียบจุดทางเข้า/ไม้กั้นจริงบน OSM โดยประมาณ ยังไม่ได้ตรวจ GPS หน้างาน",
+      "referenceAccess": [],
+      "operatingRules": [],
+      "accessProfile": {
+        "highestMode": "car",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01",
+        "conditionTh": "บุคลากรหรือผู้ได้รับอนุญาต",
+        "conditionEn": "Staff or authorized visitors"
+      },
+      "mapCode": "25"
+    },
+    {
+      "id": "health-1",
+      "name": "วิทยาศาสตร์สุขภาพ 1 · ถนนพระราม 1",
+      "nameEn": "Health precinct 1 · Rama I",
+      "nameEnType": "editorial-translation",
+      "aliases": [],
+      "nearby": "Health precinct 1 · Rama I",
+      "category": "vehicle",
+      "mapLetter": null,
+      "latitude": 13.7468999,
+      "longitude": 100.5259824,
+      "coordinateConfidence": "MEDIUM",
+      "coordinateVerificationStatus": "UNVERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/4410635580",
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": "2019-03-16T08:36:52Z",
+      "coordinateVerificationNotes": "เทียบแนวทางเข้าในแผนที่คณะพยาบาลศาสตร์กับจุดประตูจริงบน OSM Physical OSM entrance/barrier; gate identity is an approximate desk match, not a field GPS survey.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "owner-gates-2026-11-01",
+        "nursing-five-gates",
+        "osm-campus",
+        "osm-health-north"
+      ],
+      "historicalEvidence": [],
+      "notes": "Owner-supplied gate inventory; missing hours remain unknown.",
+      "shortNameTh": "วิทยาศาสตร์สุขภาพ 1 · ถนนพระราม 1",
+      "nearbyTh": "วิทยาศาสตร์สุขภาพ 1 · ถนนพระราม 1",
+      "notesTh": "ใช้ข้อมูลที่เจ้าของแอปส่งให้เป็นฐาน เวลาเปิดปิดที่ไม่ได้ระบุยังคงไม่ทราบ",
+      "coordinateVerificationNotesTh": "เทียบแนวทางเข้าในแผนที่คณะพยาบาลศาสตร์กับจุดประตูจริงบน OSM · เทียบจุดทางเข้า/ไม้กั้นจริงบน OSM โดยประมาณ ยังไม่ได้ตรวจ GPS หน้างาน",
+      "referenceAccess": [],
+      "operatingRules": [],
+      "accessProfile": {
+        "highestMode": "car",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "26"
+    },
+    {
+      "id": "health-2",
+      "name": "วิทยาศาสตร์สุขภาพ 2 · บันได BTS สนามกีฬา",
+      "nameEn": "Health precinct 2 · BTS National Stadium stairs",
+      "nameEnType": "editorial-translation",
+      "aliases": [],
+      "nearby": "Health precinct 2 · BTS National Stadium stairs",
+      "category": "pedestrian",
+      "mapLetter": null,
+      "latitude": 13.7468133,
+      "longitude": 100.5279257,
+      "coordinateConfidence": "MEDIUM",
+      "coordinateVerificationStatus": "UNVERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/6124588174",
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": "2023-09-05T05:37:54Z",
+      "coordinateVerificationNotes": "เทียบแนวทางเข้าในแผนที่คณะพยาบาลศาสตร์กับจุดประตูจริงบน OSM Physical OSM entrance/barrier; gate identity is an approximate desk match, not a field GPS survey.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "owner-gates-2026-11-01",
+        "nursing-five-gates",
+        "osm-campus",
+        "osm-health-north"
+      ],
+      "historicalEvidence": [],
+      "notes": "Owner-supplied gate inventory; missing hours remain unknown.",
+      "shortNameTh": "วิทยาศาสตร์สุขภาพ 2 · บันได BTS สนามกีฬา",
+      "nearbyTh": "วิทยาศาสตร์สุขภาพ 2 · บันได BTS สนามกีฬา",
+      "notesTh": "ใช้ข้อมูลที่เจ้าของแอปส่งให้เป็นฐาน เวลาเปิดปิดที่ไม่ได้ระบุยังคงไม่ทราบ",
+      "coordinateVerificationNotesTh": "เทียบแนวทางเข้าในแผนที่คณะพยาบาลศาสตร์กับจุดประตูจริงบน OSM · เทียบจุดทางเข้า/ไม้กั้นจริงบน OSM โดยประมาณ ยังไม่ได้ตรวจ GPS หน้างาน",
+      "referenceAccess": [],
+      "operatingRules": [],
+      "accessProfile": {
+        "highestMode": "pedestrian",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "27"
+    },
+    {
+      "id": "health-3",
+      "name": "วิทยาศาสตร์สุขภาพ 3 · แนวซอยจุฬาฯ 9",
+      "nameEn": "Health precinct 3 · aligned with Chula Soi 9",
+      "nameEnType": "editorial-translation",
+      "aliases": [],
+      "nearby": "Health precinct 3 · aligned with Chula Soi 9",
+      "category": "vehicle",
+      "mapLetter": null,
+      "latitude": 13.7435077,
+      "longitude": 100.5260761,
+      "coordinateConfidence": "MEDIUM",
+      "coordinateVerificationStatus": "UNVERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/2106361137",
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": "2023-02-26T06:16:56Z",
+      "coordinateVerificationNotes": "เทียบแนวทางเข้าในแผนที่คณะพยาบาลศาสตร์กับจุดประตูจริงบน OSM Physical OSM entrance/barrier; gate identity is an approximate desk match, not a field GPS survey.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "owner-gates-2026-11-01",
+        "nursing-five-gates",
+        "osm-campus"
+      ],
+      "historicalEvidence": [],
+      "notes": "Owner-supplied gate inventory; missing hours remain unknown.",
+      "shortNameTh": "วิทยาศาสตร์สุขภาพ 3 · แนวซอยจุฬาฯ 9",
+      "nearbyTh": "วิทยาศาสตร์สุขภาพ 3 · แนวซอยจุฬาฯ 9",
+      "notesTh": "ใช้ข้อมูลที่เจ้าของแอปส่งให้เป็นฐาน เวลาเปิดปิดที่ไม่ได้ระบุยังคงไม่ทราบ",
+      "coordinateVerificationNotesTh": "เทียบแนวทางเข้าในแผนที่คณะพยาบาลศาสตร์กับจุดประตูจริงบน OSM · เทียบจุดทางเข้า/ไม้กั้นจริงบน OSM โดยประมาณ ยังไม่ได้ตรวจ GPS หน้างาน",
+      "referenceAccess": [],
+      "operatingRules": [],
+      "accessProfile": {
+        "highestMode": "car",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "28"
+    },
+    {
+      "id": "health-4",
+      "name": "วิทยาศาสตร์สุขภาพ 4 · ไฟจราจรซอย 12",
+      "nameEn": "Health precinct 4 · Soi 12 traffic signal",
+      "nameEnType": "editorial-translation",
+      "aliases": [],
+      "nearby": "Health precinct 4 · Soi 12 traffic signal",
+      "category": "pedestrian",
+      "mapLetter": null,
+      "latitude": 13.7432254,
+      "longitude": 100.5279347,
+      "coordinateConfidence": "MEDIUM",
+      "coordinateVerificationStatus": "UNVERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/6238244461",
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": "2019-01-26T16:52:37Z",
+      "coordinateVerificationNotes": "เทียบแนวทางเข้าในแผนที่คณะพยาบาลศาสตร์กับจุดประตูจริงบน OSM Physical OSM entrance/barrier; gate identity is an approximate desk match, not a field GPS survey.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "owner-gates-2026-11-01",
+        "nursing-five-gates",
+        "osm-campus"
+      ],
+      "historicalEvidence": [],
+      "notes": "Owner-supplied gate inventory; missing hours remain unknown.",
+      "shortNameTh": "วิทยาศาสตร์สุขภาพ 4 · ไฟจราจรซอย 12",
+      "nearbyTh": "วิทยาศาสตร์สุขภาพ 4 · ไฟจราจรซอย 12",
+      "notesTh": "ใช้ข้อมูลที่เจ้าของแอปส่งให้เป็นฐาน เวลาเปิดปิดที่ไม่ได้ระบุยังคงไม่ทราบ",
+      "coordinateVerificationNotesTh": "เทียบแนวทางเข้าในแผนที่คณะพยาบาลศาสตร์กับจุดประตูจริงบน OSM · เทียบจุดทางเข้า/ไม้กั้นจริงบน OSM โดยประมาณ ยังไม่ได้ตรวจ GPS หน้างาน",
+      "referenceAccess": [],
+      "operatingRules": [],
+      "accessProfile": {
+        "highestMode": "pedestrian",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "29"
+    },
+    {
+      "id": "health-5",
+      "name": "วิทยาศาสตร์สุขภาพ 5 · สหเวชศาสตร์ / ป้ายเขต",
+      "nameEn": "Health precinct 5 · Allied Health / precinct sign",
+      "nameEnType": "editorial-translation",
+      "aliases": [
+        "ประตูสหเวชศาสตร์",
+        "Allied Health pedestrian gate",
+        "ประตูป้ายเขตวิทยาศาสตร์สุขภาพ"
+      ],
+      "nearby": "Health precinct 5 · Allied Health / precinct sign",
+      "category": "pedestrian",
+      "mapLetter": null,
+      "latitude": 13.7428198,
+      "longitude": 100.5292411,
+      "coordinateConfidence": "MEDIUM",
+      "coordinateVerificationStatus": "UNVERIFIED",
+      "coordinateSource": "https://www.openstreetmap.org/node/1848751280",
+      "coordinateLastVerified": null,
+      "coordinateReviewedAt": "2026-11-01",
+      "coordinateSourceUpdatedAt": "2019-04-25T04:19:30Z",
+      "coordinateVerificationNotes": "เทียบแนวทางเข้าในแผนที่คณะพยาบาลศาสตร์กับจุดประตูจริงบน OSM Physical OSM entrance/barrier; gate identity is an approximate desk match, not a field GPS survey.",
+      "accessType": "unknown",
+      "permissions": {
+        "pedestrian": null,
+        "motorcycle": null,
+        "car": null
+      },
+      "entryAllowed": null,
+      "exitAllowed": null,
+      "accessVerificationStatus": "UNKNOWN",
+      "permittedVehicles": [],
+      "schedule": null,
+      "scheduleSource": null,
+      "scheduleLastVerified": null,
+      "operatingDays": null,
+      "holidayRestrictions": null,
+      "specialRestrictions": null,
+      "verificationStatus": "HISTORICAL",
+      "confidence": "LOW",
+      "lastReviewed": "2026-11-01",
+      "lastVerified": null,
+      "sources": [
+        "owner-gates-2026-11-01",
+        "nursing-five-gates",
+        "osm-campus",
+        "cu-dec-2021"
+      ],
+      "historicalEvidence": [],
+      "notes": "Owner-supplied gate inventory; missing hours remain unknown.",
+      "shortNameTh": "วิทยาศาสตร์สุขภาพ 5 · สหเวชศาสตร์ / ป้ายเขต",
+      "nearbyTh": "วิทยาศาสตร์สุขภาพ 5 · สหเวชศาสตร์ / ป้ายเขต",
+      "notesTh": "จัดกลุ่มทางเดินสหเวชศาสตร์กับประตู 5 ไว้ชั่วคราวจากบริเวณเดียวกันเพื่อไม่สร้างหมุดซ้ำ ความสัมพันธ์ของสองชื่อยังต้องตรวจหน้างาน",
+      "coordinateVerificationNotesTh": "เทียบแนวทางเข้าในแผนที่คณะพยาบาลศาสตร์กับจุดประตูจริงบน OSM · เทียบจุดทางเข้า/ไม้กั้นจริงบน OSM โดยประมาณ ยังไม่ได้ตรวจ GPS หน้างาน",
+      "referenceAccess": [],
+      "operatingRules": [
+        {
+          "id": "health-5-owner-1",
+          "source": "cu-dec-2021",
+          "modes": [
+            "pedestrian"
+          ],
+          "coveredDays": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "schedule": {
+            "verificationStatus": "HISTORICAL",
+            "validFrom": null,
+            "validThrough": null,
+            "holidayPolicy": "same",
+            "intervals": [
+              {
+                "days": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "open": "06:00",
+                "close": "20:00"
+              },
+              {
+                "days": [
+                  0,
+                  6
+                ],
+                "open": "06:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          "entryAllowed": true,
+          "exitAllowed": true,
+          "exitWhenClosedGate": null,
+          "conditionTh": null,
+          "conditionEn": null,
+          "noteTh": "ใช้ข้อมูลที่เจ้าของแอปส่งเป็นตารางฐาน โดยคงที่มาประกาศเดิม",
+          "noteEn": "Owner-supplied working baseline; historical provenance is retained."
+        }
+      ],
+      "accessProfile": {
+        "highestMode": "pedestrian",
+        "entryAllowed": true,
+        "exitAllowed": true,
+        "source": "owner-gates-2026-11-01"
+      },
+      "mapCode": "30"
     }
   ],
   "operationPolicy": {
     "basis": "historical-baseline",
     "adoptedAt": "2026-11-01",
-    "noteTh": "ใช้ตารางเก่าเป็นฐานปัจจุบันตามคำขอของเจ้าของแอป จนกว่าจะมีการแก้ไข โดยคงสถานะหลักฐานเดิมไว้",
-    "noteEn": "The app owner adopts historical weekly schedules as the working baseline until corrected. Original evidence statuses remain unchanged.",
+    "noteTh": "ใช้ตารางเดิมและข้อมูลที่เจ้าของแอปส่งเป็นฐานปัจจุบัน เดิน < มอเตอร์ไซค์ < รถยนต์ โดยรักษาทิศทาง เวลา และเงื่อนไขของสิทธิ์ต้นทาง ข้อมูลไม่ได้รับการยืนยันหน้างานใหม่",
+    "noteEn": "Adopt historical and owner-supplied schedules as the working baseline. Car access includes motorcycles and walking; motorcycle access includes walking, preserving direction, hours and conditions.",
     "holidayAssumption": "weekly-pattern-unless-overridden"
-  }
+  },
+  "ownerInventory": [
+    {
+      "item": 1,
+      "gateId": "phayathai-3",
+      "provisionalAlias": false
+    },
+    {
+      "item": 2,
+      "gateId": "dhamma",
+      "provisionalAlias": false
+    },
+    {
+      "item": 3,
+      "gateId": "chulaphat14",
+      "provisionalAlias": false
+    },
+    {
+      "item": 4,
+      "gateId": "communication",
+      "provisionalAlias": false
+    },
+    {
+      "item": 5,
+      "gateId": "sasin",
+      "provisionalAlias": false
+    },
+    {
+      "item": 6,
+      "gateId": "science",
+      "provisionalAlias": false
+    },
+    {
+      "item": 7,
+      "gateId": "stadium",
+      "provisionalAlias": false
+    },
+    {
+      "item": 8,
+      "gateId": "indoor-stadium-exit",
+      "provisionalAlias": false
+    },
+    {
+      "item": 9,
+      "gateId": "cham9-ucenter",
+      "provisionalAlias": false
+    },
+    {
+      "item": 10,
+      "gateId": "henri-dunant-1",
+      "provisionalAlias": false
+    },
+    {
+      "item": 11,
+      "gateId": "henri-dunant-2",
+      "provisionalAlias": false
+    },
+    {
+      "item": 12,
+      "gateId": "education-foot",
+      "provisionalAlias": false
+    },
+    {
+      "item": 13,
+      "gateId": "architecture",
+      "provisionalAlias": false
+    },
+    {
+      "item": 14,
+      "gateId": "cham-square-foot",
+      "provisionalAlias": false
+    },
+    {
+      "item": 15,
+      "gateId": "health-5",
+      "provisionalAlias": true
+    },
+    {
+      "item": 16,
+      "gateId": "pharmacy",
+      "provisionalAlias": false
+    },
+    {
+      "item": 17,
+      "gateId": "phayathai-1",
+      "provisionalAlias": false
+    },
+    {
+      "item": 18,
+      "gateId": "phayathai-2",
+      "provisionalAlias": false
+    },
+    {
+      "item": 19,
+      "gateId": "electrical-engineering",
+      "provisionalAlias": false
+    },
+    {
+      "item": 20,
+      "gateId": "engineering-reserve",
+      "provisionalAlias": false
+    },
+    {
+      "item": 21,
+      "gateId": "veterinary",
+      "provisionalAlias": false
+    },
+    {
+      "item": 22,
+      "gateId": "dentistry",
+      "provisionalAlias": false
+    },
+    {
+      "item": 23,
+      "gateId": "dentistry-henri",
+      "provisionalAlias": false
+    },
+    {
+      "item": 24,
+      "gateId": "health-1",
+      "provisionalAlias": false
+    },
+    {
+      "item": 25,
+      "gateId": "health-2",
+      "provisionalAlias": false
+    },
+    {
+      "item": 26,
+      "gateId": "health-3",
+      "provisionalAlias": false
+    },
+    {
+      "item": 27,
+      "gateId": "health-4",
+      "provisionalAlias": false
+    },
+    {
+      "item": 28,
+      "gateId": "health-5",
+      "provisionalAlias": false
+    }
+  ]
 }

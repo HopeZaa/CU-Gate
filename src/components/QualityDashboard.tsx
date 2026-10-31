@@ -96,8 +96,8 @@ export default function QualityDashboard({
             )}
           </strong>{" "}
           {t(
-            `กำลังใช้ตารางเก่าเป็นฐานคำนวณ ${withReference} ประตูกลุ่มตามการตั้งค่า สถานะหลักฐานด้านล่างยังนับตามข้อมูลต้นฉบับ การใช้ตารางไม่ได้เปลี่ยนข้อมูลเก่าให้เป็นการยืนยันใหม่`,
-            `Historical schedules are adopted for ${withReference} gate groups. Evidence statistics retain the original provenance; adopting a schedule is not a new verification.`,
+            `กำลังใช้ตารางเก่าเป็นฐานคำนวณ ${withReference} ประตูกลุ่มตามการตั้งค่า สถานะหลักฐานด้านล่างยังนับตามข้อมูลต้นฉบับ การใช้ตารางไม่ได้เปลี่ยนข้อมูลเก่าให้เป็นการยืนยันใหม่ ข้อมูลที่ยังไม่ตรวจสอบไม่ใช่การยืนยันสิทธิ์ผ่านประตูจริง`,
+            `Historical schedules are adopted for ${withReference} gate groups. Evidence statistics retain the original provenance; adopting a schedule is not a new verification. Unverified records are not confirmed real-world access information.`,
           )}
         </p>
       </div>

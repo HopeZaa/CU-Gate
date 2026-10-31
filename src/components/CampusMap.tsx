@@ -25,7 +25,7 @@ type Props = {
 };
 const bounds: maplibregl.LngLatBoundsLike = [
   [100.5235, 13.733],
-  [100.535, 13.7438],
+  [100.5355, 13.7474],
 ];
 function mapStyle(dark: boolean): StyleSpecification {
   const colors = dark
@@ -169,7 +169,11 @@ const labels: [number, number, string, string][] = [
   [100.5285, 13.736, "Communication Arts", "place-label"],
   [100.528, 13.738, "Education", "place-label"],
   [100.5312, 13.7429, "Pharmacy", "place-label"],
-  [100.5326, 13.7422, "Veterinary Science", "place-label"],
+  [100.5326, 13.7403, "Veterinary Science", "place-label"],
+  [100.5335, 13.7432, "Dentistry", "place-label"],
+  [100.5276, 13.7442, "Health Sciences", "place-label"],
+  [100.5277, 13.7471, "BTS National Stadium", "station-label"],
+  [100.5258, 13.7471, "RAMA I ROAD", "road-label"],
   [100.5317, 13.744, "SIAM SQUARE", "district-label"],
   [100.5294, 13.7409, "PHAYATHAI ROAD", "road-label vertical"],
   [100.53465, 13.7372, "HENRI DUNANT ROAD", "road-label vertical"],
@@ -226,7 +230,7 @@ export default function CampusMap({
         maxZoom: 19,
         maxBounds: [
           [100.518, 13.727],
-          [100.538, 13.746],
+          [100.538, 13.75],
         ],
         attributionControl: false,
         dragRotate: false,
@@ -325,7 +329,7 @@ export default function CampusMap({
       el.className = `gate-marker availability-${status.state} ${g.category} ${g.coordinateConfidence === "HIGH" ? "" : "approximate"} ${selected === g.id ? "selected" : ""}`;
       const letter = document.createElement("span");
       letter.className = "marker-code";
-      letter.textContent = g.mapLetter || "•";
+      letter.textContent = g.mapCode || g.mapLetter || "•";
       const icon = document.createElement("span");
       icon.className = "marker-state";
       icon.setAttribute("aria-hidden", "true");
@@ -489,7 +493,7 @@ export default function CampusMap({
       point.longitude >= 100.518 &&
       point.longitude <= 100.538 &&
       point.latitude >= 13.727 &&
-      point.latitude <= 13.746
+      point.latitude <= 13.75
     )
       map.current.easeTo({
         center: [point.longitude, point.latitude],
@@ -628,6 +632,10 @@ function mapLabel(text: string, lang: Language) {
     "Communication Arts": "นิเทศศาสตร์",
     Education: "ครุศาสตร์",
     Pharmacy: "เภสัชศาสตร์",
+    Dentistry: "ทันตแพทยศาสตร์",
+    "Health Sciences": "เขตวิทยาศาสตร์สุขภาพ",
+    "BTS National Stadium": "BTS สนามกีฬาแห่งชาติ",
+    "RAMA I ROAD": "ถนนพระราม 1",
     "Veterinary Science": "สัตวแพทยศาสตร์",
     "SIAM SQUARE": "สยามสแควร์",
     "PHAYATHAI ROAD": "ถนนพญาไท",

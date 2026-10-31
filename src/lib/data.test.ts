@@ -129,3 +129,16 @@ it("rejects malformed source dates and unmatched reference sources", () => {
   g.referenceAccess[0].source = "unresolved-reference";
   expect(datasetSchema.safeParse(other).success).toBe(false);
 });
+
+it("accepts the inspectable owner source but rejects unsafe local source paths", () => {
+  const d = structuredClone(dataset!);
+  const owner = d.sources.find((s) => s.id === "owner-gates-2026-11-01")!;
+  expect(owner.url).toBe("research/owner-gates-2026-11-01.txt");
+  owner.url = "research/../private.txt";
+  expect(datasetSchema.safeParse(d).success).toBe(false);
+});
+it("rejects a broken owner-item link", () => {
+  const d = structuredClone(dataset!);
+  d.ownerInventory![0].gateId = "missing-gate";
+  expect(datasetSchema.safeParse(d).success).toBe(false);
+});

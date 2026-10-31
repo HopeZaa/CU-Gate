@@ -4847,3 +4847,14 @@ th {
 .v4 .card-today {
   margin-bottom: 8px;
 }
+
+/* Pale status/accent fills need dark text in the dark theme. */
+.dark .v3 .gate-marker:not(.approximate),
+.dark .v3 .gate-marker:hover,
+.dark .v3 .gate-marker.selected {
+  color: #172523;
+}
+.dark .primary-button,
+.dark .v3 .pin-navigate {
+  color: #281c22;
+}

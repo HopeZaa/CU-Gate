@@ -37,14 +37,14 @@ describe("dated operating references", () => {
         expect(accessState(g, "car", "entry", now)).not.toBe("confirmed");
       }
   });
-  it("does not infer motorcycle access from a car-only source", () => {
+  it("includes a car source for motorcycle under the owner hierarchy", () => {
     const sasin = gate("sasin");
     expect(referenceFor(sasin, "car")?.appliesTo).toBe("car");
-    expect(referenceFor(sasin, "motorcycle")).toBeNull();
+    expect(referenceFor(sasin, "motorcycle")?.appliesTo).toBe("car");
     expect(accessState(sasin, "motorcycle", "entry", now)).toBe("unknown");
   });
-  it("does not infer pedestrian access from a vehicle source", () => {
-    expect(referenceFor(gate("phayathai-3"), "pedestrian")).toBeNull();
+  it("includes a vehicle source for walking under the owner hierarchy", () => {
+    expect(referenceFor(gate("phayathai-3"), "pedestrian")?.appliesTo).toBe("vehicle");
   });
   it("retains generic vehicle scope without asserting mode permission", () => {
     const g = gate("phayathai-3");

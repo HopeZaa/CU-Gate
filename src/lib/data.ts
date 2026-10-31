@@ -75,6 +75,17 @@ export const gateSchema = z
       "temporary",
     ]),
     mapLetter: z.string().nullable(),
+    mapCode: z.string().optional(),
+    accessProfile: z
+      .object({
+        highestMode: z.enum(["pedestrian", "motorcycle", "car"]),
+        conditionTh: z.string().optional(),
+        conditionEn: z.string().optional(),
+        entryAllowed: z.boolean(),
+        exitAllowed: z.boolean(),
+        source: z.string(),
+      })
+      .optional(),
     latitude: z.number().min(-90).max(90).nullable(),
     longitude: z.number().min(-180).max(180).nullable(),
     coordinateConfidence: z.enum(["HIGH", "MEDIUM", "LOW", "UNKNOWN"]),
@@ -181,7 +192,7 @@ export const datasetSchema = z
         id: z.string(),
         title: z.string(),
         titleTh: z.string(),
-        url: webUrl,
+        url: z.union([webUrl, z.string().regex(/^research\/[a-z0-9-]+\.txt$/)]),
         publishedAt: z
           .union([
             date,
@@ -194,6 +205,15 @@ export const datasetSchema = z
         scopeTh: z.string(),
       }),
     ),
+    ownerInventory: z
+      .array(
+        z.object({
+          item: z.number().int().positive(),
+          gateId: z.string(),
+          provisionalAlias: z.boolean(),
+        }),
+      )
+      .optional(),
     gates: z.array(gateSchema),
   })
   .superRefine((d, c) => {
@@ -201,6 +221,14 @@ export const datasetSchema = z
       c.addIssue({ code: "custom", message: "Duplicate gate ID" });
     if (new Set(d.sources.map((s) => s.id)).size !== d.sources.length)
       c.addIssue({ code: "custom", message: "Duplicate source ID" });
+    if (d.ownerInventory?.some((x) => !d.gates.some((g) => g.id === x.gateId)))
+      c.addIssue({
+        code: "custom",
+        message: "Unresolved owner inventory gate",
+      });
+    const codes = d.gates.map((g) => g.mapCode).filter(Boolean);
+    if (new Set(codes).size !== codes.length)
+      c.addIssue({ code: "custom", message: "Duplicate display code" });
     const coords = d.gates
       .filter((g) => g.latitude !== null)
       .map((g) => `${g.latitude},${g.longitude}`);
@@ -222,6 +250,7 @@ export const datasetSchema = z
           message: `Unresolved linked gate for ${g.id}`,
         });
       if (
+        (g.accessProfile && !g.sources.includes(g.accessProfile.source)) ||
         g.sources.some((id) => !d.sources.some((s) => s.id === id)) ||
         g.historicalEvidence.some((h) => !g.sources.includes(h.source)) ||
         g.referenceAccess.some((h) => !g.sources.includes(h.source)) ||

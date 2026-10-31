@@ -314,7 +314,7 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
   const outside =
     position &&
     (position.latitude < 13.727 ||
-      position.latitude > 13.746 ||
+      position.latitude > 13.75 ||
       position.longitude < 100.518 ||
       position.longitude > 100.538);
   const activeCount =
@@ -323,13 +323,13 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
     Number(hoursOnly);
   const modeOptions = [
     { id: "pedestrian" as const, th: "เดิน", en: "Walk", Icon: Footprints },
-    { id: "car" as const, th: "รถยนต์", en: "Car", Icon: Car },
     {
       id: "motorcycle" as const,
       th: "มอเตอร์ไซค์",
       en: "Motorcycle",
       Icon: MotorcycleIcon,
     },
+    { id: "car" as const, th: "รถยนต์", en: "Car", Icon: Car },
   ];
   return (
     <div
@@ -388,6 +388,23 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
             }).format(now)}
             <small>{t("เวลาประเทศไทย", "BANGKOK")}</small>
           </span>
+          <button
+            className="icon-button theme-toggle"
+            aria-label={
+              dark
+                ? t("เปลี่ยนเป็นโหมดสว่าง", "Switch to light mode")
+                : t("เปลี่ยนเป็นโหมดมืด", "Switch to dark mode")
+            }
+            title={
+              dark
+                ? t("เปลี่ยนเป็นโหมดสว่าง", "Switch to light mode")
+                : t("เปลี่ยนเป็นโหมดมืด", "Switch to dark mode")
+            }
+            aria-pressed={dark}
+            onClick={() => setDark((x) => !x)}
+          >
+            {dark ? <Sun size={21} /> : <Moon size={21} />}
+          </button>
           <button
             className="language-button"
             onClick={onLanguage}
@@ -448,6 +465,22 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
                 {modeOptions.map(({ id, th, en, Icon }) => (
                   <button
                     key={id}
+                    title={
+                      id === "car"
+                        ? t(
+                            "รถยนต์เข้าได้ รวมมอเตอร์ไซค์และเดิน",
+                            "Car access includes motorcycles and walking",
+                          )
+                        : id === "motorcycle"
+                          ? t(
+                              "มอเตอร์ไซค์เข้าได้ รวมเดิน",
+                              "Motorcycle access includes walking",
+                            )
+                          : t(
+                              "รวมประตูที่รถยนต์หรือมอเตอร์ไซค์ผ่านได้",
+                              "Includes gates accessible to cars or motorcycles",
+                            )
+                    }
                     className={filters.mode === id ? "active" : ""}
                     aria-pressed={filters.mode === id}
                     onClick={() => update("mode", id)}
@@ -728,7 +761,7 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
                       <span
                         className={`gate-number availability-${info.state}`}
                       >
-                        {g.mapLetter || <MapPin size={18} />}
+                        {g.mapCode || g.mapLetter || <MapPin size={18} />}
                       </span>
                       <span className="gate-card-content">
                         <strong>{gateName(g, lang)}</strong>
@@ -794,9 +827,9 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
                           "The selected gates are outside opening hours or do not support this direction.",
                         )
                       : t(
-                            "ลองใช้ชื่อคณะหรือชื่อสั้น เช่น บัญชี อักษร หรือศศินทร์",
-                            "Try a faculty or a shorter gate name.",
-                          )}
+                          "ลองใช้ชื่อคณะหรือชื่อสั้น เช่น บัญชี อักษร หรือศศินทร์",
+                          "Try a faculty or a shorter gate name.",
+                        )}
                   </p>
                   <button className="secondary-button" onClick={reset}>
                     {t("แสดงประตูที่มีจุดนำทาง", "Show mapped gates")}

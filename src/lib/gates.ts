@@ -1,3 +1,4 @@
+import { includesMode, recordedMode, travelModes } from "./travel";
 import type { Gate, Schedule, TravelMode, VerificationStatus } from "./data";
 import type { PublicOrigin } from "./origins";
 export type Position = {
@@ -101,7 +102,12 @@ export function scheduleState(
   return weeklyClockState(schedule, now);
 }
 export function permission(g: Gate, mode: TravelMode): boolean | null {
-  return g.accessVerificationStatus === "VERIFIED" ? g.permissions[mode] : null;
+  if (g.accessVerificationStatus !== "VERIFIED") return null;
+  if (
+    travelModes.some((m) => includesMode(m, mode) && g.permissions[m] === true)
+  )
+    return true;
+  return g.permissions[mode];
 }
 export function directionPermission(
   g: Gate,
@@ -188,6 +194,8 @@ export function filterGates(
       )
         return false;
       if (filters.mappedOnly && !hasCoordinates(g)) return false;
+      if (filters.mode !== "all" && recordedMode(g, filters.mode) === false)
+        return false;
       const m = filters.mode === "all" ? true : permission(g, filters.mode),
         d = directionPermission(g, filters.direction);
       return (

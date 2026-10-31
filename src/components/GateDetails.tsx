@@ -1,3 +1,4 @@
+import { sourceHref } from "../lib/travel";
 import { useEffect, useRef } from "react";
 import {
   ArrowUpRight,
@@ -95,9 +96,11 @@ export default function GateDetails({
           : t("อนุญาตตามข้อมูล", "Allowed by verified rules")
         : t("สิทธิ์ยังไม่ยืนยัน", "Access unconfirmed");
   const accessLabel =
-    status.basis === "reference" ? status.access : verifiedAccessLabel;
+    status.basis === "reference" || status.basis === "recorded"
+      ? status.access
+      : verifiedAccessLabel;
   const source = dataset.sources.find((s) => s.id === status.source);
-  const week = weeklyHours(g, mode, now, lang);
+  const week = weeklyHours(g, mode, now, lang, direction);
   return (
     <aside
       className="gate-details compact-details"
@@ -106,7 +109,7 @@ export default function GateDetails({
     >
       <div className="pin-card-heading">
         <span className={`pin-letter availability-${status.state}`}>
-          {g.mapLetter || <MapPin size={20} />}
+          {g.mapCode || g.mapLetter || <MapPin size={20} />}
         </span>
         <div>
           <h2>{gateName(g, lang)}</h2>
@@ -134,12 +137,17 @@ export default function GateDetails({
                   `ตารางอ้างอิง${source?.publishedAt ? ` ปี ${Number(source.publishedAt.slice(0, 4)) + 543}` : ""}`,
                   `Reference schedule${source?.publishedAt ? ` · ${source.publishedAt.slice(0, 4)}` : ""}`,
                 )
-              : status.state === "unknown"
+              : status.basis === "recorded"
                 ? t(
-                    "ไม่มีตารางสำหรับวิธีเดินทางนี้",
-                    "No schedule for this travel mode",
+                    "ตามข้อมูลประเภทประตู · ยังไม่มีตารางเวลา",
+                    "Recorded gate type · hours unavailable",
                   )
-                : t("ตามข้อมูลที่ยืนยัน", "From verified rules")}
+                : status.state === "unknown"
+                  ? t(
+                      "ไม่มีตารางสำหรับวิธีเดินทางนี้",
+                      "No schedule for this travel mode",
+                    )
+                  : t("ตามข้อมูลที่ยืนยัน", "From verified rules")}
           </span>
         </div>
         <dl className="pin-facts">
@@ -164,40 +172,44 @@ export default function GateDetails({
             <dd>{accessLabel}</dd>
           </div>
         </dl>
-        <details className="weekly-panel">
-          <summary>{t("ดูตารางทั้งสัปดาห์", "Weekly opening hours")}</summary>
-          <dl>
-            {week.map((w) => (
-              <div className={w.today ? "today" : ""} key={w.day}>
-                <dt>
-                  {
-                    (lang === "th"
-                      ? [
-                          "อาทิตย์",
-                          "จันทร์",
-                          "อังคาร",
-                          "พุธ",
-                          "พฤหัสบดี",
-                          "ศุกร์",
-                          "เสาร์",
-                        ]
-                      : [
-                          "Sunday",
-                          "Monday",
-                          "Tuesday",
-                          "Wednesday",
-                          "Thursday",
-                          "Friday",
-                          "Saturday",
-                        ])[w.day]
-                  }
-                  {w.today && ` · ${t("วันนี้", "today")}`}
-                </dt>
-                <dd>{w.hours}</dd>
-              </div>
-            ))}
-          </dl>
-        </details>
+        {week.some(
+          (w) => w.hours !== t("ไม่มีข้อมูลเวลา", "Hours unavailable"),
+        ) && (
+          <details className="weekly-panel">
+            <summary>{t("ดูตารางทั้งสัปดาห์", "Weekly opening hours")}</summary>
+            <dl>
+              {week.map((w) => (
+                <div className={w.today ? "today" : ""} key={w.day}>
+                  <dt>
+                    {
+                      (lang === "th"
+                        ? [
+                            "อาทิตย์",
+                            "จันทร์",
+                            "อังคาร",
+                            "พุธ",
+                            "พฤหัสบดี",
+                            "ศุกร์",
+                            "เสาร์",
+                          ]
+                        : [
+                            "Sunday",
+                            "Monday",
+                            "Tuesday",
+                            "Wednesday",
+                            "Thursday",
+                            "Friday",
+                            "Saturday",
+                          ])[w.day]
+                    }
+                    {w.today && ` · ${t("วันนี้", "today")}`}
+                  </dt>
+                  <dd>{w.hours}</dd>
+                </div>
+              ))}
+            </dl>
+          </details>
+        )}
         <div className="pin-location">
           <MapPin size={14} />
           <span>
@@ -371,7 +383,12 @@ export default function GateDetails({
             {g.sources.map((id) => {
               const source = dataset.sources.find((s) => s.id === id)!;
               return (
-                <a key={id} href={source.url} target="_blank" rel="noreferrer">
+                <a
+                  key={id}
+                  href={sourceHref(source.url)}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <span>
                     {lang === "th" ? source.titleTh : source.title}
                     <ExternalLink size={13} />

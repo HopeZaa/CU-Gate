@@ -32,6 +32,7 @@ async function files(path) {
     )
   ).flat();
 }
+await access(resolve(root, "research", "owner-gates-2026-11-01.txt"));
 const all = await files(root);
 assert.ok(
   !all.some(
@@ -39,6 +40,8 @@ assert.ok(
       p.includes("gps-harness") ||
       p.includes("status-harness") ||
       p.includes("reference-harness") ||
+      p.includes("map-review") ||
+      p.includes("map-candidates") ||
       p.includes("qa-status") ||
       p.includes("node_modules"),
   ),
@@ -54,6 +57,8 @@ for (const path of all.filter(
   );
   assert.ok(
     ![
+      "map-review",
+      "map-candidates",
       "qa-open",
       "qa-time",
       "qa-clock",

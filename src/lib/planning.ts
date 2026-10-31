@@ -1,3 +1,4 @@
+import { includesMode } from "./travel";
 import type { Dataset, Gate, TravelMode } from "./data";
 import type { AccessState, Position } from "./gates";
 import { accessState, hasCoordinates, haversine } from "./gates";
@@ -15,7 +16,8 @@ export function matchingReferences(
         (includeEvents || r.context !== "event-only") &&
         (mode === "all" ||
           r.appliesTo === mode ||
-          (r.appliesTo === "vehicle" && mode !== "pedestrian")),
+          r.appliesTo === "vehicle" ||
+          includesMode(r.appliesTo, mode)),
     )
     .sort(
       (a, b) => Number(b.appliesTo === mode) - Number(a.appliesTo === mode),
