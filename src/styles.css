@@ -4858,3 +4858,131 @@ th {
 .dark .v3 .pin-navigate {
   color: #281c22;
 }
+
+/* Keep MapLibre markers inside one layer, below all map UI. */
+.map-area,
+.map-stage {
+  isolation: isolate;
+}
+.map-stage {
+  z-index: 0;
+}
+.map-stage .map-canvas {
+  z-index: 0;
+  isolation: isolate;
+}
+.maplibregl-control-container {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+.map-context,
+.map-tools,
+.status-legend {
+  z-index: 2;
+  pointer-events: auto;
+}
+.map-loading,
+.map-error,
+.map-empty {
+  z-index: 3;
+}
+
+/* A direct GPS action, visible before the starting-point menu is opened. */
+.v4 .filter-row.simple {
+  gap: 7px;
+  margin: 7px 0 2px;
+}
+.gps-launch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 7px;
+  min-width: 0;
+  min-height: 44px;
+  padding: 9px 10px;
+  border: 1px solid #1761bc;
+  border-radius: 9px;
+  background: #1761bc;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 3px 10px #1761bc24;
+}
+.gps-launch small {
+  padding: 2px 4px;
+  border-radius: 4px;
+  background: #ffffff26;
+  font-size: 9px;
+  letter-spacing: 0.3px;
+}
+.gps-launch:hover {
+  background: #104c98;
+}
+.gps-launch.active {
+  background: #145b45;
+  border-color: #145b45;
+}
+.dark .gps-launch {
+  background: #8bc5ff;
+  color: #102c48;
+  border-color: #8bc5ff;
+}
+.dark .gps-launch:hover {
+  background: #add6ff;
+}
+.dark .gps-launch.active {
+  background: #8be0ba;
+  border-color: #8be0ba;
+  color: #14382b;
+}
+.v4 .start-panel {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+.v4 .start-panel > summary {
+  min-height: 44px;
+  padding: 5px 3px;
+}
+.v4 .start-popover .start-controls > label {
+  width: 100%;
+}
+.v4 .directory-controls > .gps-message {
+  margin: 7px 0 3px;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.v4 .filter-row .filter-button {
+  flex-shrink: 0;
+}
+@media (max-width: 760px) {
+  .gps-launch {
+    font-size: 12px;
+    gap: 5px;
+    padding: 9px 7px;
+  }
+  .v4 .start-panel > summary {
+    font-size: 10px;
+    gap: 4px;
+  }
+}
+@media (display-mode: standalone) {
+  .app-header {
+    padding-top: env(safe-area-inset-top);
+    height: calc(64px + env(safe-area-inset-top));
+  }
+  .app-shell {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+@media (display-mode: standalone) and (max-width: 760px) {
+  .app-header {
+    height: calc(56px + env(safe-area-inset-top));
+  }
+}
+/* Do not stretch the floating controls between inherited top/bottom offsets. */
+.v4 .map-tools {
+  bottom: auto;
+}

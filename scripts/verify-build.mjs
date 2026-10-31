@@ -10,6 +10,38 @@ for (const url of urls) {
   assert.ok(url.startsWith(base), `Unexpected asset base: ${url}`);
   await access(resolve(root, url.slice(base.length)));
 }
+// Validate the actual installed-app resources for root and repository base paths.
+const manifest = JSON.parse(
+  await readFile(resolve(root, "app.webmanifest"), "utf8"),
+);
+assert.equal(manifest.display, "standalone");
+assert.ok(manifest.name && manifest.short_name);
+const appUrl = new URL(base === "./" ? "/" : base, "https://example.test");
+const manifestUrl = new URL("app.webmanifest", appUrl);
+assert.equal(new URL(manifest.scope, manifestUrl).pathname, appUrl.pathname);
+assert.equal(new URL(manifest.id, manifestUrl).pathname, appUrl.pathname);
+assert.equal(
+  new URL(manifest.start_url, manifestUrl).pathname,
+  appUrl.pathname,
+);
+assert.ok(
+  manifest.icons.some((i) => i.sizes === "192x192" && i.purpose === "any"),
+);
+assert.ok(
+  manifest.icons.some((i) => i.sizes === "512x512" && i.purpose === "any"),
+);
+assert.ok(manifest.icons.some((i) => i.purpose === "maskable"));
+for (const icon of [
+  ...manifest.icons,
+  { src: "./apple-touch-icon.png", sizes: "180x180" },
+]) {
+  assert.ok(/^\.\/[a-z0-9-]+\.png$/.test(icon.src));
+  const png = await readFile(resolve(root, icon.src));
+  assert.equal(png.subarray(1, 4).toString(), "PNG");
+  assert.equal(`${png.readUInt32BE(16)}x${png.readUInt32BE(20)}`, icon.sizes);
+}
+assert.ok(html.includes('rel="apple-touch-icon"'));
+assert.ok(html.includes('name="apple-mobile-web-app-capable" content="yes"'));
 const geo = JSON.parse(await readFile(resolve(root, "campus.geojson"), "utf8"));
 assert.equal(geo.type, "FeatureCollection");
 assert.ok(geo.features.length > 0);
@@ -75,6 +107,8 @@ console.log(
       result: "PASS",
       base,
       htmlAssets: urls.length,
+      homeScreenIcons: "PASS (180 / 192 / 512 and maskable)",
+      standaloneScope: appUrl.pathname,
       geojsonFeatures: geo.features.length,
       staticFiles: all.length,
       productionLocalhostDependencies: 0,

@@ -1,0 +1,36 @@
+{
+  "gateDataUnchanged": true,
+  "mapGeometryUnchanged": true,
+  "servedAppleIconMatches": true,
+  "servedManifestMatches": true,
+  "icons": [
+    {
+      "name": "apple-touch-icon.png",
+      "width": 180,
+      "height": 180,
+      "colorType": 2,
+      "bytes": 2253
+    },
+    {
+      "name": "icon-192.png",
+      "width": 192,
+      "height": 192,
+      "colorType": 2,
+      "bytes": 2026
+    },
+    {
+      "name": "icon-maskable-512.png",
+      "width": 512,
+      "height": 512,
+      "colorType": 2,
+      "bytes": 7581
+    },
+    {
+      "name": "icon-512.png",
+      "width": 512,
+      "height": 512,
+      "colorType": 2,
+      "bytes": 7581
+    }
+  ]
+}

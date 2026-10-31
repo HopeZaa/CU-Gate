@@ -1,0 +1,189 @@
+{
+  "initial": {
+    "markers": 26,
+    "overlays": [
+      {
+        "name": "map-tools",
+        "rect": {
+          "bottom": 271,
+          "height": 72,
+          "left": 1394,
+          "right": 1428,
+          "top": 199,
+          "width": 34,
+          "x": 1394,
+          "y": 199
+        },
+        "stack": [
+          "",
+          "map-tools",
+          "maplibregl-canvas",
+          "map-canvas maplibregl-map",
+          "map-stage",
+          "map-area"
+        ],
+        "topIsOverlay": true
+      },
+      {
+        "name": "map-legend status-legend",
+        "rect": {
+          "bottom": 898,
+          "height": 64.5,
+          "left": 408,
+          "right": 956.5546875,
+          "top": 833.5,
+          "width": 548.5546875,
+          "x": 408,
+          "y": 833.5
+        },
+        "stack": [
+          "map-legend status-legend",
+          "maplibregl-canvas",
+          "map-canvas maplibregl-map",
+          "map-stage",
+          "map-area",
+          "explore-layout"
+        ],
+        "topIsOverlay": true
+      },
+      {
+        "name": "map-context",
+        "rect": {
+          "bottom": 146.5,
+          "height": 64.5,
+          "left": 408,
+          "right": 602.0546875,
+          "top": 82,
+          "width": 194.0546875,
+          "x": 408,
+          "y": 82
+        },
+        "stack": [
+          "",
+          "",
+          "map-context",
+          "maplibregl-canvas",
+          "map-canvas maplibregl-map",
+          "map-stage"
+        ],
+        "topIsOverlay": true
+      }
+    ],
+    "panTarget": {
+      "bottom": 940,
+      "height": 876,
+      "left": 390,
+      "right": 1440,
+      "top": 64,
+      "width": 1050,
+      "x": 390,
+      "y": 64
+    },
+    "ready": "true",
+    "viewport": [
+      1440,
+      940
+    ]
+  },
+  "panned": [
+    {
+      "collisions": [],
+      "overlay": "map-tools"
+    },
+    {
+      "collisions": [
+        {
+          "id": "phayathai-3",
+          "overlayIsOnTop": true,
+          "point": [
+            808.1922607421875,
+            848.05859375
+          ]
+        }
+      ],
+      "overlay": "map-legend status-legend"
+    },
+    {
+      "collisions": [
+        {
+          "id": "health-3",
+          "overlayIsOnTop": true,
+          "point": [
+            532.2271118164062,
+            90.53599166870116
+          ]
+        }
+      ],
+      "overlay": "map-context"
+    }
+  ],
+  "overlayClick": {
+    "contextTop": true,
+    "detailsOpened": false
+  },
+  "mobile": {
+    "gpsHeight": 44,
+    "overflow": false,
+    "overlays": [
+      {
+        "name": "map-legend status-legend",
+        "topIsOverlay": true
+      },
+      {
+        "name": "map-context",
+        "topIsOverlay": true
+      }
+    ],
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "gpsActive": {
+    "button": "หยุด GPS",
+    "status": "กำลังใช้ตำแหน่งปัจจุบันของคุณ · ความแม่นยำ ±8 ม.",
+    "telemetry": "TEST FIXTURE (active) · watches 1 · cleared 0 · no device location",
+    "visible": true
+  },
+  "gpsStopped": {
+    "status": null,
+    "telemetry": "TEST FIXTURE (active) · watches 1 · cleared 1 · no device location"
+  },
+  "gpsDenied": {
+    "menuOpen": false,
+    "status": "ยังไม่ได้รับอนุญาตใช้ตำแหน่ง เปิดสิทธิ์ในเบราว์เซอร์แล้วลองใหม่ หรือเลือกจุดเริ่มต้นแทน",
+    "visible": true
+  },
+  "installMetadata": {
+    "appleIcon": "http://127.0.0.1:4173/apple-touch-icon.png",
+    "appleTitle": "ประตูจุฬาฯ",
+    "capable": "yes",
+    "manifest": "http://127.0.0.1:4173/app.webmanifest",
+    "viewportMeta": "width=device-width,initial-scale=1.0,viewport-fit=cover"
+  },
+  "smallMobile": {
+    "gpsHeight": 44,
+    "gpsWidth": 132.484375,
+    "overflow": false,
+    "viewport": [
+      320,
+      740
+    ]
+  },
+  "production": {
+    "gpsHeight": 44,
+    "listHeight": 549.5,
+    "overflow": false,
+    "viewport": [
+      1440,
+      940
+    ]
+  },
+  "console": [],
+  "finalMobile": {
+    "gpsHeight": 44,
+    "markers": 26,
+    "overflow": false,
+    "toolsHeight": 80
+  }
+}

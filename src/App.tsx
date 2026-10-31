@@ -161,6 +161,9 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
   }, []);
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", dark ? "#202a2a" : "#fffefa");
     try {
       localStorage.setItem("cu-theme", dark ? "dark" : "light");
     } catch {
@@ -542,6 +545,30 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
                 </div>
               </div>
               <div className="filter-row simple">
+                <button
+                  className={`gps-launch ${gps === "active" ? "active" : ""}`}
+                  onClick={gps === "active" ? stopGPS : locate}
+                  disabled={gps === "requesting"}
+                  aria-pressed={gps === "active"}
+                  aria-label={
+                    gps === "active"
+                      ? t("หยุดใช้ตำแหน่ง GPS", "Stop using GPS")
+                      : t(
+                          "ใช้ GPS หาประตูใกล้ฉัน",
+                          "Use GPS to find nearby gates",
+                        )
+                  }
+                >
+                  <LocateFixed size={19} />
+                  <span>
+                    {gps === "active"
+                      ? t("หยุด GPS", "Stop GPS")
+                      : gps === "requesting"
+                        ? t("กำลังหา…", "Locating…")
+                        : t("ใกล้ฉัน", "Near me")}
+                  </span>
+                  {gps !== "active" && <small>GPS</small>}
+                </button>
                 <details ref={startPanel} className="start-panel">
                   <summary>
                     <LocateFixed size={15} />
@@ -549,22 +576,10 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
                       ? t("MRT สามย่าน", "Sam Yan MRT")
                       : gps === "active"
                         ? "GPS"
-                        : t("จุดเริ่มต้น / ใกล้ฉัน", "Start / near me")}
+                        : t("จุดเริ่มต้น", "Starting point")}
                   </summary>
                   <div className="start-popover">
                     <div className="start-controls">
-                      <button
-                        className="locate-button"
-                        onClick={gps === "active" ? stopGPS : locate}
-                        disabled={gps === "requesting"}
-                      >
-                        <LocateFixed size={18} />
-                        {gps === "active"
-                          ? t("หยุด GPS", "Stop GPS")
-                          : gps === "requesting"
-                            ? t("กำลังค้นหา…", "Locating…")
-                            : t("ใกล้ฉัน", "Near me")}
-                      </button>
                       <label>
                         <span className="sr-only">
                           {t("เลือกจุดเริ่มต้น", "Choose a starting point")}
@@ -594,29 +609,6 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
                         </select>
                       </label>
                     </div>
-                    {(startId !== "none" ||
-                      !["idle", "paused"].includes(gps)) && (
-                      <p
-                        className={`gps-message ${["denied", "unavailable", "timeout"].includes(gps) ? "gps-error" : ""}`}
-                        role="status"
-                      >
-                        {landmark
-                          ? t(
-                              "เรียงระยะจาก MRT สามย่าน ไม่ใช่ตำแหน่งของคุณ",
-                              "Distances from Sam Yan MRT, not your device location.",
-                            )
-                          : gpsText(gps, lang)}
-                        {gps === "active" && position
-                          ? ` · ${t("ความแม่นยำ", "Accuracy")} ±${Math.round(position.accuracy ?? 0)} ${t("ม.", "m")}`
-                          : ""}
-                        {outside
-                          ? t(
-                              " · คุณอยู่นอกขอบเขตแผนที่มหาวิทยาลัย",
-                              " · You are outside the local campus map.",
-                            )
-                          : ""}
-                      </p>
-                    )}
                   </div>
                 </details>
                 <button
@@ -632,6 +624,28 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
                   {activeCount > 0 && <span>{activeCount}</span>}
                 </button>
               </div>
+              {(startId !== "none" || !["idle", "paused"].includes(gps)) && (
+                <p
+                  className={`gps-message ${["denied", "unavailable", "timeout"].includes(gps) ? "gps-error" : ""}`}
+                  role="status"
+                >
+                  {landmark
+                    ? t(
+                        "เรียงระยะจาก MRT สามย่าน ไม่ใช่ตำแหน่งของคุณ",
+                        "Distances from Sam Yan MRT, not your device location.",
+                      )
+                    : gpsText(gps, lang)}
+                  {gps === "active" && position
+                    ? ` · ${t("ความแม่นยำ", "Accuracy")} ±${Math.round(position.accuracy ?? 0)} ${t("ม.", "m")}`
+                    : ""}
+                  {outside
+                    ? t(
+                        " · คุณอยู่นอกขอบเขตแผนที่มหาวิทยาลัย",
+                        " · You are outside the local campus map.",
+                      )
+                    : ""}
+                </p>
+              )}
               {advanced && (
                 <div className="advanced-filters">
                   <label className="checkbox-label">

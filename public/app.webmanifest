@@ -1,0 +1,32 @@
+{
+  "id": "./",
+  "name": "ประตูจุฬาฯ · CU Gate Navigator",
+  "short_name": "ประตูจุฬาฯ",
+  "description": "ค้นหาประตูจุฬาฯ ดูเวลาเปิดปิด และนำทางไปประตูใกล้คุณ",
+  "lang": "th",
+  "start_url": "./#explore",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fffefa",
+  "theme_color": "#a43760",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

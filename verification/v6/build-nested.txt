@@ -1,0 +1,43 @@
+
+> cu-gate-navigator@1.5.0 build
+> tsc -b && vite build --outDir ../../work/v6-pages/cu-gate-navigator --emptyOutDir
+
+vite v7.3.7 building client environment for production...
+transforming...
+node_modules/zod/v4/core/util.js (400:0): A comment
+
+"// Wrapped in a `@__PURE__` IIFE: esbuild never tree-shakes a top-level initializer that contains a member access on `Number`, so the bare object literal survived into every bundle."
+
+in "node_modules/zod/v4/core/util.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+node_modules/zod/v4/core/regexes.js (74:0): A comment
+
+"/** Anchors a pattern source. The interpolation lives here rather than at the call site because
+ * esbuild will not drop a `@__PURE__` call whose own argument interpolates a variable, but it
+ * will drop `anchor(dateSource)`. Keeping it inline pinned `date` into every bundle. */"
+
+in "node_modules/zod/v4/core/regexes.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
+✓ 1694 modules transformed.
+rendering chunks...
+computing gzip size...
+../../work/v6-pages/cu-gate-navigator/index.html                         1.55 kB │ gzip:   0.68 kB
+../../work/v6-pages/cu-gate-navigator/assets/CampusMap-DNVN2dqC.css     69.92 kB │ gzip:  10.05 kB
+../../work/v6-pages/cu-gate-navigator/assets/index-DBDvcCHn.css         75.12 kB │ gzip:  15.08 kB
+../../work/v6-pages/cu-gate-navigator/assets/CampusMap-BV4QDsBo.js      15.02 kB │ gzip:   5.65 kB
+../../work/v6-pages/cu-gate-navigator/assets/index-CmBy4E9L.js         524.70 kB │ gzip: 135.20 kB
+../../work/v6-pages/cu-gate-navigator/assets/maplibre-wqmL2Hxp.js    1,053.01 kB │ gzip: 284.54 kB
+✓ built in 2.86s
+
+> cu-gate-navigator@1.5.0 verify:build
+> node scripts/verify-build.mjs
+
+{
+  "result": "PASS",
+  "base": "/cu-gate-navigator/",
+  "htmlAssets": 6,
+  "homeScreenIcons": "PASS (180 / 192 / 512 and maskable)",
+  "standaloneScope": "/cu-gate-navigator/",
+  "geojsonFeatures": 6170,
+  "staticFiles": 18,
+  "productionLocalhostDependencies": 0,
+  "testFixtureIncluded": false
+}
