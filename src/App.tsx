@@ -14,6 +14,7 @@ import {
   Car,
   ChevronRight,
   CircleHelp,
+  Info,
   Footprints,
   LocateFixed,
   Map,
@@ -112,6 +113,24 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
     [now, setNow] = useState(() => new Date());
   const [availability, setAvailability] = useState<AvailabilityFilter>("all");
   const [overview, setOverview] = useState(0);
+  const [guideVisible, setGuideVisible] = useState(
+    () => saved("cu-map-guide", "shown") !== "hidden",
+  );
+  const [legendVisible, setLegendVisible] = useState(
+    () => saved("cu-map-legend", "shown") !== "hidden",
+  );
+  const toggleLegend = useCallback(
+    () => setLegendVisible((shown) => !shown),
+    [],
+  );
+  useEffect(() => {
+    try {
+      localStorage.setItem("cu-map-guide", guideVisible ? "shown" : "hidden");
+      localStorage.setItem("cu-map-legend", legendVisible ? "shown" : "hidden");
+    } catch {
+      /* Map display preferences are optional. */
+    }
+  }, [guideVisible, legendVisible]);
   const [hoursOnly, setHoursOnly] = useState(false);
   const [position, setPosition] = useState<Position | null>(null),
     [gps, setGPS] = useState<GPSState>("idle"),
@@ -524,25 +543,6 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
                 <time dateTime={now.toISOString()}>
                   {clockText} · {t("ไทย", "Bangkok")}
                 </time>
-                <div
-                  className="direction-tabs"
-                  aria-label={t("ทิศทางเข้าออก", "Entry or exit")}
-                >
-                  <button
-                    className={filters.direction === "entry" ? "active" : ""}
-                    aria-pressed={filters.direction === "entry"}
-                    onClick={() => update("direction", "entry")}
-                  >
-                    {t("เข้า", "Entry")}
-                  </button>
-                  <button
-                    className={filters.direction === "exit" ? "active" : ""}
-                    aria-pressed={filters.direction === "exit"}
-                    onClick={() => update("direction", "exit")}
-                  >
-                    {t("ออก", "Exit")}
-                  </button>
-                </div>
               </div>
               <div className="filter-row simple">
                 <button
@@ -576,7 +576,7 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
                       ? t("MRT สามย่าน", "Sam Yan MRT")
                       : gps === "active"
                         ? "GPS"
-                        : t("จุดเริ่มต้น", "Starting point")}
+                        : t("จุดเริ่มต้น", "Start point")}
                   </summary>
                   <div className="start-popover">
                     <div className="start-controls">
@@ -891,10 +891,12 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
                 direction={filters.direction}
                 now={now}
                 overview={overview}
+                legendVisible={legendVisible}
+                onToggleLegend={toggleLegend}
               />
             </Suspense>
-            <div className="map-context">
-              <div>
+            <div className={`map-context ${guideVisible ? "" : "collapsed"}`}>
+              <div id="map-guide-content" hidden={!guideVisible}>
                 <strong>
                   {t("เลือกหมุดเพื่อดูสถานะ", "Tap a pin for gate status")}
                 </strong>
@@ -903,6 +905,31 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
                   {t("ตามตารางอ้างอิงเดิม", "Adopted reference schedules")}
                 </span>
               </div>
+              <button
+                className={`map-overlay-toggle ${guideVisible ? "overlay-close" : "overlay-restore"}`}
+                aria-label={
+                  guideVisible
+                    ? t("ซ่อนข้อความเลือกหมุด", "Hide pin guide")
+                    : t("แสดงข้อความเลือกหมุด", "Show pin guide")
+                }
+                title={
+                  guideVisible
+                    ? t("ซ่อนข้อความเลือกหมุด", "Hide pin guide")
+                    : t("แสดงข้อความเลือกหมุด", "Show pin guide")
+                }
+                aria-expanded={guideVisible}
+                aria-controls="map-guide-content"
+                onClick={() => setGuideVisible((shown) => !shown)}
+              >
+                {guideVisible ? (
+                  <X size={15} />
+                ) : (
+                  <>
+                    <Info size={15} />
+                    <span>{t("วิธีใช้หมุด", "Pin guide")}</span>
+                  </>
+                )}
+              </button>
             </div>
             {(gates.length === 0 || mapped === 0) && (
               <div className="map-empty" role="status">

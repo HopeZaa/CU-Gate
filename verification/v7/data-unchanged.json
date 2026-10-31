@@ -1,0 +1,4 @@
+{
+  "src/data/gates.json": true,
+  "public/campus.geojson": true
+}

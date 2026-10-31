@@ -1,0 +1,95 @@
+{
+  "current": {
+    "directionButtons": 0,
+    "gpsHeight": 44,
+    "map": {
+      "bottom": 720,
+      "height": 656,
+      "left": 370,
+      "right": 1280,
+      "top": 64,
+      "width": 910,
+      "x": 370,
+      "y": 64
+    },
+    "sidebarWidth": 370,
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "guideOnly": {
+    "focused": "แสดงข้อความเลือกหมุด",
+    "guideHidden": true,
+    "legendHidden": false
+  },
+  "persistence": {
+    "guideHidden": true,
+    "legendHidden": true,
+    "panels": [
+      {
+        "height": 32,
+        "name": "map-legend status-legend collapsed",
+        "width": 67.390625
+      },
+      {
+        "height": 32,
+        "name": "map-context collapsed",
+        "width": 85.0703125
+      }
+    ]
+  },
+  "keyboardRestore": {
+    "guideHidden": false,
+    "legendHidden": true
+  },
+  "mobile": {
+    "availabilityFont": "12px",
+    "directionButtons": 0,
+    "gpsHeight": 44,
+    "map": {
+      "bottom": 844,
+      "height": 549,
+      "left": 0,
+      "right": 390,
+      "top": 295,
+      "width": 390,
+      "x": 0,
+      "y": 295
+    },
+    "modeFont": "11px",
+    "overflow": false,
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "legendRestore": {
+    "guideHidden": true,
+    "legendHidden": false
+  },
+  "smallEnglish": {
+    "gpsHeight": 56,
+    "mapHeight": 433,
+    "overflow": false,
+    "startLabel": "Start point"
+  },
+  "desktop": {
+    "mapWidth": 910,
+    "overflow": false,
+    "sidebarWidth": 370,
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "production": {
+    "directionButtons": 0,
+    "guideHidden": true,
+    "legendHidden": true,
+    "mapHeight": 549,
+    "markers": 26,
+    "overflow": false
+  },
+  "console": []
+}

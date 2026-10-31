@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import maplibregl from "maplibre-gl";
 import type { GeoJSONSource, StyleSpecification } from "maplibre-gl";
 import type { Feature, Polygon } from "geojson";
-import { Crosshair, Maximize, RefreshCw } from "lucide-react";
+import { Crosshair, Maximize, RefreshCw, Palette, X } from "lucide-react";
 import type { Gate, TravelMode } from "../lib/data";
 import { hasCoordinates } from "../lib/gates";
 import type { Position } from "../lib/gates";
@@ -22,6 +22,8 @@ type Props = {
   direction: "entry" | "exit";
   now: Date;
   overview: number;
+  legendVisible: boolean;
+  onToggleLegend: () => void;
 };
 const bounds: maplibregl.LngLatBoundsLike = [
   [100.5235, 13.733],
@@ -194,6 +196,8 @@ export default function CampusMap({
   direction,
   now,
   overview,
+  legendVisible,
+  onToggleLegend,
 }: Props) {
   const { lang, t } = useCopy();
   const langRef = useRef(lang),
@@ -572,31 +576,62 @@ export default function CampusMap({
         </button>
       </div>
       <div
-        className="map-legend status-legend"
+        className={`map-legend status-legend ${legendVisible ? "" : "collapsed"}`}
         aria-label={t("ความหมายสีหมุด", "Marker status legend")}
       >
-        <span>
-          <i className="status-dot availability-open" />
-          {t("เปิด", "Open")}
-        </span>
-        <span>
-          <i className="status-dot availability-closed" />
-          {t("ปิด/ไม่อนุญาต", "Closed")}
-        </span>
-        <span>
-          <i className="status-dot availability-restricted" />
-          {t("มีเงื่อนไข", "Restricted")}
-        </span>
-        <span>
-          <i className="status-dot availability-unknown" />
-          {t("ไม่มีตาราง", "No schedule")}
-        </span>
-        <small>
-          {t(
-            "อิงตารางเดิม ไม่ใช่สถานะสด · ขอบประ = พิกัดประมาณ",
-            "Reference schedules, not live status · dashed = approximate location",
+        <div
+          id="map-legend-content"
+          className="map-legend-content"
+          hidden={!legendVisible}
+        >
+          <span>
+            <i className="status-dot availability-open" />
+            {t("เปิด", "Open")}
+          </span>
+          <span>
+            <i className="status-dot availability-closed" />
+            {t("ปิด/ไม่อนุญาต", "Closed")}
+          </span>
+          <span>
+            <i className="status-dot availability-restricted" />
+            {t("มีเงื่อนไข", "Restricted")}
+          </span>
+          <span>
+            <i className="status-dot availability-unknown" />
+            {t("ไม่มีตาราง", "No schedule")}
+          </span>
+          <small>
+            {t(
+              "อิงตารางเดิม ไม่ใช่สถานะสด · ขอบประ = พิกัดประมาณ",
+              "Reference schedules, not live status · dashed = approximate location",
+            )}
+          </small>
+        </div>
+        <button
+          className={`map-overlay-toggle ${legendVisible ? "overlay-close" : "overlay-restore"}`}
+          aria-label={
+            legendVisible
+              ? t("ซ่อนคำอธิบายสีหมุด", "Hide marker legend")
+              : t("แสดงคำอธิบายสีหมุด", "Show marker legend")
+          }
+          title={
+            legendVisible
+              ? t("ซ่อนคำอธิบายสีหมุด", "Hide marker legend")
+              : t("แสดงคำอธิบายสีหมุด", "Show marker legend")
+          }
+          aria-expanded={legendVisible}
+          aria-controls="map-legend-content"
+          onClick={onToggleLegend}
+        >
+          {legendVisible ? (
+            <X size={15} />
+          ) : (
+            <>
+              <Palette size={15} />
+              <span>{t("สีหมุด", "Map legend")}</span>
+            </>
           )}
-        </small>
+        </button>
       </div>
     </div>
   );

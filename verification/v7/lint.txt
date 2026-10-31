@@ -1,0 +1,4 @@
+
+> cu-gate-navigator@1.6.0 lint
+> eslint .
+
