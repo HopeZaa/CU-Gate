@@ -223,6 +223,7 @@ export default function CampusMap({
     reference = useRef<ReturnType<typeof createPointPin> | null>(null);
   const followGps = useRef(false),
     lastFocus = useRef(0);
+  const previousExpanded = useRef(expanded);
   const live = useRef({
     gates,
     onSelect,
@@ -414,7 +415,24 @@ export default function CampusMap({
     }
   }, [overview, ready]);
   useEffect(() => {
-    if (ready) map.current?.resize();
+    const m = map.current;
+    if (!ready || !m) return;
+    if (previousExpanded.current === expanded) return;
+    previousExpanded.current = expanded;
+    followGps.current = false;
+    // Fit only for a mode change, after the new layout has its final dimensions.
+    // Initial map load must still honour an explicitly selected gate.
+    let second = 0;
+    const first = requestAnimationFrame(() => {
+      second = requestAnimationFrame(() => {
+        m.resize();
+        m.fitBounds(bounds, { padding: 40, duration: 300 });
+      });
+    });
+    return () => {
+      cancelAnimationFrame(first);
+      cancelAnimationFrame(second);
+    };
   }, [expanded, ready]);
   useEffect(() => {
     const m = map.current;

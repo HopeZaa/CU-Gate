@@ -1103,7 +1103,6 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
                     setAdvanced(false);
                     setMobileView("map");
                     setMapExpanded((expanded) => !expanded);
-                    if (!selected) setOverview((n) => n + 1);
                   }}
                 >
                   {mapExpanded ? <Minimize size={18} /> : <Expand size={18} />}
