@@ -38,6 +38,21 @@ const bounds: maplibregl.LngLatBoundsLike = [
   [100.5235, 13.733],
   [100.5355, 13.7474],
 ];
+// Closing details and switching map modes both change the viewport dimensions.
+// Wait for layout before resizing and fitting so ResizeObserver cannot cancel the fit.
+function fitCampusAfterLayout(map: maplibregl.Map) {
+  let second = 0;
+  const first = requestAnimationFrame(() => {
+    second = requestAnimationFrame(() => {
+      map.resize();
+      map.fitBounds(bounds, { padding: 40, duration: 300 });
+    });
+  });
+  return () => {
+    cancelAnimationFrame(first);
+    cancelAnimationFrame(second);
+  };
+}
 function mapStyle(dark: boolean): StyleSpecification {
   const colors = dark
     ? {
@@ -224,6 +239,7 @@ export default function CampusMap({
   const followGps = useRef(false),
     lastFocus = useRef(0);
   const previousExpanded = useRef(expanded);
+  const previousOverview = useRef(overview);
   const live = useRef({
     gates,
     onSelect,
@@ -409,10 +425,10 @@ export default function CampusMap({
   }, [selected, selectionFocus, ready]);
   useEffect(() => {
     const m = map.current;
-    if (ready && m && overview) {
-      followGps.current = false;
-      m.fitBounds(bounds, { padding: 40, duration: 300 });
-    }
+    if (!ready || !m || previousOverview.current === overview) return;
+    previousOverview.current = overview;
+    followGps.current = false;
+    return fitCampusAfterLayout(m);
   }, [overview, ready]);
   useEffect(() => {
     const m = map.current;
@@ -420,19 +436,8 @@ export default function CampusMap({
     if (previousExpanded.current === expanded) return;
     previousExpanded.current = expanded;
     followGps.current = false;
-    // Fit only for a mode change, after the new layout has its final dimensions.
     // Initial map load must still honour an explicitly selected gate.
-    let second = 0;
-    const first = requestAnimationFrame(() => {
-      second = requestAnimationFrame(() => {
-        m.resize();
-        m.fitBounds(bounds, { padding: 40, duration: 300 });
-      });
-    });
-    return () => {
-      cancelAnimationFrame(first);
-      cancelAnimationFrame(second);
-    };
+    return fitCampusAfterLayout(m);
   }, [expanded, ready]);
   useEffect(() => {
     const m = map.current;

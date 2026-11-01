@@ -5,7 +5,7 @@ A Thai/English map of Chulalongkorn University's main **motorcycle and car gates
 ## Use the app
 
 1. Select **Motorcycle** or **Car**, then **All gates** or **Open now**. Availability uses Bangkok time and the owner-adopted historical vehicle schedules. It is not a live observation of a physical gate.
-2. Click anywhere on a gate card, or click its map marker. The map zooms to that gate and opens its details. The separate Directions link opens Google Maps.
+2. Click anywhere on a gate card, or click its map marker. The map zooms to that gate and opens its details. Closing details with the X button automatically fits the campus again. The separate Directions link opens Google Maps.
 3. Drag the clearly marked top edge of the details panel down to reduce its height, or up to expand it. Clicking the handle toggles compact/expanded height. Keyboard users can focus the handle and use Up/Down (32 px), Home or End. Details remain scrollable.
 4. Open **Start point** and type a place name. Local campus-area results appear immediately. Select a result, enter `latitude, longitude`, or use the public Sam Yan MRT preset. A selected place is a reference point, not your device location.
 5. For a wider place search, click **Search online** or press Enter. Only that submitted query is sent to Photon. Coordinate input is handled locally. Local search remains available when the online provider is unavailable.

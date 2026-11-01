@@ -5242,9 +5242,6 @@ th {
   .v4 .map-context {
     max-width: calc(100% - 166px);
   }
-  .v4.has-selection:not(.is-map-expanded) .map-view-actions {
-    top: 100px;
-  }
   .v4.is-map-expanded .map-panel {
     min-height: 0;
   }
