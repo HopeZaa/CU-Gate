@@ -5569,7 +5569,7 @@ th {
   font-weight: 500;
 }
 
-/* Legend, expanded or collapsed, shares one footer row with visible OSM attribution. */
+/* The always-visible legend shares one footer row with OSM attribution. */
 .map-footer {
   position: absolute;
   left: 0;
@@ -5609,27 +5609,10 @@ th {
   scrollbar-width: thin;
   white-space: nowrap;
 }
-.v4 .map-footer .map-legend-content[hidden] {
-  display: none;
-}
 .v4 .map-footer .status-legend span {
   font-size: 9px;
   gap: 3px;
   flex-shrink: 0;
-}
-.v4 .map-footer .map-overlay-toggle {
-  position: static;
-  order: -1;
-  min-height: 28px;
-  flex-shrink: 0;
-  box-shadow: none;
-  font-size: 10px;
-}
-.v4 .map-footer .overlay-close {
-  width: 26px;
-}
-.v4 .map-footer .overlay-restore {
-  padding: 4px 6px;
 }
 .map-credits {
   flex-shrink: 0;

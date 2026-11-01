@@ -120,9 +120,6 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
     [now, setNow] = useState(() => new Date());
   const [availability, setAvailability] = useState<AvailabilityFilter>("all");
   const [overview, setOverview] = useState(0);
-  const [legendVisible, setLegendVisible] = useState(
-    () => saved("cu-map-legend", "shown") !== "hidden",
-  );
   useEffect(() => {
     if (!mapExpanded) return;
     const escape = (event: KeyboardEvent) => {
@@ -131,17 +128,6 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
     window.addEventListener("keydown", escape);
     return () => window.removeEventListener("keydown", escape);
   }, [mapExpanded, selected]);
-  const toggleLegend = useCallback(
-    () => setLegendVisible((shown) => !shown),
-    [],
-  );
-  useEffect(() => {
-    try {
-      localStorage.setItem("cu-map-legend", legendVisible ? "shown" : "hidden");
-    } catch {
-      /* Map display preferences are optional. */
-    }
-  }, [legendVisible]);
   const [hoursOnly, setHoursOnly] = useState(false);
   const [selectedPlace, setSelectedPlace] = useState<StartingPoint | null>(
     null,
@@ -1062,8 +1048,6 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
                   now={now}
                   overview={overview}
                   expanded={mapExpanded}
-                  legendVisible={legendVisible}
-                  onToggleLegend={toggleLegend}
                 />
               </Suspense>
               <div className="map-view-actions">

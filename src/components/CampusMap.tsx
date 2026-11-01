@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import maplibregl from "maplibre-gl";
 import type { GeoJSONSource, StyleSpecification } from "maplibre-gl";
 import type { Feature, Polygon } from "geojson";
-import { Crosshair, Maximize, RefreshCw, Palette, X } from "lucide-react";
+import { Crosshair, Maximize, RefreshCw } from "lucide-react";
 import type { Gate, TravelMode } from "../lib/data";
 import { hasCoordinates } from "../lib/gates";
 import type { StartingPoint } from "../lib/origins";
@@ -26,8 +26,6 @@ type Props = {
   now: Date;
   overview: number;
   expanded: boolean;
-  legendVisible: boolean;
-  onToggleLegend: () => void;
   heading: number | null;
   headingIsCourse: boolean;
   suggestedId: string | null;
@@ -221,8 +219,6 @@ export default function CampusMap({
   now,
   overview,
   expanded,
-  legendVisible,
-  onToggleLegend,
   heading,
   headingIsCourse,
   suggestedId,
@@ -653,13 +649,12 @@ export default function CampusMap({
       </div>
       <div className="map-footer">
         <div
-          className={`map-legend status-legend ${legendVisible ? "" : "collapsed"}`}
+          className="map-legend status-legend"
           aria-label={t("ความหมายสีหมุด", "Marker status legend")}
         >
           <div
             id="map-legend-content"
             className="map-legend-content"
-            hidden={!legendVisible}
           >
             <span>
               <i className="status-dot availability-open" />
@@ -678,31 +673,6 @@ export default function CampusMap({
               {t("ไม่มีตาราง", "No schedule")}
             </span>
           </div>
-          <button
-            className={`map-overlay-toggle ${legendVisible ? "overlay-close" : "overlay-restore"}`}
-            aria-label={
-              legendVisible
-                ? t("ซ่อนคำอธิบายสีหมุด", "Hide marker legend")
-                : t("แสดงคำอธิบายสีหมุด", "Show marker legend")
-            }
-            title={
-              legendVisible
-                ? t("ซ่อนคำอธิบายสีหมุด", "Hide marker legend")
-                : t("แสดงคำอธิบายสีหมุด", "Show marker legend")
-            }
-            aria-expanded={legendVisible}
-            aria-controls="map-legend-content"
-            onClick={onToggleLegend}
-          >
-            {legendVisible ? (
-              <X size={15} />
-            ) : (
-              <>
-                <Palette size={15} />
-                <span>{t("สีหมุด", "Map legend")}</span>
-              </>
-            )}
-          </button>
         </div>
         <a
           className="map-credits"
