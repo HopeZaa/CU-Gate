@@ -5,11 +5,13 @@ import type { Feature, Polygon } from "geojson";
 import { Crosshair, Maximize, RefreshCw, Palette, X } from "lucide-react";
 import type { Gate, TravelMode } from "../lib/data";
 import { hasCoordinates } from "../lib/gates";
+import type { StartingPoint } from "../lib/origins";
 import type { Position } from "../lib/gates";
 import "maplibre-gl/dist/maplibre-gl.css";
-import { useCopy, gateName } from "../lib/i18n";
-import { gateAvailability } from "../lib/availability";
-import type { StartingPoint } from "../lib/origins";
+import { useCopy } from "../lib/i18n";
+import { createGatePin, updateGatePin, createPointPin } from "../lib/map-pins";
+import type { GatePin } from "../lib/map-pins";
+import { withinCampusMap } from "../lib/map-location";
 import type { Language } from "../lib/i18n";
 type Props = {
   gates: Gate[];
@@ -213,39 +215,47 @@ export default function CampusMap({
   detailHeight,
 }: Props) {
   const { lang, t } = useCopy();
-  const langRef = useRef(lang),
-    labelHandles = useRef<maplibregl.Marker[]>([]),
-    referenceMarker = useRef<maplibregl.Marker | null>(null),
-    lastFocus = useRef(0),
-    gateRef = useRef(gates);
-  useEffect(() => {
-    langRef.current = lang;
-  }, [lang]);
-  useEffect(() => {
-    gateRef.current = gates;
-  }, [gates]);
-  const gateMarkers = useRef(new Map<string, maplibregl.Marker>());
-  const followGps = useRef(false);
   const container = useRef<HTMLDivElement>(null),
-    map = useRef<maplibregl.Map | null>(null),
-    user = useRef<maplibregl.Marker | null>(null);
+    map = useRef<maplibregl.Map | null>(null);
+  const pins = useRef(new Map<string, GatePin>());
+  const labelHandles = useRef<maplibregl.Marker[]>([]);
+  const device = useRef<ReturnType<typeof createPointPin> | null>(null),
+    reference = useRef<ReturnType<typeof createPointPin> | null>(null);
+  const followGps = useRef(false),
+    lastFocus = useRef(0);
+  const live = useRef({
+    gates,
+    onSelect,
+    dark,
+    lang,
+    position,
+    referencePoint,
+    detailHeight,
+  });
+  useEffect(() => {
+    live.current = {
+      gates,
+      onSelect,
+      dark,
+      lang,
+      position,
+      referencePoint,
+      detailHeight,
+    };
+  });
   const [ready, setReady] = useState(false),
     [error, setError] = useState<string | null>(null),
     [retry, setRetry] = useState(0);
-  const darkRef = useRef(dark);
-  useEffect(() => {
-    darkRef.current = dark;
-  }, [dark]);
   useEffect(() => {
     if (!container.current) return;
-    const markerStore = gateMarkers.current;
+    const store = pins.current;
     let m: maplibregl.Map;
     try {
       m = new maplibregl.Map({
         container: container.current,
-        style: mapStyle(darkRef.current),
+        style: mapStyle(live.current.dark),
         bounds,
-        fitBoundsOptions: { padding: 35 },
+        fitBoundsOptions: { padding: 40 },
         minZoom: 14,
         maxZoom: 19,
         maxBounds: [
@@ -256,19 +266,19 @@ export default function CampusMap({
         dragRotate: false,
         pitchWithRotate: false,
         renderWorldCopies: false,
-        locale: mapLocale(langRef.current),
+        locale: mapLocale(live.current.lang),
       });
     } catch {
-      queueMicrotask(() => {
-        setError("unsupported");
-        setReady(false);
-      });
+      queueMicrotask(() => setError("unsupported"));
       return;
     }
     map.current = m;
     m.touchZoomRotate.disableRotation();
     m.on("dragstart", () => {
       followGps.current = false;
+    });
+    m.on("zoomstart", (e) => {
+      if (e.originalEvent) followGps.current = false;
     });
     m.addControl(
       new maplibregl.NavigationControl({ showCompass: true }),
@@ -278,56 +288,44 @@ export default function CampusMap({
       new maplibregl.ScaleControl({ maxWidth: 100, unit: "metric" }),
       "top-left",
     );
-    const labelMarkers: maplibregl.Marker[] = [];
-    labelHandles.current = labelMarkers;
     m.on("load", () => {
-      m.fitBounds(bounds, { padding: 40, duration: 0 });
-      setReady(true);
-      setError(null);
       labels.forEach(([lon, lat, text, cls]) => {
         const el = document.createElement("span");
-        el.textContent = mapLabel(text, langRef.current);
-        el.dataset.labelText = text;
         el.className = `map-label ${cls}`;
-        el.setAttribute("aria-hidden", "true");
-        labelMarkers.push(
-          new maplibregl.Marker({ element: el }).setLngLat([lon, lat]).addTo(m),
+        el.dataset.labelText = text;
+        el.textContent = mapLabel(text, live.current.lang);
+        labelHandles.current.push(
+          new maplibregl.Marker({ element: el, subpixelPositioning: true })
+            .setLngLat([lon, lat])
+            .addTo(m),
         );
         el.setAttribute("aria-hidden", "true");
         el.setAttribute("tabindex", "-1");
         el.removeAttribute("role");
       });
+      setReady(true);
+      setError(null);
+      // Development integration fixture only; removed by Vite in production.
+      if (import.meta.env.DEV)
+        window.dispatchEvent(new CustomEvent("cu-map-ready", { detail: m }));
     });
     m.on("error", (e) => {
-      if ("sourceId" in e && e.sourceId === "campus") {
-        setError("source");
-      }
+      if ("sourceId" in e && e.sourceId === "campus") setError("source");
     });
-    m.on("webglcontextlost", () => {
-      setError("graphics");
-    });
-    let visible =
-      container.current.clientWidth > 0 && container.current.clientHeight > 0;
-    const resize = new ResizeObserver(() => {
-      m.resize();
-      const shown =
-        !!container.current &&
-        container.current.clientWidth > 0 &&
-        container.current.clientHeight > 0;
-      if (shown && !visible) m.fitBounds(bounds, { padding: 40, duration: 0 });
-      visible = shown;
-    });
-    resize.observe(container.current);
+    m.on("webglcontextlost", () => setError("graphics"));
+    // Resizing adjusts the viewport only. It never resets a user-selected zoom/centre.
+    const observer = new ResizeObserver(() => m.resize());
+    observer.observe(container.current);
     return () => {
-      resize.disconnect();
-      labelMarkers.forEach((l) => l.remove());
-      markerStore.forEach((marker) => marker.remove());
-      markerStore.clear();
+      observer.disconnect();
+      store.forEach((pin) => pin.marker.remove());
+      store.clear();
+      labelHandles.current.forEach((marker) => marker.remove());
       labelHandles.current = [];
-      referenceMarker.current?.remove();
-      referenceMarker.current = null;
-      user.current?.remove();
-      user.current = null;
+      device.current?.marker.remove();
+      device.current = null;
+      reference.current?.marker.remove();
+      reference.current = null;
       m.remove();
       map.current = null;
     };
@@ -335,146 +333,123 @@ export default function CampusMap({
   useEffect(() => {
     const m = map.current;
     if (!ready || !m) return;
-    const style = mapStyle(dark);
-    for (const layer of style.layers)
+    for (const layer of mapStyle(dark).layers)
       if (layer.paint)
         for (const [key, value] of Object.entries(layer.paint))
           if (m.getLayer(layer.id)) m.setPaintProperty(layer.id, key, value);
-  }, [dark, ready, retry]);
+  }, [dark, ready]);
   useEffect(() => {
     const m = map.current;
-    if (!m || !ready) return;
-    const ids = new Set(gates.filter(hasCoordinates).map((g) => g.id));
-    for (const [id, marker] of gateMarkers.current)
+    if (!ready || !m) return;
+    const mapped = gates.filter(hasCoordinates),
+      ids = new Set(mapped.map((g) => g.id));
+    for (const [id, pin] of pins.current)
       if (!ids.has(id)) {
-        marker.remove();
-        gateMarkers.current.delete(id);
+        pin.marker.remove();
+        pins.current.delete(id);
       }
-    gates.filter(hasCoordinates).forEach((g) => {
-      let marker = gateMarkers.current.get(g.id);
-      const el = marker?.getElement() || document.createElement("button");
-      if (!marker) {
-        el.setAttribute("type", "button");
-        const code = document.createElement("span");
-        code.className = "marker-code";
-        const state = document.createElement("span");
-        state.className = "marker-state";
-        state.setAttribute("aria-hidden", "true");
-        const star = document.createElement("span");
-        star.className = "marker-recommendation";
-        star.textContent = "★";
-        star.setAttribute("aria-hidden", "true");
-        el.append(code, state, star);
-        el.addEventListener("click", () => onSelect(g.id));
-        marker = new maplibregl.Marker({ element: el })
-          .setLngLat([g.longitude, g.latitude])
-          .addTo(m);
-        gateMarkers.current.set(g.id, marker);
+    for (const gate of mapped) {
+      let pin = pins.current.get(gate.id);
+      if (!pin) {
+        pin = createGatePin(m, gate, (id) => live.current.onSelect(id));
+        pins.current.set(gate.id, pin);
       }
-      const status = gateAvailability(g, mode, direction, now, lang);
-      el.className = `gate-marker availability-${status.state} ${g.category} ${g.coordinateConfidence === "HIGH" ? "" : "approximate"} ${selected === g.id ? "selected" : ""} ${suggestedId === g.id ? "is-suggested" : ""}`;
-      el.querySelector(".marker-code")!.textContent =
-        g.mapCode || g.mapLetter || "•";
-      el.querySelector(".marker-state")!.textContent = {
-        open: "✓",
-        closed: "×",
-        restricted: "!",
-        unknown: "?",
-      }[status.state];
-      (el.querySelector(".marker-recommendation") as HTMLElement).hidden =
-        suggestedId !== g.id;
-      el.title = `${gateName(g, lang)} · ${status.label}${suggestedId === g.id ? (lang === "th" ? " · แนะนำใกล้สุด" : " · Nearest suggestion") : ""}`;
-      el.setAttribute(
-        "aria-label",
-        `${lang === "th" ? "หมุดประตู" : "Map gate:"} ${el.title}`,
+      const at = pin.marker.getLngLat();
+      if (at.lng !== gate.longitude || at.lat !== gate.latitude)
+        pin.marker.setLngLat([gate.longitude, gate.latitude]);
+      updateGatePin(
+        pin,
+        gate,
+        mode,
+        direction,
+        now,
+        lang,
+        gate.id === selected,
+        gate.id === suggestedId,
       );
-      el.setAttribute("aria-pressed", String(selected === g.id));
-      el.dataset.gateId = g.id;
-      el.dataset.status = status.state;
-      el.dataset.suggested = String(suggestedId === g.id);
-    });
-  }, [
-    gates,
-    selected,
-    onSelect,
-    ready,
-    retry,
-    lang,
-    mode,
-    direction,
-    now,
-    suggestedId,
-  ]);
+    }
+  }, [gates, mode, direction, now, lang, selected, suggestedId, ready]);
   useEffect(() => {
     const m = map.current;
-    if (!m || !ready) return;
-    const g = gateRef.current.find((g) => g.id === selected);
-    if (g && hasCoordinates(g)) {
-      followGps.current = false;
-      // Wait for the mobile controls to collapse before centering above the card.
-      const frame = window.requestAnimationFrame(() => {
+    if (!m || !ready || !selected) return;
+    const gate = live.current.gates.find((g) => g.id === selected);
+    if (!gate || !hasCoordinates(gate)) return;
+    followGps.current = false;
+    // Camera movement is an explicit selection action, never a side effect of
+    // location fixes, heading updates, status rendering or resizing details.
+    let second = 0;
+    const first = requestAnimationFrame(() => {
+      second = requestAnimationFrame(() => {
         m.resize();
+        const height =
+          document.querySelector(".gate-details")?.getBoundingClientRect()
+            .height || live.current.detailHeight;
+        const mobile = innerWidth <= 760;
         m.easeTo({
-          center: [g.longitude, g.latitude],
+          center: [gate.longitude, gate.latitude],
           zoom: Math.max(m.getZoom(), 17.2),
           duration: 350,
-          padding: { top: 0, bottom: 0, left: 0, right: 0 },
-          offset:
-            window.innerWidth <= 760
-              ? [
-                  0,
-                  -Math.min(
-                    (detailHeight || window.innerHeight * 0.45) / 2,
-                    Math.max(0, m.getContainer().clientHeight / 2 - 70),
-                  ),
-                ]
-              : [-115, 0],
+          offset: mobile
+            ? [
+                0,
+                -Math.min(
+                  height / 2,
+                  Math.max(0, m.getContainer().clientHeight / 2 - 80),
+                ),
+              ]
+            : [-115, 0],
         });
       });
-      return () => window.cancelAnimationFrame(frame);
-    }
-  }, [selected, ready, expanded, selectionFocus, detailHeight]);
+    });
+    return () => {
+      cancelAnimationFrame(first);
+      cancelAnimationFrame(second);
+    };
+  }, [selected, selectionFocus, ready]);
   useEffect(() => {
     const m = map.current;
-    if (!m || !ready || overview === 0) return;
-    const frame = window.requestAnimationFrame(() => {
-      m.resize();
+    if (ready && m && overview) {
+      followGps.current = false;
       m.fitBounds(bounds, { padding: 40, duration: 300 });
-    });
-    return () => window.cancelAnimationFrame(frame);
+    }
   }, [overview, ready]);
+  useEffect(() => {
+    if (ready) map.current?.resize();
+  }, [expanded, ready]);
   useEffect(() => {
     const m = map.current;
     if (!m || !ready) return;
     if (!position) {
-      user.current?.remove();
-      user.current = null;
+      device.current?.marker.remove();
+      device.current = null;
       if (m.getLayer("accuracy")) m.removeLayer("accuracy");
       if (m.getSource("accuracy")) m.removeSource("accuracy");
       return;
     }
-    const el = user.current?.getElement() || document.createElement("div");
-    el.className = "user-location";
-    if (!el.querySelector(".user-heading")) {
+    if (!device.current) {
+      device.current = createPointPin(m, "device");
       const cone = document.createElement("span");
       cone.className = "user-heading";
-      cone.hidden = true;
-      el.append(cone);
+      device.current.content.append(cone);
     }
-    el.title = `${lang === "th" ? "ตำแหน่งของคุณ" : "Your location"} ±${Math.round(position.accuracy ?? 0)} ${lang === "th" ? "ม." : "m"}`;
-    el.setAttribute("aria-label", el.title);
-    if (user.current)
-      user.current.setLngLat([position.longitude, position.latitude]);
-    else
-      user.current = new maplibregl.Marker({ element: el })
-        .setLngLat([position.longitude, position.latitude])
-        .addTo(m);
-    if (followGps.current)
-      m.easeTo({
-        center: [position.longitude, position.latitude],
-        duration: 400,
-      });
-    // A map circle uses the same measured accuracy; it is not a route.
+    const { marker, content } = device.current;
+    marker.setLngLat([position.longitude, position.latitude]);
+    content.dataset.heading =
+      heading === null ? "" : String(Math.round(heading));
+    content.dataset.headingKind = headingIsCourse ? "course" : "compass";
+    const cone = content.querySelector(".user-heading") as HTMLElement;
+    cone.hidden = heading === null;
+    cone.style.setProperty("--heading", `${heading ?? 0}deg`);
+    const kind =
+      lang === "th"
+        ? headingIsCourse
+          ? "ทิศการเคลื่อนที่"
+          : "ทิศอุปกรณ์"
+        : headingIsCourse
+          ? "Travel direction"
+          : "Device compass";
+    content.title = `${lang === "th" ? "ตำแหน่งของคุณ" : "Your location"} ±${Math.round(position.accuracy ?? 0)} m${heading === null ? "" : ` · ${kind} ${Math.round(heading)}°`}`;
+    content.setAttribute("aria-label", content.title);
     const radius = Math.min(position.accuracy ?? 0, 5000),
       coords: number[][] = [];
     for (let i = 0; i <= 64; i++) {
@@ -506,94 +481,80 @@ export default function CampusMap({
         },
       });
     }
-  }, [position, ready, retry, lang]);
+  }, [position, heading, headingIsCourse, ready, lang]);
   useEffect(() => {
-    const el = user.current?.getElement();
-    if (!el) return;
-    const cone = el.querySelector(".user-heading") as HTMLElement | null;
-    if (cone) {
-      cone.hidden = heading === null;
-      cone.style.setProperty("--heading", `${heading ?? 0}deg`);
+    const m = map.current;
+    if (ready && m && position && followGps.current && !m.isMoving())
+      m.easeTo({
+        center: [position.longitude, position.latitude],
+        duration: 250,
+      });
+  }, [position, ready]);
+  useEffect(() => {
+    const m = map.current;
+    if (!ready || !m) return;
+    if (!referencePoint) {
+      reference.current?.marker.remove();
+      reference.current = null;
+      return;
     }
-    el.dataset.heading = heading === null ? "" : String(Math.round(heading));
-    el.dataset.headingKind = headingIsCourse ? "course" : "compass";
-    const label =
-      lang === "th"
-        ? headingIsCourse
-          ? "ทิศการเคลื่อนที่"
-          : "ทิศอุปกรณ์"
-        : headingIsCourse
-          ? "Travel direction"
-          : "Device compass";
-    el.title = `${lang === "th" ? "ตำแหน่งของคุณ" : "Your location"} ±${Math.round(position?.accuracy ?? 0)} ${lang === "th" ? "ม." : "m"}${heading !== null ? ` · ${label} ${Math.round(heading)}°` : ""}`;
-    el.setAttribute("aria-label", el.title);
-  }, [heading, headingIsCourse, position, ready, lang]);
+    if (!reference.current) reference.current = createPointPin(m, "reference");
+    reference.current.marker.setLngLat([
+      referencePoint.longitude,
+      referencePoint.latitude,
+    ]);
+    reference.current.content.textContent =
+      referencePoint.id === "sam-yan" ? "M" : "S";
+    reference.current.content.title = t(
+      "จุดเริ่มต้นที่เลือก ไม่ใช่ GPS ของคุณ",
+      "Selected starting point, not your GPS location",
+    );
+    reference.current.content.setAttribute(
+      "aria-label",
+      reference.current.content.title,
+    );
+  }, [referencePoint, ready, lang, t]);
   useEffect(() => {
-    if (!ready || !map.current) return;
-    labelHandles.current.forEach((marker) => {
-      const el = marker.getElement();
-      el.textContent = mapLabel(el.dataset.labelText || "", lang);
-    });
-    const controls: [string, string][] = [
-      [".maplibregl-ctrl-zoom-in", lang === "th" ? "ขยายแผนที่" : "Zoom in"],
-      [".maplibregl-ctrl-zoom-out", lang === "th" ? "ย่อแผนที่" : "Zoom out"],
-      [
-        ".maplibregl-ctrl-compass",
-        lang === "th" ? "หันทิศเหนือ" : "Reset north",
-      ],
-    ];
-    controls.forEach(([selector, label]) => {
-      const el = container.current?.querySelector(selector);
-      el?.setAttribute("aria-label", label);
-      el?.setAttribute("title", label);
-    });
-  }, [lang, ready]);
-  useEffect(() => {
-    if (!ready || !map.current) return;
-    referenceMarker.current?.remove();
-    referenceMarker.current = null;
-    if (!referencePoint) return;
-    const el = document.createElement("div");
-    el.className = "reference-location";
-    el.textContent = referencePoint.id === "sam-yan" ? "M" : "S";
-    el.title =
-      lang === "th"
-        ? "จุดเริ่มต้นที่เลือก ไม่ใช่ GPS ของคุณ"
-        : "Selected starting point, not your GPS location";
-    el.setAttribute("aria-label", el.title);
-    referenceMarker.current = new maplibregl.Marker({ element: el })
-      .setLngLat([referencePoint.longitude, referencePoint.latitude])
-      .addTo(map.current);
-    return () => {
-      referenceMarker.current?.remove();
-      referenceMarker.current = null;
-    };
-  }, [referencePoint, ready, lang]);
-  useEffect(() => {
-    const point = referencePoint || position;
+    const m = map.current,
+      point = referencePoint || position;
     if (
-      !focusLocation ||
-      focusLocation === lastFocus.current ||
       !ready ||
+      !m ||
       !point ||
-      !map.current
+      !focusLocation ||
+      lastFocus.current === focusLocation
     )
       return;
     lastFocus.current = focusLocation;
-    if (
-      point.longitude >= 100.518 &&
-      point.longitude <= 100.538 &&
-      point.latitude >= 13.727 &&
-      point.latitude <= 13.75
-    ) {
+    if (withinCampusMap(point)) {
       followGps.current = !!position && !referencePoint;
-      map.current.easeTo({
+      m.easeTo({
         center: [point.longitude, point.latitude],
         zoom: 16.3,
         duration: 400,
       });
     }
   }, [focusLocation, position, referencePoint, ready]);
+  useEffect(() => {
+    if (!ready) return;
+    labelHandles.current.forEach((marker) => {
+      const el = marker.getElement();
+      el.textContent = mapLabel(el.dataset.labelText || "", lang);
+    });
+    const controls: [string, string][] = [
+      [".maplibregl-ctrl-zoom-in", t("ขยายแผนที่", "Zoom in")],
+      [".maplibregl-ctrl-zoom-out", t("ย่อแผนที่", "Zoom out")],
+      [".maplibregl-ctrl-compass", t("หันทิศเหนือ", "Reset north")],
+    ];
+    for (const [selector, label] of controls) {
+      const el = container.current?.querySelector(selector);
+      el?.setAttribute("aria-label", label);
+      el?.setAttribute("title", label);
+    }
+    map.current
+      ?.getCanvas()
+      .setAttribute("aria-label", t("แผนที่มหาวิทยาลัย", "Campus map"));
+  }, [lang, ready, t]);
   return (
     <div
       className="map-stage"
@@ -642,9 +603,10 @@ export default function CampusMap({
         <button
           title={t("ดูมหาวิทยาลัยทั้งหมด", "Fit campus")}
           aria-label={t("ดูมหาวิทยาลัยทั้งหมด", "Fit campus")}
-          onClick={() =>
-            map.current?.fitBounds(bounds, { padding: 35, duration: 350 })
-          }
+          onClick={() => {
+            followGps.current = false;
+            map.current?.fitBounds(bounds, { padding: 35, duration: 350 });
+          }}
         >
           <Maximize size={18} />
         </button>
@@ -719,19 +681,15 @@ export default function CampusMap({
             )}
           </button>
         </div>
-        <div className="map-credits">
-          <a
-            href="https://www.openstreetmap.org/copyright"
-            target="_blank"
-            rel="noreferrer"
-            title={t(
-              "ข้อมูลแผนที่ © OpenStreetMap contributors",
-              "Map data © OpenStreetMap contributors",
-            )}
-          >
-            © OpenStreetMap
-          </a>
-        </div>
+        <a
+          className="map-credits"
+          href="https://www.openstreetmap.org/copyright"
+          target="_blank"
+          rel="noreferrer"
+          title="Map data © OpenStreetMap contributors"
+        >
+          © OpenStreetMap
+        </a>
       </div>
     </div>
   );

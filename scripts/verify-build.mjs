@@ -42,11 +42,11 @@ for (const icon of [
 }
 assert.ok(html.includes('rel="apple-touch-icon"'));
 assert.ok(html.includes('name="apple-mobile-web-app-capable" content="yes"'));
-const searchConfig = JSON.parse(
+const config = JSON.parse(
   await readFile(resolve(root, "location-search.json"), "utf8"),
 );
-assert.equal(typeof searchConfig.enabled, "boolean");
-assert.ok(searchConfig.endpoint.startsWith("https://"));
+assert.equal(typeof config.enabled, "boolean");
+assert.ok(config.endpoint.startsWith("https://"));
 const geo = JSON.parse(await readFile(resolve(root, "campus.geojson"), "utf8"));
 assert.equal(geo.type, "FeatureCollection");
 assert.ok(geo.features.length > 0);
@@ -74,7 +74,7 @@ const all = await files(root);
 assert.ok(
   !all.some(
     (p) =>
-      p.includes("live-location-harness") ||
+      p.includes("map-anchor-harness") ||
       p.includes("gps-harness") ||
       p.includes("status-harness") ||
       p.includes("reference-harness") ||
@@ -114,7 +114,8 @@ for (const path of all.filter(
       "qa-time",
       "qa-clock",
       "gps-harness",
-      "live-location-harness",
+      "map-anchor-harness",
+      "cu-map-ready",
       "status-harness",
       "reference-harness",
     ].some((name) => text.includes(name)),

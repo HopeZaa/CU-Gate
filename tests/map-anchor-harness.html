@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <base href="/" />
+    <title>Map anchor regression fixture</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <section
+      id="fixture"
+      style="
+        position: fixed;
+        bottom: 36px;
+        left: 4px;
+        z-index: 1000;
+        max-width: calc(100% - 8px);
+        background: #fff;
+        color: #111;
+        padding: 5px;
+        border: 1px solid #111;
+        font: 10px monospace;
+      "
+    >
+      <strong
+        >TEST FIXTURE — simulated public gate positions, no device GPS</strong
+      ><br />
+      <button id="run-zoom" disabled>Run zoom regression</button
+      ><button id="move">Move to Commerce</button
+      ><button id="outside">Outside campus</button
+      ><button id="face-east">Face east</button
+      ><button id="face-north">Face north</button
+      ><button id="sample">Check anchors</button><br />
+      <output id="sensor-report">GPS inactive</output><br /><output
+        id="anchor-report"
+        >Waiting for map</output
+      >
+      <pre
+        id="zoom-report"
+        style="
+          max-height: 120px;
+          overflow: auto;
+          margin: 0;
+          white-space: pre-wrap;
+        "
+      ></pre>
+    </section>
+    <script>
+      let simulated = null,
+        success = null,
+        watches = 0,
+        cleared = 0,
+        updates = 0,
+        timer,
+        map = null,
+        frame = 0,
+        maxError = 0,
+        samples = 0;
+      const telemetry = () =>
+        (document.querySelector("#sensor-report").textContent =
+          `watches ${watches}; cleared ${cleared}; updates ${updates}`);
+      function move(latitude, longitude) {
+        simulated = { latitude, longitude };
+        if (success) {
+          updates++;
+          success({
+            coords: {
+              latitude,
+              longitude,
+              accuracy: 8,
+              speed: 1.2,
+              heading: 90,
+            },
+            timestamp: Date.now(),
+          });
+          telemetry();
+        }
+      }
+      Object.defineProperty(navigator, "geolocation", {
+        configurable: true,
+        value: {
+          watchPosition(callback) {
+            success = callback;
+            watches++;
+            timer = setTimeout(() => move(13.7387455, 100.5298425), 100);
+            telemetry();
+            return 52;
+          },
+          clearWatch() {
+            success = null;
+            cleared++;
+            clearTimeout(timer);
+            telemetry();
+          },
+        },
+      });
+      Object.defineProperty(window, "DeviceOrientationEvent", {
+        configurable: true,
+        value: class {
+          static requestPermission() {
+            return Promise.resolve("granted");
+          }
+        },
+      });
+      function face(heading) {
+        const e = new Event("deviceorientation");
+        Object.defineProperties(e, {
+          webkitCompassHeading: { value: heading },
+          webkitCompassAccuracy: { value: 5 },
+        });
+        window.dispatchEvent(e);
+      }
+      document.querySelector("#move").onclick = () =>
+        move(13.7349556, 100.5292581);
+      document.querySelector("#outside").onclick = () => move(14, 100.53);
+      document.querySelector("#face-east").onclick = () => face(90);
+      document.querySelector("#face-north").onclick = () => face(0);
+      let gates = [];
+      fetch("/src/data/gates.json")
+        .then((r) => r.json())
+        .then((data) => {
+          gates = data.gates;
+        });
+      function sample() {
+        if (!map) return;
+        const parent = map.getContainer().getBoundingClientRect();
+        // The map is deliberately hidden in mobile list view. Only measure painted, settled-size viewports.
+        if (
+          !parent.width ||
+          !parent.height ||
+          map.getCanvas().clientWidth !== map.getContainer().clientWidth ||
+          map.getCanvas().clientHeight !== map.getContainer().clientHeight
+        )
+          return null;
+        const errors = [];
+        let invalid = 0;
+        for (const anchor of document.querySelectorAll(".gate-map-anchor")) {
+          const g = gates.find((g) => g.id === anchor.dataset.gateAnchor);
+          if (!g) continue;
+          const visual = anchor
+            .querySelector(".gate-marker")
+            .getBoundingClientRect();
+          const p = map.project([g.longitude, g.latitude]);
+          const error = Math.hypot(
+            visual.x + visual.width / 2 - parent.x - p.x,
+            visual.y + visual.height / 2 - parent.y - p.y,
+          );
+          errors.push(error);
+          if (
+            !anchor.classList.contains("maplibregl-marker") ||
+            getComputedStyle(anchor).position !== "absolute"
+          )
+            invalid++;
+        }
+        const gateCount = errors.length;
+        const user = document.querySelector(".user-location");
+        let deviceError = null;
+        if (user && simulated) {
+          const rect = user.getBoundingClientRect(),
+            at = map.project([simulated.longitude, simulated.latitude]);
+          deviceError = Math.hypot(
+            rect.x + rect.width / 2 - parent.x - at.x,
+            rect.y + rect.height / 2 - parent.y - at.y,
+          );
+          errors.push(deviceError);
+        }
+        const value = Math.max(0, ...errors);
+        maxError = Math.max(maxError, value);
+        samples++;
+        const out = document.querySelector("#anchor-report");
+        out.dataset.moving = String(map.isMoving());
+        out.dataset.result = JSON.stringify({
+          zoom: map.getZoom(),
+          count: gateCount,
+          error: value,
+          maxError,
+          samples,
+          invalid,
+          deviceError,
+        });
+        out.textContent = `${gateCount} gate anchors; error ${value.toFixed(3)} px; max ${maxError.toFixed(3)} px; invalid ${invalid}; samples ${samples}; zoom ${map.getZoom().toFixed(2)}`;
+        return {
+          zoom: map.getZoom(),
+          count: gateCount,
+          error: value,
+          maxError,
+          samples,
+          invalid,
+          deviceError,
+        };
+      }
+      window.addEventListener("cu-map-ready", (e) => {
+        map = e.detail;
+        map.on('movestart',()=>{document.querySelector('#anchor-report').dataset.moving='true';});
+        map.on('moveend',()=>requestAnimationFrame(sample));
+        document.querySelector("#run-zoom").disabled = false;
+        map.on("render", () => {
+          cancelAnimationFrame(frame);
+          frame = requestAnimationFrame(sample);
+        });
+        sample();
+      });
+      document.querySelector("#sample").onclick = sample;
+      document.querySelector("#run-zoom").onclick = async () => {
+        maxError = 0;
+        samples = 0;
+        const rows = [];
+        const b = document.querySelector("#run-zoom");
+        b.disabled = true;
+        for (const zoom of [
+          15, 18, 16, 19, 14.5, 17, 15.5, 18.5, 14, 16.5, 19, 15,
+        ]) {
+          await new Promise((resolve) => {
+            map.once("moveend", () =>
+              requestAnimationFrame(() => {
+                rows.push(sample());
+                resolve();
+              }),
+            );
+            map.easeTo({
+              zoom,
+              center: [100.529 + (zoom % 2) * 0.001, 13.739],
+              duration: 180,
+              essential: true,
+            });
+          });
+        }
+        const report = {
+          result:
+            rows.every(
+              (x) => x.count === 19 && x.invalid === 0 && x.error < 1,
+            ) && maxError < 1
+              ? "PASS"
+              : "FAIL",
+          maxError,
+          rows,
+        };
+        document.querySelector("#zoom-report").textContent =
+          JSON.stringify(report);
+        b.disabled = false;
+      };
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

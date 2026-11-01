@@ -1,8 +1,8 @@
 {
-  "version": "1.8.0",
-  "files": 221,
-  "bytes": 5555503,
-  "sha256": "bd780c3454708e6e39060718378d60a77a8eb84d14e4caf489dd2cc892ab418c",
+  "version": "1.9.0",
+  "files": 227,
+  "bytes": 5462573,
+  "sha256": "94cbf9955afa5bab41d8028bc10302cbe587dc2b2221010e375fc6c567e977c0",
   "crc": "PASS",
   "dependenciesIncluded": false
 }

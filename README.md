@@ -1,4 +1,4 @@
-# CU Gate Navigator — version 1.8
+# CU Gate Navigator — version 1.9
 
 A Thai/English map of Chulalongkorn University's main **motorcycle and car gates**, with schedule-based availability, live device location, selectable starting points, light/dark themes and a data-quality dashboard. The app is a static React/TypeScript frontend; no backend or API key is required.
 
@@ -14,6 +14,14 @@ A Thai/English map of Chulalongkorn University's main **motorcycle and car gates
 8. Near me gives one mapped gate a slow glow and star: the nearest gate scheduled open for the selected mode, direction and filters. If no candidate is scheduled open, the nearest candidate is labelled **check hours**. The gate-list control shows an update dot and a subtle pulse; opening the list acknowledges it. Distances are straight-line estimates.
 9. **Expand map** folds the header and controls away. GPS, zoom, fit-campus and Return controls remain available. Escape closes an open details card first, then exits the expanded map. The legend and OpenStreetMap credit share one compact footer row; the legend can be collapsed. There is no pin-guide overlay.
 10. Open **Data & sources** to inspect every gate, sources and dynamically calculated quality metrics. Thai/English, light/dark themes and the legend preference persist locally.
+
+## Map zoom stability
+
+The map interaction layer was rebuilt from version 1.7 after a marker-position regression in version 1.8. MapLibre owns a permanent outer anchor for each gate, device dot and selected starting point. The visible button, selection border and recommendation animation live inside that anchor, so visual updates cannot remove the map engine's positioning classes or overwrite its transform.
+
+Zoom and pan remain under user control. Selecting a gate explicitly zooms to its location; changing a status, receiving a compass sample or resizing details does not reset that zoom. Manual panning or zooming pauses GPS camera following until the centre button is used.
+
+The development-only map fixture checks displayed marker centres against the map projection of each JSON coordinate across 12 zoom/pan transitions, including selected markers and GPS updates. Its visible report and screenshots are in `verification/v10`. It is excluded from the production build.
 
 ## Location and search limits
 
@@ -62,11 +70,11 @@ npm run verify:build
 npm run preview
 ```
 
-Serve `dist` over HTTP rather than opening `dist/index.html` with `file://`. Release evidence is in `verification/v9`. Development-only sensor fixtures in `tests/` are excluded from `dist`; their simulated readings are labelled explicitly.
+Serve `dist` over HTTP rather than opening `dist/index.html` with `file://`. Release evidence is in `verification/v10`. Development-only sensor fixtures in `tests/` are excluded from `dist`; their simulated readings are labelled explicitly.
 
 ## Static hosting and Home Screen
 
-The existing `.github/workflows/pages.yml` is ready for GitHub Pages. Set Pages to GitHub Actions and publish `dist` when deployment is authorized. No remote repository or hosting settings were changed for this release. The default relative base works on a root domain; for an explicit repository path:
+The GitHub Pages workflow is provided as `deployment/github-pages.yml`. The current Git credential cannot create executable Actions workflows, so this release keeps the file as a template. With a credential permitted to manage workflows, copy it to `.github/workflows/pages.yml`, set Pages to GitHub Actions and publish `dist` when deployment is authorized. This release is prepared for the existing CU-Gate GitHub repository. No repository access or Pages settings are changed by the application. The deployment template does not run automatically. The default relative base works on a root domain; for an explicit repository path:
 
 ```sh
 VITE_BASE_PATH=/cu-gate-navigator/ npm run build

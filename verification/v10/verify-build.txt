@@ -1,13 +1,13 @@
 
-> cu-gate-navigator@1.8.0 verify:build
+> cu-gate-navigator@1.9.0 verify:build
 > node scripts/verify-build.mjs
 
 {
   "result": "PASS",
-  "base": "/cu-gate-navigator/",
+  "base": "./",
   "htmlAssets": 6,
   "homeScreenIcons": "PASS (180 / 192 / 512 and maskable)",
-  "standaloneScope": "/cu-gate-navigator/",
+  "standaloneScope": "/",
   "geojsonFeatures": 6170,
   "staticFiles": 19,
   "productionLocalhostDependencies": 0,

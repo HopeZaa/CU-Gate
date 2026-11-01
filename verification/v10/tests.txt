@@ -1,0 +1,22 @@
+
+> cu-gate-navigator@1.9.0 test
+> vitest run
+
+
+ RUN  v3.2.7 /Users/hopezaa/Documents/Codex/2026-11-01/cu-gate-navigator-initial-gate-research/outputs/cu-gate-navigator
+
+ ✓ src/lib/travel.test.ts (2 tests) 19ms
+ ✓ src/lib/data.test.ts (20 tests) 24ms
+ ✓ src/lib/gates.test.ts (33 tests) 65ms
+ ✓ src/lib/map-location.test.ts (5 tests) 66ms
+ ✓ src/lib/operating.test.ts (22 tests) 77ms
+ ✓ src/lib/availability.test.ts (18 tests) 92ms
+ ✓ src/lib/planning.test.ts (16 tests) 82ms
+ ✓ src/lib/geolocation.test.ts (9 tests) 6ms
+ ✓ src/lib/heading.test.ts (6 tests) 4ms
+ ✓ src/lib/place-search.test.ts (3 tests) 5ms
+
+ Test Files  10 passed (10)
+      Tests  134 passed (134)
+   Start at  18:24:37
+   Duration  892ms (transform 494ms, setup 0ms, collect 1.90s, tests 441ms, environment 1ms, prepare 673ms)

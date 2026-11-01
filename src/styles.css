@@ -5267,6 +5267,7 @@ th {
   }
 }
 
+/* Release 1.9 — rebuilt interaction layer. */
 /* Starting points: local type-to-find plus explicitly submitted online search. */
 .starting-point-search {
   margin-bottom: 10px;
@@ -5660,4 +5661,36 @@ th {
 }
 .v4 .map-footer .map-legend-content {
   flex: 1 1 auto;
+}
+
+/* Stable geographic anchors: MapLibre alone controls the outer transform. */
+.gate-map-anchor,
+.device-map-anchor,
+.reference-map-anchor {
+  width: 0;
+  height: 0;
+  overflow: visible;
+  transition: none;
+  animation: none;
+}
+.gate-map-anchor > .gate-marker,
+.device-map-anchor > .user-location,
+.reference-map-anchor > .reference-location {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  transform: translate(-50%, -50%);
+}
+.device-map-anchor {
+  z-index: 8;
+}
+.reference-map-anchor {
+  z-index: 6;
+}
+.gate-map-anchor > .gate-marker {
+  isolation: isolate;
+}
+.detail-resize-handle {
+  font-size: 11px;
 }

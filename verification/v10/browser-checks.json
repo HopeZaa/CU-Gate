@@ -1,0 +1,59 @@
+{
+  "version": "1.9.0",
+  "viewports": [
+    [
+      1280,
+      720
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      320,
+      740
+    ]
+  ],
+  "pinAnchors": 19,
+  "gateGroups": 21,
+  "allZoomRunsPassed": true,
+  "regressions": [
+    "zoom-desktop.json",
+    "zoom-selected-details.json",
+    "zoom-mobile-gps.json"
+  ],
+  "mobileGpsMaxErrorPx": 0.0001577701594917987,
+  "resizePreservedZoom": 16.2,
+  "typedThaiStartingPoint": "PASS",
+  "fullCardTimeAreaClick": "PASS",
+  "mobilePanelAfterDragPx": 379,
+  "mobileSelectedMarkerAbovePanel": true,
+  "mapLegendAndCreditAt320": {
+    "heightPx": 33,
+    "pageWidth": 320,
+    "scrollWidth": 320,
+    "creditRightPx": 314
+  },
+  "pinGuide": "REMOVED",
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "languages": [
+    "th",
+    "en"
+  ],
+  "compassSamplesDegrees": [
+    90,
+    0
+  ],
+  "notificationClearedOnListOpen": true,
+  "gpsStop": "one watch cleared; outside-map device dot removed",
+  "productionConsoleWarningsAndErrors": 0,
+  "sensorTest": "controlled public-position fixture; no actual phone GPS/compass tested",
+  "teardown": {
+    "viewportReset": true,
+    "createdTabsClosed": true,
+    "ownedServersStopped": true
+  }
+}

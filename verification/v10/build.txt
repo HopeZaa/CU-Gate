@@ -1,5 +1,5 @@
 
-> cu-gate-navigator@1.8.0 build
+> cu-gate-navigator@1.9.0 build
 > tsc -b && vite build
 
 vite v7.3.7 building client environment for production...
@@ -16,13 +16,13 @@ node_modules/zod/v4/core/regexes.js (74:0): A comment
  * will drop `anchor(dateSource)`. Keeping it inline pinned `date` into every bundle. */"
 
 in "node_modules/zod/v4/core/regexes.js" contains an annotation that Rollup cannot interpret due to the position of the comment. The comment will be removed to avoid issues.
-✓ 1700 modules transformed.
+✓ 1702 modules transformed.
 rendering chunks...
 computing gzip size...
 dist/index.html                         1.46 kB │ gzip:   0.68 kB
 dist/assets/CampusMap-DNVN2dqC.css     69.92 kB │ gzip:  10.05 kB
-dist/assets/index-DRTc6h2b.css         85.83 kB │ gzip:  17.09 kB
-dist/assets/CampusMap-DsPtlblm.js      18.22 kB │ gzip:   6.63 kB
-dist/assets/index-Cgn8I9uf.js         844.23 kB │ gzip: 166.45 kB
+dist/assets/index-BI-zVr_M.css         86.25 kB │ gzip:  17.17 kB
+dist/assets/CampusMap-C_HImlbW.js      18.65 kB │ gzip:   6.89 kB
+dist/assets/index-DhHzi2NE.js         844.20 kB │ gzip: 166.47 kB
 dist/assets/maplibre-wqmL2Hxp.js    1,053.01 kB │ gzip: 284.54 kB
-✓ built in 2.78s
+✓ built in 3.19s

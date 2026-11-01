@@ -4,6 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   base: process.env.VITE_BASE_PATH || "./",
   plugins: [react(), tailwindcss()],
+  server: { watch: { ignored: ["**/verification/**", "**/dist/**"] } },
   build: {
     chunkSizeWarningLimit: 1100,
     rollupOptions: { output: { manualChunks: { maplibre: ["maplibre-gl"] } } },

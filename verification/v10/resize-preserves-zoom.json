@@ -1,0 +1,20 @@
+{
+  "beforeFinal10": {
+    "zoom": 16.2,
+    "count": 19,
+    "error": 0.00005514514759737878,
+    "maxError": 0.00011010119631324864,
+    "samples": 50,
+    "invalid": 0,
+    "deviceError": null
+  },
+  "afterFinal10": {
+    "zoom": 16.2,
+    "count": 19,
+    "error": 0.00005514514759737878,
+    "maxError": 0.00011010119631324864,
+    "samples": 51,
+    "invalid": 0,
+    "deviceError": null
+  }
+}

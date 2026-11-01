@@ -1196,6 +1196,9 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
               mode: filters.mode,
               mappedOnly: true,
             });
+            setMapFocus(selectedGate.id);
+            setGateFocus((n) => n + 1);
+            setDetailHeight(0);
             setSelected(null);
           }}
         />
