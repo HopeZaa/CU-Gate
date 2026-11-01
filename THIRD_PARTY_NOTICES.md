@@ -1,6 +1,6 @@
 # Third-party notices and service limits
 
-The original application source code and original project documentation are licensed under the [MIT License](LICENSE), copyright (c) 2026 HopeZaa. This license does not relicense OpenStreetMap data, dependencies, cited university materials or other third-party content; their respective rights and terms remain applicable as described below.
+The original application source code and original project documentation are licensed under the [GNU General Public License v3.0 only (GPL-3.0-only)](LICENSE), copyright (c) 2026 HopeZaa. This license does not relicense OpenStreetMap data, dependencies, cited university materials or other third-party content; their respective rights and terms remain applicable as described below.
 
 The local map and OSM gate-node extract contain © OpenStreetMap contributors data, available under the [Open Database License 1.0](https://www.openstreetmap.org/copyright). The campus GeoJSON is a derivative database. Attribution is always visible on the map and in the data-quality view. The original bounded data endpoint, retrieval date and relevant node versions are recorded in `public/research/osm-barriers.json` and `src/data/gates.json`. The limited map extract is not an official campus boundary or a routing network.
 

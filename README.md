@@ -89,6 +89,10 @@ No service worker is included and offline operation is not guaranteed. Map rende
 
 Copyright (c) 2026 HopeZaa.
 
-The original application source code and original project documentation are licensed under the [MIT License](LICENSE).
+The original application source code and original project documentation are licensed under the [GNU General Public License v3.0 only (GPL-3.0-only)](LICENSE).
+
+CU Gate Navigator is free software: you can redistribute it and/or modify it under version 3 of the GNU General Public License as published by the Free Software Foundation. It is distributed without any warranty; see [LICENSE](LICENSE) for the complete terms.
+
+This licensing change applies to this revision. Historical revisions keep their recorded MIT license notices in Git history.
 
 Bundled OpenStreetMap data, including map geometry and OSM-derived records, remain under the Open Database License (ODbL). Dependencies, cited university materials and other third-party content retain their respective rights and license terms. See [Third-party notices](THIRD_PARTY_NOTICES.md) for details.
