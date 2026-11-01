@@ -1,5 +1,7 @@
 # Third-party notices and service limits
 
+The original application source code and original project documentation are licensed under the [MIT License](LICENSE), copyright (c) 2026 HopeZaa. This license does not relicense OpenStreetMap data, dependencies, cited university materials or other third-party content; their respective rights and terms remain applicable as described below.
+
 The local map and OSM gate-node extract contain © OpenStreetMap contributors data, available under the [Open Database License 1.0](https://www.openstreetmap.org/copyright). The campus GeoJSON is a derivative database. Attribution is always visible on the map and in the data-quality view. The original bounded data endpoint, retrieval date and relevant node versions are recorded in `public/research/osm-barriers.json` and `src/data/gates.json`. The limited map extract is not an official campus boundary or a routing network.
 
 No raster tiles are downloaded or prefetched. The application makes no Overpass or map-research requests at runtime. Place geocoding is optional and only starts after an explicit submitted search. It serves a static, bounded OSM extract with MapLibre GL JS. This avoids a mandatory third-party tile service, key or paid API. Areas beyond the local extract have limited context. A map update requires a reviewed replacement extract and static redeployment.

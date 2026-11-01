@@ -84,3 +84,11 @@ VITE_BASE_PATH=/cu-gate-navigator/ npm run verify:build
 The app includes a 180 px Apple touch icon, 192/512 px manifest icons and a 512 px maskable icon, with standalone scope/start URL metadata that supports subdirectory hosting. An older saved shortcut may need to be added again after the hosted site is updated. See [Apple's Add to Home Screen instructions](https://support.apple.com/en-ie/guide/iphone/iphea86e5236/27/ios/27). Expanded map mode works inside the app and does not require browser fullscreen permission.
 
 No service worker is included and offline operation is not guaranteed. Map rendering uses the bundled GeoJSON, not a mandatory paid tile service. Online place search and external directions require a network connection. See the third-party notices for data and dependency licenses.
+
+## License
+
+Copyright (c) 2026 HopeZaa.
+
+The original application source code and original project documentation are licensed under the [MIT License](LICENSE).
+
+Bundled OpenStreetMap data, including map geometry and OSM-derived records, remain under the Open Database License (ODbL). Dependencies, cited university materials and other third-party content retain their respective rights and license terms. See [Third-party notices](THIRD_PARTY_NOTICES.md) for details.
