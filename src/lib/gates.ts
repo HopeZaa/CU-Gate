@@ -1,11 +1,13 @@
 import { includesMode, recordedMode, travelModes } from "./travel";
 import type { Gate, Schedule, TravelMode, VerificationStatus } from "./data";
-import type { PublicOrigin } from "./origins";
+import type { StartingPoint } from "./origins";
 export type Position = {
   latitude: number;
   longitude: number;
   accuracy?: number;
   timestamp?: number;
+  heading?: number;
+  speed?: number;
 };
 export type AccessState =
   | "confirmed"
@@ -242,7 +244,7 @@ export function filterGates(
 export function directionsUrl(
   g: Gate,
   mode: TravelMode | "all",
-  origin?: PublicOrigin | null,
+  origin?: StartingPoint | null,
 ): string | null {
   if (!hasCoordinates(g)) return null;
   const params = new URLSearchParams({
@@ -255,7 +257,7 @@ export function directionsUrl(
           ? "two-wheeler"
           : "walking",
   });
-  if (origin?.type === "public-landmark") {
+  if (origin?.type === "public-landmark" || origin?.type === "selected-place") {
     params.set("origin", `${origin.latitude},${origin.longitude}`);
   }
   return `https://www.google.com/maps/dir/?${params}`;

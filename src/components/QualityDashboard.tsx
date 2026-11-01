@@ -76,8 +76,8 @@ export default function QualityDashboard({
           </h1>
           <p>
             {t(
-              "ดูว่ารู้อะไรแล้ว และส่วนไหนยังต้องตรวจสอบ",
-              "See what is known and what still needs checking.",
+              "ข้อมูลประตูหลักสำหรับมอเตอร์ไซค์และรถยนต์",
+              "Evidence for main motorcycle and car gates.",
             )}
           </p>
         </div>
@@ -104,7 +104,7 @@ export default function QualityDashboard({
       <div className="quality-scope">
         <span>
           {t(
-            `คำนวณจากข้อมูลทั้งหมด ${stats.total} ประตูกลุ่ม`,
+            `คำนวณจากประตูหลักสำหรับรถ ${stats.total} กลุ่ม`,
             `${stats.total} gate groups in the loaded dataset`,
           )}
         </span>

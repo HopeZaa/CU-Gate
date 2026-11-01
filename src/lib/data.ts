@@ -74,6 +74,7 @@ export const gateSchema = z
       "service",
       "temporary",
     ]),
+    gateUse: z.enum(["vehicle", "pedestrian", "undetermined"]).optional(),
     mapLetter: z.string().nullable(),
     mapCode: z.string().optional(),
     accessProfile: z
@@ -178,6 +179,7 @@ export const datasetSchema = z
     researchedAt: date,
     timezone: z.literal("Asia/Bangkok"),
     scope: z.string(),
+    mapScope: z.literal("vehicle-main").optional(),
     operationPolicy: z
       .object({
         basis: z.literal("historical-baseline"),
@@ -225,6 +227,19 @@ export const datasetSchema = z
       c.addIssue({
         code: "custom",
         message: "Unresolved owner inventory gate",
+      });
+    if (
+      d.mapScope === "vehicle-main" &&
+      d.gates.some(
+        (g) =>
+          g.gateUse !== "vehicle" ||
+          g.operatingRules.some((r) => r.modes.includes("pedestrian")),
+      )
+    )
+      c.addIssue({
+        code: "custom",
+        message:
+          "Vehicle-only scope cannot contain pedestrian entrances or pedestrian operating rules",
       });
     const codes = d.gates.map((g) => g.mapCode).filter(Boolean);
     if (new Set(codes).size !== codes.length)

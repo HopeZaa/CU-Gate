@@ -22,7 +22,7 @@ describe("travel filter hierarchy", () => {
     ]);
   });
   it("updates list and map candidates from the same filter", () => {
-    for (const mode of travelModes) {
+    for (const mode of ["motorcycle", "car"] as const) {
       const found = filterGates(
         dataset!.gates,
         { ...defaultFilters, mode },
@@ -32,9 +32,7 @@ describe("travel filter hierarchy", () => {
       );
       expect(found.every((g) => recordedMode(g, mode) !== false)).toBe(true);
       expect(found.some((g) => g.id === "phayathai-3")).toBe(true);
-      expect(found.some((g) => g.id === "health-2")).toBe(
-        mode === "pedestrian",
-      );
+      expect(found.some((g) => g.id === "health-2")).toBe(false);
     }
   });
 });

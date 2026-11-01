@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <base href="/" />
+    <title>CU live-location test fixture</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div
+      style="
+        position: fixed;
+        left: 4px;
+        bottom: 36px;
+        z-index: 1000;
+        background: #fff;
+        color: #111;
+        border: 1px solid #111;
+        padding: 4px;
+        font: 10px monospace;
+        max-width: 380px;
+      "
+    >
+      <output id="fixture-state">TEST FIXTURE — no device location</output
+      ><br />
+      <button id="move-commerce">Move to Commerce</button
+      ><button id="face-east">Face east</button
+      ><button id="face-north">Face north</button
+      ><button id="move-outside">Outside campus</button>
+    </div>
+    <script>
+      // Public gate coordinates and controlled sensor events; development-only integration fixture.
+      let watches = 0,
+        cleared = 0,
+        updates = 0,
+        callback = null,
+        timer;
+      const display = () =>
+        (document.querySelector("#fixture-state").textContent =
+          `TEST FIXTURE — no device location · watches ${watches} · cleared ${cleared} · updates ${updates}`);
+      const move = (latitude, longitude) => {
+        if (callback) {
+          updates++;
+          callback({
+            coords: {
+              latitude,
+              longitude,
+              accuracy: 8,
+              heading: 90,
+              speed: 1.2,
+            },
+            timestamp: Date.now(),
+          });
+          display();
+        }
+      };
+      Object.defineProperty(navigator, "geolocation", {
+        configurable: true,
+        value: {
+          watchPosition(success) {
+            watches++;
+            callback = success;
+            timer = setTimeout(() => move(13.7387455, 100.5298425), 150);
+            display();
+            return 4242;
+          },
+          clearWatch() {
+            cleared++;
+            callback = null;
+            clearTimeout(timer);
+            display();
+          },
+        },
+      });
+      Object.defineProperty(window, "DeviceOrientationEvent", {
+        configurable: true,
+        value: class {
+          static requestPermission() {
+            return Promise.resolve("granted");
+          }
+        },
+      });
+      const face = (heading) => {
+        const event = new Event("deviceorientation");
+        Object.defineProperties(event, {
+          webkitCompassHeading: { value: heading },
+          webkitCompassAccuracy: { value: 5 },
+        });
+        window.dispatchEvent(event);
+      };
+      document.querySelector("#move-commerce").onclick = () =>
+        move(13.7349556, 100.5292581);
+      document.querySelector("#move-outside").onclick = () => move(14, 100.53);
+      document.querySelector("#face-east").onclick = () => face(90);
+      document.querySelector("#face-north").onclick = () => face(0);
+      display();
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

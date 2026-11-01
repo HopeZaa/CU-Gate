@@ -1,0 +1,115 @@
+{
+  "normal": {
+    "map": {
+      "bottom": 720,
+      "height": 623,
+      "left": 370,
+      "right": 1280,
+      "top": 97,
+      "width": 910,
+      "x": 370,
+      "y": 97
+    },
+    "markers": 19,
+    "modes": [
+      {
+        "text": "มอเตอร์ไซค์",
+        "width": 165.5
+      },
+      {
+        "text": "รถยนต์",
+        "width": 165.5
+      }
+    ],
+    "notice": "ประตูทางเท้าอยู่ติดกับประตูหลัก โปรดระวังเวลาเปิดปิด\nประตูทางเท้าอยู่ติดกับประตูหลัก โปรดระวังเวลาเปิดปิด\nประตูทางเท้าอยู่ติดกับประตูหลัก โปรดระวังเวลาเปิดปิด",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "expanded": {
+    "gpsVisible": true,
+    "headerVisible": false,
+    "map": {
+      "bottom": 720,
+      "height": 687,
+      "left": 0,
+      "right": 1280,
+      "top": 33,
+      "width": 1280,
+      "x": 0,
+      "y": 33
+    },
+    "overflow": false,
+    "returnVisible": true,
+    "sidebarVisible": false
+  },
+  "motionStart": "matrix(1, 0, 0, 1, -225.851, 0)",
+  "paused": {
+    "matrix": "matrix(1, 0, 0, 1, -228.234, 0)",
+    "state": "paused"
+  },
+  "escape": {
+    "expanded": false,
+    "mode": "มอเตอร์ไซค์"
+  },
+  "englishNotice": "Pedestrian gates are beside the main gates. Please check opening and closing times.",
+  "production": {
+    "footMarkers": 0,
+    "markers": 19,
+    "modes": [
+      "มอเตอร์ไซค์",
+      "รถยนต์"
+    ],
+    "notice": "ประตูทางเท้าอยู่ติดกับประตูหลัก โปรดระวังเวลาเปิดปิด",
+    "overflow": false
+  },
+  "escapeCard": {
+    "detailsOpen": false,
+    "stillExpanded": true
+  },
+  "mobileFull": {
+    "gpsVisible": true,
+    "headerHidden": true,
+    "mapHeight": 811,
+    "overflow": false
+  },
+  "noticeBeforePause": {
+    "iterations": "infinite",
+    "transform": "matrix(1, 0, 0, 1, -271.108, 0)"
+  },
+  "noticePaused": {
+    "state": "paused",
+    "transform": "matrix(1, 0, 0, 1, -280.072, 0)"
+  },
+  "quality": {
+    "kpis": [
+      "ประตูที่ค้นพบ21ยังไม่ใช่การสำรวจครบทุกช่องทาง",
+      "ข้อมูลประตูที่ยืนยันล่าสุด0ไม่นับประกาศเก่าเป็นข้อมูลล่าสุด",
+      "พิกัดที่ตรวจสอบกับแผนที่แล้ว8ตรวจสอบจุดประตูจากแผนที่",
+      "ประตูที่ยังไม่มีพิกัด2งดนำทางจนกว่าจะมีจุดชัดเจน"
+    ],
+    "rows": 21,
+    "scope": "คำนวณจากประตูหลักสำหรับรถ 21 กลุ่มทบทวนหลักฐาน 1 พ.ย. 2569 · เวลาประเทศไทย"
+  },
+  "fullGps": {
+    "button": "Stop GPS",
+    "telemetry": "TEST FIXTURE (active) · watches 1 · cleared 0 · no device location",
+    "userMarker": 1
+  },
+  "fullGpsStopped": {
+    "telemetry": "TEST FIXTURE (active) · watches 1 · cleared 1 · no device location",
+    "userMarker": 0
+  },
+  "productionEnglishNotice": "Pedestrian gates are beside the main gates. Please check opening and closing times.",
+  "developmentConsole": [
+    {
+      "level": "error",
+      "message": "The final argument passed to %s changed size between renders. The order and size of this array must remain constant.\n\nPrevious: %s\nIncoming: %s useEffect [, true] [, true, true]",
+      "timestamp": "2026-11-01T07:20:29.480Z",
+      "url": "http://127.0.0.1:5173/node_modules/.vite/deps/react-dom_client.js?v=031aa849"
+    }
+  ],
+  "developmentConsoleNote": "Warning came from editing the dependency list during development hot reload before a full reload. Final production was checked in a fresh preview tab.",
+  "productionConsole": []
+}

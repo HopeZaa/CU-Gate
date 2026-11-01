@@ -9,21 +9,28 @@ import type { Position } from "../lib/gates";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { useCopy, gateName } from "../lib/i18n";
 import { gateAvailability } from "../lib/availability";
+import type { StartingPoint } from "../lib/origins";
 import type { Language } from "../lib/i18n";
 type Props = {
   gates: Gate[];
   selected: string | null;
   onSelect: (id: string) => void;
   position: Position | null;
-  referencePoint: Position | null;
+  referencePoint: StartingPoint | null;
   focusLocation: number;
   dark: boolean;
   mode: TravelMode | "all";
   direction: "entry" | "exit";
   now: Date;
   overview: number;
+  expanded: boolean;
   legendVisible: boolean;
   onToggleLegend: () => void;
+  heading: number | null;
+  headingIsCourse: boolean;
+  suggestedId: string | null;
+  selectionFocus: number;
+  detailHeight: number;
 };
 const bounds: maplibregl.LngLatBoundsLike = [
   [100.5235, 13.733],
@@ -196,8 +203,14 @@ export default function CampusMap({
   direction,
   now,
   overview,
+  expanded,
   legendVisible,
   onToggleLegend,
+  heading,
+  headingIsCourse,
+  suggestedId,
+  selectionFocus,
+  detailHeight,
 }: Props) {
   const { lang, t } = useCopy();
   const langRef = useRef(lang),
@@ -211,6 +224,8 @@ export default function CampusMap({
   useEffect(() => {
     gateRef.current = gates;
   }, [gates]);
+  const gateMarkers = useRef(new Map<string, maplibregl.Marker>());
+  const followGps = useRef(false);
   const container = useRef<HTMLDivElement>(null),
     map = useRef<maplibregl.Map | null>(null),
     user = useRef<maplibregl.Marker | null>(null);
@@ -223,6 +238,7 @@ export default function CampusMap({
   }, [dark]);
   useEffect(() => {
     if (!container.current) return;
+    const markerStore = gateMarkers.current;
     let m: maplibregl.Map;
     try {
       m = new maplibregl.Map({
@@ -233,8 +249,8 @@ export default function CampusMap({
         minZoom: 14,
         maxZoom: 19,
         maxBounds: [
-          [100.518, 13.727],
-          [100.538, 13.75],
+          [100.5, 13.7],
+          [100.56, 13.78],
         ],
         attributionControl: false,
         dragRotate: false,
@@ -250,17 +266,17 @@ export default function CampusMap({
       return;
     }
     map.current = m;
+    m.touchZoomRotate.disableRotation();
+    m.on("dragstart", () => {
+      followGps.current = false;
+    });
     m.addControl(
       new maplibregl.NavigationControl({ showCompass: true }),
       "top-right",
     );
     m.addControl(
       new maplibregl.ScaleControl({ maxWidth: 100, unit: "metric" }),
-      "bottom-left",
-    );
-    m.addControl(
-      new maplibregl.AttributionControl({ compact: false }),
-      "bottom-right",
+      "top-left",
     );
     const labelMarkers: maplibregl.Marker[] = [];
     labelHandles.current = labelMarkers;
@@ -305,6 +321,8 @@ export default function CampusMap({
     return () => {
       resize.disconnect();
       labelMarkers.forEach((l) => l.remove());
+      markerStore.forEach((marker) => marker.remove());
+      markerStore.clear();
       labelHandles.current = [];
       referenceMarker.current?.remove();
       referenceMarker.current = null;
@@ -326,62 +344,96 @@ export default function CampusMap({
   useEffect(() => {
     const m = map.current;
     if (!m || !ready) return;
-    const markers = gates.filter(hasCoordinates).map((g) => {
-      const el = document.createElement("button");
-      el.type = "button";
+    const ids = new Set(gates.filter(hasCoordinates).map((g) => g.id));
+    for (const [id, marker] of gateMarkers.current)
+      if (!ids.has(id)) {
+        marker.remove();
+        gateMarkers.current.delete(id);
+      }
+    gates.filter(hasCoordinates).forEach((g) => {
+      let marker = gateMarkers.current.get(g.id);
+      const el = marker?.getElement() || document.createElement("button");
+      if (!marker) {
+        el.setAttribute("type", "button");
+        const code = document.createElement("span");
+        code.className = "marker-code";
+        const state = document.createElement("span");
+        state.className = "marker-state";
+        state.setAttribute("aria-hidden", "true");
+        const star = document.createElement("span");
+        star.className = "marker-recommendation";
+        star.textContent = "★";
+        star.setAttribute("aria-hidden", "true");
+        el.append(code, state, star);
+        el.addEventListener("click", () => onSelect(g.id));
+        marker = new maplibregl.Marker({ element: el })
+          .setLngLat([g.longitude, g.latitude])
+          .addTo(m);
+        gateMarkers.current.set(g.id, marker);
+      }
       const status = gateAvailability(g, mode, direction, now, lang);
-      el.className = `gate-marker availability-${status.state} ${g.category} ${g.coordinateConfidence === "HIGH" ? "" : "approximate"} ${selected === g.id ? "selected" : ""}`;
-      const letter = document.createElement("span");
-      letter.className = "marker-code";
-      letter.textContent = g.mapCode || g.mapLetter || "•";
-      const icon = document.createElement("span");
-      icon.className = "marker-state";
-      icon.setAttribute("aria-hidden", "true");
-      icon.textContent = {
+      el.className = `gate-marker availability-${status.state} ${g.category} ${g.coordinateConfidence === "HIGH" ? "" : "approximate"} ${selected === g.id ? "selected" : ""} ${suggestedId === g.id ? "is-suggested" : ""}`;
+      el.querySelector(".marker-code")!.textContent =
+        g.mapCode || g.mapLetter || "•";
+      el.querySelector(".marker-state")!.textContent = {
         open: "✓",
         closed: "×",
         restricted: "!",
         unknown: "?",
       }[status.state];
-      el.append(letter, icon);
-      el.title = `${gateName(g, lang)} · ${status.label}`;
+      (el.querySelector(".marker-recommendation") as HTMLElement).hidden =
+        suggestedId !== g.id;
+      el.title = `${gateName(g, lang)} · ${status.label}${suggestedId === g.id ? (lang === "th" ? " · แนะนำใกล้สุด" : " · Nearest suggestion") : ""}`;
       el.setAttribute(
         "aria-label",
-        `${lang === "th" ? "หมุดประตู" : "Map gate:"} ${gateName(g, lang)} · ${status.label}`,
+        `${lang === "th" ? "หมุดประตู" : "Map gate:"} ${el.title}`,
       );
       el.setAttribute("aria-pressed", String(selected === g.id));
       el.dataset.gateId = g.id;
       el.dataset.status = status.state;
-      el.addEventListener("click", () => onSelect(g.id));
-      return new maplibregl.Marker({ element: el })
-        .setLngLat([g.longitude, g.latitude])
-        .addTo(m);
+      el.dataset.suggested = String(suggestedId === g.id);
     });
-    return () => markers.forEach((marker) => marker.remove());
-  }, [gates, selected, onSelect, ready, retry, lang, mode, direction, now]);
+  }, [
+    gates,
+    selected,
+    onSelect,
+    ready,
+    retry,
+    lang,
+    mode,
+    direction,
+    now,
+    suggestedId,
+  ]);
   useEffect(() => {
     const m = map.current;
     if (!m || !ready) return;
     const g = gateRef.current.find((g) => g.id === selected);
     if (g && hasCoordinates(g)) {
+      followGps.current = false;
       // Wait for the mobile controls to collapse before centering above the card.
       const frame = window.requestAnimationFrame(() => {
         m.resize();
         m.easeTo({
           center: [g.longitude, g.latitude],
-          zoom:
-            window.innerWidth <= 760 ? Math.max(m.getZoom(), 17) : m.getZoom(),
+          zoom: Math.max(m.getZoom(), 17.2),
           duration: 350,
           padding: { top: 0, bottom: 0, left: 0, right: 0 },
           offset:
             window.innerWidth <= 760
-              ? [0, -Math.min(window.innerHeight * 0.18, 150)]
+              ? [
+                  0,
+                  -Math.min(
+                    (detailHeight || window.innerHeight * 0.45) / 2,
+                    Math.max(0, m.getContainer().clientHeight / 2 - 70),
+                  ),
+                ]
               : [-115, 0],
         });
       });
       return () => window.cancelAnimationFrame(frame);
     }
-  }, [selected, ready]);
+  }, [selected, ready, expanded, selectionFocus, detailHeight]);
   useEffect(() => {
     const m = map.current;
     if (!m || !ready || overview === 0) return;
@@ -394,16 +446,34 @@ export default function CampusMap({
   useEffect(() => {
     const m = map.current;
     if (!m || !ready) return;
-    user.current?.remove();
-    user.current = null;
-    if (!position) return;
-    const el = document.createElement("div");
+    if (!position) {
+      user.current?.remove();
+      user.current = null;
+      if (m.getLayer("accuracy")) m.removeLayer("accuracy");
+      if (m.getSource("accuracy")) m.removeSource("accuracy");
+      return;
+    }
+    const el = user.current?.getElement() || document.createElement("div");
     el.className = "user-location";
+    if (!el.querySelector(".user-heading")) {
+      const cone = document.createElement("span");
+      cone.className = "user-heading";
+      cone.hidden = true;
+      el.append(cone);
+    }
     el.title = `${lang === "th" ? "ตำแหน่งของคุณ" : "Your location"} ±${Math.round(position.accuracy ?? 0)} ${lang === "th" ? "ม." : "m"}`;
     el.setAttribute("aria-label", el.title);
-    user.current = new maplibregl.Marker({ element: el })
-      .setLngLat([position.longitude, position.latitude])
-      .addTo(m);
+    if (user.current)
+      user.current.setLngLat([position.longitude, position.latitude]);
+    else
+      user.current = new maplibregl.Marker({ element: el })
+        .setLngLat([position.longitude, position.latitude])
+        .addTo(m);
+    if (followGps.current)
+      m.easeTo({
+        center: [position.longitude, position.latitude],
+        duration: 400,
+      });
     // A map circle uses the same measured accuracy; it is not a route.
     const radius = Math.min(position.accuracy ?? 0, 5000),
       coords: number[][] = [];
@@ -436,11 +506,28 @@ export default function CampusMap({
         },
       });
     }
-    return () => {
-      if (m.getLayer("accuracy")) m.removeLayer("accuracy");
-      if (m.getSource("accuracy")) m.removeSource("accuracy");
-    };
   }, [position, ready, retry, lang]);
+  useEffect(() => {
+    const el = user.current?.getElement();
+    if (!el) return;
+    const cone = el.querySelector(".user-heading") as HTMLElement | null;
+    if (cone) {
+      cone.hidden = heading === null;
+      cone.style.setProperty("--heading", `${heading ?? 0}deg`);
+    }
+    el.dataset.heading = heading === null ? "" : String(Math.round(heading));
+    el.dataset.headingKind = headingIsCourse ? "course" : "compass";
+    const label =
+      lang === "th"
+        ? headingIsCourse
+          ? "ทิศการเคลื่อนที่"
+          : "ทิศอุปกรณ์"
+        : headingIsCourse
+          ? "Travel direction"
+          : "Device compass";
+    el.title = `${lang === "th" ? "ตำแหน่งของคุณ" : "Your location"} ±${Math.round(position?.accuracy ?? 0)} ${lang === "th" ? "ม." : "m"}${heading !== null ? ` · ${label} ${Math.round(heading)}°` : ""}`;
+    el.setAttribute("aria-label", el.title);
+  }, [heading, headingIsCourse, position, ready, lang]);
   useEffect(() => {
     if (!ready || !map.current) return;
     labelHandles.current.forEach((marker) => {
@@ -468,7 +555,7 @@ export default function CampusMap({
     if (!referencePoint) return;
     const el = document.createElement("div");
     el.className = "reference-location";
-    el.textContent = "M";
+    el.textContent = referencePoint.id === "sam-yan" ? "M" : "S";
     el.title =
       lang === "th"
         ? "จุดเริ่มต้นที่เลือก ไม่ใช่ GPS ของคุณ"
@@ -498,12 +585,14 @@ export default function CampusMap({
       point.longitude <= 100.538 &&
       point.latitude >= 13.727 &&
       point.latitude <= 13.75
-    )
+    ) {
+      followGps.current = !!position && !referencePoint;
       map.current.easeTo({
         center: [point.longitude, point.latitude],
         zoom: 16.3,
         duration: 400,
       });
+    }
   }, [focusLocation, position, referencePoint, ready]);
   return (
     <div
@@ -565,73 +654,84 @@ export default function CampusMap({
           disabled={!position && !referencePoint}
           onClick={() => {
             const point = referencePoint || position;
-            if (point)
+            if (point) {
+              followGps.current = !!position && !referencePoint;
               map.current?.easeTo({
                 center: [point.longitude, point.latitude],
                 zoom: 17,
               });
+            }
           }}
         >
           <Crosshair size={18} />
         </button>
       </div>
-      <div
-        className={`map-legend status-legend ${legendVisible ? "" : "collapsed"}`}
-        aria-label={t("ความหมายสีหมุด", "Marker status legend")}
-      >
+      <div className="map-footer">
         <div
-          id="map-legend-content"
-          className="map-legend-content"
-          hidden={!legendVisible}
+          className={`map-legend status-legend ${legendVisible ? "" : "collapsed"}`}
+          aria-label={t("ความหมายสีหมุด", "Marker status legend")}
         >
-          <span>
-            <i className="status-dot availability-open" />
-            {t("เปิด", "Open")}
-          </span>
-          <span>
-            <i className="status-dot availability-closed" />
-            {t("ปิด/ไม่อนุญาต", "Closed")}
-          </span>
-          <span>
-            <i className="status-dot availability-restricted" />
-            {t("มีเงื่อนไข", "Restricted")}
-          </span>
-          <span>
-            <i className="status-dot availability-unknown" />
-            {t("ไม่มีตาราง", "No schedule")}
-          </span>
-          <small>
-            {t(
-              "อิงตารางเดิม ไม่ใช่สถานะสด · ขอบประ = พิกัดประมาณ",
-              "Reference schedules, not live status · dashed = approximate location",
+          <div
+            id="map-legend-content"
+            className="map-legend-content"
+            hidden={!legendVisible}
+          >
+            <span>
+              <i className="status-dot availability-open" />
+              {t("เปิด", "Open")}
+            </span>
+            <span>
+              <i className="status-dot availability-closed" />
+              {t("ปิด/ไม่อนุญาต", "Closed")}
+            </span>
+            <span>
+              <i className="status-dot availability-restricted" />
+              {t("มีเงื่อนไข", "Restricted")}
+            </span>
+            <span>
+              <i className="status-dot availability-unknown" />
+              {t("ไม่มีตาราง", "No schedule")}
+            </span>
+          </div>
+          <button
+            className={`map-overlay-toggle ${legendVisible ? "overlay-close" : "overlay-restore"}`}
+            aria-label={
+              legendVisible
+                ? t("ซ่อนคำอธิบายสีหมุด", "Hide marker legend")
+                : t("แสดงคำอธิบายสีหมุด", "Show marker legend")
+            }
+            title={
+              legendVisible
+                ? t("ซ่อนคำอธิบายสีหมุด", "Hide marker legend")
+                : t("แสดงคำอธิบายสีหมุด", "Show marker legend")
+            }
+            aria-expanded={legendVisible}
+            aria-controls="map-legend-content"
+            onClick={onToggleLegend}
+          >
+            {legendVisible ? (
+              <X size={15} />
+            ) : (
+              <>
+                <Palette size={15} />
+                <span>{t("สีหมุด", "Map legend")}</span>
+              </>
             )}
-          </small>
+          </button>
         </div>
-        <button
-          className={`map-overlay-toggle ${legendVisible ? "overlay-close" : "overlay-restore"}`}
-          aria-label={
-            legendVisible
-              ? t("ซ่อนคำอธิบายสีหมุด", "Hide marker legend")
-              : t("แสดงคำอธิบายสีหมุด", "Show marker legend")
-          }
-          title={
-            legendVisible
-              ? t("ซ่อนคำอธิบายสีหมุด", "Hide marker legend")
-              : t("แสดงคำอธิบายสีหมุด", "Show marker legend")
-          }
-          aria-expanded={legendVisible}
-          aria-controls="map-legend-content"
-          onClick={onToggleLegend}
-        >
-          {legendVisible ? (
-            <X size={15} />
-          ) : (
-            <>
-              <Palette size={15} />
-              <span>{t("สีหมุด", "Map legend")}</span>
-            </>
-          )}
-        </button>
+        <div className="map-credits">
+          <a
+            href="https://www.openstreetmap.org/copyright"
+            target="_blank"
+            rel="noreferrer"
+            title={t(
+              "ข้อมูลแผนที่ © OpenStreetMap contributors",
+              "Map data © OpenStreetMap contributors",
+            )}
+          >
+            © OpenStreetMap
+          </a>
+        </div>
       </div>
     </div>
   );

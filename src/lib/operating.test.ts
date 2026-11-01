@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { dataset, datasetSchema } from "./data";
+import previousInventory from "../../research/gate-inventory-before-vehicle-scope.json";
+const previousData = datasetSchema.parse(previousInventory);
 import {
   gateAvailability,
   filterAvailability,
@@ -24,40 +26,42 @@ describe("adopted historical operating rules", () => {
         expect(r.source).not.toContain("event");
       }
   });
-  it("unions car access with the later pedestrian schedule", () => {
+  it("uses Sasin car hours for motorcycles without borrowing pedestrian hours", () => {
     const g = gate("sasin");
-    expect(operatingRule(g, "pedestrian", sunday)?.source).toBe("cu-dec-2021");
+    expect(operatingRule(g, "motorcycle", sunday)?.source).toBe(
+      "cu-sasin-2018",
+    );
     expect(
-      gateAvailability(g, "pedestrian", "entry", monday, "th"),
+      gateAvailability(g, "motorcycle", "entry", monday, "th"),
     ).toMatchObject({
       state: "open",
       today: "05:00–24:00",
       basis: "reference",
     });
     expect(
-      gateAvailability(g, "pedestrian", "entry", sunday, "th"),
-    ).toMatchObject({ state: "open", today: "06:00–18:00" });
+      gateAvailability(g, "motorcycle", "entry", sunday, "th"),
+    ).toMatchObject({ state: "closed", today: "ปิดทั้งวัน" });
   });
-  it("changes from open to closed at the exact weekend boundary", () => {
-    const g = gate("education-foot");
+  it("changes at the exact vehicle closing boundary", () => {
+    const g = gate("chulaphat14");
     expect(
       gateAvailability(
         g,
-        "pedestrian",
+        "car",
         "entry",
-        new Date("2026-11-01T10:59:00Z"),
+        new Date("2026-11-01T15:59:00Z"),
         "th",
       ).state,
     ).toBe("open");
     expect(
       gateAvailability(
         g,
-        "pedestrian",
+        "car",
         "entry",
-        new Date("2026-11-01T11:00:00Z"),
+        new Date("2026-11-01T16:00:00Z"),
         "th",
       ),
-    ).toMatchObject({ state: "closed", next: "เปิด พรุ่งนี้ 06:00" });
+    ).toMatchObject({ state: "closed", next: "เปิด พรุ่งนี้ 05:00" });
   });
   it("uses 24-hour vehicle hours while retaining the authorization condition", () => {
     const g = gate("phayathai-3");
@@ -102,9 +106,7 @@ describe("adopted historical operating rules", () => {
   it("does not block an approximate map point from using its recorded hours", () => {
     const g = gate("science");
     expect(g.coordinateVerificationStatus).toBe("UNVERIFIED");
-    expect(gateAvailability(g, "pedestrian", "entry", monday, "th").state).toBe(
-      "open",
-    );
+    expect(gateAvailability(g, "car", "exit", monday, "th").state).toBe("open");
   });
   it("uses the supplied Sasin rule for car and motorcycle without a 24h fallback", () => {
     const g = gate("sasin");
@@ -162,7 +164,9 @@ describe("adopted historical operating rules", () => {
         "th",
       ).state,
     ).toBe("unknown");
-    expect(operatingRule(gate("law-foot"), "pedestrian", monday)).toBeNull();
+    expect(
+      operatingRule(gate("cham9-market"), "motorcycle", monday),
+    ).toBeNull();
   });
   it("does not change the original verified access audit or quality counts", () => {
     expect(
@@ -227,22 +231,20 @@ describe("owner mode hierarchy and expanded inventory", () => {
       ).toBe("open");
     }
     expect(
-      gateAvailability(gate("science"), "pedestrian", "entry", monday, "th")
+      gateAvailability(gate("science"), "motorcycle", "entry", monday, "th")
+        .state,
+    ).toBe("closed");
+    expect(
+      gateAvailability(gate("science"), "motorcycle", "exit", monday, "th")
         .state,
     ).toBe("open");
   });
-  it("does not infer vehicles from a walking-only dental entrance", () => {
+  it("keeps walking-only Dentistry entrances outside the active inventory", () => {
     for (const id of ["dentistry", "dentistry-henri"]) {
+      expect(data.gates.some((g) => g.id === id)).toBe(false);
       expect(
-        gateAvailability(gate(id), "car", "entry", monday, "th").state,
-      ).toBe("closed");
-      expect(
-        gateAvailability(gate(id), "pedestrian", "entry", monday, "th"),
-      ).toMatchObject({
-        state: "unknown",
-        basis: "recorded",
-        access: "รองรับวิธีเดินทางที่เลือก",
-      });
+        previousData.gates.find((g) => g.id === id)?.accessProfile?.highestMode,
+      ).toBe("pedestrian");
     }
   });
   it("clips conditional exit hours and reports its next actual opening", () => {
@@ -259,24 +261,19 @@ describe("owner mode hierarchy and expanded inventory", () => {
       next: "เปิด 20:00",
     });
   });
-  it("maps each supplied item to an existing gate and marks the provisional alias", () => {
-    expect(data.ownerInventory?.map((x) => x.item)).toEqual(
-      Array.from({ length: 28 }, (_, i) => i + 1),
+  it("preserves owner item numbers and sources for the retained main gates", () => {
+    const ids = new Set(data.gates.map((g) => g.id));
+    expect(previousData.ownerInventory).toHaveLength(28);
+    expect(data.ownerInventory).toEqual(
+      previousData.ownerInventory?.filter((x) => ids.has(x.gateId)),
     );
     for (const x of data.ownerInventory!) expect(gate(x.gateId)).toBeDefined();
-    expect(data.ownerInventory?.find((x) => x.item === 15)).toMatchObject({
-      gateId: "health-5",
-      provisionalAlias: true,
-    });
-    expect(gate("dentistry").latitude).not.toBe(
-      gate("dentistry-henri").latitude,
-    );
     expect(gate("stadium").latitude).not.toBe(
       gate("indoor-stadium-exit").latitude,
     );
   });
   it("keeps new health gates without supplied hours out of Open now", () => {
-    for (const id of ["health-1", "health-2", "health-3", "health-4"]) {
+    for (const id of ["health-1", "health-3"]) {
       expect(gate(id).latitude).not.toBeNull();
       expect(
         gateAvailability(gate(id), "pedestrian", "entry", monday, "th"),

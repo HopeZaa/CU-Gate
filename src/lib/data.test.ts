@@ -142,3 +142,16 @@ it("rejects a broken owner-item link", () => {
   d.ownerInventory![0].gateId = "missing-gate";
   expect(datasetSchema.safeParse(d).success).toBe(false);
 });
+
+it("contains only main vehicle entrances and no pedestrian operating schedules", () => {
+  expect(dataset!.mapScope).toBe("vehicle-main");
+  for (const g of dataset!.gates) {
+    expect(g.gateUse).toBe("vehicle");
+    expect(
+      g.operatingRules.every((r) => r.modes.every((m) => m !== "pedestrian")),
+    ).toBe(true);
+  }
+  const d = structuredClone(dataset!);
+  d.gates[0].gateUse = "pedestrian";
+  expect(datasetSchema.safeParse(d).success).toBe(false);
+});

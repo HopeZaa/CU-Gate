@@ -61,7 +61,18 @@ export function startLocationWatch(
           stop();
           return;
         }
-        onPosition({ latitude, longitude, accuracy, timestamp: p.timestamp });
+        onPosition({
+          latitude,
+          longitude,
+          accuracy,
+          timestamp: p.timestamp,
+          ...(Number.isFinite(p.coords.heading) && p.coords.heading !== null
+            ? { heading: p.coords.heading }
+            : {}),
+          ...(Number.isFinite(p.coords.speed) && p.coords.speed !== null
+            ? { speed: p.coords.speed }
+            : {}),
+        });
         onState("active");
       },
       (e) => {
@@ -71,7 +82,7 @@ export function startLocationWatch(
         );
         stop();
       },
-      { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 },
+      { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 },
     );
     if (stopped && id !== undefined) geo.clearWatch(id);
   } catch {

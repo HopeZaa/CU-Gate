@@ -42,6 +42,11 @@ for (const icon of [
 }
 assert.ok(html.includes('rel="apple-touch-icon"'));
 assert.ok(html.includes('name="apple-mobile-web-app-capable" content="yes"'));
+const searchConfig = JSON.parse(
+  await readFile(resolve(root, "location-search.json"), "utf8"),
+);
+assert.equal(typeof searchConfig.enabled, "boolean");
+assert.ok(searchConfig.endpoint.startsWith("https://"));
 const geo = JSON.parse(await readFile(resolve(root, "campus.geojson"), "utf8"));
 assert.equal(geo.type, "FeatureCollection");
 assert.ok(geo.features.length > 0);
@@ -69,9 +74,11 @@ const all = await files(root);
 assert.ok(
   !all.some(
     (p) =>
+      p.includes("live-location-harness") ||
       p.includes("gps-harness") ||
       p.includes("status-harness") ||
       p.includes("reference-harness") ||
+      p.includes("gate-inventory-before-vehicle-scope") ||
       p.includes("map-review") ||
       p.includes("map-candidates") ||
       p.includes("qa-status") ||
@@ -84,6 +91,18 @@ for (const path of all.filter(
 )) {
   const text = await readFile(path, "utf8");
   assert.ok(
+    ![
+      "dentistry-henri",
+      "education-foot",
+      "health-2",
+      "health-4",
+      "health-5",
+      "cham-square-foot",
+      "law-foot",
+    ].some((id) => text.includes(id)),
+    `Pedestrian-only gate data in ${path}`,
+  );
+  assert.ok(
     !/https?:\/\/(localhost|127\.0\.0\.1)(?::|\/)/.test(text),
     `Local server dependency in ${path}`,
   );
@@ -95,6 +114,7 @@ for (const path of all.filter(
       "qa-time",
       "qa-clock",
       "gps-harness",
+      "live-location-harness",
       "status-harness",
       "reference-harness",
     ].some((name) => text.includes(name)),

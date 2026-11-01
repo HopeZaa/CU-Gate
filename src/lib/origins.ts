@@ -16,3 +16,7 @@ const schema = z.array(
 const result = schema.safeParse(raw);
 export type PublicOrigin = z.infer<typeof schema>[number];
 export const origins = result.success ? result.data : [];
+
+export type StartingPoint = Omit<PublicOrigin, "type"> & {
+  type: "public-landmark" | "selected-place";
+};

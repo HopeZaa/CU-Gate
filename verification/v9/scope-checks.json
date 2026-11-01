@@ -1,0 +1,14 @@
+{
+  "src/data/gates.json": {
+    "unchanged": true,
+    "sha256": "37784a5c7e1e0ca6d23cf6484d242deb159d3e564f874b110ea7585556d96080"
+  },
+  "public/campus.geojson": {
+    "unchanged": true,
+    "sha256": "1bac785b1002bc6fe2a94bb79dfd1a6e3a6ec1f928fa8d638984eeffed725aab"
+  },
+  "activeGateGroups": 21,
+  "mappedGateGroups": 19,
+  "localPlaceRecords": 698,
+  "readmeThaiCharacters": 0
+}

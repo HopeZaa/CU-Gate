@@ -308,7 +308,7 @@ describe("access evidence and filters", () => {
       null,
       now,
     );
-    expect(a[0].nameEn).toBe("Chamchuri 5 / Education pedestrian gate");
+    expect(a[0].id).toBe("cham9-market");
     expect(
       filterGates(
         dataset!.gates,

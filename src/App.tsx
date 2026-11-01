@@ -14,8 +14,8 @@ import {
   Car,
   ChevronRight,
   CircleHelp,
-  Info,
-  Footprints,
+  Expand,
+  Minimize,
   LocateFixed,
   Map,
   List,
@@ -60,8 +60,14 @@ import {
 import type { AvailabilityFilter } from "./lib/availability";
 import { hasOperatingHours } from "./lib/operating";
 import { origins } from "./lib/origins";
+import type { StartingPoint } from "./lib/origins";
+import { startHeadingWatch } from "./lib/heading";
+import type { HeadingState, OrientationPermission } from "./lib/heading";
+import { withinCampusMap, nearestSuggestion } from "./lib/map-location";
+import StartingPointSearch from "./components/StartingPointSearch";
 import GateDetails from "./components/GateDetails";
 import QualityDashboard from "./components/QualityDashboard";
+import PedestrianNotice from "./components/PedestrianNotice";
 import MotorcycleIcon from "./components/MotorcycleIcon";
 const CampusMap = lazy(() => import("./components/CampusMap"));
 function saved(key: string, fallback: string) {
@@ -100,10 +106,11 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
   const [view, setView] = useState<"explore" | "quality">(() =>
     window.location.hash === "#quality" ? "quality" : "explore",
   );
+  const [mapExpanded, setMapExpanded] = useState(false);
   const [mobileView, setMobileView] = useState<"list" | "map">("map");
   const [filters, setFilters] = useState<Filters>({
       ...defaultFilters,
-      mode: "pedestrian",
+      mode: "motorcycle",
       mappedOnly: false,
     }),
     [advanced, setAdvanced] = useState(false),
@@ -113,25 +120,40 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
     [now, setNow] = useState(() => new Date());
   const [availability, setAvailability] = useState<AvailabilityFilter>("all");
   const [overview, setOverview] = useState(0);
-  const [guideVisible, setGuideVisible] = useState(
-    () => saved("cu-map-guide", "shown") !== "hidden",
-  );
   const [legendVisible, setLegendVisible] = useState(
     () => saved("cu-map-legend", "shown") !== "hidden",
   );
+  useEffect(() => {
+    if (!mapExpanded) return;
+    const escape = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && !selected) setMapExpanded(false);
+    };
+    window.addEventListener("keydown", escape);
+    return () => window.removeEventListener("keydown", escape);
+  }, [mapExpanded, selected]);
   const toggleLegend = useCallback(
     () => setLegendVisible((shown) => !shown),
     [],
   );
   useEffect(() => {
     try {
-      localStorage.setItem("cu-map-guide", guideVisible ? "shown" : "hidden");
       localStorage.setItem("cu-map-legend", legendVisible ? "shown" : "hidden");
     } catch {
       /* Map display preferences are optional. */
     }
-  }, [guideVisible, legendVisible]);
+  }, [legendVisible]);
   const [hoursOnly, setHoursOnly] = useState(false);
+  const [selectedPlace, setSelectedPlace] = useState<StartingPoint | null>(
+    null,
+  );
+  const [heading, setHeading] = useState<number | null>(null);
+  const [headingState, setHeadingState] = useState<HeadingState>("idle");
+  const [listUpdated, setListUpdated] = useState(false);
+  const [listPulse, setListPulse] = useState(0);
+  const [gateFocus, setGateFocus] = useState(0);
+  const [detailHeight, setDetailHeight] = useState(0);
+  const lastSuggestion = useRef<string | null>(null);
+  const stopHeading = useRef<(() => void) | null>(null);
   const [position, setPosition] = useState<Position | null>(null),
     [gps, setGPS] = useState<GPSState>("idle"),
     [focusLocation, setFocusLocation] = useState(0),
@@ -145,10 +167,13 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
       setMobileView("map");
       setSelected(id);
       setMapFocus(id);
+      setGateFocus((n) => n + 1);
+      setListUpdated(false);
     }, []),
     onClose = useCallback(() => {
       setSelected(null);
       setMapFocus(null);
+      setDetailHeight(0);
       setOverview((n) => n + 1);
     }, []);
   const update = <K extends keyof Filters>(key: K, value: Filters[K]) =>
@@ -157,7 +182,7 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
     setAvailability("all");
     setHoursOnly(false);
     setOverview((n) => n + 1);
-    setFilters({ ...defaultFilters, mode: "pedestrian", mappedOnly: false });
+    setFilters({ ...defaultFilters, mode: "motorcycle", mappedOnly: false });
   };
   useEffect(() => {
     let timer: number;
@@ -191,6 +216,7 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
   }, [dark]);
   useEffect(() => {
     const changed = () => {
+      setMapExpanded(false);
       setView(window.location.hash === "#quality" ? "quality" : "explore");
       setSelected(null);
     };
@@ -202,6 +228,10 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
       if (document.hidden && stopWatch.current) {
         stopWatch.current();
         stopWatch.current = null;
+        stopHeading.current?.();
+        stopHeading.current = null;
+        setHeading(null);
+        setHeadingState("idle");
         setGPS("paused");
         setPosition(null);
       }
@@ -209,17 +239,45 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
     document.addEventListener("visibilitychange", hide);
     return () => {
       stopWatch.current?.();
+      stopHeading.current?.();
       document.removeEventListener("visibilitychange", hide);
     };
   }, []);
   const stopGPS = () => {
+    stopHeading.current?.();
+    stopHeading.current = null;
+    setHeading(null);
+    setHeadingState("idle");
+    lastSuggestion.current = null;
     stopWatch.current?.();
     stopWatch.current = null;
     setPosition(null);
     setGPS("paused");
     setStartId("none");
   };
+  const startCompass = () => {
+    stopHeading.current?.();
+    setHeading(null);
+    if (!window.isSecureContext) {
+      setHeadingState("unsupported");
+      return;
+    }
+    const api =
+      typeof DeviceOrientationEvent === "undefined"
+        ? undefined
+        : (DeviceOrientationEvent as unknown as OrientationPermission);
+    stopHeading.current = startHeadingWatch(
+      window,
+      api,
+      setHeading,
+      setHeadingState,
+      () => screen.orientation?.angle || 0,
+    );
+  };
   const locate = () => {
+    startCompass();
+    setSelectedPlace(null);
+    lastSuggestion.current = null;
     stopWatch.current?.();
     stopWatch.current = null;
     setPosition(null);
@@ -232,12 +290,20 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
         if (first) {
           startPanel.current?.removeAttribute("open");
           setFocusLocation((x) => x + 1);
+          setListUpdated(mobileView !== "list");
+          setListPulse((n) => n + 1);
           first = false;
         }
       },
       (s) => {
         setGPS(s);
-        if (s !== "active" && s !== "requesting") setPosition(null);
+        if (s !== "active" && s !== "requesting") {
+          setPosition(null);
+          stopHeading.current?.();
+          stopHeading.current = null;
+          setHeading(null);
+          setHeadingState("idle");
+        }
       },
       window.isSecureContext,
     );
@@ -249,13 +315,28 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
     }
     stopWatch.current?.();
     stopWatch.current = null;
+    stopHeading.current?.();
+    stopHeading.current = null;
+    setHeading(null);
+    setHeadingState("idle");
+    setSelectedPlace(null);
     setPosition(null);
     if (gps === "active" || gps === "requesting") setGPS("paused");
     setStartId(id);
     startPanel.current?.removeAttribute("open");
     setFocusLocation((x) => x + 1);
   };
-  const landmark = origins.find((o) => o.id === startId) || null;
+  const choosePlace = (place: StartingPoint) => {
+    stopGPS();
+    setSelectedPlace(place);
+    setStartId(place.id);
+    startPanel.current?.removeAttribute("open");
+    setFocusLocation((n) => n + 1);
+  };
+  const landmark: StartingPoint | null =
+    startId === "gps" || startId === "none"
+      ? null
+      : selectedPlace || origins.find((o) => o.id === startId) || null;
   const origin = startId === "gps" ? position : landmark;
   const originName = landmark
     ? lang === "th"
@@ -294,6 +375,40 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
     () => availabilityCounts(allGates, filters.mode, filters.direction, now),
     [allGates, filters.mode, filters.direction, now],
   );
+  const suggested = useMemo(
+    () =>
+      gps === "active" && position
+        ? nearestSuggestion(
+            gates,
+            position,
+            filters.mode,
+            filters.direction,
+            now,
+          )
+        : null,
+    [gps, position, gates, filters.mode, filters.direction, now],
+  );
+  const suggestedId = suggested?.gate.id || null;
+  useEffect(() => {
+    if (gps !== "active") {
+      lastSuggestion.current = null;
+      return;
+    }
+    if (
+      suggestedId &&
+      lastSuggestion.current &&
+      lastSuggestion.current !== suggestedId
+    ) {
+      setListUpdated(mobileView !== "list");
+      setListPulse((n) => n + 1);
+    }
+    lastSuggestion.current = suggestedId;
+  }, [suggestedId, gps, mobileView]);
+  const displayHeading =
+    heading ??
+    (position && (position.speed || 0) > 0.5
+      ? (position.heading ?? null)
+      : null);
   const chooseAvailability = (value: AvailabilityFilter) => {
     setAvailability(value);
     setSelected(null);
@@ -311,6 +426,7 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
   }).format(now);
   const selectedGate = dataset?.gates.find((g) => g.id === selected);
   const navigateView = (next: "explore" | "quality") => {
+    setMapExpanded(false);
     setView(next);
     setSelected(null);
     window.location.hash = next === "quality" ? "quality" : "explore";
@@ -333,18 +449,12 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
       </main>
     );
   const mapped = gates.filter(hasCoordinates).length;
-  const outside =
-    position &&
-    (position.latitude < 13.727 ||
-      position.latitude > 13.75 ||
-      position.longitude < 100.518 ||
-      position.longitude > 100.538);
+  const outside = !!position && !withinCampusMap(position);
   const activeCount =
     Number(filters.verification !== "all") +
     Number(filters.mappedOnly) +
     Number(hoursOnly);
   const modeOptions = [
-    { id: "pedestrian" as const, th: "เดิน", en: "Walk", Icon: Footprints },
     {
       id: "motorcycle" as const,
       th: "มอเตอร์ไซค์",
@@ -355,7 +465,7 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
   ];
   return (
     <div
-      className={`app-shell v2 v3 v4 mobile-${mobileView} ${selected && view === "explore" ? "has-selection" : ""}`}
+      className={`app-shell v2 v3 v4 ${mapExpanded ? "is-map-expanded" : ""} mobile-${mobileView} ${selected && view === "explore" ? "has-selection" : ""}`}
     >
       <header className="app-header">
         <a
@@ -490,18 +600,13 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
                     title={
                       id === "car"
                         ? t(
-                            "รถยนต์เข้าได้ รวมมอเตอร์ไซค์และเดิน",
-                            "Car access includes motorcycles and walking",
+                            "ประตูรถยนต์ รวมมอเตอร์ไซค์ตามเงื่อนไขเดิม",
+                            "Car gates include motorcycles under the same rules",
                           )
-                        : id === "motorcycle"
-                          ? t(
-                              "มอเตอร์ไซค์เข้าได้ รวมเดิน",
-                              "Motorcycle access includes walking",
-                            )
-                          : t(
-                              "รวมประตูที่รถยนต์หรือมอเตอร์ไซค์ผ่านได้",
-                              "Includes gates accessible to cars or motorcycles",
-                            )
+                        : t(
+                            "ประตูหลักสำหรับมอเตอร์ไซค์",
+                            "Main gates for motorcycles",
+                          )
                     }
                     className={filters.mode === id ? "active" : ""}
                     aria-pressed={filters.mode === id}
@@ -572,13 +677,10 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
                 <details ref={startPanel} className="start-panel">
                   <summary>
                     <LocateFixed size={15} />
-                    {landmark
-                      ? t("MRT สามย่าน", "Sam Yan MRT")
-                      : gps === "active"
-                        ? "GPS"
-                        : t("จุดเริ่มต้น", "Start point")}
+                    {t("จุดเริ่มต้น", "Start point")}
                   </summary>
                   <div className="start-popover">
+                    <StartingPointSearch onChoose={choosePlace} />
                     <div className="start-controls">
                       <label>
                         <span className="sr-only">
@@ -631,13 +733,27 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
                 >
                   {landmark
                     ? t(
-                        "เรียงระยะจาก MRT สามย่าน ไม่ใช่ตำแหน่งของคุณ",
-                        "Distances from Sam Yan MRT, not your device location.",
+                        `เรียงระยะจาก ${landmark.name} ไม่ใช่ GPS ของคุณ`,
+                        `Distances from ${landmark.nameEn}, not your device GPS.`,
                       )
                     : gpsText(gps, lang)}
                   {gps === "active" && position
                     ? ` · ${t("ความแม่นยำ", "Accuracy")} ±${Math.round(position.accuracy ?? 0)} ${t("ม.", "m")}`
                     : ""}
+                  {gps === "active" &&
+                    (headingState === "active"
+                      ? t(" · เข็มทิศทำงาน", " · Compass active")
+                      : t(
+                          " · ยังไม่มีทิศจากเข็มทิศ",
+                          " · Compass direction unavailable",
+                        ))}
+                  {gps === "active" &&
+                    headingState !== "active" &&
+                    typeof DeviceOrientationEvent !== "undefined" && (
+                      <button className="compass-retry" onClick={startCompass}>
+                        {t("เปิดเข็มทิศ", "Enable compass")}
+                      </button>
+                    )}
                   {outside
                     ? t(
                         " · คุณอยู่นอกขอบเขตแผนที่มหาวิทยาลัย",
@@ -654,7 +770,9 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
                       checked={filters.mappedOnly}
                       onChange={(e) => update("mappedOnly", e.target.checked)}
                     />
-                    {t("เฉพาะประตูที่มีพิกัด", "Only gates with coordinates")}
+                    <span>
+                      {t("เฉพาะประตูที่มีพิกัด", "Only gates with coordinates")}
+                    </span>
                   </label>
                   <label className="checkbox-label">
                     <input
@@ -662,10 +780,12 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
                       checked={hoursOnly}
                       onChange={(e) => setHoursOnly(e.target.checked)}
                     />
-                    {t(
-                      "เฉพาะประตูที่มีตาราง",
-                      "Only gates with an operating schedule",
-                    )}
+                    <span>
+                      {t(
+                        "เฉพาะประตูที่มีตาราง",
+                        "Only gates with an operating schedule",
+                      )}
+                    </span>
                   </label>
                   <label>
                     {t("ระดับหลักฐาน", "Evidence")}
@@ -707,12 +827,28 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
               aria-label={t("รูปแบบการแสดงผล", "Results view")}
             >
               <button
-                className={mobileView === "list" ? "active" : ""}
+                className={`${mobileView === "list" ? "active" : ""} ${listUpdated ? "has-update" : ""}`}
+                style={
+                  listUpdated
+                    ? {
+                        animationName:
+                          listPulse % 2
+                            ? "list-attention-a"
+                            : "list-attention-b",
+                      }
+                    : undefined
+                }
                 aria-pressed={mobileView === "list"}
-                onClick={() => setMobileView("list")}
+                onClick={() => {
+                  setMobileView("list");
+                  setListUpdated(false);
+                }}
               >
                 <List size={18} />
                 {t("รายการประตู", "Gate list")}
+                {listUpdated && (
+                  <i className="list-update-dot" aria-hidden="true" />
+                )}
                 <span>{gates.length}</span>
               </button>
               <button
@@ -724,12 +860,23 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
                 {t("แผนที่", "Map")}
               </button>
             </div>
-            <div className="results-heading">
+            {listUpdated && (
+              <span className="sr-only" role="status">
+                {t(
+                  "รายการประตูอัปเดตตามตำแหน่งของคุณแล้ว",
+                  "Gate list updated for your location",
+                )}
+              </span>
+            )}
+            <div
+              className={`results-heading ${listUpdated ? "results-updated" : ""}`}
+            >
               <h2>
                 {origin
                   ? t("ประตูใกล้จุดเริ่มต้น", "Gates near your start")
                   : t("รายการประตู", "Gate list")}
                 <span>{gates.length}</span>
+                {listUpdated && <small>{t("อัปเดตแล้ว", "Updated")}</small>}
               </h2>
               <select
                 aria-label={t("เรียงลำดับประตู", "Sort gates")}
@@ -765,7 +912,8 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
                 return (
                   <article
                     key={g.id}
-                    className={`gate-card ${selected === g.id ? "selected" : ""}`}
+                    className={`gate-card ${selected === g.id ? "selected" : ""} ${suggestedId === g.id ? "suggested-card" : ""}`}
+                    data-gate-card-id={g.id}
                   >
                     <button
                       className="gate-card-main"
@@ -779,6 +927,19 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
                       </span>
                       <span className="gate-card-content">
                         <strong>{gateName(g, lang)}</strong>
+                        {suggestedId === g.id && (
+                          <small className="suggested-label">
+                            {suggested?.open
+                              ? t(
+                                  "แนะนำ · ใกล้สุดที่เปิดตามตาราง",
+                                  "Suggested · nearest scheduled open",
+                                )
+                              : t(
+                                  "ใกล้สุด · ตรวจสอบเวลา",
+                                  "Nearest · check hours",
+                                )}
+                          </small>
+                        )}
                         <span className="gate-place">
                           {gateNearby(g, lang)}
                         </span>
@@ -868,114 +1029,145 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
               <ArrowUpRight size={17} />
             </button>
           </aside>
-          <section
-            className="map-area"
-            aria-label={t("แผนที่มหาวิทยาลัย", "Campus map")}
-          >
-            <Suspense
-              fallback={
-                <div className="map-loading">
-                  {t("กำลังเปิดแผนที่…", "Loading map…")}
-                </div>
-              }
+          <div className="map-panel">
+            <PedestrianNotice />
+            <section
+              className="map-area"
+              aria-label={t("แผนที่มหาวิทยาลัย", "Campus map")}
             >
-              <CampusMap
-                gates={gates}
-                selected={selected || mapFocus}
-                onSelect={onSelect}
-                position={position}
-                referencePoint={landmark}
-                focusLocation={focusLocation}
-                dark={dark}
-                mode={filters.mode}
-                direction={filters.direction}
-                now={now}
-                overview={overview}
-                legendVisible={legendVisible}
-                onToggleLegend={toggleLegend}
-              />
-            </Suspense>
-            <div className={`map-context ${guideVisible ? "" : "collapsed"}`}>
-              <div id="map-guide-content" hidden={!guideVisible}>
-                <strong>
-                  {t("เลือกหมุดเพื่อดูสถานะ", "Tap a pin for gate status")}
-                </strong>
-                <span>
-                  {t(`${mapped} จุดบนแผนที่`, `${mapped} mapped points`)} ·{" "}
-                  {t("ตามตารางอ้างอิงเดิม", "Adopted reference schedules")}
-                </span>
-              </div>
-              <button
-                className={`map-overlay-toggle ${guideVisible ? "overlay-close" : "overlay-restore"}`}
-                aria-label={
-                  guideVisible
-                    ? t("ซ่อนข้อความเลือกหมุด", "Hide pin guide")
-                    : t("แสดงข้อความเลือกหมุด", "Show pin guide")
+              <Suspense
+                fallback={
+                  <div className="map-loading">
+                    {t("กำลังเปิดแผนที่…", "Loading map…")}
+                  </div>
                 }
-                title={
-                  guideVisible
-                    ? t("ซ่อนข้อความเลือกหมุด", "Hide pin guide")
-                    : t("แสดงข้อความเลือกหมุด", "Show pin guide")
-                }
-                aria-expanded={guideVisible}
-                aria-controls="map-guide-content"
-                onClick={() => setGuideVisible((shown) => !shown)}
               >
-                {guideVisible ? (
-                  <X size={15} />
-                ) : (
-                  <>
-                    <Info size={15} />
-                    <span>{t("วิธีใช้หมุด", "Pin guide")}</span>
-                  </>
-                )}
-              </button>
-            </div>
-            {(gates.length === 0 || mapped === 0) && (
-              <div className="map-empty" role="status">
-                <ShieldQuestion size={28} />
-                <h2>
-                  {gates.length > 0
-                    ? t(
-                        `พบ ${gates.length} ประตู แต่ยังไม่มีพิกัด`,
-                        `${gates.length} gates found without map coordinates`,
-                      )
-                    : availability === "open"
-                      ? t(
-                          "ไม่มีประตูเปิดตามตารางตอนนี้",
-                          "No gates are scheduled open right now",
-                        )
-                      : t("ไม่พบประตูที่ค้นหา", "No matching gates")}
-                </h2>
-                <p>
-                  {gates.length > 0
-                    ? t(
-                        "ดูเวลาและข้อมูลประตูได้จากรายการ",
-                        "Inspect their hours and details in the gate list",
-                      )
-                    : availability === "open" && allGates.length > 0
-                      ? t(
-                          `ไม่มีตาราง ${counts.unknown} · มีเงื่อนไข ${counts.restricted} · ปิด/ไม่อนุญาต ${counts.closed}`,
-                          `No schedule ${counts.unknown} · Restricted ${counts.restricted} · Closed/not permitted ${counts.closed}`,
-                        )
-                      : t(
-                          "ลองเปลี่ยนคำค้นหรือตัวเลือก",
-                          "Try another search or filter",
-                        )}
-                </p>
-                <button
-                  className="secondary-button"
-                  onClick={
-                    gates.length > 0 ? () => setMobileView("list") : reset
+                <CampusMap
+                  gates={gates}
+                  selected={selected || mapFocus}
+                  onSelect={onSelect}
+                  position={
+                    position && withinCampusMap(position) ? position : null
                   }
+                  heading={displayHeading}
+                  headingIsCourse={heading === null && displayHeading !== null}
+                  suggestedId={suggestedId}
+                  selectionFocus={gateFocus}
+                  detailHeight={detailHeight}
+                  referencePoint={landmark}
+                  focusLocation={focusLocation}
+                  dark={dark}
+                  mode={filters.mode}
+                  direction={filters.direction}
+                  now={now}
+                  overview={overview}
+                  expanded={mapExpanded}
+                  legendVisible={legendVisible}
+                  onToggleLegend={toggleLegend}
+                />
+              </Suspense>
+              <div className="map-view-actions">
+                {mapExpanded && (
+                  <button
+                    key="gps"
+                    className={`map-gps-button ${gps === "active" ? "active" : ""}`}
+                    onClick={gps === "active" ? stopGPS : locate}
+                    disabled={gps === "requesting"}
+                    aria-pressed={gps === "active"}
+                    aria-label={
+                      gps === "active"
+                        ? t("หยุดใช้ตำแหน่ง GPS", "Stop using GPS")
+                        : t(
+                            "ใช้ GPS หาประตูใกล้ฉัน",
+                            "Use GPS to find nearby gates",
+                          )
+                    }
+                  >
+                    <LocateFixed size={18} />
+                    <span>
+                      {gps === "active" ? t("หยุด GPS", "Stop GPS") : "GPS"}
+                    </span>
+                  </button>
+                )}
+                <button
+                  key="expand"
+                  className="map-expand-toggle"
+                  aria-expanded={mapExpanded}
+                  aria-label={
+                    mapExpanded
+                      ? t("กลับหน้าปกติ", "Return to normal view")
+                      : t("ขยายแมพเต็มจอ", "Expand map view")
+                  }
+                  onClick={() => {
+                    startPanel.current?.removeAttribute("open");
+                    setAdvanced(false);
+                    setMobileView("map");
+                    setMapExpanded((expanded) => !expanded);
+                    if (!selected) setOverview((n) => n + 1);
+                  }}
                 >
-                  {gates.length > 0
-                    ? t("ดูรายการประตู", "View gate list")
-                    : t("แสดงประตูทั้งหมด", "Show all gates")}
+                  {mapExpanded ? <Minimize size={18} /> : <Expand size={18} />}
+                  <span>
+                    {mapExpanded
+                      ? t("กลับหน้าปกติ", "Back to normal")
+                      : t("เต็มจอ", "Expand map")}
+                  </span>
                 </button>
               </div>
-            )}
-          </section>
+              {mapExpanded &&
+                ["denied", "unavailable", "timeout", "requesting"].includes(
+                  gps,
+                ) && (
+                  <p className="map-gps-status" role="status">
+                    {gpsText(gps, lang)}
+                  </p>
+                )}
+              {(gates.length === 0 || mapped === 0) && (
+                <div className="map-empty" role="status">
+                  <ShieldQuestion size={28} />
+                  <h2>
+                    {gates.length > 0
+                      ? t(
+                          `พบ ${gates.length} ประตู แต่ยังไม่มีพิกัด`,
+                          `${gates.length} gates found without map coordinates`,
+                        )
+                      : availability === "open"
+                        ? t(
+                            "ไม่มีประตูเปิดตามตารางตอนนี้",
+                            "No gates are scheduled open right now",
+                          )
+                        : t("ไม่พบประตูที่ค้นหา", "No matching gates")}
+                  </h2>
+                  <p>
+                    {gates.length > 0
+                      ? t(
+                          "ดูเวลาและข้อมูลประตูได้จากรายการ",
+                          "Inspect their hours and details in the gate list",
+                        )
+                      : availability === "open" && allGates.length > 0
+                        ? t(
+                            `ไม่มีตาราง ${counts.unknown} · มีเงื่อนไข ${counts.restricted} · ปิด/ไม่อนุญาต ${counts.closed}`,
+                            `No schedule ${counts.unknown} · Restricted ${counts.restricted} · Closed/not permitted ${counts.closed}`,
+                          )
+                        : t(
+                            "ลองเปลี่ยนคำค้นหรือตัวเลือก",
+                            "Try another search or filter",
+                          )}
+                  </p>
+                  <button
+                    className="secondary-button"
+                    onClick={
+                      gates.length > 0 ? () => setMobileView("list") : reset
+                    }
+                  >
+                    {gates.length > 0
+                      ? t("ดูรายการประตู", "View gate list")
+                      : t("แสดงประตูทั้งหมด", "Show all gates")}
+                  </button>
+                </div>
+              )}
+            </section>
+          </div>
         </main>
       ) : (
         <main className="quality-main">
@@ -993,6 +1185,7 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
           direction={filters.direction}
           now={now}
           onClose={onClose}
+          onHeightChange={setDetailHeight}
           onMap={() => {
             setAvailability("all");
             setMobileView("map");
@@ -1028,10 +1221,7 @@ function Navigator({ onLanguage }: { onLanguage: () => void }) {
         </h2>
         <ol className="help-steps">
           <li>
-            {t(
-              "เลือกเดิน รถยนต์ หรือมอเตอร์ไซค์",
-              "Choose walking, car or motorcycle.",
-            )}
+            {t("เลือกมอเตอร์ไซค์หรือรถยนต์", "Choose motorcycle or car.")}
           </li>
           <li>
             {t(

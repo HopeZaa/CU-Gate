@@ -1,32 +1,56 @@
-# ประตูจุฬาฯ · CU Gate Navigator
+# CU Gate Navigator — version 1.8
 
-รุ่น 1.6 ใช้ **ตารางเก่าเป็นฐานคำนวณเปิด–ปิด** ตามที่เจ้าของแอปเลือก จนกว่าจะมีการแก้ไขข้อมูล ภาษาไทยเป็นค่าเริ่มต้น สลับ English ได้
+A Thai/English map of Chulalongkorn University's main **motorcycle and car gates**, with schedule-based availability, live device location, selectable starting points, light/dark themes and a data-quality dashboard. The app is a static React/TypeScript frontend; no backend or API key is required.
 
-## วิธีใช้งาน
+## Use the app
 
-1. เลือก **เดิน / มอเตอร์ไซค์ / รถยนต์**
-2. กด **ประตูทั้งหมด** หรือ **เปิดตอนนี้** หมุดและจำนวนจะคำนวณตามเวลาไทยจากตารางอ้างอิงเดิม
-3. กดหมุดเพื่อดู **สถานะ → เวลาวันนี้ → รอบถัดไป → นำทาง** กด **ดูตารางทั้งสัปดาห์** เพื่อดูวันจันทร์–อาทิตย์ในตารางสั้น ๆ
-4. กด **ใกล้ฉัน · GPS** เพื่อใช้ตำแหน่งทันที หรือเลือก MRT สามย่านจาก **จุดเริ่มต้น** ส่วน **ตัวเลือก** มีค้นหาประตูที่มีตาราง/มีพิกัดและระดับหลักฐาน
-5. หน้าคอมลดพื้นที่หัวแผงและย้ายตัวเลือกเป็น popover รายการประตูอยู่ในพื้นที่เลื่อนหลักของแถบซ้าย มีปุ่มนำทางบนแต่ละแถว
+1. Select **Motorcycle** or **Car**, then **All gates** or **Open now**. Availability uses Bangkok time and the owner-adopted historical vehicle schedules. It is not a live observation of a physical gate.
+2. Click anywhere on a gate card, or click its map marker. The map zooms to that gate and opens its details. The separate Directions link opens Google Maps.
+3. Drag the clearly marked top edge of the details panel down to reduce its height, or up to expand it. Clicking the handle toggles compact/expanded height. Keyboard users can focus the handle and use Up/Down (32 px), Home or End. Details remain scrollable.
+4. Open **Start point** and type a place name. Local campus-area results appear immediately. Select a result, enter `latitude, longitude`, or use the public Sam Yan MRT preset. A selected place is a reference point, not your device location.
+5. For a wider place search, click **Search online** or press Enter. Only that submitted query is sent to Photon. Coordinate input is handled locally. Local search remains available when the online provider is unavailable.
+6. Click **Near me · GPS** and allow location access to follow your position. The blue dot and accuracy circle update from the device's location watch. The dot is shown only within the bundled map coverage. Dragging the map stops automatic following; the center-on-starting-point button resumes it.
+7. When compass readings are available, a blue directional cone shows the device's facing direction. Enable compass access if requested. Without a compass, a moving device may show the GPS travel direction instead, explicitly labelled as such. No heading is drawn when neither is available.
+8. Near me gives one mapped gate a slow glow and star: the nearest gate scheduled open for the selected mode, direction and filters. If no candidate is scheduled open, the nearest candidate is labelled **check hours**. The gate-list control shows an update dot and a subtle pulse; opening the list acknowledges it. Distances are straight-line estimates.
+9. **Expand map** folds the header and controls away. GPS, zoom, fit-campus and Return controls remain available. Escape closes an open details card first, then exits the expanded map. The legend and OpenStreetMap credit share one compact footer row; the legend can be collapsed. There is no pin-guide overlay.
+10. Open **Data & sources** to inspect every gate, sources and dynamically calculated quality metrics. Thai/English, light/dark themes and the legend preference persist locally.
 
-เขียว = เปิดตามตาราง แดง = ปิด/ไม่รองรับทิศทาง เหลือง = มีเงื่อนไขเฉพาะ เทา = ไม่มีตารางสำหรับตัวเลือกนั้น ขอบประหมายถึงพิกัดโดยประมาณ ข้อจำกัดเช่นผู้ได้รับอนุญาตยังแสดงในข้อมูลประตู แต่การใช้ตารางเก่าไม่ถูกปิดกั้นด้วยสถานะ Unconfirmed
+## Location and search limits
 
-**ป้าย “ตารางอ้างอิง” ระบุที่มาของการคำนวณ** สถานะหลักฐานเดิมยังอยู่ใน Dashboard ไม่ได้เปลี่ยนเป็นการตรวจยืนยันใหม่ และไม่ใช่ข้อมูลสดจากประตู
+Device location and compass access require a secure context (HTTPS or localhost), browser permission and compatible hardware. Location and heading stay in memory: the app does not upload, log or persist these readings. Watches and orientation listeners stop on explicit Stop, page hiding, errors or unmount. Returning to a hidden page requires starting GPS again.
 
-ตารางใช้รูปแบบวันในสัปดาห์เป็นค่าเริ่มต้น วันหยุดพิเศษ วันแข่งม้า และมาตรการเฉพาะกิจอาจต่างจากตาราง ไม่มีปฏิทินวันหยุด/เหตุการณ์อัตโนมัติในรุ่นนี้ ระยะในแอปเป็นเส้นตรง Google Maps คำนวณเส้นทางภายนอก
+Sensor frequency, accuracy and compass calibration depend on the device and browser. The cone indicates device orientation, which may differ from a person's body or travel direction. This release was checked with controlled location/compass integration fixtures, not a real phone's sensors or an actual campus walk. See [MDN's permission requirements](https://developer.mozilla.org/en-US/docs/Web/API/DeviceOrientationEvent/requestPermission_static) and the [orientation specification](https://www.w3.org/TR/orientation-event/).
 
-## เปิดบน macOS
+Local search uses a bundled index of 698 named OSM ways within the campus-area extract, plus the public MRT preset. Result coordinates are place/road centres, not surveyed gate entrances. The local map is bounded; a selected place outside its coverage can still be used for distance calculations and external directions, but the app does not pretend to supply a full map there.
 
-ทดสอบด้วย Node 26.2.0 และ npm 11.13.0 ใช้ Node รุ่นที่รองรับ Vite; `.nvmrc` ระบุ Node 26
+Online search uses the [Photon public demo](https://github.com/komoot/photon/blob/master/README.md), which permits moderate use and provides no availability guarantee. Requests are submitted explicitly, limited to six results, separated by at least 1.1 seconds and cached in memory (30 queries). No request is sent for every keystroke, and the campus search bias is fixed public information, never device GPS. The provider also receives ordinary network metadata. The UI identifies the provider before submission. Configure or disable this optional provider in `public/location-search.json` (deployed as `dist/location-search.json`); use a compatible HTTPS Photon endpoint for larger deployments. Nominatim is not used.
+
+Google Maps is opened only by a directions link. A manually selected starting point can be included as the origin; device GPS is never added to the URL. Google applies its own location permissions and routing capabilities.
+
+## Data scope and evidence
+
+The active gate JSON contains **21 main vehicle gate groups**, with **19 mapped points**: 8 map-verified, 11 approximate and 2 without coordinates. Sixteen vehicle operating rules cover 15 groups. These are current dataset counts, not hardcoded dashboard values. All dashboard statistics, filters and exports are calculated from the actual JSON.
+
+The ten dashboard measures cover discovered gates; verified, historical, unverified and unknown information; verified, approximate and unknown coordinates; unknown vehicle permissions; and unknown operating schedules. Users can inspect individual records and source links. A map-verified location is not proof of current access permission. Unverified information must not be treated as confirmed real-world access information.
+
+At the owner's instruction, recorded historical vehicle schedules are the working baseline until corrected. Original evidence classifications remain visible. There is no live gate-status feed or special-closure calendar. Restricted/reserve gates are not promises of public access. Car access includes motorcycles under the same schedule, direction and authorization conditions. Pedestrian schedules never substitute for vehicle hours.
+
+Nine pedestrian-only groups were removed from the active list, map, dashboard and export. The previous full inventory remains in `research/gate-inventory-before-vehicle-scope.json` for audit, and is excluded from the production build. Gates without coordinates remain inspectable in the list but have no invented marker or navigation destination. This UI update does not change gate coordinates or operating rules.
+
+A thin bilingual notice moves from right to left above the map. It can be paused and respects reduced-motion preferences. Its English text is: “Pedestrian gates are beside the main gates. Please check opening and closing times.” The notice does not assert 24-hour pedestrian access or assign pedestrian hours from vehicle schedules.
+
+[Sources](GATE_DATA_SOURCES.md) · [Coordinate report](GATE_COORDINATE_REPORT.md) · [Data verification](DATA_VERIFICATION_REPORT.md) · [Operating schedules](OPERATING_SCHEDULES.md) · [Latest execution report](FINAL_EXECUTION_REPORT.md) · [Third-party notices](THIRD_PARTY_NOTICES.md)
+
+## Run locally
+
+Use Node 26 (`.nvmrc`). This release was tested with Node 26.2.0 and npm 11.13.0. From the project directory:
 
 ```sh
-cd "/Users/hopezaa/Documents/Codex/2026-11-01/cu-gate-navigator-initial-gate-research/outputs/cu-gate-navigator"
 npm ci
 npm run dev
 ```
 
-เปิด Local URL ที่ Vite แสดง ปกติคือ `http://127.0.0.1:5173/` หากติดตั้ง dependencies แล้ว ใช้เพียง `npm run dev` ได้
+Open the local URL printed by Vite. If dependencies are already installed, only `npm run dev` is needed.
 
 ```sh
 npm run typecheck
@@ -38,103 +62,17 @@ npm run verify:build
 npm run preview
 ```
 
-`npm run preview` ใช้ตรวจ production build ผ่าน HTTP ไม่ควรเปิด `dist/index.html` ตรงด้วย file:// เพราะข้อจำกัด browser modules
+Serve `dist` over HTTP rather than opening `dist/index.html` with `file://`. Release evidence is in `verification/v9`. Development-only sensor fixtures in `tests/` are excluded from `dist`; their simulated readings are labelled explicitly.
 
-## ข้อมูลที่ใช้
+## Static hosting and Home Screen
 
-- `src/data/gates.json`: 30 กลุ่มประตู พร้อมชื่อ คำอธิบาย และสรุปแหล่งข้อมูลภาษาไทย/อังกฤษ
-- 8 จุดประตูตรวจสอบกับแผนที่ทางการได้ อีก 18 จุดเป็นพิกัดโดยประมาณ และ 4 กลุ่มยังไม่มีพิกัด
-- `referenceAccess`: ข้อมูลการใช้งาน 12 รายการจากประกาศเก่า ครอบคลุม 10 กลุ่มประตู แยกคนเดิน รถยนต์ และข้อมูลที่ระบุเพียงยานพาหนะ
-- ตารางอ้างอิงเดิมถูกนำมาคำนวณเปิด–ปิดตามที่ตั้งค่า ส่วนข้อมูลหลักฐานไม่ถูกเปลี่ยนเป็น VERIFIED
-- `src/data/origins.json`: จุดเริ่มต้นสาธารณะ MRT สามย่านพร้อมแหล่ง OSM แยกจากพิกัดประตูและ GPS ของผู้ใช้
-- Dashboard คำนวณสถิติทั้งสิบหัวข้อจาก JSON จริง กดแต่ละหัวข้อเพื่อตรวจสอบรายการและแหล่งข้อมูลได้
-
-[แหล่งข้อมูล](GATE_DATA_SOURCES.md) · [รายงานพิกัด](GATE_COORDINATE_REPORT.md) · [การตรวจสอบข้อมูล](DATA_VERIFICATION_REPORT.md) · [ผลการปรับปรุงและทดสอบ](FINAL_EXECUTION_REPORT.md)
-
-## ขอบเขตของการแนะนำ
-
-รายการแนะนำใช้จุดเริ่มต้น พิกัด และหลักฐานที่มี หากประกาศเดิมระบุว่าเป็นทางออกสำหรับรถ จะไม่จัดประตูนั้นเป็นคำแนะนำแรกสำหรับรถที่ต้องการเข้า ประกาศเฉพาะงานไม่นำมาใช้เป็นกฎทั่วไป การไม่พบเงื่อนไขขออนุญาตไม่ได้หมายถึงเข้าได้โดยไม่มีข้อจำกัด
-
-ตัวเลือก **เฉพาะประตูที่มีตาราง** ใช้ข้อมูลตารางที่นำมาใช้งานจริง สถิติ Dashboard ยังคำนวณการยืนยันหลักฐานใหม่แยกจากตารางอ้างอิง จึงไม่ขวางการใช้งาน
-
-เว็บไซต์นี้เป็นเครื่องมืออิสระ ไม่ใช่ระบบสถานะสดของมหาวิทยาลัย ข้อมูลนโยบายผู้เยี่ยมชมและหมายเลขศูนย์รักษาความปลอดภัยอ้างอิงจากเว็บไซต์ทางการ
-
-## เทคโนโลยีและความเป็นส่วนตัว
-
-React, TypeScript, Vite, Tailwind CSS, MapLibre GL JS, Lucide และ Zod ทำงานบน frontend ทั้งหมด ไม่มีบัญชี ฐานข้อมูล backend หรือ API key ที่จำเป็น แผนที่ถนนและอาคาร OSM เก็บเป็นข้อมูลท้องถิ่น ไม่ดึง Overpass หรือ tile สำหรับงานวิจัยทุกครั้งที่ผู้ใช้เปิดเว็บ
-
-GPS เริ่มเมื่อกดใกล้ฉัน ตำแหน่งไม่ถูกบันทึกหรือส่งไปยังเซิร์ฟเวอร์ watch หยุดเมื่อปิดการใช้ตำแหน่ง ซ่อนหน้าเว็บ เกิดข้อผิดพลาด หรือเปลี่ยนไปเลือกจุดเริ่มต้นสาธารณะ หมุด MRT ไม่ถูกแสดงเป็น GPS ของผู้ใช้ บันทึกภาษา ธีม และการซ่อนคำอธิบายแผนที่ใน localStorage
-
-ดูรายละเอียดใบอนุญาตและบริการภายนอกใน [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)
-
-## GitHub Pages
-
-ยังไม่ได้ push หรือแก้ไข repository ภายนอก
-
-1. เลือก repository และอนุญาตการเผยแพร่ แล้วใส่ไฟล์ของโปรเจกต์ไว้ที่ root รวม `.github/workflows/pages.yml`, `.nvmrc` และ `package-lock.json`
-2. ตั้ง **Settings → Pages → GitHub Actions** และอนุญาต environment `github-pages` ให้ deploy จาก `main`
-3. Push ไป `main` หรือรัน workflow ด้วยตนเอง ระบบจะตรวจ types/lint/tests แล้ว build และ deploy `dist`
-
-รูปแบบ URL คือ `https://OWNER.github.io/REPOSITORY/` หรือ `https://OWNER.github.io/` สำหรับ repository ชื่อ `OWNER.github.io` ค่า base path มาจาก `configure-pages` การเปลี่ยนหน้าภายในใช้ hash จึงไม่ต้องมี server rewrite
+The existing `.github/workflows/pages.yml` is ready for GitHub Pages. Set Pages to GitHub Actions and publish `dist` when deployment is authorized. No remote repository or hosting settings were changed for this release. The default relative base works on a root domain; for an explicit repository path:
 
 ```sh
 VITE_BASE_PATH=/cu-gate-navigator/ npm run build
 VITE_BASE_PATH=/cu-gate-navigator/ npm run verify:build
 ```
 
-## ทดสอบ GPS โดยไม่ใช้ตำแหน่งจริง
+The app includes a 180 px Apple touch icon, 192/512 px manifest icons and a 512 px maskable icon, with standalone scope/start URL metadata that supports subdirectory hosting. An older saved shortcut may need to be added again after the hosted site is updated. See [Apple's Add to Home Screen instructions](https://support.apple.com/en-ie/guide/iphone/iphea86e5236/27/ios/27). Expanded map mode works inside the app and does not require browser fullscreen permission.
 
-ขณะเปิด dev server เข้า `/tests/gps-harness.html?scenario=active` หรือใช้ `denied`, `timeout`, `unavailable` แล้วกด **ใกล้ฉัน** แถบทดสอบระบุชัดว่าไม่ใช่ตำแหน่งจากอุปกรณ์ จุดตัวอย่างเป็นพิกัดประตูสาธารณะสำหรับทดสอบเท่านั้น
-
-ไฟล์ fixture ไม่ถูกรวมใน production build หลักฐานทดสอบรุ่นปัจจุบันอยู่ใน `verification/v7/` การทดสอบ sensor GPS บนอุปกรณ์จริงและสถานะประตูหน้างานยังแยกจากการทดสอบซอฟต์แวร์
-
-## ทดสอบสถานะโดยไม่แก้ข้อมูลจริง
-
-เข้า `/tests/status-harness.html` บน dev server หน้าทดสอบมีแถบ **ข้อมูลจำลองสำหรับทดสอบ — ไม่ใช่สถานะประตูจริง** ใช้สี่ระเบียนแยกสำหรับเปิด ปิด มีเงื่อนไข และรอยืนยัน เวลาเริ่มจันทร์ 2 พ.ย. 2569 เวลา 12:00 ไทย กดปุ่ม QA เพื่อข้ามไป 20:00 แล้วตรวจว่าหมุดเขียวออกจากตัวกรองทันที ตัวเลขนี้อยู่ในชุดทดสอบแยก ไม่ถูกบันทึกใน gate JSON หรือรวมใน production build
-
-`src/lib/availability.ts` เป็นตัวคำนวณร่วมของหมุด การ์ด รายการ จำนวน และตัวกรอง `operating.test.ts` กับ `availability.test.ts` ตรวจตารางที่นำมาใช้ แหล่งข้อมูล วันในสัปดาห์ ขอบเวลา 24 ชั่วโมง ข้ามเที่ยงคืน และสิทธิ์เข้า–ออก เมื่อแก้ตารางใน JSON แล้ว build ใหม่ สถานะจะคำนวณจากข้อมูลนั้นเอง
-
-## ข้อมูลที่เจ้าของแอปเพิ่มและลำดับสิทธิ์
-
-นำเข้าทั้ง 28 รายการที่ส่งมา โดยเชื่อมกับประตูเดิมและเพิ่ม 8 กลุ่มใหม่ รวม 30 กลุ่ม รายการกับหมุดใช้ชุดข้อมูลและตัวกรองเดียวกัน มีหมุด 26 จุด ขยายแผนที่ถึงถนนพระราม 1 และ BTS สนามกีฬาแห่งชาติ A–H เป็นรหัสจากแผนที่ทางการ ส่วน 9–30 เป็นรหัสในแอป
-
-**เดิน < มอเตอร์ไซค์ < รถยนต์**: สิทธิ์รถยนต์รวมมอเตอร์ไซค์และเดิน สิทธิ์มอเตอร์ไซค์รวมเดิน โดยใช้เวลา ทิศทาง และข้อจำกัดเดียวกัน รวมช่วงเวลาของทุกสิทธิ์ที่ใช้ได้ เช่น บัญชีรถ 24 ชั่วโมงทำให้เดิน/มอเตอร์ไซค์ 24 ชั่วโมง แม้ตารางทางเท้าจะสั้นกว่า ไม่อนุมานรถจากประตูเดินอย่างเดียว
-
-ทันตแพทย์แยกฝั่งสยามกับอังรีดูนังต์ ทางออกสนามกีฬาในร่มแยกจากฝั่งตลาด ศศินทร์ใช้รถ/มอเตอร์ไซค์ จ.–ส. 05:00–24:00 อาทิตย์ปิด เภสัชใช้ 05:00–22:00 ทุกวันเป็นสมมติฐานฐานจากข้อมูลที่ส่งซึ่งไม่แยกวัน
-
-ชื่อทางเดินสหเวชศาสตร์จัดกลุ่มกับประตูวิทยาศาสตร์สุขภาพ 5 ชั่วคราวเพื่อไม่สร้างหมุดซ้ำ ความสัมพันธ์ของสองชื่อนี้ยังต้องตรวจหน้างาน จัดเป็นพิกัดโดยประมาณ ดูรายการต้นฉบับและการเชื่อมแต่ละข้อใน [OWNER_INVENTORY.md](OWNER_INVENTORY.md)
-
-ยังไม่มีพิกัดที่จับคู่ชัดเจนสำหรับ ประตูจามจุรี 9 ฝั่งตลาด, ประตูจามจุรี 9 ฝั่งยูเซ็นเตอร์, ประตูทางเดินจามจุรีสแควร์, ประตูทางเดินนิติศาสตร์ จึงคงไว้ในรายการและงดนำทาง ข้อมูลที่ไม่ได้ระบุเวลา เช่น ประตูวิทยาศาสตร์สุขภาพ 1–4, ทางเข้าวิศวกรรมไฟฟ้า และทันตแพทย์สองฝั่ง ยังคงไม่มีเวลาทั้งใน JSON และตัวกรองเปิดตอนนี้
-
-## ตารางที่นำมาใช้
-
-มีตารางอ้างอิง 42 ชุด ครอบคลุม 20/30 กลุ่ม เลือกแหล่งใหม่ที่สุดภายในแต่ละสิทธิ์ที่ระบุและวันที่เอกสารครอบคลุม จากนั้นรวมช่วงเวลาของสิทธิ์ที่ครอบคลุมวิธีเดินทางที่เลือก ไม่ขยายข้อมูลเฉพาะเสาร์–อาทิตย์ไปเป็นวันธรรมดา ไม่ใช้เวลาเฉพาะพิธีรับปริญญาหรือเวลาคลินิกเป็นเวลาประตู
-
-ทางออกธรรมสถานคำนวณช่วงที่ทางออกสนามกีฬาในร่มปิด ตารางรายสัปดาห์และรอบถัดไปใช้กฎทิศทางเดียวกับหมุด [OPERATING_SCHEDULES.md](OPERATING_SCHEDULES.md) แสดงกฎต้นทางทั้งหมด
-
-## โหมดสว่างและมืด
-
-ปุ่มพระจันทร์/ดวงอาทิตย์อยู่บนหัวเว็บทั้งคอมและมือถือ เปลี่ยนสีรายการ ข้อมูลประตู Dashboard และแผนที่พร้อมกัน จำค่าที่เลือกในอุปกรณ์ และใช้โหมดเดิมเมื่อโหลดเว็บใหม่
-
-หน้า QA ที่ `/tests/reference-harness.html` ใช้ JSON จริงกับนาฬิกาที่ควบคุมได้ ไฟล์ทดสอบไม่รวมใน production build
-
-
-## การปรับปรุงรุ่น 1.5
-
-แยกชั้น MapLibre ออกจากกล่องสถานะ แถบความหมายสี และปุ่มควบคุม หมุดรวมถึงหมุดที่เลือกอยู่จึงไม่บังแถบ กดบนแถบแล้วไม่ทะลุไปเปิดหมุดด้านหลัง เลื่อนและซูมแผนที่ได้ตามเดิม
-
-ปุ่ม **ใกล้ฉัน · GPS** สีฟ้าอยู่ในหน้าหลัก กดใช้ตำแหน่งได้ทันทีโดยไม่ต้องเปิดเมนู เมื่อทำงานจะเป็นปุ่มหยุด GPS ข้อความสถานะ ความแม่นยำ และปัญหาการอนุญาตแสดงนอกเมนู จุดเริ่มต้น MRT ยังเลือกจากเมนูจุดเริ่มต้นได้ตามเดิม GPS ไม่เริ่มเองและไม่ถูกบันทึกหรืออัปโหลด
-
-## ไอคอน Add to Home Screen
-
-มี `apple-touch-icon.png` ขนาด 180×180 สำหรับ Apple และไอคอน 192×192, 512×512 พร้อมรุ่น maskable ใน `app.webmanifest` ใช้รูปประตูเดิมบนพื้นทึบ ชื่อแอป “ประตูจุฬาฯ” ตั้ง `display: standalone` และใช้ path สัมพัทธ์เพื่อให้ทำงานได้ทั้ง root domain และโฟลเดอร์ GitHub Pages ไม่มี service worker หรือการรับรองการทำงานออฟไลน์ในรุ่นนี้
-
-บน iPhone เปิด URL เว็บที่เผยแพร่ด้วย Safari แล้วเลือก Share → Add to Home Screen ตาม [วิธีของ Apple](https://support.apple.com/en-ie/guide/iphone/iphea86e5236/27/ios/27) หากชอร์ตคัตเก่ายังคงแสดงภาพเดิม ลองลบชอร์ตคัตเก่าแล้วเพิ่มใหม่หลังเว็บอัปเดต
-
-กำหนดไอคอน Apple ตาม [Safari Web Content Guide](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html) และ standalone ตาม [WebKit](https://webkit.org/blog/13878/web-push-for-web-apps-on-ios-and-ipados/) ตรวจ metadata, ขนาด PNG, HTTP response และ scope ทั้งสอง base path แล้ว การติดตั้งจากหน้า Home บน iPhone/Android จริงยังไม่ได้ทดสอบในสภาพแวดล้อมนี้
-
-## พื้นที่แผนที่และปุ่มซ่อน — รุ่น 1.6
-
-กล่อง “เลือกหมุดเพื่อดูสถานะ” และแถบความหมายสีมีปุ่ม × สำหรับซ่อนแยกกัน เมื่อซ่อนจะเหลือปุ่มเล็ก “วิธีใช้หมุด” และ “สีหมุด” เพื่อเปิดกลับได้ จำการตั้งค่าของทั้งสองแถบแยกกันในอุปกรณ์ ใช้ได้ทั้งภาษาไทย/อังกฤษและทั้งสองธีม
-
-ถอดปุ่มเลือกเข้า–ออกจากหน้าหลัก ข้อมูลและเงื่อนไขทางเดียวของประตูยังอยู่ในรายละเอียดตามเดิม ลดระยะห่างและความสูงบางส่วนของแผงด้านบนเพียงเล็กน้อย โดยคงขนาดตัวอักษร ปุ่ม GPS และปุ่มควบคุมหลักไว้ แผนที่บนจอมือถือ 390×844 สูง 549 px ส่วนจอ 1280×720 ได้พื้นที่แผนที่กว้าง 910 px จากแถบรายการกว้าง 370 px
+No service worker is included and offline operation is not guaranteed. Map rendering uses the bundled GeoJSON, not a mandatory paid tile service. Online place search and external directions require a network connection. See the third-party notices for data and dependency licenses.

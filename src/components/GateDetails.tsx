@@ -1,5 +1,7 @@
+import { clampDetailHeight } from "../lib/map-location";
+import type { CSSProperties, PointerEvent as ReactPointerEvent } from "react";
 import { sourceHref } from "../lib/travel";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowUpRight,
   Clock3,
@@ -8,6 +10,7 @@ import {
   Navigation,
   Phone,
   X,
+  GripHorizontal,
 } from "lucide-react";
 import type { Dataset, Gate, TravelMode } from "../lib/data";
 import {
@@ -18,7 +21,7 @@ import {
   directionPermission,
 } from "../lib/gates";
 import type { Position } from "../lib/gates";
-import type { PublicOrigin } from "../lib/origins";
+import type { StartingPoint } from "../lib/origins";
 import {
   useCopy,
   gateName,
@@ -41,21 +44,85 @@ export default function GateDetails({
   direction,
   now,
   onClose,
+  onHeightChange,
   onMap,
 }: {
   gate: Gate;
   dataset: Dataset;
   position: Position | null;
   originName: string | null;
-  navigationOrigin: PublicOrigin | null;
+  navigationOrigin: StartingPoint | null;
   mode: TravelMode | "all";
   direction: "entry" | "exit";
   now: Date;
   onClose: () => void;
+  onHeightChange: (height: number) => void;
   onMap: () => void;
 }) {
   const { lang, t } = useCopy();
   const closeRef = useRef<HTMLButtonElement>(null);
+  const panel = useRef<HTMLElement>(null);
+  const [height, setHeight] = useState<number | null>(null);
+  const [measured, setMeasured] = useState(360);
+  const drag = useRef<{ y: number; height: number; moved: boolean } | null>(
+    null,
+  );
+  const moved = useRef(false);
+  const reportHeight = () => {
+    const value = panel.current?.getBoundingClientRect().height;
+    if (value) {
+      setMeasured(Math.round(value));
+      onHeightChange(value);
+    }
+  };
+  useEffect(() => {
+    if (drag.current) return;
+    const frame = requestAnimationFrame(() => {
+      const value = panel.current?.getBoundingClientRect().height;
+      if (value) {
+        setMeasured(Math.round(value));
+        onHeightChange(value);
+      }
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [g.id, height, onHeightChange]);
+  useEffect(() => {
+    const resized = () =>
+      setHeight((current) =>
+        current === null
+          ? null
+          : clampDetailHeight(current, window.innerHeight),
+      );
+    window.addEventListener("resize", resized);
+    return () => window.removeEventListener("resize", resized);
+  }, []);
+  const beginResize = (event: ReactPointerEvent<HTMLButtonElement>) => {
+    drag.current = {
+      y: event.clientY,
+      height: panel.current?.getBoundingClientRect().height || 360,
+      moved: false,
+    };
+    moved.current = false;
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+  const resize = (event: ReactPointerEvent<HTMLButtonElement>) => {
+    if (!drag.current) return;
+    const delta = drag.current.y - event.clientY;
+    if (Math.abs(delta) > 3) {
+      drag.current.moved = true;
+      moved.current = true;
+    }
+    if (drag.current.moved)
+      setHeight(
+        clampDetailHeight(drag.current.height + delta, window.innerHeight),
+      );
+  };
+  const endResize = (event: ReactPointerEvent<HTMLButtonElement>) => {
+    drag.current = null;
+    if (event.currentTarget.hasPointerCapture(event.pointerId))
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    reportHeight();
+  };
   useEffect(() => {
     const prev = document.activeElement as HTMLElement | null;
     closeRef.current?.focus({ preventScroll: true });
@@ -103,10 +170,72 @@ export default function GateDetails({
   const week = weeklyHours(g, mode, now, lang, direction);
   return (
     <aside
-      className="gate-details compact-details"
+      ref={panel}
+      className={`gate-details compact-details resizable-details ${height === null ? "" : "is-resized"}`}
+      style={
+        height === null
+          ? undefined
+          : ({ height: `${height}px` } as CSSProperties)
+      }
       aria-label={t("ข้อมูลประตู", "Gate details")}
       data-gate-id={g.id}
     >
+      <button
+        className="detail-resize-handle"
+        role="slider"
+        aria-label={t(
+          "ลากเพื่อปรับความสูงรายละเอียด",
+          "Drag to resize gate details",
+        )}
+        aria-orientation="vertical"
+        aria-valuemin={160}
+        aria-valuemax={Math.max(160, window.innerHeight - 90)}
+        aria-valuenow={height ?? measured}
+        aria-valuetext={`${height ?? measured} px`}
+        onPointerDown={beginResize}
+        onPointerMove={resize}
+        onPointerUp={endResize}
+        onPointerCancel={endResize}
+        onClick={() => {
+          if (moved.current) {
+            moved.current = false;
+            return;
+          }
+          setHeight((current) =>
+            (current ?? measured) > 260
+              ? 190
+              : clampDetailHeight(
+                  window.innerHeight * 0.62,
+                  window.innerHeight,
+                ),
+          );
+        }}
+        onKeyDown={(event) => {
+          const current = height ?? measured;
+          if (["ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) {
+            event.preventDefault();
+            setHeight(
+              clampDetailHeight(
+                event.key === "Home"
+                  ? 160
+                  : event.key === "End"
+                    ? window.innerHeight
+                    : current + (event.key === "ArrowUp" ? 32 : -32),
+                window.innerHeight,
+              ),
+            );
+          }
+        }}
+      >
+        <span className="resize-grip" />
+        <GripHorizontal size={16} />
+        <span>
+          {t(
+            "ลากขอบนี้ขึ้น–ลง เพื่อปรับขนาด",
+            "Drag this edge up/down to resize",
+          )}
+        </span>
+      </button>
       <div className="pin-card-heading">
         <span className={`pin-letter availability-${status.state}`}>
           {g.mapCode || g.mapLetter || <MapPin size={20} />}
@@ -317,7 +446,7 @@ export default function GateDetails({
             </div>
           )}
           <dl className="mini-dl">
-            {(["pedestrian", "car", "motorcycle"] as TravelMode[]).map((m) => (
+            {(["motorcycle", "car"] as TravelMode[]).map((m) => (
               <div key={m}>
                 <dt>
                   {m === "pedestrian"
