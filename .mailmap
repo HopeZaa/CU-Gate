@@ -1,0 +1,3 @@
+# Canonical identity for HopeZaa in Git commands that support mailmap.
+# Earlier commits used an invalid email address from the local Git configuration.
+HopeZaa <123790678+HopeZaa@users.noreply.github.com> HopeZaa <www>

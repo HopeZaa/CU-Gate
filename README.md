@@ -2,6 +2,8 @@
 
 A Thai/English map of Chulalongkorn University's main **motorcycle and car gates**, with schedule-based availability, live device location, selectable starting points, light/dark themes and a data-quality dashboard. The app is a static React/TypeScript frontend; no backend or API key is required.
 
+Created and maintained by [HopeZaa](https://github.com/HopeZaa).
+
 ## Use the app
 
 1. Select **Motorcycle** or **Car**, then **All gates** or **Open now**. Availability uses Bangkok time and the owner-adopted historical vehicle schedules. It is not a live observation of a physical gate.
